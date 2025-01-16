@@ -7,13 +7,12 @@
     ./packages.nix
 
     outputs.nixosModules.common
-    outputs.nixosModules.device.laptop
+    outputs.nixosModules.normalUsers
     outputs.nixosModules.openssh
     outputs.nixosModules.pipewire
-    outputs.nixosModules.normalUsers
   ];
 
-  networking.hostName = "naboshi";
+  networking.hostName = "shizen";
 
   services = {
     openssh.enable = true;
@@ -32,7 +31,6 @@
         "floppy"
         "log"
         "lp"
-        "networkmanager"
         "optical"
         "rfkill"
         "scanner"

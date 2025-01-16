@@ -1,11 +1,12 @@
-{ inputs, outputs, ... }:
+{ outputs, ... }:
 
 {
   imports = [
-    inputs.core.homeModules.common
-    inputs.core.homeModules.nixvim
+    ./secrets
 
-    outputs.nixosModules.common
+    outputs.homeModules.common
+    outputs.homeModules.nixvim
+    outputs.homeModules.sops
   ];
 
   home.username = "susagi";
@@ -16,7 +17,17 @@
     userEmail = "susagi@sid.ovh";
   };
 
-  programs.nixvim.enable = true;
+  programs.nixvim = {
+    enable = true;
+  };
+
+  programs.fastfetch = {
+    enable = true;
+  };
 
   home.stateVersion = "24.11";
+
+  # nix.extraOptions = ''
+  #   !include ${config.sops.templates.access-tokens.path}
+  # '';
 }

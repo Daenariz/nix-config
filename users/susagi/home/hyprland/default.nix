@@ -1,17 +1,25 @@
-{ inputs, ... }:
+{ outputs, pkgs, ... }:
 
 {
   imports = [
-    inputs.core.homeModules.hyprland
-    inputs.core.homeModules.styling
+    outputs.homeModules.hyprland
+    outputs.homeModules.styling
 
-    ./packages.nix
+    ./programs.nix
+    ./services.nix
+    ./wbarsettings.nix
   ];
+
+  styling = {
+    enable = true;
+    scheme = "dracula";
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
     autostart = true;
+    settings = import ./settings;
   };
 
-  styling.enable = true;
+  home.packages = import ./packages.nix { inherit pkgs; };
 }
