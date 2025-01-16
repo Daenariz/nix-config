@@ -39,8 +39,8 @@
 
       overlays = import ./overlays { inherit inputs; };
 
-      nixosModules = import ./modules/nixos;
-      homeModules = import ./modules/home;
+      core.nixosModules = import ./modules/nixos;
+      core.homeModules = import ./modules/home;
 
       devShells = forAllSystems (
         system:

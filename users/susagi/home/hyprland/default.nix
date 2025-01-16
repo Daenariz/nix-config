@@ -1,9 +1,9 @@
-{ outputs, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
-    outputs.homeModules.hyprland
-    outputs.homeModules.styling
+    inputs.core.homeModules.hyprland
+    inputs.core.homeModules.styling
 
     ./programs.nix
     ./services.nix

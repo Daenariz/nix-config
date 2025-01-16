@@ -1,12 +1,15 @@
-{ outputs, ... }:
+{ inputs, outputs, ... }:
 
 {
   imports = [
     ./secrets
 
-    outputs.homeModules.common
-    outputs.homeModules.nixvim
-    outputs.homeModules.sops
+    inputs.core.homeModules.common
+    inputs.core.homeModules.nixvim
+    # inputs.core.homeModules.sops
+
+    #outputs.homeModules.sops
+    #outputs.nixosModules.common
   ];
 
   home.username = "susagi";
