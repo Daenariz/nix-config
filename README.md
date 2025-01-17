@@ -1,4 +1,4 @@
-### NixOS and Home Manager configurations
+# NixOS and Home Manager configurations
 
 This repository is a collection of personal NixOS configurations with standalone Home Manager powered by [nix-core](https://github.com/sid115/nix-core).
 
@@ -8,19 +8,19 @@ This repository is a collection of personal NixOS configurations with standalone
 .
 ├── flake.lock            # Lock file for the Nix Flakes configuration
 ├── flake.nix             # Nix Flake file for the configuration
-├── hosts                 # Host-specific configurations
-│   ├── kiichigo
-│   ├── naboshi
-│   └── shizen
-├── modules               # Reusable modules and functions
+├── hosts                 
+│   ├── kiichigo          # Raspberry 4 config
+│   ├── naboshi           # Workstation config
+│   └── shizen            # Teststation config
+├── modules               
 │   ├── home              # Home-specific modules
 │   └── nixos             # NixOS-specific modules
-├── overlays              # Nix Overlays
+├── overlays              
 ├── pkgs                  # Custom Nix packages
-├── README.md             # This file
+├── README.md             
 ├── shell.nix             # Shell configuration for NixOS development environment
-└── users                 # User-specific configurations
-    └── susagi            # Example user
+└── users                 
+    └── susagi            # Susagis user
         ├── home          # Home-specific configurations
         ├── hyprland      # Hyprland-specific configurations
         └── pubkeys       # Public keys
