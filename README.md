@@ -4,7 +4,7 @@ This repository is a collection of personal NixOS configurations with standalone
 
 ## Directory Structure
 
-´´´
+```
 .
 ├── flake.lock            # Lock file for the Nix Flakes configuration
 ├── flake.nix             # Nix Flake file for the configuration
@@ -24,4 +24,4 @@ This repository is a collection of personal NixOS configurations with standalone
         ├── home          # Home-specific configurations
         ├── hyprland      # Hyprland-specific configurations
         └── pubkeys       # Public keys
-´´´
+```
