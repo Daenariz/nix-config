@@ -6,7 +6,7 @@
 
     inputs.core.homeModules.common
     inputs.core.homeModules.nixvim
-    # inputs.core.homeModules.sops
+    inputs.core.homeModules.sops
 
     #outputs.homeModules.sops
     outputs.nixosModules.common

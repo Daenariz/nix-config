@@ -1,0 +1,16 @@
+keys:
+  - &user_susagi age1g892agvnalhn7f3p5kc3l4hfjusnl947kt9g7l62wyzl2amuxyrqlcxeq7
+  - &host_kiichigo age1a5whs0z8m97sfsqhydskaryvqy887jr954valx0jgpuvf57vffjskapnnd
+creation_rules:
+  # nixos
+  - path_regex: hosts/kiichigo/secrets.yaml$
+    key_groups:
+    - age:
+      - *user_susagi
+      - *host_kiichigo
+
+  # home manager
+  - path_regex: users/susagi/home/secrets/secrets.yaml$
+    key_groups:
+    - age:
+      - *user_susagi
