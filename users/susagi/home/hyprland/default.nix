@@ -4,7 +4,7 @@
   imports = [
     inputs.core.homeModules.hyprland
     inputs.core.homeModules.styling
-
+    # inputs.core.packages.${pkgs.system}
     ./programs.nix
     ./services.nix
     ./wbarsettings.nix
