@@ -8,7 +8,7 @@
     ./packages.nix
     ./services.nix
     ./users.nix
-    ./virtualisation.nix
+   # ./virtualisation.nix
     inputs.core.nixosModules.common
     inputs.core.nixosModules.sops
 

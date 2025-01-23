@@ -12,10 +12,12 @@
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.nextcloud
     inputs.core.nixosModules.nginx
-    # outputs.nixosModules.open-webui
+    # inputs.core.nixosModules.open-webui
     # outputs.nixosModules.peertube
-    # outputs.nixosModules.rss-bridge
+    
     # outputs.nixosModules.vaultwarden
+inputs.core.nixosModules.rss-bridge
+    inputs.core.nixosModules.tt-rss
   ];
 
   mailserver = {
@@ -60,5 +62,14 @@
     enable = true;
     ports = [ 3407 ];
   };
-  # services.open-webui.enable = true;
+ # services.open-webui.enable = true;
+services.rss-bridge = {
+    enable = true;
+    dataDir = "/data/rss-bridge";
+    subdomain = "rss-bridge";
+  };
+  services.tt-rss = {
+    enable = true;
+    root = "/data/tt-rss";
+  };
 }
