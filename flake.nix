@@ -9,6 +9,9 @@
 
     core.url = "github:sid115/nix-core";
 
+    nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-24.11";
+    nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
+
     nixvim.url = "github:nix-community/nixvim/nixos-24.11";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -57,7 +60,13 @@
       );
 
       nixosConfigurations = {
-        naboshi = nixpkgs.lib.nixosSystem {
+        kiichigo = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+	  modules = [ ./hosts/kiichigo ];
+	  };
+	  naboshi = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
           };

@@ -1,8 +1,7 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    nvim
+  environment.systemPackages = with pkgs; [  
     nixfmt
   ];
 }
