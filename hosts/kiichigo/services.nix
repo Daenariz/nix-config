@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   outputs,
   lib,
@@ -7,9 +8,10 @@
 
 {
   imports = [
-    outputs.nixosModules.openssh
-    outputs.nixosModules.mailserver
-    outputs.nixosModules.nextcloud
+    inputs.core.nixosModules.openssh
+    inputs.core.nixosModules.mailserver
+    inputs.core.nixosModules.nextcloud
+    inputs.core.nixosModules.nginx
     # outputs.nixosModules.open-webui
     # outputs.nixosModules.peertube
     # outputs.nixosModules.rss-bridge

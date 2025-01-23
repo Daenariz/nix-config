@@ -1,4 +1,4 @@
-{ outputs, ... }:
+{ inputs, outputs, ... }:
 
 {
   imports = [
@@ -8,9 +8,12 @@
     ./packages.nix
     ./services.nix
     ./users.nix
+    ./virtualisation.nix
+    inputs.core.nixosModules.common
+    inputs.core.nixosModules.sops
 
     outputs.nixosModules.common
-    outputs.nixosModules.sops
+
   ];
 
   programs.ssh.startAgent = true;
