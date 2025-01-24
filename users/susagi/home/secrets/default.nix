@@ -7,5 +7,5 @@
   # '';
 
   # sops.secrets.nextcloud = { };
-  # sops.secrets.tt-rss = { };
+   sops.secrets.tt-rss = { };
 }

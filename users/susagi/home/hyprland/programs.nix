@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -6,6 +7,14 @@
 }:
 
 {
+  programs.newsboat = {
+    extraConfig = ''
+      urls-source "ttrss"
+      ttrss-url "https://tt-rss.negitorodon.de/"
+      ttrss-login "susagi"
+      ttrss-passwordfile "${config.sops.secrets.tt-rss.path}"
+    '';
+  };
   programs = {
     # opacity setting for kitty
     kitty.settings.background_opacity = lib.mkForce "0.5";
@@ -19,6 +28,6 @@
         bitwarden
       ]
     );
-    ssh.addKeysToAgent = "confirm";
+    ssh.addKeysToAgent = "yes";
   };
 }
