@@ -64,9 +64,9 @@
           specialArgs = {
             inherit inputs outputs;
           };
-	  modules = [ ./hosts/kiichigo ];
-	  };
-	  naboshi = nixpkgs.lib.nixosSystem {
+          modules = [ ./hosts/kiichigo ];
+        };
+        naboshi = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
           };
