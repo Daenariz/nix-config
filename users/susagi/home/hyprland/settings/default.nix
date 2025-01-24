@@ -9,6 +9,7 @@
   exec-once = [
     "[workspace 1] kitty"
     "[workspace 2] librewolf"
+    "[workspace 4 silent] element-desktop"
     "[workspace 4 silent] thunderbird"
     "[workspace 5 silent] signal-desktop"
     "[workspace 5 silent] whatsapp-for-linux"
@@ -19,6 +20,9 @@
     #
     # "monitor   0, class:^firefox$"
     # "workspace 3, class:^firefox$"
+
+    "monitor   0, class:^Element$, title:^Element"
+    "workspace 4, class:^Element$, title:^Element"
 
     "monitor   0, class:^thunderbird$, title:Thunderbird$"
     "workspace 4, class:^thunderbird$, title:Thunderbird$"
