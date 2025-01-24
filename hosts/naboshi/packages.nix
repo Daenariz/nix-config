@@ -5,7 +5,10 @@ let
 in
 {
   environment = {
-    systemPackages = [
+    systemPackages = with pkgs;[
+      openconnect
+      openconnect_openssl
+      networkmanager-openconnect
     ];
   };
 }
