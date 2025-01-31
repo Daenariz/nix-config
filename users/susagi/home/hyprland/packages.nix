@@ -5,6 +5,8 @@ with pkgs;
 [
   # local.stm32cubeide
   # steam # now in host pkgs
+  aichat
+  vlc
   jan
   signal-desktop
   thunderbird
