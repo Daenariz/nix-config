@@ -14,9 +14,9 @@
     inputs.core.nixosModules.nginx
     # inputs.core.nixosModules.open-webui
     # outputs.nixosModules.peertube
-    
+
     # outputs.nixosModules.vaultwarden
-inputs.core.nixosModules.rss-bridge
+    inputs.core.nixosModules.rss-bridge
     inputs.core.nixosModules.tt-rss
   ];
 
@@ -36,7 +36,7 @@ inputs.core.nixosModules.rss-bridge
     enable = true;
     datadir = "/data/nextcloud";
     subdomain = "cloud";
-    appstoreEnable = lib.mkForce true; # overwriting default # I really do not recommend this, especially together with `extraApps`. -Sid
+    #appstoreEnable = lib.mkForce true; # overwriting default # I really do not recommend this, especially together with `extraApps`. -Sid
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
         bookmarks
@@ -44,7 +44,7 @@ inputs.core.nixosModules.rss-bridge
         contacts
         mail
         tasks
-        #files_external
+        #        files_accesscontrol
         ;
     };
   };
@@ -62,8 +62,8 @@ inputs.core.nixosModules.rss-bridge
     enable = true;
     ports = [ 3407 ];
   };
- # services.open-webui.enable = true;
-services.rss-bridge = {
+  # services.open-webui.enable = true;
+  services.rss-bridge = {
     enable = true;
     dataDir = "/data/rss-bridge";
     subdomain = "rss-bridge";
