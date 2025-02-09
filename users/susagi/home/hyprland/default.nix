@@ -8,6 +8,7 @@
     ./programs.nix
     ./services.nix
     ./wbarsettings.nix
+    # ./rclone.nix
   ];
 
   styling = {

@@ -11,12 +11,15 @@
           "hyprland/window"
         ];
         modules-right = [
+          "custom/timer"
+          "custom/newsboat"
           "bluetooth"
           "network"
           "cpu"
           "memory"
           "disk"
-          "wireplumber"
+          "pulseaudio#input"
+          "pulseaudio#output"
           "battery"
         ]; # modules to show in the top bar at the right
 

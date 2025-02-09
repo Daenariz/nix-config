@@ -5,6 +5,7 @@ with pkgs;
 [
   # local.stm32cubeide
   # steam # now in host pkgs
+  rclone
   aichat
   vlc
   jan
