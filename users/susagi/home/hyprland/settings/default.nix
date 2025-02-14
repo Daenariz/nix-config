@@ -8,7 +8,7 @@
   # };
   exec-once = [
     "[workspace 1] kitty"
-    "[workspace 2] librewolf"
+    "[workspace 2 silent] librewolf"
     "[workspace 4 silent] element-desktop"
     "[workspace 4 silent] thunderbird"
     "[workspace 5 silent] signal-desktop"
@@ -17,7 +17,6 @@
   windowrulev2 = [
     # "monitor   1, class:^firefox$"
     # "workspace 2, class:^firefox$"
-    #
     # "monitor   0, class:^firefox$"
     # "workspace 3, class:^firefox$"
 

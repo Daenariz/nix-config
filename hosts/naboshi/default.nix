@@ -9,7 +9,7 @@
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.pipewire
 
-        outputs.nixosModules.common
+    outputs.nixosModules.common
 
     ./boot.nix
     ./hardware.nix

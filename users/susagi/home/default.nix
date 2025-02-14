@@ -20,6 +20,13 @@
     userEmail = "susagi@sid.ovh";
   };
 
+  # xdg might not be available, hence `home.file`
+  home.file.nixpkgs_config = {
+    target = ".config/nixpkgs/config.nix";
+    text = ''
+      { allowUnfree = true; }
+    '';
+  };
   programs.nixvim = {
     enable = true;
   };
@@ -29,8 +36,4 @@
   };
 
   home.stateVersion = "24.11";
-
-  # nix.extraOptions = ''
-  #   !include ${config.sops.templates.access-tokens.path}
-  # '';
 }

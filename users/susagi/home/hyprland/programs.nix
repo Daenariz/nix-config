@@ -16,9 +16,7 @@
     '';
   };
   programs = {
-    # opacity setting for kitty
     kitty.settings.background_opacity = lib.mkForce "0.5";
-
     # transparent nixvim plugin, only works with styling.scheme disabled since background color might be overwritten I guess
     nixvim.plugins.transparent.enable = lib.mkForce false;
 
