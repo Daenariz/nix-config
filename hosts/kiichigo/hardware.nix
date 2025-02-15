@@ -16,7 +16,7 @@
       fsType = "ext4";
       options = [ "noatime" ];
     };
-    "/mnt/raid1" = {
+    "/data" = {
       device = "/dev/md0";
       fsType = "ext4";
     };

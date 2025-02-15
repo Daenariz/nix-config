@@ -36,7 +36,6 @@
     enable = true;
     datadir = "/data/nextcloud";
     subdomain = "cloud";
-    #appstoreEnable = lib.mkForce true; # overwriting default # I really do not recommend this, especially together with `extraApps`. -Sid
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
         bookmarks
@@ -44,11 +43,10 @@
         contacts
         mail
         tasks
-        #        files_accesscontrol
         ;
     };
   };
-  # services.vaultwarden = {
+ # services.vaultwarden = {
   #   enable = true;
   #   subdomain = "vault";
   # };
