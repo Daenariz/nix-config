@@ -72,6 +72,12 @@
           };
           modules = [ ./hosts/naboshi ];
         };
+        futro = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [ ./hosts/futro ];
+        };
       };
 
       homeConfigurations = {
