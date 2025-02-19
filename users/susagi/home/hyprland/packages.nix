@@ -4,20 +4,32 @@ with pkgs;
 
 [
   # local.stm32cubeide
-  # steam # now in host pkgs
-  ollama
-  tts
-  portaudio
-  aichat
+  # portaudio
+  ausweisapp
   vlc
-  jan
-  signal-desktop
-  thunderbird
   octaveFull
-  zoom-us # SSO doesn't seem too work https://github.com/NixOS/nixpkgs/issues/73532 (?)
-  whatsapp-for-linux
-  parted
-  #testing
-  #vscodium
-  vscode
 ]
+++
+  # ai stuff
+  [
+    tts
+    ollama
+    aichat
+    jan
+  ]
+++
+  # testing
+  [
+    #vscodium
+    unstable.spotube
+    vscode
+  ]
+++
+  # essentials
+  [
+    thunderbird
+    signal-desktop
+    whatsapp-for-linux
+    zoom-us # SSO doesn't seem too work https://github.com/NixOS/nixpkgs/issues/73532 (?)
+
+  ]

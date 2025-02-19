@@ -29,6 +29,10 @@
         local = "/home/susagi/Videos";
         remote = "/vids";
       }
+      {
+        local = "/home/susagi/Desktop/stud";
+        remote = "/stud";
+      }
     ];
   };
 

@@ -16,7 +16,10 @@
     ./packages.nix
   ];
 
-  networking.hostName = "naboshi";
+  networking = {
+    hostName = "naboshi";
+    firewall.allowedUDPPorts = [ 24727 ];
+  };
 
   services = {
     openssh.enable = true;
