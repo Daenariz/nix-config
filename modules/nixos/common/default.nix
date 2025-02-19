@@ -1,6 +1,6 @@
 {
   imports = [
-    ./i18n_locale.nix
+    #./i18n_locale.nix
     ./overlays.nix
   ];
 }
