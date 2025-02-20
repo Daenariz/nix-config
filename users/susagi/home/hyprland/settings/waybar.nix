@@ -20,10 +20,6 @@
           "battery"
         ];
 
-        "hyprland/language" = {
-          format-jp = "jp";
-        };
-
         "hyprland/workspaces" = {
           format = " {icon} ";
           format-icons = {

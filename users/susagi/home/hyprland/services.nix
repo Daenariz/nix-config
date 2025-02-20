@@ -6,7 +6,9 @@
 }:
 
 {
-  imports = [ inputs.core.homeModules.nextcloud-sync ];
+  imports = [ 
+    inputs.core.homeModules.nextcloud-sync
+  ];
 
   services.nextcloud-sync = {
     enable = true;

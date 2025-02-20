@@ -7,6 +7,11 @@
 }:
 
 {
+  programs.waybar = {
+    #style = lib.mkForce (import ./style.nix { inherit config; });
+    settings = import ./settings/waybar.nix;
+  };
+
   programs.newsboat = {
     extraConfig = ''
       urls-source "ttrss"

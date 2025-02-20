@@ -7,6 +7,8 @@
   #   shadow.enabled = true;
   # };
   exec-once = [
+    "fcitx5 -d -r"   # https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
+    "fcitx5-remote -r"
     "[workspace 1] kitty"
     "[workspace 2 silent] librewolf"
     "[workspace 4 silent] element-desktop"
