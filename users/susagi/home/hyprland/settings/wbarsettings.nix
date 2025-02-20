@@ -1,7 +1,4 @@
 {
-  programs.waybar = {
-    # style = lib.mkForce (import ./style.nix { inherit config; });
-    settings = {
       mainBar = {
         modules-left = [
           "hyprland/workspaces"
@@ -21,7 +18,11 @@
           "pulseaudio#input"
           "pulseaudio#output"
           "battery"
-        ]; # modules to show in the top bar at the right
+        ];
+
+        "hyprland/language" = {
+          format-jp = "jp";
+        };
 
         "hyprland/workspaces" = {
           format = " {icon} ";
@@ -45,7 +46,5 @@
           all-outputs = false;
           persistent-workspaces."*" = 6;
         };
-      };
-    };
   };
 }

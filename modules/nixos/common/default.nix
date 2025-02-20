@@ -1,6 +1,6 @@
 {
   imports = [
-    #./i18n_locale.nix
+    ./mozc-jp.nix
     ./overlays.nix
   ];
 }

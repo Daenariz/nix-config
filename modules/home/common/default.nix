@@ -1,6 +1,6 @@
 {
   imports = [
-    ./mozc-jp.nix
+    #    ./mozc-jp.nix
     ./overlays.nix
   ];
 }

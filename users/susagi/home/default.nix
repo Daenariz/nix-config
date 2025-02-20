@@ -9,7 +9,7 @@
     inputs.core.homeModules.sops
 
     #outputs.homeModules.sops
-    outputs.nixosModules.common
+    outputs.homeModules.common
   ];
 
   home.username = "susagi";
