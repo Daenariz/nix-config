@@ -17,8 +17,13 @@
   networking.hostName = "futro";
 
   services = {
-    nginx.enable = true;
-    openssh.enable = true;
+#    nginx.enable = true;
+    openssh = {
+      enable = true;
+      ports = [
+      22
+      ];
+    };
   };
 
   normalUsers = {
