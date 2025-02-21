@@ -22,14 +22,13 @@
   };
 
   normalUsers = {
-    USERNAME = {
-      name = "USERNAME";
+    susagi = {
+      name = "susagi";
       extraGroups = [
         "wheel"
       ];
-      # sshKeyFiles = [ ../../users/USERNAME/pubkeys/YOUR_PUBKEY.pub ]; # FIXME: Set your pubkey
+      sshKeyFiles = [ ../../users/susagi/pubkeys/vde_rsa.pub];
     };
   };
-
   system.stateVersion = "24.11";
 }
