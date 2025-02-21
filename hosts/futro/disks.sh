@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SSD='/dev/disk/by-id/ata-INTENSO_SSD_1642410001008215t' 
+SSD='/dev/disk/by-id/ata-INTENSO_SSD_1642410001008215' 
 MNT='/mnt'
 SWAP_GB=4
 
