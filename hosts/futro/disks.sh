@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-SSD='/dev/disk/by-id/'ata-INTENSO_SSD_1642410001008215 
+SSD='/dev/disk/by-id/ata-INTENSO_SSD_1642410001008215t' 
 MNT='/mnt'
-SWAP_GB=4 
+SWAP_GB=4
 
 # Helper function to wait for devices
 wait_for_device() {
