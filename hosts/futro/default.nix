@@ -14,7 +14,7 @@
     ./packages.nix
   ];
 
-  networking.hostName = "HOSTNAME";
+  networking.hostName = "futro";
 
   services = {
     nginx.enable = true;
