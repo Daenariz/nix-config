@@ -3,11 +3,10 @@
 with pkgs;
 
 [
-  # local.stm32cubeide
-  # portaudio
-  ausweisapp
-  vlc
-  octaveFull
+    # portaudio
+    ausweisapp
+    vlc
+    octaveFull
 ]
 ++
   # ai stuff
@@ -23,13 +22,17 @@ with pkgs;
     #vscodium
     unstable.spotube
     vscode
+    tagainijisho
+    anki
+    rpi-imager
+    tango
   ]
 ++
   # essentials
   [
+    noto-fonts-cjk-sans # important for displaying japanese kana on firefox browser or just in general
     thunderbird
     signal-desktop
     whatsapp-for-linux
     zoom-us # SSO doesn't seem too work https://github.com/NixOS/nixpkgs/issues/73532 (?)
-
   ]
