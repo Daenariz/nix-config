@@ -33,6 +33,7 @@
           with inputs.nur.legacyPackages."${pkgs.system}".repos.rycee.firefox-addons;
           [
             bitwarden
+            yomitan
           ]
         );
       };
