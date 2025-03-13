@@ -2,13 +2,14 @@
 
 {
   imports = [
+  ./wyoming.nix
+  ./homeassistant.nix
     ./boot.nix
     ./hardware.nix
     ./networking.nix
     ./packages.nix
     ./services.nix
     ./users.nix
-    # ./virtualisation.nix
     inputs.core.nixosModules.common
     inputs.core.nixosModules.sops
 

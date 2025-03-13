@@ -13,8 +13,6 @@
     inputs.core.nixosModules.nextcloud
     inputs.core.nixosModules.nginx
     # inputs.core.nixosModules.open-webui
-    # outputs.nixosModules.peertube
-
     # outputs.nixosModules.vaultwarden
     inputs.core.nixosModules.rss-bridge
     inputs.core.nixosModules.tt-rss
@@ -50,11 +48,6 @@
   #   enable = true;
   #   subdomain = "vault";
   # };
-  # services.peertube = {
-  #   enable = false;
-  #   subdomain = "videos";
-  #   dataDirs = [ "/data/peertube" ];
-  # };
   services.nginx.enable = true;
   services.openssh = {
     enable = true;
@@ -70,4 +63,17 @@
     enable = true;
     root = "/data/tt-rss";
   };
+#  services.home-assistant = {
+#    enable = true;
+#    extraComponents = [
+#      "analytics"
+#      "google_translate"
+#      "met"
+#      "radio_browser"
+#      "shopping_list"
+#    ];
+#    config = {
+#      default_config = {};
+#    };
+#  };
 }
