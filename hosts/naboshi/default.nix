@@ -6,6 +6,7 @@
     inputs.core.nixosModules.common
     inputs.core.nixosModules.device.laptop
     inputs.core.nixosModules.normalUsers
+    inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.pipewire
 
