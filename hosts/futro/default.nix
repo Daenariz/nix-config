@@ -14,7 +14,15 @@
     ./packages.nix
   ];
 
-  networking.hostName = "futro";
+  networking = {
+    hostName = "futro";
+    interfaces.enp1s0.wakeOnLan = {
+      enable = true;
+      policy = [
+        "magic"
+      ];
+    };
+  };
 
   services = {
 #    nginx.enable = true;
