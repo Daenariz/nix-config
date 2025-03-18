@@ -22,7 +22,8 @@
 
   home.packages = import ./packages.nix { inherit pkgs; };
 
-  programs.zsh.shellAliases = lib.mkAfter { 
+  home.shellAliases = { 
       t2c = "sh ~/Desktop/projects/repos/soku_tango/tango2csv.sh ";
+      search-store = "find /nix/store -maxdepth 1 -type d | rg -i ";
     };
 }

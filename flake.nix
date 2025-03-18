@@ -8,6 +8,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     core.url = "github:sid115/nix-core";
+    #core-dev.url = "github:Daenariz/nix-core/feature/plecs";
+    core-dev.url = "path:/home/susagi/Desktop/repos/nix-core";
 
     nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-24.11";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
@@ -82,7 +84,7 @@
 
       homeConfigurations = {
         "susagi@naboshi" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; 
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
           };

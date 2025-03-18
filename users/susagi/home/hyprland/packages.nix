@@ -26,7 +26,7 @@ with pkgs;
     anki
     rpi-imager
     tango
-    core.gitingest
+    core-dev.plecs
   ]
 ++
   # essentials
