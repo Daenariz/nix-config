@@ -62,6 +62,12 @@
       );
 
       nixosConfigurations = {
+        akiyama = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [ ./hosts/akiyama ];
+        };
         kiichigo = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
@@ -83,6 +89,16 @@
       };
 
       homeConfigurations = {
+        "susagi@akiyama" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [
+            ./users/susagi/home
+            #./users/susagi/home/hosts/akiyama
+          ];
+        };
         "susagi@naboshi" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
