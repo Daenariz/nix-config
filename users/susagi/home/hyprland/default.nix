@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ lib, inputs, pkgs, ... }:
 
 {
   imports = [
@@ -21,4 +21,8 @@
   };
 
   home.packages = import ./packages.nix { inherit pkgs; };
+
+  programs.zsh.shellAliases = lib.mkAfter { 
+      t2c = "sh ~/Desktop/projects/repos/soku_tango/tango2csv.sh ";
+    };
 }
