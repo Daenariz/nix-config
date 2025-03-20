@@ -8,8 +8,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     core.url = "github:sid115/nix-core";
-    #core-dev.url = "github:Daenariz/nix-core/feature/plecs";
-    core-dev.url = "path:/home/susagi/Desktop/repos/nix-core";
+    core-dev.url = "github:Daenariz/nix-core/feature/plecs";
+    ha-test.url = "github:Daenariz/nix-core/feature/home-assistant-oci";
 
     nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-24.11";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
