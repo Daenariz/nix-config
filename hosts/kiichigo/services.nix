@@ -12,8 +12,8 @@
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.nextcloud
     inputs.core.nixosModules.nginx
-    # inputs.core.nixosModules.open-webui
-    # outputs.nixosModules.vaultwarden
+    # inputs.core.nixosModules.open-webui 
+    inputs.core.nixosModules.vaultwarden
     inputs.core.nixosModules.rss-bridge
     inputs.core.nixosModules.tt-rss
   ];
@@ -44,10 +44,10 @@
         ;
     };
   };
- # services.vaultwarden = {
-  #   enable = true;
-  #   subdomain = "vault";
-  # };
+  services.vaultwarden = {
+     enable = true;
+     subdomain = "vault";
+   };
   services.nginx.enable = true;
   services.openssh = {
     enable = true;
