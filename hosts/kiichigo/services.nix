@@ -16,7 +16,10 @@
     inputs.core.nixosModules.vaultwarden
     inputs.core.nixosModules.rss-bridge
     inputs.core.nixosModules.tt-rss
+    inputs.ha-test.nixosModules.home-assistant-oci
   ];
+
+  services.home-assistant-oci.enable = true;
 
   mailserver = {
     enable = true;
