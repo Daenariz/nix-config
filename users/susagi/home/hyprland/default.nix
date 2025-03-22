@@ -8,6 +8,13 @@
     ./services.nix
     #./settings
   ];
+  
+  services.mopidy = {
+    enable = true;
+    extensionPackages = [
+      pkgs.mopidy-tidal  
+    ];
+  };
 
   styling = {
     enable = true;

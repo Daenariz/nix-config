@@ -9,7 +9,6 @@
     inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.pipewire
-    inputs.ha-test.nixosModules.home-assistant-oci
 
     outputs.nixosModules.common
 
@@ -27,10 +26,6 @@
   services = {
     openssh.enable = true;
     pipewire.enable = true;
-  };
-
-  services.homeAssistantModule = {
-    enable = true;
   };
 
   programs.hyprland.enable = true;
