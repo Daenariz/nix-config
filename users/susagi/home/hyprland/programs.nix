@@ -27,7 +27,6 @@
     nixvim.plugins.transparent.enable = lib.mkForce false;
 
     librewolf = {
-      policies.Homepage.StartPage = lib.mkForce "previous-session";
       profiles.default = {
         extensions = lib.mkAfter (
           with inputs.nur.legacyPackages."${pkgs.system}".repos.rycee.firefox-addons;
@@ -38,7 +37,5 @@
         );
       };
     };
-
-    ssh.addKeysToAgent = "yes";
   };
 }
