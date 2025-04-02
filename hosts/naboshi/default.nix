@@ -9,6 +9,7 @@
     inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.pipewire
+    #inputs.ha-test.nixosModules.home-assistant-oci
 
     outputs.nixosModules.common
 
@@ -20,12 +21,16 @@
   networking = {
     hostName = "naboshi";
     firewall.allowedUDPPorts = [ 24727 ];
-    firewall.allowedTCPPorts = [ 8123 ];
+    #    firewall.allowedTCPPorts = [ 8123 ];
   };
+
 
   services = {
     openssh.enable = true;
     pipewire.enable = true;
+    #        home-assistant-oci = {
+    # enable = true;
+    #};
   };
 
   programs.hyprland.enable = true;
