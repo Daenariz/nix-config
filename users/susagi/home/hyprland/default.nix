@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ lib, inputs, pkgs, ... }:
 
 {
   imports = [
@@ -8,6 +8,13 @@
     ./services.nix
     #./settings
   ];
+  
+  services.mopidy = {
+    enable = true;
+    extensionPackages = [
+      pkgs.mopidy-tidal  
+    ];
+  };
 
   styling = {
     enable = true;
@@ -21,4 +28,23 @@
   };
 
   home.packages = import ./packages.nix { inherit pkgs; };
+
+  home.shellAliases = { 
+      t2c = "sh ~/Desktop/projects/repos/soku_tango/tango2csv.sh ";
+      search-store = "find /nix/store -maxdepth 1 -type d | rg -i ";
+    };
+
+  programs.ssh = {
+    enable = true;
+
+    matchBlocks = {
+      negitorodon = {
+        host = "n negito";
+        hostname = "negitorodon.de";
+        port = 3407;
+        user = "susagi";
+        identityFile = "/home/susagi/.ssh/vde_rsa";
+      };
+    };
+  };
 }

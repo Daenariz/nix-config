@@ -8,6 +8,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     core.url = "github:sid115/nix-core";
+    core-dev.url = "github:Daenariz/nix-core/feature/plecs";
+    ha-test.url = "github:Daenariz/nix-core/feature/home-assistant-oci";
 
     nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-24.11";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
@@ -60,6 +62,12 @@
       );
 
       nixosConfigurations = {
+        akiyama = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [ ./hosts/akiyama ];
+        };
         kiichigo = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
@@ -81,8 +89,18 @@
       };
 
       homeConfigurations = {
+        "susagi@akiyama" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [
+            ./users/susagi/home
+            #./users/susagi/home/hosts/akiyama
+          ];
+        };
         "susagi@naboshi" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # FIXME: Set architecture
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
           };

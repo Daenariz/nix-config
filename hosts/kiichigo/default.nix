@@ -3,7 +3,7 @@
 {
   imports = [
   ./wyoming.nix
-  ./homeassistant.nix
+#  ./homeassistant.nix
     ./boot.nix
     ./hardware.nix
     ./networking.nix

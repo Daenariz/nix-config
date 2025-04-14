@@ -12,11 +12,23 @@
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.nextcloud
     inputs.core.nixosModules.nginx
-    # inputs.core.nixosModules.open-webui
-    # outputs.nixosModules.vaultwarden
+    # inputs.core.nixosModules.open-webui 
+    inputs.core.nixosModules.vaultwarden
     inputs.core.nixosModules.rss-bridge
     inputs.core.nixosModules.tt-rss
+    inputs.ha-test.nixosModules.home-assistant-oci
+    inputs.core.nixosModules.matrix-synapse
   ];
+
+  services.matrix-synapse = {
+    enable = true;
+    dataDir = "/data/matrix-synapse";
+  };
+
+  services.home-assistant-oci = {
+    enable = true;
+    dataDir = "/data/home-assistant"
+  };
 
   mailserver = {
     enable = true;
@@ -44,10 +56,10 @@
         ;
     };
   };
- # services.vaultwarden = {
-  #   enable = true;
-  #   subdomain = "vault";
-  # };
+  services.vaultwarden = {
+     enable = true;
+     subdomain = "vault";
+   };
   services.nginx.enable = true;
   services.openssh = {
     enable = true;

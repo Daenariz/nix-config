@@ -26,6 +26,9 @@ with pkgs;
     anki
     rpi-imager
     tango
+    core-dev.plecs
+    tidal-dl
+    tidal-hifi
   ]
 ++
   # essentials
