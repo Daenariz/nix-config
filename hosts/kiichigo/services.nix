@@ -23,11 +23,15 @@
   services.matrix-synapse = {
     enable = true;
     dataDir = "/data/matrix-synapse";
+#    bridges = {
+#      whatsapp.enable = true;
+#      signal.enable = true;
+#    };
   };
 
   services.home-assistant-oci = {
     enable = true;
-    dataDir = "/data/home-assistant"
+    dataDir = "/data/home-assistant";
   };
 
   mailserver = {
@@ -36,7 +40,7 @@
       "susagi@${config.networking.domain}" = {
         hashedPasswordFile = config.sops.secrets."mailserver/accounts/susagi".path;
         aliases = [ "postmaster@${config.networking.domain}" ];
-      };
+     };
     };
   };
 
@@ -75,17 +79,4 @@
     enable = true;
     root = "/data/tt-rss";
   };
-#  services.home-assistant = {
-#    enable = true;
-#    extraComponents = [
-#      "analytics"
-#      "google_translate"
-#      "met"
-#      "radio_browser"
-#      "shopping_list"
-#    ];
-#    config = {
-#      default_config = {};
-#    };
-#  };
 }
