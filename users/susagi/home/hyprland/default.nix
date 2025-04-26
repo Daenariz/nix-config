@@ -6,11 +6,10 @@
     inputs.core.homeModules.styling
     ./programs.nix
     ./services.nix
-    #./settings
   ];
   
   services.mopidy = {
-    enable = true;
+    enable = false;
     extensionPackages = [
       pkgs.mopidy-tidal  
     ];
