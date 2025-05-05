@@ -28,7 +28,7 @@
 
     librewolf = {
       profiles.default = {
-        extensions = lib.mkAfter (
+        extensions.packages = lib.mkAfter (
           with inputs.nur.legacyPackages."${pkgs.system}".repos.rycee.firefox-addons;
           [
             bitwarden

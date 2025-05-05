@@ -13,17 +13,25 @@
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: { } // inputs.core.overlays.modifications final prev;
 
-  # unstable nixpkgs accessible through 'pkgs.unstable'
-  unstable-packages = final: prev: {
-    unstable = import inputs.nixpkgs-unstable {
+  # stable nixpkgs accessible through 'pkgs.stable'
+  stable-packages = final: prev: {
+    stable = import inputs.nixpkgs-stable {
       inherit (final) system;
       inherit (prev) config;
     };
   };
 
-  # old-stable nixpkgs accessible through 'pkgs.old'
+  # old-stable nixpkgs accessible through 'pkgs.old-stable'
   old-stable-packages = final: prev: {
-    old = import inputs.nixpkgs-old-stable {
+    old-stable = import inputs.nixpkgs-old-stable {
+      inherit (final) system;
+      inherit (prev) config;
+    };
+  };
+
+  # old-old-stable nixpkgs accessible through 'pkgs.old-old-stable'
+  old-old-stable-packages = final: prev: {
+    old-old-stable = import inputs.nixpkgs-old-old-stable {
       inherit (final) system;
       inherit (prev) config;
     };

@@ -11,24 +11,24 @@ with pkgs;
 ++
   # ai stuff
   [
-    tts
-    ollama
-    aichat
-    jan
+  #  tts
+  #  ollama
+  #  aichat
+  #    jan
   ]
 ++
   # testing
   [
     #vscodium
     #unstable.spotube
-    vscode
+  ##    vscode
     tagainijisho
     anki
     rpi-imager
     tango
     core-dev.plecs
     tidal-dl
-    unstable.tidal-hifi
+    tidal-hifi
     platformio
     esptool
 
@@ -42,6 +42,6 @@ with pkgs;
     noto-fonts-cjk-sans # important for displaying japanese kana on firefox browser or just in general
     thunderbird
     signal-desktop
-    whatsapp-for-linux
-    zoom-us # SSO doesn't seem too work https://github.com/NixOS/nixpkgs/issues/73532 (?)
+  #stable.whatsapp-for-linux #no unstable, stable not working
+  #    zoom-us # SSO doesn't seem too work https://github.com/NixOS/nixpkgs/issues/73532 (?)
   ]
