@@ -4,6 +4,8 @@
   imports = [
     inputs.core.homeModules.hyprland
     inputs.core.homeModules.styling
+
+    inputs.core.homeModules.virtualization
     ./programs.nix
     ./services.nix
   ];
@@ -31,6 +33,10 @@
   home.shellAliases = { 
       t2c = "sh ~/Desktop/projects/repos/soku_tango/tango2csv.sh ";
       search-store = "find /nix/store -maxdepth 1 -type d | rg -i ";
+      
+      go2config = "cd ~/.config/nixos/";
+      go2hyprland = "cd ~/.config/nixos/users/susagi/home/hyprland/";
+      go2core = "cd ~/Desktop/repos/nix-core/";
     };
 
   programs.ssh = {

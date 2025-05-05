@@ -15,6 +15,7 @@
     "[workspace 4 silent] thunderbird"
     "[workspace 5 silent] signal-desktop"
     "[workspace 5 silent] whatsapp-for-linux"
+    "[workspace 6 silent] tidal-hifi"
   ];
   windowrulev2 = [
     # "monitor   1, class:^firefox$"
@@ -33,6 +34,9 @@
 
     "monitor   0, class:^whatsapp-for-linux$, title:^WhatsApp for Linux"
     "workspace 5, title:^WhatsApp for Linux"
+
+    "monitor   0, class:^tidal-hifi$, title:^tidal-hifi"
+    "workspace 6, title:^TIDAL"
   ];
   workspace = [
     "r[2], monitor:HDMI-1-A, default:true"

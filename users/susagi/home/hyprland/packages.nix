@@ -3,10 +3,10 @@
 with pkgs;
 
 [
-    # portaudio
-    ausweisapp
-    vlc
-    octaveFull
+  # portaudio
+  ausweisapp
+  vlc
+  octaveFull
 ]
 ++
   # ai stuff
@@ -20,7 +20,7 @@ with pkgs;
   # testing
   [
     #vscodium
-    unstable.spotube
+    #unstable.spotube
     vscode
     tagainijisho
     anki
@@ -28,7 +28,13 @@ with pkgs;
     tango
     core-dev.plecs
     tidal-dl
-    tidal-hifi
+    unstable.tidal-hifi
+    platformio
+    esptool
+
+  #  bitwarden-cli
+  #   bitwarden-desktop
+    bitwarden-menu
   ]
 ++
   # essentials
