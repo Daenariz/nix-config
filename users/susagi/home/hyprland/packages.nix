@@ -17,18 +17,22 @@ with pkgs;
   #    jan
   ]
 ++
+  #　たいせつな日本語の勉強
+  [
+    tagainijisho # タガイニ辞書
+    anki
+    tango
+    noto-fonts-cjk-sans # ファイアフォックスでは、日本語のかなを見せるのために
+  ]
+++
   # testing
   [
     #vscodium
     #unstable.spotube
   ##    vscode
-    tagainijisho
-    anki
     rpi-imager
-    tango
     core-dev.plecs
-    tidal-dl
-    tidal-hifi
+    tidal-hifi  # TODO: need to check autostart, crashing
     platformio
     esptool
 
@@ -39,7 +43,6 @@ with pkgs;
 ++
   # essentials
   [
-    noto-fonts-cjk-sans # important for displaying japanese kana on firefox browser or just in general
     thunderbird
     signal-desktop
   #stable.whatsapp-for-linux #no unstable, stable not working
