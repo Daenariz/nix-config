@@ -17,7 +17,7 @@
   ];
 
   networking = {
-    hostName = "naboshi";
+    hostName = "akiyama";
   };
 
   services = {
