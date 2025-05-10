@@ -39,6 +39,10 @@ with pkgs;
   #  bitwarden-cli
   #   bitwarden-desktop
     bitwarden-menu
+  # github stuff
+    cpplint
+    act
+    docker
   ]
 ++
   # essentials

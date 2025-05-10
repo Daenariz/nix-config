@@ -18,7 +18,6 @@
 
   networking = {
     hostName = "naboshi";
-    firewall.allowedUDPPorts = [ 24727 ];
   };
 
   services = {

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SSD='/dev/disk/by-id/ata-KINGSTON_SHFS37A120G_50026B7764047641' #FIXME: change from old to new ssd
+SSD='/dev/disk/by-id/ata-INTENSO_SSD_1642412009001935'
 MNT='/mnt'
 SWAP_GB=8
 

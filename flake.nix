@@ -99,7 +99,7 @@
           };
           modules = [
             ./users/susagi/home
-            #./users/susagi/home/hosts/akiyama
+            ./users/susagi/home/hosts/akiyama
           ];
         };
         "susagi@naboshi" = home-manager.lib.homeManagerConfiguration {
