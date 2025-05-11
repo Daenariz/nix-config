@@ -92,14 +92,14 @@
       };
 
       homeConfigurations = {
-        "susagi@akiyama" = home-manager.lib.homeManagerConfiguration {
+        "neo@akiyama" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
           };
           modules = [
-            ./users/susagi/home
-            ./users/susagi/home/hosts/akiyama
+            ./users/neo/home
+            ./users/neo/home/hosts/akiyama
           ];
         };
         "susagi@naboshi" = home-manager.lib.homeManagerConfiguration {
