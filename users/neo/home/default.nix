@@ -8,12 +8,19 @@
     outputs.nixosModules.common
   ];
 
-  home.username = "USERNAME";
+  home.username = "neo";
 
   programs.git = {
     enable = true;
     userName = "Daenariz";
     userEmail = "deniz.onlinegames@gmail.com";
+  };
+
+  home.file.nixpkgs_config = {
+    target = ".config/nixpkgs/config.nix";
+    text = ''
+      {allowUnfree = true; }
+    '';
   };
 
   programs.nixvim.enable = true;

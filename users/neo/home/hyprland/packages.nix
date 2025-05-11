@@ -1,8 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ 
-    steam
-    vesktop
+  home.packages = with pkgs; [
+    tidal-hifi
   ];
 }
