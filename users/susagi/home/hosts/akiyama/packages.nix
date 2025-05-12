@@ -34,7 +34,6 @@ with pkgs;
   # essentials
   [
     steam
-    vesktop
     signal-desktop
   #stable.whatsapp-for-linux #no unstable, stable not working
   #    zoom-us # SSO doesn't seem too work https://github.com/NixOS/nixpkgs/issues/73532 (?)

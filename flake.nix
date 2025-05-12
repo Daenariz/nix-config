@@ -29,6 +29,10 @@
     #stylix.url = "github:danth/stylix/a88c4d264a4379b7fe5a9e75ed51bea96f8dd407";
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
+
+    #1#    nixcord.url = "github:kaylorben/nixcord";
+    #1#   nixcord.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
   outputs =
