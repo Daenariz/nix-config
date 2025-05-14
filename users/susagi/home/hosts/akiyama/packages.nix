@@ -3,10 +3,6 @@
 with pkgs;
 
 [
-  # portaudio
-  ausweisapp
-  vlc
-  octaveFull
 ]
 ++
   # ai stuff
@@ -27,27 +23,17 @@ with pkgs;
 ++
   # testing
   [
-    #vscodium
-    #unstable.spotube
-  ##    vscode
-    rpi-imager
-    core-dev.plecs
     tidal-hifi  # TODO: need to check autostart, crashing
-    platformio
-    esptool
 
   #  bitwarden-cli
   #   bitwarden-desktop
     bitwarden-menu
   # github stuff
-    cpplint
-    act
-    docker
   ]
 ++
   # essentials
   [
-    thunderbird
+    steam
     signal-desktop
   #stable.whatsapp-for-linux #no unstable, stable not working
   #    zoom-us # SSO doesn't seem too work https://github.com/NixOS/nixpkgs/issues/73532 (?)

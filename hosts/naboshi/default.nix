@@ -1,4 +1,7 @@
-{ inputs, outputs, ... }:
+{ inputs,
+  outputs,
+  pkgs,
+  ... }:
 
 {
   imports = [
@@ -9,6 +12,8 @@
     inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.pipewire
+
+    inputs.core.nixosModules.virtualization
     #inputs.ha-test.nixosModules.home-assistant-oci
 
     outputs.nixosModules.common
@@ -26,11 +31,12 @@
 
 
   services = {
+    udev.packages = with pkgs;
+      [
+        platformio-core.udev
+      ];
     openssh.enable = true;
     pipewire.enable = true;
-    #        home-assistant-oci = {
-    # enable = true;
-    #};
   };
 
   programs.hyprland.enable = true;
@@ -53,6 +59,8 @@
         #"sys"
         "video"
         "wheel"
+        "dialout"
+        "libvirtd"
       ];
     };
   };

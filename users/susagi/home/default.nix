@@ -1,4 +1,4 @@
-{ inputs, outputs, ... }:
+{ inputs, outputs, config, pkgs, ... }:
 
 {
   imports = [
@@ -8,7 +8,6 @@
     inputs.core.homeModules.nixvim
     inputs.core.homeModules.sops
 
-    #outputs.homeModules.sops
     outputs.homeModules.common
   ];
 
@@ -16,8 +15,8 @@
 
   programs.git = {
     enable = true;
-    userName = "susagi";
-    userEmail = "susagi@sid.ovh";
+    userName = "Daenariz";
+    userEmail = "deniz.onlinegames@gmail.com";
   };
 
   # xdg might not be available, hence `home.file`
@@ -27,13 +26,16 @@
       { allowUnfree = true; }
     '';
   };
-  programs.nixvim = {
-    enable = true;
+
+  programs = {
+    nixvim.enable = true;
+    fastfetch.enable = true;
   };
 
-  programs.fastfetch = {
-    enable = true;
-  };
+  nix.package = pkgs.nix;
+  nix.extraOptions = ''
+    !include ${config.sops.templates.access-tokens.path}
+    '';
 
   home.stateVersion = "24.11";
 }

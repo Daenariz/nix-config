@@ -1,20 +1,24 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/818012b51799ab3ecbfb49fc02cd1641a1dbfb9c";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-old-old-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     core.url = "github:sid115/nix-core";
+    core.inputs.nixpkgs.follows = "nixpkgs";
+
     core-dev.url = "github:Daenariz/nix-core/feature/plecs";
     ha-test.url = "github:Daenariz/nix-core/feature/home-assistant-oci";
 
-    nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-24.11";
+    nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.url = "github:nix-community/nixvim/nixos-24.11";
+    nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR";
@@ -23,9 +27,13 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    stylix.url = "github:danth/stylix/a88c4d264a4379b7fe5a9e75ed51bea96f8dd407";
-    #stylix.url = "github:danth/stylix";
+    #stylix.url = "github:danth/stylix/a88c4d264a4379b7fe5a9e75ed51bea96f8dd407";
+    stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
+
+    #1#    nixcord.url = "github:kaylorben/nixcord";
+    #1#   nixcord.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
   outputs =
@@ -89,14 +97,14 @@
       };
 
       homeConfigurations = {
-        "susagi@akiyama" = home-manager.lib.homeManagerConfiguration {
+        "neo@akiyama" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
           };
           modules = [
-            ./users/susagi/home
-            #./users/susagi/home/hosts/akiyama
+            ./users/neo/home
+            ./users/neo/home/hosts/akiyama
           ];
         };
         "susagi@naboshi" = home-manager.lib.homeManagerConfiguration {

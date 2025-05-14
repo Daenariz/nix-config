@@ -16,9 +16,17 @@
     ./packages.nix
   ];
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = false;
+    localNetworkGameTransfers.openFirewall = true;
+  };
+
+  programs.gamemode.enable = true;
+
   networking = {
-    hostName = "naboshi";
-    firewall.allowedUDPPorts = [ 24727 ];
+    hostName = "akiyama";
   };
 
   services = {
@@ -29,21 +37,14 @@
   programs.hyprland.enable = true;
 
   normalUsers = {
-    susagi = {
-      name = "susagi";
+    neo = {
+      name = "neo";
       extraGroups = [
         "input"
-        #"dm"
         "audio"
         "floppy"
-        #"log"
         "lp"
         "networkmanager"
-        #"optical"
-        #"rfkill"
-        #"scanner"
-        #"storage"
-        #"sys"
         "video"
         "wheel"
       ];
