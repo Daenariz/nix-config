@@ -30,31 +30,16 @@
       );
     };
   };
+  
+  home.shellAliases = { 
+    search-store = "find /nix/store -maxdepth 1 -type d | rg -i ";
+      
+    go2config = "cd ~/.config/nixos/";
+    go2hyprland = "cd ~/.config/nixos/users/neo/home/hyprland/";
+    # go2core = "cd ~/Desktop/repos/nix-core/";
+  };
 
   #1# programs.nixcord.enable = true;
-  #  programs.nixcord = {
-  # enable = false;  # enable Nixcord. Also installs discord package
-    #  quickCss = "some CSS";  # quickCSS file
-    #config = {
-    #  useQuickCss = true;   # use out quickCSS
-    # themeLinks = [        # or use an online theme
-      # "https://betterdiscord.app/theme/New%20Akame%20Ga%20Kill!%20Theme"     ];
-    # frameless = true; # set some Vencord options
-    # plugins = {
-    #   hideAttachments.enable = true;    # Enable a Vencord plugin
-    #           ignoreActivities = {    # Enable a plugin and set some options
-    #     enable = true;
-    #     ignorePlaying = true;
-    #     ignoreWatching = true;
-    #     # ignoredActivities = [ "someActivity" ];
-    #   };
-    #  };
-    #};
-    #    extraConfig = {
-    #  # Some extra JSON config here
-    #  # ...
-    #};
-  # };
 
   styling.enable = true;
 }
