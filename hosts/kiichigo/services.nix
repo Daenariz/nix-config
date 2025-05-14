@@ -23,11 +23,16 @@
   services.matrix-synapse = {
     enable = true;
     dataDir = "/data/matrix-synapse";
-#    bridges = {
-#      whatsapp.enable = true;
-#      signal.enable = true;
-#    };
+    bridges = {
+      whatsapp = {
+        enable = true;
+	admin = "@susagi:negitorodon.de";
+##      signal.enable = true;
+      };
+    };
   };
+
+  services.mautrix-whatsapp.settings.bridge.displayname_template = lib.mkForce "{{or .BusinessName .FullName .Phone}} (WA)"; # looks like no name results in nothinas prefix
 
   services.home-assistant-oci = {
     enable = true;
