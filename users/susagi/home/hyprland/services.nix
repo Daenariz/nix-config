@@ -2,7 +2,6 @@
   inputs,
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -79,6 +78,5 @@
     };
 
     ssh-agent.enable = true;
-    # nextcloud-client.enable = true; # not working with sciebo atm
   };
 }

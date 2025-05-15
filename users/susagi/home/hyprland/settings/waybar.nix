@@ -23,12 +23,13 @@
         "hyprland/workspaces" = {
           format = " {icon} ";
           format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "4" = "";
-            "5" = "";
-            "6" = "";
+            "1" = "";  # default
+            "2" = "";  # browser
+            "3" = "";  # code
+            "4" = "";  # mail
+            "5" = "";  # chats
+            "6" = "";  # music
+            "7" = "";  # vm
             "urgent" = "";
             "active" = "";
             "default" = "";
@@ -40,7 +41,7 @@
           };
 
           all-outputs = false;
-          persistent-workspaces."*" = 6;
+          persistent-workspaces."*" = 7;
         };
   };
 }

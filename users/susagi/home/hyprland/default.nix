@@ -1,4 +1,4 @@
-{ lib, inputs, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -9,13 +9,6 @@
     ./programs.nix
     ./services.nix
   ];
-  
-  services.mopidy = {
-    enable = false;
-    extensionPackages = [
-      pkgs.mopidy-tidal  
-    ];
-  };
 
   styling = {
     enable = true;
