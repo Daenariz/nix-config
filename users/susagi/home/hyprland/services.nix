@@ -7,7 +7,7 @@
 }:
 
 {
-  imports = [ 
+  imports = [
     inputs.core.homeModules.nextcloud-sync
   ];
 
@@ -51,6 +51,31 @@
     hypridle = {
       enable = true;
       settings = import ./settings/hypridle.nix;
+    };
+
+    hyprsunset = {
+      enable = true;
+      transitions = {
+        sunrise = {
+          calendar = "*-*-* 06:00:00";
+          requests = [
+            [
+              "temperature"
+              "5000"
+            ]
+            [ "gamma 100" ]
+          ];
+        };
+        sunset = {
+          calendar = "*-*-* 19:00:00";
+          requests = [
+            [
+              "temperature"
+              "3500"
+            ]
+          ];
+        };
+      };
     };
 
     ssh-agent.enable = true;
