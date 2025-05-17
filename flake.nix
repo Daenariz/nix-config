@@ -31,6 +31,9 @@
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
+    matlab-nix.url = "gitlab:doronbehar/nix-matlab";
+    matlab-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     #1#    nixcord.url = "github:kaylorben/nixcord";
     #1#   nixcord.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -41,6 +44,7 @@
       self,
       nixpkgs,
       home-manager,
+    #      nix-matlab,
       ...
     }@inputs:
     let
@@ -70,6 +74,12 @@
       );
 
       nixosConfigurations = {
+        kitsunebi = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [ ./hosts/kitsunebi ];
+        };
         akiyama = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
@@ -105,6 +115,16 @@
           modules = [
             ./users/neo/home
             ./users/neo/home/hosts/akiyama
+          ];
+        };
+        "neo@kitsunebi" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [
+            ./users/neo/home
+            ./users/neo/home/hosts/kitsunebi
           ];
         };
         "susagi@naboshi" = home-manager.lib.homeManagerConfiguration {
