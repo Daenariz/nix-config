@@ -3,8 +3,7 @@
         modules-left = [
           "hyprland/workspaces"
           "tray"
-         "keyboard-state"
-      #    "hyprland/language"
+          "keyboard-state"
           "hyprland/window"
         ];
         modules-right = [
@@ -17,31 +16,33 @@
           "disk"
           "pulseaudio#input"
           "pulseaudio#output"
-      #"battery"
         ];
 
         "hyprland/workspaces" = {
-          format = " {icon} ";
-          format-icons = {
+          "format" = " {icon} ";
+          "format-icons" = {
             "1" = "";  # default
             "2" = "";  # browser
             "3" = "";  # discord
-            "4" = "";  # mail
+            "4" = "";  # steam
             "5" = "";  # chats
             "6" = "";  # music
-         #   "7" = "";  # vm
-            urgent = "";
-            active = "";
-            default = "";
+            "urgent" = "";
+            "active" = "";
+            "default" = "";
           };
 
           tray = {
-            icon-size = 21;
-            spacing = 10;
+            "icon-size" = 21;
+            "spacing" = 10;
           };
 
-          all-outputs = false;
-          persistent-workspaces."*" = 7;
-        };
-  };
+          "all-outputs" = false;
+          "persistent-workspaces" = {
+            "DP-1" = [ 1 3 4 5 6 ];
+            "HDMI-A-1" = [ 2 ];
+          };
+      };
+    };
 }
+

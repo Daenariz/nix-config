@@ -11,24 +11,20 @@
     inputs.core.homeModules.styling
 
     ./packages.nix
+    ./programs.nix
   ];
+
+    programs.waybar.settings = import ./settings/waybar.nix;
 
   wayland.windowManager.hyprland = {
     enable = true;
     autostart = true;
+        settings = import ./settings/hyprland.nix;
   };
 
-  programs.librewolf = {
-    profiles.default = {
-      extensions.packages = lib.mkAfter (
-        with inputs.nur.legacyPackages."${pkgs.system}".repos.rycee.firefox-addons;
-        [
-          bitwarden
-          yomitan
-        ]
-      );
-    };
-  };
+
+  
+
 
   services.ssh-agent.enable = true;
 
@@ -40,5 +36,27 @@
     # go2core = "cd ~/Desktop/repos/nix-core/";
   };
 
-  styling.enable = true;
+  home.sessionVariables = lib.mkAfter {
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland"; # to fix flickering
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  };
+
+  services = {
+    hyprpaper = {
+      enable = true;
+      settings = {
+        preload = lib.mkForce [ "~/Pictures/nixos-wallpaper-catppuccin-frappe.png" ];
+        wallpaper = lib.mkForce [ ",~/Pictures/nixos-wallpaper-catppuccin-frappe.png" ];
+      };
+    };
+
+    hypridle = {
+      enable = true;
+      settings = import ./settings/hypridle.nix;
+    };
+  };
+
+
+    styling.enable = true;
 }
