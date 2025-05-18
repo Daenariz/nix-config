@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
+let
+  nvidia-pkg = config.hardware.nvidia.package;
+in
 {
   environment = {
     systemPackages = with pkgs; [
@@ -7,19 +10,11 @@
   };
 
   hardware.nvidia = {
-    nvidiaSettings = true;
-    open = false;
-    modesetting.enable = true;
-    prime = {
-      offload = {
-        # sync doesn't seem to be supported on older gpus
-        enable = true;
-        enableOffloadCmd = true;
-      };
-      intelBusId = "PCI:00:02:0";
-      nvidiaBusId = "PCI:01:00:0";
-    };
     package = config.boot.kernelPackages.nvidiaPackages.stable; # Same as production
+    nvidiaSettings = true;
+  # enable the open source drivers if the package supports it
+    open = lib.mkOverride 990 (nvidia-pkg ? open && nvidia-pkg ? firmware);
+    modesetting.enable = true;
   };
 
   hardware.graphics.enable = true;

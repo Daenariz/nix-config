@@ -23,6 +23,9 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
+
+  hardware.openrazer.enable = true;
+
   programs.gamemode.enable = true;
 
   networking = {
@@ -40,6 +43,7 @@
     neo = {
       name = "neo";
       extraGroups = [
+        "openrazer"
         "input"
         "audio"
         "floppy"
