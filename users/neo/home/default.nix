@@ -5,7 +5,7 @@
     inputs.core.homeModules.common
     inputs.core.homeModules.nixvim
 
-    outputs.nixosModules.common
+    outputs.homeModules.common
   ];
 
   home.username = "neo";
