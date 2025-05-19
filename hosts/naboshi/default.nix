@@ -11,7 +11,6 @@
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.pipewire
 
     inputs.core.nixosModules.virtualization
     #inputs.ha-test.nixosModules.home-assistant-oci
