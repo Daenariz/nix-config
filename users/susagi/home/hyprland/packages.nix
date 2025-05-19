@@ -2,13 +2,13 @@
 
 with pkgs;
 
-  # ai stuff
-  [
+# ai stuff
+[
   #  tts
   #  ollama
   #  aichat
   #    jan
-  ]
+]
 ++
   #　たいせつな日本語の勉強
   [
@@ -23,7 +23,9 @@ with pkgs;
     # vscodium
     #unstable.spotube
     # vscode
-  # bitwarden-cli bitwarden-desktop bitwarden-menu
+    # bitwarden-cli bitwarden-desktop bitwarden-menu
+    #    matlab  ## I hate this piece of sh...
+    #  bottles  ## for the piece of sh... above, but deprecated
   ]
 ++
   # dev
@@ -37,11 +39,12 @@ with pkgs;
 ++
   # essentials
   [
+    flatpak
     thunderbird
-    tidal-hifi 
+    tidal-hifi
     signal-desktop
     ausweisapp
-  #   whatsie
-  #stable.whatsapp-for-linux # wasistlos=unstable, stable not working
-  #   zoom-us # SSO doesn't seem too work https://github.com/NixOS/nixpkgs/issues/73532 (?)
+    #   whatsie
+    #stable.whatsapp-for-linux # wasistlos=unstable, stable not working
+    #   zoom-us # SSO doesn't seem too work https://github.com/NixOS/nixpkgs/issues/73532 (?)
   ]

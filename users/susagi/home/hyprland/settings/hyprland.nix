@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   animations.enabled = true;
   gestures.workspace_swipe = true;
@@ -6,8 +8,17 @@
   #   blur.enabled = true;
   #   shadow.enabled = true;
   # };
+
+  bind =
+    let
+      flatpak = "${pkgs.flatpak}/bin/flatpak";
+    in
+    [
+      "$mod,       z, exec, ${flatpak} run us.zoom.Zoom"
+    ];
+
   exec-once = [
-    "fcitx5 -d -r"   # https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
+    "fcitx5 -d -r" # https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
     "fcitx5-remote -r"
     "[workspace 1] kitty"
     "[workspace 2 silent] librewolf"
