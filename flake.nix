@@ -1,7 +1,7 @@
 {
   inputs = {
-    #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/818012b51799ab3ecbfb49fc02cd1641a1dbfb9c";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:nixos/nixpkgs/818012b51799ab3ecbfb49fc02cd1641a1dbfb9c";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-old-old-stable.url = "github:nixos/nixpkgs/nixos-23.11";
@@ -9,7 +9,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    core.url = "github:sid115/nix-core";
+    #core.url = "github:sid115/nix-core";
+    core.url = "github:Daenariz/nix-core/feature/gaming-search-engines";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
     core-dev.url = "github:Daenariz/nix-core/feature/plecs";
@@ -33,6 +34,8 @@
 
     matlab-nix.url = "gitlab:doronbehar/nix-matlab";
     matlab-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
 
     #1#    nixcord.url = "github:kaylorben/nixcord";
     #1#   nixcord.inputs.nixpkgs.follows = "nixpkgs";
