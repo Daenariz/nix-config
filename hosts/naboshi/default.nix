@@ -36,6 +36,7 @@
       ];
     openssh.enable = true;
     pipewire.enable = true;
+    flatpak.enable = true;
   };
 
   programs.hyprland.enable = true;
@@ -45,17 +46,10 @@
       name = "susagi";
       extraGroups = [
         "input"
-        #"dm"
         "audio"
         "floppy"
-        #"log"
         "lp"
         "networkmanager"
-        #"optical"
-        #"rfkill"
-        #"scanner"
-        #"storage"
-        #"sys"
         "video"
         "wheel"
         "dialout"

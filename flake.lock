@@ -94,11 +94,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1747663883,
-        "narHash": "sha256-1VOjYKvlSB1NMGo8m9dTnCrFMTZ2eqmLh+J+2a2MH7w=",
+        "lastModified": 1747664976,
+        "narHash": "sha256-1iNN5ATTzJa3mBTW8pyzKvl7fWJNNRuP1ZsiV7G7/ME=",
         "owner": "Daenariz",
         "repo": "nix-core",
-        "rev": "bb476141340e6a93d542cd11e26dab9f2de7d8a9",
+        "rev": "da603695b957e5224ecb09ce06396ff1876288b0",
         "type": "github"
       },
       "original": {
@@ -213,22 +213,6 @@
       }
     },
     "flake-compat_5": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1747046372,
-        "narHash": "sha256-CIVLLkVgvHYbgI2UpXvIIBJ12HWgX+fjA8Xf8PUmqCY=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "9100a0f413b0c601e0533d1d94ffd501ce2e7885",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
-    "flake-compat_6": {
       "locked": {
         "lastModified": 1733328505,
         "narHash": "sha256-NeCCThCEP3eCl2l/+27kNNK7QrwZB1IJCrXfrbv5oqU=",
@@ -676,27 +660,6 @@
         "type": "github"
       }
     },
-    "matlab-nix": {
-      "inputs": {
-        "flake-compat": "flake-compat_4",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1747580510,
-        "narHash": "sha256-VW3YbO9se0gqabNmoC3hZUqANJPlPknG+FaflIitjnk=",
-        "owner": "doronbehar",
-        "repo": "nix-matlab",
-        "rev": "464b9279c171efc72919cfc9284c9ff7bd27bdb6",
-        "type": "gitlab"
-      },
-      "original": {
-        "owner": "doronbehar",
-        "repo": "nix-matlab",
-        "type": "gitlab"
-      }
-    },
     "nix-flatpak": {
       "locked": {
         "lastModified": 1739444422,
@@ -716,7 +679,7 @@
     "nixos-mailserver": {
       "inputs": {
         "blobs": "blobs",
-        "flake-compat": "flake-compat_5",
+        "flake-compat": "flake-compat_4",
         "git-hooks": "git-hooks",
         "nixpkgs": [
           "nixpkgs"
@@ -1143,7 +1106,6 @@
         "core-dev": "core-dev",
         "ha-test": "ha-test",
         "home-manager": "home-manager_4",
-        "matlab-nix": "matlab-nix",
         "nix-flatpak": "nix-flatpak",
         "nixos-mailserver": "nixos-mailserver",
         "nixpkgs": "nixpkgs_4",
@@ -1183,7 +1145,7 @@
         "base16-helix": "base16-helix",
         "base16-vim": "base16-vim",
         "firefox-gnome-theme": "firefox-gnome-theme",
-        "flake-compat": "flake-compat_6",
+        "flake-compat": "flake-compat_5",
         "flake-parts": "flake-parts_3",
         "git-hooks": "git-hooks_2",
         "gnome-shell": "gnome-shell",
