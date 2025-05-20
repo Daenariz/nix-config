@@ -39,7 +39,7 @@ with pkgs;
 ++
   # essentials
   [
-    flatpak
+      flatpak
     thunderbird
     tidal-hifi
     signal-desktop

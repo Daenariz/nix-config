@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   pkgs,
   ...
@@ -17,21 +16,23 @@
   ];
 
   services.flatpak = {
-    enable = true;
-    update = {
-      onActivation = false;
-      auto = {
-        enable = true;
-        onCalendar = "weekly";
-      };
-    };
-    packages = [
-      {
-        appId = "us.zoom.Zoom";
-        origin = "flathub";
-      }
-    ];
+   enable = true;
+   update = {
+     onActivation = false;
+     auto = {
+       enable = true;
+       onCalendar = "weekly";
+     };
+   };
+   packages = [
+     {
+       appId = "us.zoom.Zoom";
+       origin = "flathub";
+     }
+   ];
   };
+  # xdg.portal.extraPortals  = [pkgs.xdg-desktop-portal-gtk];
+  # xdg.portal.config.common.default = "gtk";
 
   styling = {
     enable = true;
@@ -46,9 +47,9 @@
 
   home.packages = import ./packages.nix { inherit pkgs; };
 
-  home.sessionVariables = {
-    XDG_DATA_DIRS = "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
-  };
+  #  home.sessionVariables = {
+  # XDG_DATA_DIRS = "/var/lib/flatpak/exports/share:/home/susagi/.local/share/flatpak/exports/share";
+  #  };
 
   home.shellAliases = {
     t2c = "sh ~/Desktop/projects/repos/soku_tango/tango2csv.sh ";

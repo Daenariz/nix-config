@@ -9,13 +9,13 @@
   #   shadow.enabled = true;
   # };
 
-  bind =
-    let
-      flatpak = "${pkgs.flatpak}/bin/flatpak";
-    in
-    [
-      "$mod,       z, exec, ${flatpak} run us.zoom.Zoom"
-    ];
+    bind =
+   let
+     flatpak = "${pkgs.flatpak}/bin/flatpak";
+   in
+   [
+    "$mod,       z, exec, ${flatpak} run us.zoom.Zoom"
+   ];
 
   exec-once = [
     "fcitx5 -d -r" # https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
