@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     tidal-hifi
 
-    mangohud
+    #    mangohud
     protonup-qt
     lutris
     heroic
