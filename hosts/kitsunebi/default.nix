@@ -7,7 +7,6 @@
     inputs.core.nixosModules.device.laptop
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.pipewire
 
     outputs.nixosModules.common
 
@@ -16,6 +15,8 @@
     ./packages.nix
   ];
 
+  services.flatpak.enable = true;
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -23,10 +24,15 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
+  #  programs.steam.gamescopeSession.enable = true;
+
 
   hardware.openrazer.enable = true;
 
-  programs.gamemode.enable = true;
+  programs.gamemode = {
+    enable = true;
+    #  settings = 
+  };
 
   networking = {
     hostName = "kitsunebi";
@@ -51,6 +57,7 @@
         "networkmanager"
         "video"
         "wheel"
+        "gamemode"
       ];
     };
   };
