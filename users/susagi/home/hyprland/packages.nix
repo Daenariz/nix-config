@@ -20,9 +20,7 @@ with pkgs;
 ++
   # testing
   [
-    # vscodium
     #unstable.spotube
-    # vscode
     # bitwarden-cli bitwarden-desktop bitwarden-menu
     #    matlab  ## I hate this piece of sh...
     #  bottles  ## for the piece of sh... above, but deprecated
@@ -39,7 +37,7 @@ with pkgs;
 ++
   # essentials
   [
-      flatpak
+    flatpak  # for the binary
     thunderbird
     tidal-hifi
     signal-desktop
