@@ -68,7 +68,7 @@ inherit (lib) mkForce mkAfter;
     };
   };
 
-  kitty.settings.background_opacity = mkForce "0.5";
+  kitty.settings.background_opacity = mkForce "0.3";
     # transparent nixvim plugin, only works with styling.scheme disabled since background color might be overwritten I guess
     nixvim.plugins.transparent.enable = mkForce true;
   };

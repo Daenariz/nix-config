@@ -20,7 +20,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     autostart = true;
-        settings = import ./settings/hyprland.nix { inherit pkgs ; };
+        settings = import ./settings/hyprland.nix { inherit pkgs lib; };
   };
 
   services.ssh-agent.enable = true;
@@ -43,8 +43,8 @@
     hyprpaper = {
       enable = true;
       settings = {
-        preload = lib.mkForce [ "~/Pictures/nixos-wallpaper-catppuccin-frappe.png" ];
-        wallpaper = lib.mkForce [ ",~/Pictures/nixos-wallpaper-catppuccin-frappe.png" ];
+        preload = [ "~/Pictures/dragon.jpg" ];
+        wallpaper = [ ",~/Pictures/dragon.jpg" ];
       };
     };
 
