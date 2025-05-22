@@ -25,7 +25,7 @@
   };
 
   #  programs.steam.gamescopeSession.enable = true;
-
+ programs.gpu-screen-recorder.enable = true;
 
   hardware.openrazer.enable = true;
 
