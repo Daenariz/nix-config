@@ -9,6 +9,7 @@
   imports = [
     inputs.core.homeModules.hyprland
     inputs.core.homeModules.styling
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
 
     ./packages.nix
     ./programs.nix
@@ -19,12 +20,8 @@
   wayland.windowManager.hyprland = {
     enable = true;
     autostart = true;
-        settings = import ./settings/hyprland.nix;
+        settings = import ./settings/hyprland.nix { inherit pkgs lib; };
   };
-
-
-  
-
 
   services.ssh-agent.enable = true;
 
@@ -46,8 +43,8 @@
     hyprpaper = {
       enable = true;
       settings = {
-        preload = lib.mkForce [ "~/Pictures/nixos-wallpaper-catppuccin-frappe.png" ];
-        wallpaper = lib.mkForce [ ",~/Pictures/nixos-wallpaper-catppuccin-frappe.png" ];
+        preload = [ "~/Pictures/dragon.jpg" ];
+        wallpaper = [ ",~/Pictures/dragon.jpg" ];
       };
     };
 
@@ -57,6 +54,31 @@
     };
   };
 
+
+
+  services.flatpak = {
+    enable = true;
+    update = {
+      onActivation = false;
+      auto = {
+        enable = true;
+        onCalendar = "weekly";
+      };
+    };
+    packages = [
+      #      {
+      #  appId = "us.zoom.Zoom";
+      #  origin = "flathub";
+      #}
+      {
+        appId = "com.usebottles.bottles";
+        origin = "flathub";
+      }
+
+    ];
+  };
+
+  home.packages = [ pkgs.flatpak ];
 
     styling.enable = true;
 }

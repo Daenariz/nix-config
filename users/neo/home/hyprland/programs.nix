@@ -5,6 +5,18 @@ inherit (lib) mkForce mkAfter;
   in
 {
   programs = { 
+    mangohud = {
+      enable = true;
+      enableSessionWide = true;
+      settings = {
+        gamemode = true;
+        output_folder = "/home/neo/Documents/mangologs";
+        };  # https://github.com/flightlessmango/MangoHud/blob/master/data/MangoHud.conf
+    };
+    btop = {
+      enable = true;
+  };
+
     librewolf = {
       profiles.default = {
       extensions.packages = mkAfter (
@@ -56,7 +68,7 @@ inherit (lib) mkForce mkAfter;
     };
   };
 
-  kitty.settings.background_opacity = mkForce "0.5";
+  kitty.settings.background_opacity = mkForce "0.3";
     # transparent nixvim plugin, only works with styling.scheme disabled since background color might be overwritten I guess
     nixvim.plugins.transparent.enable = mkForce true;
   };
