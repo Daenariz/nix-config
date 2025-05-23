@@ -12,9 +12,10 @@
     bind =
    let
      flatpak = "${pkgs.flatpak}/bin/flatpak";
+     bw-menu = "${pkgs.bitwarden-menu}/bin/bwm";
    in
    [
-    "$mod,       z, exec, ${flatpak} run us.zoom.Zoom"
+    "$mod,       z, exec, ${bw-menu}"
    ];
 
   exec-once = [
@@ -28,24 +29,21 @@
   ];
 
   windowrule = [
-    "monitor   1, initialClass:^librewolf$"
-    "workspace 2, initialClass:^librewolf$"
+    "center (1), class:^(dmenu)$"
+    "workspace 2, class:^([Ll]ibrewolf)$"
 
-    "monitor   0, class:^Element$, title:^Element"
     "workspace 5, class:^Element$, title:^Element"
 
-    "monitor   0, class:^thunderbird$, title:Thunderbird$"
     "workspace 4, class:^thunderbird$, title:Thunderbird$"
 
-    "monitor   0, class:^signal$, title:^Signal"
     "workspace 5, title:^Signal"
 
-    "monitor   0, initialClass:^tidal-hifi$, initialTitle:^tidal-hifi"
     "workspace 6, initialClass:^tidal-hifi$, initialTitle:^tidal-hifi"
   ];
   workspace = [
     "1, monitor:eDP-1, default:true"
-    "2, monitor:HDMI-1-A, default:true, layoutopt:orientation:top"
+    "2, monitor:eDP-1"
+    #    "2, monitor:HDMI-1-A, default:true, layoutopt:orientation:top"
     "3, monitor:eDP-1"
     "4, monitor:eDP-1"
     "5, monitor:eDP-1"

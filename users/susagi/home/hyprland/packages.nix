@@ -20,8 +20,9 @@ with pkgs;
 ++
   # testing
   [
-    #unstable.spotube
-    # bitwarden-cli bitwarden-desktop bitwarden-menu
+    bitwarden-menu
+      bitwarden-cli
+      dmenu
     #    matlab  ## I hate this piece of sh...
     #  bottles  ## for the piece of sh... above, but deprecated
   ]
