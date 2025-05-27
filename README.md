@@ -8,10 +8,12 @@ This repository is a collection of personal NixOS configurations with standalone
 .
 ├── flake.lock            # Lock file for the Nix Flakes configuration
 ├── flake.nix             # Nix Flake file for the configuration
-├── hosts                 
+├── hosts
+│   ├── akiyama           # Gaming Teststation config                 
 │   ├── kiichigo          # Raspberry 4 config
+│   ├── kitsunebi         # Gaming config
 │   ├── naboshi           # Workstation config
-│   └── shizen            # Teststation config
+│   └── shizen            # Working Teststation config
 ├── modules               
 │   ├── home              # Home-specific modules
 │   └── nixos             # NixOS-specific modules
@@ -21,7 +23,10 @@ This repository is a collection of personal NixOS configurations with standalone
 ├── shell.nix             # Shell configuration for NixOS development environment
 └── users                 
     └── susagi            # Susagis user
-        ├── home          # Home-specific configurations
-        ├── hyprland      # Hyprland-specific configurations
-        └── pubkeys       # Public keys
+    │   ├── home          # Home-specific configurations
+    │   │   └── hyprland  # Hyprland-specific configurations
+    │   └── pubkeys       # Public keys
+    └── neo               # Neos user
+        └── home          # Home-specific configurations
+            └── hyprland  # Hyprland-specific configurations
 ```
