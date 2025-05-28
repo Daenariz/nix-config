@@ -1,0 +1,122 @@
+
+
+html, #main-window {
+    background-color: rgba(25, 25, 25, 0.5) !important;
+}
+
+/* Transparency */
+toolbar, toolbox, /* Top bar */
+#browser,
+#tabbrowser-tabbox, #tabbrowser-tabpanels, notification-anchor-icon
+#tab-notification-deck, .notificationbox-stack {
+    background: transparent !important;
+}
+
+.infobar {
+    background: rgba(25, 25, 25, 0.3) !important;
+    border: none !important;
+    margin: 5px !important;
+
+    &:before {
+        background-color: #009688 !important;
+        background-image: none !important;
+    }
+}
+
+#customizableui-special-spring1,
+#customizableui-special-spring2 {
+    max-width: unset !important;
+}
+
+#urlbar-container {
+    max-width: 50% !important;
+
+    #urlbar {
+        #urlbar-background {
+            background-color: rgba(25, 25, 25) !important;
+            border: none !important;
+            opacity: 0.3;
+            outline: none !important;
+        }
+
+        &[breakout][breakout-extend] {
+            top: 6px !important;
+            width: var(--urlbar-width) !important;
+            margin: 0 !important;
+        }
+        &[breakout][breakout-extend] > #urlbar-input-container,
+        &[breakout][breakout-extend] > .urlbar-input-container {
+            height: var(--urlbar-height) !important;
+            padding-block: 0 !important;
+            padding-inline: var(--urlbar-container-padding) !important;
+        }
+        &urlbar[breakout][breakout-extend] > #urlbar-background {
+            animation-name: none !important;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .05) !important;
+        }
+
+        &:is([open]) #urlbar-background {
+            opacity: 1;
+        }
+
+        #identity-icon-box {
+            &:not(:hover) {
+                background: transparent !important;
+            }
+
+            #identity-icon-label {
+                font-weight: bold !important;
+            }
+        }
+
+        #pageAction-urlbar-_testpilot-containers,
+        #reader-mode-button,
+        #star-button-box,
+        #tracking-protection-icon-container,
+        .search-one-offs,
+        #downloads-button {
+            display: none !important;
+        }
+    }
+}
+
+#nav-bar {
+    padding: 2px 0 1px 0 !important;
+}
+
+#navigator-toolbox {
+    border-bottom: none !important;
+}
+
+/* Hide horizontal tabs */
+#TabsToolbar {
+    display: none !important;
+}
+
+/* Sidebar */
+#sidebar-box {
+    width: 15% !important;
+    max-width: 300px !important;
+    min-width: 100px !important;
+    z-index: 1;
+
+    #sidebar-header {
+        display: none !important;
+    }
+}
+
+#sidebar-box, #webextpanels-window {
+    background-color: transparent !important;
+}
+
+#sidebar-splitter {
+    display: none !important;
+}
+
+/* Rounded browser */
+html:not([inFullscreen]):has(#sidebar-box:not([hidden])) {
+    #tabbrowser-tabbox .browserStack browser {
+        border-radius: var(--corner-radius) 0 0 0;
+        overflow: hidden;
+    }
+}
