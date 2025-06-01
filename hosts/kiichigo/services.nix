@@ -27,7 +27,7 @@
       whatsapp = {
         enable = true;
 	admin = "@susagi:negitorodon.de";
-##      signal.enable = true;
+#      signal.enable = true;
       };
     };
   };
