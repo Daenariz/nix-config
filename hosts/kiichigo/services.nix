@@ -27,17 +27,17 @@
       whatsapp = {
         enable = true;
 	admin = "@susagi:negitorodon.de";
-##      signal.enable = true;
+#      signal.enable = true;
       };
     };
   };
 
   services.mautrix-whatsapp.settings.bridge.displayname_template = lib.mkForce "{{or .BusinessName .FullName .Phone}} (WA)"; # looks like no name results in nothinas prefix
 
-  services.home-assistant-oci = {
-    enable = true;
-    dataDir = "/data/home-assistant";
-  };
+#  services.home-assistant-oci = {
+#    enable = false;
+#    dataDir = "/data/home-assistant";
+#  };
 
   mailserver = {
     enable = true;
