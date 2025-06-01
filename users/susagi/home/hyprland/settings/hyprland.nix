@@ -9,14 +9,14 @@
   #   shadow.enabled = true;
   # };
 
-    bind =
-   let
-     flatpak = "${pkgs.flatpak}/bin/flatpak";
-     bw-menu = "${pkgs.bitwarden-menu}/bin/bwm";
-   in
-   [
-    "$mod,       z, exec, ${bw-menu}"
-   ];
+  bind =
+    let
+      flatpak = "${pkgs.flatpak}/bin/flatpak";
+      bw-menu = "${pkgs.bitwarden-menu}/bin/bwm";
+    in
+    [
+      "$mod,       z, exec, ${bw-menu}"
+    ];
 
   exec-once = [
     "fcitx5 -d -r" # https://nixos.wiki/wiki/Fcitx5 for Hyprland usage

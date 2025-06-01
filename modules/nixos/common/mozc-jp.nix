@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   # Enable fonts to use on your system.  You should make sure to add at least
   # one English font (like dejavu_fonts), as well as Japanese fonts like
@@ -44,8 +49,8 @@
     enable = true;
     type = "fcitx5";
     fcitx5 = {
-    addons = with pkgs; [ fcitx5-mozc ];
-    waylandFrontend = true;
+      addons = with pkgs; [ fcitx5-mozc ];
+      waylandFrontend = true;
     };
   };
 }

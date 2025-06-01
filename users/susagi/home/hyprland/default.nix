@@ -10,18 +10,20 @@
     inputs.core.homeModules.styling
     inputs.core.homeModules.virtualization
 
-./flatpak.nix
+    ./flatpak.nix
     ./programs.nix
     ./services.nix
     ./hypr.nix
     ./ssh.nix
   ];
 
-
   styling = {
     enable = true;
     scheme = "dracula";
   };
+  #  programs.librewolf.searchEngines = [
+  #  howlongtobeat
+  #];
 
   wayland.windowManager.hyprland = {
     enable = true;

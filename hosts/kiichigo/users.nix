@@ -12,7 +12,7 @@
         ../../users/susagi/pubkeys/id_rsa.pub
         ../../users/susagi/pubkeys/tab.pub
         ../../users/susagi/pubkeys/w10_rsa.pub
-        ../../users/susagi/pubkeys/w11_rsa.pub
+        #        ../../users/susagi/pubkeys/w11_rsa.pub
       ];
     };
   };

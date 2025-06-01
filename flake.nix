@@ -1,21 +1,23 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-old-old-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    #nixpkgs.url = "github:nixos/nixpkgs/f54c283e96c02cb8ee8710205cd1d1d249ac15d9";
+
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    #    nixpkgs-old-old-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    #core.url = "github:sid115/nix-core";
-    core.url = "github:Daenariz/nix-core/feature/gaming-search-engines";
+    core.url = "github:sid115/nix-core/";
+    #    core.url = "github:sid115/nix-core/5bc751f291c50f1cb953d40670094599dbaf2729";
+    #core.url = "github:Daenariz/nix-core/feature/gaming-search-engines";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
     core-dev.url = "github:Daenariz/nix-core/feature/plecs";
     ha-test.url = "github:Daenariz/nix-core/feature/home-assistant-oci";
 
-    nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+    nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/53007af63fade28853408370c4c600a63dd97f41";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:nix-community/nixvim";
