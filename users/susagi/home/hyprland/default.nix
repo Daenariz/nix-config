@@ -22,6 +22,9 @@
     enable = true;
     scheme = "dracula";
   };
+  #  programs.librewolf.searchEngines = [
+  #  howlongtobeat
+  #];
 
   wayland.windowManager.hyprland = {
     enable = true;

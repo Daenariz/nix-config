@@ -95,11 +95,11 @@ toolbar, toolbox, /* Top bar */
 
 /* Sidebar */
 #sidebar-box {
-    width: 15% !important;
+/*    width: 15% !important; 
     max-width: 300px !important;
-    min-width: 100px !important;
+    min-width: 100px !important; 
     z-index: 1;
-
+*/
     #sidebar-header {
         display: none !important;
     }
@@ -109,9 +109,9 @@ toolbar, toolbox, /* Top bar */
     background-color: transparent !important;
 }
 
-#sidebar-splitter {
+/*#sidebar-splitter {
     display: none !important;
-}
+}*/
 
 /* Rounded browser */
 html:not([inFullscreen]):has(#sidebar-box:not([hidden])) {
