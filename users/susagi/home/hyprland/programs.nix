@@ -48,21 +48,24 @@
     librewolf = {
       profiles.default = {
         settings = lib.mkAfter {
-        "browser.tabs.allow_transparent_browser" = true;
-        "browser.tabs.crashReporting.sendReport" = false;
+          "browser.tabs.allow_transparent_browser" = true;
+          "browser.tabs.crashReporting.sendReport" = false;
         };
         extensions.packages = lib.mkAfter (
           with inputs.nur.legacyPackages."${pkgs.system}".repos.rycee.firefox-addons;
           [
             bitwarden
             yomitan
-          ] 
+          ]
         );
-        userChrome = lib.mkForce (''
-          :root {
-            --corner-radius: 15px;
-          }
-        '' + (builtins.readFile ./userChrome.css));
+        userChrome = lib.mkForce (
+          ''
+            :root {
+              --corner-radius: 15px;
+            }
+          ''
+          + (builtins.readFile ./userChrome.css)
+        );
         userContent = lib.mkForce (builtins.readFile ./userContent.css);
       };
     };

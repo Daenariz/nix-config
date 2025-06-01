@@ -10,13 +10,12 @@
     inputs.core.homeModules.styling
     inputs.core.homeModules.virtualization
 
-./flatpak.nix
+    ./flatpak.nix
     ./programs.nix
     ./services.nix
     ./hypr.nix
     ./ssh.nix
   ];
-
 
   styling = {
     enable = true;

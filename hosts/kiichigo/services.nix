@@ -12,7 +12,7 @@
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.nextcloud
     inputs.core.nixosModules.nginx
-    # inputs.core.nixosModules.open-webui 
+    # inputs.core.nixosModules.open-webui
     inputs.core.nixosModules.vaultwarden
     inputs.core.nixosModules.rss-bridge
     inputs.core.nixosModules.tt-rss
@@ -26,13 +26,14 @@
     bridges = {
       whatsapp = {
         enable = true;
-	admin = "@susagi:negitorodon.de";
-#      signal.enable = true;
+        admin = "@susagi:negitorodon.de";
+        #      signal.enable = true;
       };
     };
   };
 
-  services.mautrix-whatsapp.settings.bridge.displayname_template = lib.mkForce "{{or .BusinessName .FullName .Phone}} (WA)"; # looks like no name results in nothinas prefix
+  services.mautrix-whatsapp.settings.bridge.displayname_template =
+    lib.mkForce "{{or .BusinessName .FullName .Phone}} (WA)"; # looks like no name results in nothinas prefix
 
   services.home-assistant-oci = {
     enable = true;
@@ -45,7 +46,7 @@
       "susagi@${config.networking.domain}" = {
         hashedPasswordFile = config.sops.secrets."mailserver/accounts/susagi".path;
         aliases = [ "postmaster@${config.networking.domain}" ];
-     };
+      };
     };
   };
 
@@ -66,9 +67,9 @@
     };
   };
   services.vaultwarden = {
-     enable = true;
-     subdomain = "vault";
-   };
+    enable = true;
+    subdomain = "vault";
+  };
   services.nginx.enable = true;
   services.openssh = {
     enable = true;

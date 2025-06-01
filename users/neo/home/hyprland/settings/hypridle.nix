@@ -10,14 +10,14 @@
       timeout = 3000; # 50min in seconds
       on-timeout = "hyprlock";
     }
-          # {
-          #   timeout = 330; # 5.5min in seconds
-          #   on-timeout = "hyprctl dispatch dpms off"; # turns off screen
-          #   on-resume = "hyprctl dispatch dpms on"; # turns on screen
-          # }
-          # {
-          #   timeout = 1800; # 30min
-          #   on-timeout = "systemctl suspend"; # suspend pc
-          # }
+    # {
+    #   timeout = 330; # 5.5min in seconds
+    #   on-timeout = "hyprctl dispatch dpms off"; # turns off screen
+    #   on-resume = "hyprctl dispatch dpms on"; # turns on screen
+    # }
+    # {
+    #   timeout = 1800; # 30min
+    #   on-timeout = "systemctl suspend"; # suspend pc
+    # }
   ];
 }

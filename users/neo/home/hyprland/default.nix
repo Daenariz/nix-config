@@ -15,12 +15,12 @@
     ./programs.nix
   ];
 
-    programs.waybar.settings = import ./settings/waybar.nix;
+  programs.waybar.settings = import ./settings/waybar.nix;
 
   wayland.windowManager.hyprland = {
     enable = true;
     autostart = true;
-        settings = import ./settings/hyprland.nix { inherit pkgs lib; };
+    settings = import ./settings/hyprland.nix { inherit pkgs lib; };
   };
 
   services.ssh-agent.enable = true;
@@ -54,8 +54,6 @@
     };
   };
 
-
-
   services.flatpak = {
     enable = true;
     update = {
@@ -80,5 +78,5 @@
 
   home.packages = [ pkgs.flatpak ];
 
-    styling.enable = true;
+  styling.enable = true;
 }

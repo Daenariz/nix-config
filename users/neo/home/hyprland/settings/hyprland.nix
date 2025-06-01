@@ -1,6 +1,6 @@
-{ lib, pkgs, ...}:
+{ lib, pkgs, ... }:
 {
-  general = lib.mkForce{
+  general = lib.mkForce {
     no_border_on_floating = true;
     gaps_in = 2;
     gaps_out = 4;
@@ -13,15 +13,15 @@
 
   #gestures.workspace_swipe = true;
   # probably changed in 24.11
-   decoration = lib.mkForce {
-     rounding = 10;
+  decoration = lib.mkForce {
+    rounding = 10;
     # dim_inactive = true;
-     blur.enabled = true;
-     shadow.enabled = true;
-   };
+    blur.enabled = true;
+    shadow.enabled = true;
+  };
 
   exec-once = [
-    "fcitx5 -d "   # -r , https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
+    "fcitx5 -d " # -r , https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
     #"fcitx5-remote -r"
     "polychromatic-tray-applet"
     "[workspace 2 silent] librewolf"
@@ -31,9 +31,9 @@
     "[workspace 6 silent] tidal-hifi"
   ];
 
-     bind = [
-       "$mod,       z, exec, ${pkgs.flatpak}/bin/flatpak run com.usebottles.bottles"
-      ];
+  bind = [
+    "$mod,       z, exec, ${pkgs.flatpak}/bin/flatpak run com.usebottles.bottles"
+  ];
 
   windowrule = [
     # TODO: if new window created, split horizontally
@@ -48,15 +48,15 @@
     "workspace 3, class:^([Dd]iscord|[Ww]ebCord|[Vv]esktop)$"
 
     "workspace    4, class:^([Ss]team)$"
-    "float         , class:^([Ss]team)$" #, title:negative:^([Ss]team)$"
+    "float         , class:^([Ss]team)$" # , title:negative:^([Ss]team)$"
     "rounding    20, class:^([Ss]team)$"
     "size 1636 1048, title:^([Ss]team)$" # resize correctly
-    "move      0 32, title:^([Ss]team)$"  # works for now, but makes no sense
+    "move      0 32, title:^([Ss]team)$" # works for now, but makes no sense
 
     #"workspace 4, title:^(Friends List)$"
     #  "float, title:^(Friends List)$"
     "size 284 1048, title:^(Friends List)$"
-    "move  1636 32, title:^(Friends List)$"  # same here
+    "move  1636 32, title:^(Friends List)$" # same here
 
     #"monitor   1, class:^Element$, title:^Element"
     "workspace 5, class:^(im.riot.Riot)$"
@@ -79,15 +79,15 @@
     # "move center (1), class:^steam_app_1284210$, title:^Guild Wars 2$"
 
   ];
-    workspace = [
-    "2, monitor:HDMI-A-1, default:true, layoutopt:orientation:top" 
-    "1, monitor:DP-1, default:true"#, gapsout:10, gapsin:5"
-    "3, monitor:DP-1"  
-    "4, monitor:DP-1"  
-    "5, monitor:DP-1"  
-    "6, monitor:DP-1"  
+  workspace = [
+    "2, monitor:HDMI-A-1, default:true, layoutopt:orientation:top"
+    "1, monitor:DP-1, default:true" # , gapsout:10, gapsin:5"
+    "3, monitor:DP-1"
+    "4, monitor:DP-1"
+    "5, monitor:DP-1"
+    "6, monitor:DP-1"
     ### smart gaps
     "w[tv1], gapsout:0, gapsin:0"
     "f[1], gapsout:0, gapsin:0"
-    ];
+  ];
 }

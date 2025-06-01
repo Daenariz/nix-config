@@ -16,7 +16,7 @@
     inputs.core.nixosModules.tt-rss
   ];
 
- # services.vaultwarden = {
+  # services.vaultwarden = {
   #   enable = true;
   #   subdomain = "vault";
   # };
@@ -45,7 +45,7 @@
       "shopping_list"
     ];
     config = {
-      default_config = {};
+      default_config = { };
     };
   };
 }

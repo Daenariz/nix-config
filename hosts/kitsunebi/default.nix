@@ -25,13 +25,13 @@
   };
 
   #  programs.steam.gamescopeSession.enable = true;
- programs.gpu-screen-recorder.enable = true;
+  programs.gpu-screen-recorder.enable = true;
 
   hardware.openrazer.enable = true;
 
   programs.gamemode = {
     enable = true;
-    #  settings = 
+    #  settings =
   };
 
   networking = {

@@ -1,7 +1,9 @@
-{ inputs,
+{
+  inputs,
   outputs,
   pkgs,
-  ... }:
+  ...
+}:
 
 {
   imports = [
@@ -22,7 +24,7 @@
     ./packages.nix
   ];
 
-services.xserver.xkb.layout = "de";
+  services.xserver.xkb.layout = "de";
 
   services.displayManager.sddm = {
     enable = true;
@@ -37,12 +39,10 @@ services.xserver.xkb.layout = "de";
     #    firewall.allowedTCPPorts = [ 8123 ];
   };
 
-
   services = {
-    udev.packages = with pkgs;
-      [
-        platformio-core.udev
-      ];
+    udev.packages = with pkgs; [
+      platformio-core.udev
+    ];
     openssh.enable = true;
     pipewire.enable = true;
     flatpak.enable = true;

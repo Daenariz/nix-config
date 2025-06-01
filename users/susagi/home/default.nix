@@ -1,4 +1,10 @@
-{ inputs, outputs, config, pkgs, ... }:
+{
+  inputs,
+  outputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -35,7 +41,7 @@
   nix.package = pkgs.nix;
   nix.extraOptions = ''
     !include ${config.sops.templates.access-tokens.path}
-    '';
+  '';
 
   home.stateVersion = "24.11";
 }

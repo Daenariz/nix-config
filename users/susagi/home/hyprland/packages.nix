@@ -21,8 +21,8 @@ with pkgs;
   # testing
   [
     bitwarden-menu
-      bitwarden-cli
-      dmenu
+    bitwarden-cli
+    dmenu
     #    matlab  ## I hate this piece of sh...
     #  bottles  ## for the piece of sh... above, but deprecated
   ]
@@ -38,7 +38,7 @@ with pkgs;
 ++
   # essentials
   [
-    flatpak  # for the binary
+    flatpak # for the binary
     thunderbird
     tidal-hifi
     signal-desktop

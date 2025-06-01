@@ -2,8 +2,8 @@
 
 {
   imports = [
-  ./wyoming.nix
-#  ./homeassistant.nix
+    ./wyoming.nix
+    #  ./homeassistant.nix
     ./boot.nix
     ./hardware.nix
     ./networking.nix

@@ -25,11 +25,11 @@
   };
 
   services = {
-#    nginx.enable = true;
+    #    nginx.enable = true;
     openssh = {
       enable = true;
       ports = [
-      22
+        22
       ];
     };
   };
@@ -40,7 +40,7 @@
       extraGroups = [
         "wheel"
       ];
-      sshKeyFiles = [ ../../users/susagi/pubkeys/vde_rsa.pub];
+      sshKeyFiles = [ ../../users/susagi/pubkeys/vde_rsa.pub ];
     };
   };
   system.stateVersion = "24.11";

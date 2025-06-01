@@ -4,7 +4,7 @@
       enable = true;
       settings = {
         preload = [ "~/Pictures/wallpaper.jpg" ];
-        wallpaper =  [ ",~/Pictures/wallpaper.jpg" ];
+        wallpaper = [ ",~/Pictures/wallpaper.jpg" ];
       };
     };
 
