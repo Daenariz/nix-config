@@ -5,6 +5,8 @@
 # hyprctl reload for forcing config reload
 ''
   monitor = desc:Dell Inc. DELL S2721HGF 89M8123, 1920x1080@144, 0x0, 1.00
+  #monitor = desc: Samsung Electric Company SAMSUNG 0x01000E00, 1920x1080@60, auto-left, 1.00 
+  #monitor = desc:LG Electronics W2443 0x00036522, disable
   monitor = desc:LG Electronics W2443 0x00036522, 1920x1080@60, 1920x-200, 1, transform, 1
 ''
 # rotation with ..., transform, number from 1-3 (0 for default)

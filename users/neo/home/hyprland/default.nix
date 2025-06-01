@@ -15,12 +15,12 @@
     ./programs.nix
   ];
 
-    programs.waybar.settings = import ./settings/waybar.nix;
+  programs.waybar.settings = import ./settings/waybar.nix;
 
   wayland.windowManager.hyprland = {
     enable = true;
     autostart = true;
-        settings = import ./settings/hyprland.nix { inherit pkgs lib; };
+    settings = import ./settings/hyprland.nix { inherit pkgs lib; };
   };
 
   services.ssh-agent.enable = true;
@@ -37,14 +37,19 @@
     ELECTRON_OZONE_PLATFORM_HINT = "wayland"; # to fix flickering
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    NVD_BACKEND = "direct";
   };
 
   services = {
     hyprpaper = {
       enable = true;
       settings = {
-        preload = [ "~/Pictures/dragon.jpg" ];
-        wallpaper = [ ",~/Pictures/dragon.jpg" ];
+        preload = [
+          "~/Pictures/arknos.JPG"
+          "~/Pictures/night.jpg"
+          "~/Pictures/legends.JPG"
+        ];
+        wallpaper = [ ",~/Pictures/arknos.JPG" ];
       };
     };
 
@@ -53,8 +58,6 @@
       settings = import ./settings/hypridle.nix;
     };
   };
-
-
 
   services.flatpak = {
     enable = true;
@@ -80,5 +83,5 @@
 
   home.packages = [ pkgs.flatpak ];
 
-    styling.enable = true;
+  styling.enable = true;
 }

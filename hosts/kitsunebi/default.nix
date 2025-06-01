@@ -1,4 +1,9 @@
-{ inputs, outputs, ... }:
+{
+  pkgs,
+  inputs,
+  outputs,
+  ...
+}:
 
 {
   imports = [
@@ -15,6 +20,8 @@
     ./packages.nix
   ];
 
+  #  nixpkgs.config.cudaSupport = true;
+
   services.flatpak.enable = true;
 
   programs.steam = {
@@ -25,13 +32,20 @@
   };
 
   #  programs.steam.gamescopeSession.enable = true;
- programs.gpu-screen-recorder.enable = true;
+  # programs.gpu-screen-recorder = {
+  #  enable = true;
+  ##  package = (pkgs.gpu-screen-recorder.override {
+  ##    cudaSupport = true;
+  ##  });
+  #};
 
   hardware.openrazer.enable = true;
 
+  programs.adb.enable = true;
+
   programs.gamemode = {
     enable = true;
-    #  settings = 
+    #  settings =
   };
 
   networking = {
@@ -58,6 +72,7 @@
         "video"
         "wheel"
         "gamemode"
+        "adbusers"
       ];
     };
   };
