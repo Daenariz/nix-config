@@ -29,7 +29,7 @@
     openssh = {
       enable = true;
       ports = [
-        22
+        30715 
       ];
     };
   };
@@ -40,7 +40,10 @@
       extraGroups = [
         "wheel"
       ];
-      sshKeyFiles = [ ../../users/susagi/pubkeys/vde_rsa.pub ];
+      sshKeyFiles = [ 
+        ../../users/susagi/pubkeys/vde_rsa.pub
+	../../users/susagi/pubkeys/futro_rsa.pub
+      ];
     };
   };
   system.stateVersion = "24.11";
