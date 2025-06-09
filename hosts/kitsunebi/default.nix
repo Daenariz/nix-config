@@ -29,6 +29,7 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = false;
     localNetworkGameTransfers.openFirewall = true;
+    gamescopeSession.enable = true;
   };
 
   #  programs.steam.gamescopeSession.enable = true;

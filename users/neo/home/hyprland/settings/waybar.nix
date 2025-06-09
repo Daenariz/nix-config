@@ -3,7 +3,7 @@
     modules-left = [
       "hyprland/workspaces"
       "tray"
-      "keyboard-state"
+      #"keyboard-state"
       "hyprland/window"
     ];
     modules-right = [
@@ -22,11 +22,11 @@
       "format" = " {icon} ";
       "format-icons" = {
         "1" = ""; # default
-        "2" = ""; # browser
+        "2" = ""; # music
         "3" = ""; # discord
         "4" = ""; # steam
         "5" = ""; # chats
-        "6" = ""; # music
+        "6" = ""; # browser
         "urgent" = "";
         "active" = "";
         "default" = "";
@@ -39,14 +39,14 @@
 
       "all-outputs" = false;
       "persistent-workspaces" = {
-        "DP-1" = [
+        "HDMI-A-1" = [
           1
+          2
           3
           4
           5
           6
         ];
-        "HDMI-A-1" = [ 2 ];
       };
     };
   };

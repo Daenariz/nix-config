@@ -18,5 +18,8 @@
     # razer + rgb stuff
     openrazer-daemon
     polychromatic
+
+    # ai
+    jan
   ];
 }
