@@ -17,13 +17,12 @@
   };
 
   exec-once = [
-    "fcitx5 -d && polychromatic-tray-applet && obs --startreplaybuffer --minimize-to-tray" # -r , https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
-    #"fcitx5-remote -r"
-    #  "[workspace 2 silent] librewolf"
+    "fcitx5 -d && polychromatic-tray-applet" 
+    "obs --startreplaybuffer --minimize-to-tray" # -r , https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
+    "xrandr --output DP-1 --primary"
     "[workspace 3 silent] vesktop"
     "[workspace 4 silent] steam"
     "[workspace 5 silent] element-desktop"
-    #"[workspace 6 silent] tidal-hifi"
   ];
 
   bind = [
@@ -64,7 +63,7 @@
     "monitor 2, class:^(steam_app_\d+)$"
     "workspace 1, class:^(steam_app_\d+)$"
     # "pseudo, class:^(steam_app_\d+)$"
-    "allowsinput 1, class:^(steam_app_\d+)$"
+    ##    "allowsinput 1, class:^(steam_app_\d+)$"
     "center, class:^(steam_app_\d+)$"
     # "move center (1), class:^steam_app_1284210$, title:^Guild Wars 2$"
 

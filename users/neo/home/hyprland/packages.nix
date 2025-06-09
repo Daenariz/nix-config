@@ -21,5 +21,9 @@
 
     # ai
     jan
+
+    #test
+    xorg.xrandr
+    flatpak
   ];
 }

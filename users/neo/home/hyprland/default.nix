@@ -81,7 +81,5 @@
     ];
   };
 
-  home.packages = [ pkgs.flatpak ];
-
   styling.enable = true;
 }
