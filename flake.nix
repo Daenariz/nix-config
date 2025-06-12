@@ -71,6 +71,12 @@
       );
 
       nixosConfigurations = {
+        kyoujin = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [ ./hosts/kyoujin ];
+        };
         kitsunebi = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
