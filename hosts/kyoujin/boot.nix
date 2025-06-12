@@ -1,9 +1,9 @@
 {
-  boot = {
-    loader = {
-      grub.enable = false;
-      generic-extlinux-compatible.enable = true;
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 20;
     };
-
+    efi.canTouchEfiVariables = true;
   };
 }
