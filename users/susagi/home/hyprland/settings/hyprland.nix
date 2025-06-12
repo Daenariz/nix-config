@@ -25,25 +25,20 @@
     "[workspace 4 silent] thunderbird"
     "[workspace 5 silent] element-desktop"
     "[workspace 5 silent] signal-desktop"
-    "[workspace 6 silent] tidal-hifi"
   ];
 
   windowrule = [
     "center (1), class:^(dmenu)$"
     "workspace 2, class:^([Ll]ibrewolf)$"
-
-    "workspace 5, class:^Element$, title:^Element"
-
     "workspace 4, class:^thunderbird$, title:Thunderbird$"
-
+    "workspace 5, class:^Element$, title:^Element"
     "workspace 5, title:^Signal"
-
     "workspace 6, initialClass:^tidal-hifi$, initialTitle:^tidal-hifi"
   ];
   workspace = [
     "1, monitor:eDP-1, default:true"
-    "2, monitor:eDP-1"
-    #    "2, monitor:HDMI-1-A, default:true, layoutopt:orientation:top"
+    # "2, monitor:eDP-1"
+        "2, monitor:HDMI-1-A, default:true, layoutopt:orientation:top"
     "3, monitor:eDP-1"
     "4, monitor:eDP-1"
     "5, monitor:eDP-1"

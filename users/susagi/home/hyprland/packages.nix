@@ -20,9 +20,11 @@ with pkgs;
 ++
   # testing
   [
-    bitwarden-menu
-    bitwarden-cli
-    dmenu
+  #  bitwarden-menu
+  #  bitwarden-cli
+  # dmenu
+
+  ##  displaylink # for the proprietary displaylink driver
     #    matlab  ## I hate this piece of sh...
     #  bottles  ## for the piece of sh... above, but deprecated
   ]

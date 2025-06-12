@@ -4,7 +4,7 @@
   programs.ssh = {
     enable = true;
     matchBlocks = {
-      negitorodon = {
+      rpi = {
         host = "n negito";
         hostname = "negitorodon.de";
         port = 3407;
@@ -18,6 +18,14 @@
         port = 2299;
         user = "susagi";
         identityFile = "/home/susagi/.ssh/vde_rsa";
+      };
+
+      futro = {
+        host = "f futro";
+        hostname = "negitorodon.de";
+        port = 30715;
+        user = "susagi";
+        identityFile = "/home/susagi/.ssh/tp_dev";
       };
     };
 

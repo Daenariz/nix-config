@@ -4,6 +4,7 @@
 # hyprctl keyword monitor <name,res,pos,scale> for testing
 # hyprctl reload for forcing config reload
 ''
+  monitor=,preferred,auto,1
   monitor = eDP-1, 1920x1200@60, 0x0, 1.25
   monitor = desc:Dell Inc. DELL P2412H TTMDG1932DKU, 1920x1080@60, -1080x0, 1, transform, 1
   monitor = desc:Fujitsu Siemens Computers GmbH B24T-7 LED PG YV6K204146, 1920x1080@60, -1080x0, 1, transform, 1

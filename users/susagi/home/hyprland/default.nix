@@ -1,5 +1,6 @@
 {
-  inputs,
+lib,
+     inputs,
   pkgs,
   ...
 }:
@@ -32,6 +33,9 @@
   };
 
   home.packages = import ./packages.nix { inherit pkgs inputs; };
+  home.sessionVariables = lib.mkAfter {
+    AQ_NO_MODIFIERS = "1";  # for DisplayLink monitors
+  };
 
   home.shellAliases = {
     t2c = "sh ~/Desktop/projects/repos/soku_tango/tango2csv.sh ";
