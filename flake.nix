@@ -9,7 +9,7 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    core.url = "github:sid115/nix-core/";
+    core.url = "github:sid115/nix-core";
     #    core.url = "github:sid115/nix-core/5bc751f291c50f1cb953d40670094599dbaf2729";
     #core.url = "github:Daenariz/nix-core/feature/gaming-search-engines";
     core.inputs.nixpkgs.follows = "nixpkgs";

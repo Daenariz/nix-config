@@ -1,7 +1,7 @@
 { config, inputs, ...}:
 {
 imports = [
- inputs.core.nixosModules.open-webui
+# inputs.core.nixosModules.open-webui
 ];
 services.ollama = {
   enable = true;
@@ -10,6 +10,6 @@ services.ollama = {
   acceleration = "cuda";
 };
 
-services.open-webui.enable = true;
+#services.open-webui.enable = true;
 
 }

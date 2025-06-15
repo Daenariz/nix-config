@@ -11,7 +11,15 @@
   local-packages = final: prev: { local = import ../pkgs { pkgs = final; }; };
 
   # https://nixos.wiki/wiki/Overlays
-  modifications = final: prev: { } // inputs.core.overlays.modifications final prev;
+  modifications =
+    final: prev:
+    let
+      files = [
+#         ./open-webui.nix 
+      ];
+      imports = builtins.map (f: import f final prev) files;
+    in
+    builtins.foldl' (a: b: a // b) { } imports // inputs.core.overlays.modifications final prev;
 
   # stable nixpkgs accessible through 'pkgs.stable'
   stable-packages = final: prev: {
@@ -36,4 +44,16 @@
       inherit (prev) config;
     };
   };
+
+#  onnx-overlay = final: prev: {
+#      pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [(
+#        python-final: python-prev: {
+#          onnxruntime = python-prev.onnxruntime.overridePythonAttrs (
+#            oldAttrs: {
+#              buildInputs = lib.lists.remove pkgs.onnxruntime oldAttrs.buildInputs;
+#            }
+#          );
+#        }
+#      )];
+#    };
 }
