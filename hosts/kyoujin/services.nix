@@ -12,7 +12,7 @@
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.nextcloud
     inputs.core.nixosModules.nginx
-    # inputs.core.nixosModules.open-webui
+#    inputs.core.nixosModules.open-webui
     inputs.core.nixosModules.vaultwarden
     inputs.core.nixosModules.rss-bridge
     inputs.core.nixosModules.tt-rss
@@ -21,24 +21,24 @@
   ];
 
   services.matrix-synapse = {
-    enable = true;
+    enable = false;
     dataDir = "/data/matrix-synapse";
     bridges = {
       whatsapp = {
-        enable = true;
+        enable = false;
         admin = "@susagi:${config.networking.domain}";
         #      signal.enable = true;
       };
     };
   };
 
-  services.home-assistant-oci = {
-    enable = true;
-    dataDir = "/data/home-assistant";
-  };
+ # services.home-assistant-oci = {
+ #   enable = false
+ #   dataDir = "/data/home-assistant";
+ # };
 
-  mailserver = {
-    enable = true;
+   mailserver = {
+    enable = false;
     loginAccounts = {
       "susagi@${config.networking.domain}" = {
         hashedPasswordFile = config.sops.secrets."mailserver/accounts/susagi".path;
@@ -50,7 +50,7 @@
   sops.secrets."mailserver/accounts/susagi" = { };
 
   services.nextcloud = {
-    enable = true;
+    enable = false;
     datadir = "/data/nextcloud";
     subdomain = "cloud";
     extraApps = {
@@ -64,22 +64,18 @@
     };
   };
   services.vaultwarden = {
-    enable = true;
+    enable = false;
     subdomain = "vault";
   };
-  services.nginx.enable = true;
-  services.openssh = {
-    enable = true;
-    ports = [ 3407 ];
-  };
-  # services.open-webui.enable = true;
+  services.nginx.enable = false;
+ # services.open-webui.enable = true;
   services.rss-bridge = {
-    enable = true;
+    enable = false;
     dataDir = "/data/rss-bridge";
     subdomain = "rss-bridge";
   };
   services.tt-rss = {
-    enable = true;
+    enable = false;
     root = "/data/tt-rss";
   };
 }
