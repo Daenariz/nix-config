@@ -12,6 +12,7 @@
     ./users.nix
     inputs.core.nixosModules.common
     inputs.core.nixosModules.sops
+    inputs.core.nixosModules.openssh
 
     outputs.nixosModules.common
 
@@ -19,5 +20,9 @@
 
   programs.ssh.startAgent = true;
 
+  services.openssh = {
+    enable = true;
+    ports = [ 3407 ];
+  };
   system.stateVersion = "24.11";
 }

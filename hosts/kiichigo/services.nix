@@ -8,7 +8,6 @@
 
 {
   imports = [
-    inputs.core.nixosModules.openssh
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.nextcloud
     inputs.core.nixosModules.nginx
@@ -68,10 +67,6 @@
     subdomain = "vault";
   };
   services.nginx.enable = true;
-  services.openssh = {
-    enable = true;
-    ports = [ 3407 ];
-  };
   # services.open-webui.enable = true;
   services.rss-bridge = {
     enable = true;
