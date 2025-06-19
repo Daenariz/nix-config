@@ -1,19 +1,20 @@
-{ inputs, outputs, ... }:
+{ inputs, outputs, pkgs, ... }:
 
 {
   imports = [
-   inputs.core.nixosModules.normalUsers
+    inputs.core.nixosModules.normalUsers
     ./wyoming.nix
     #  ./homeassistant.nix
     ./boot.nix
     ./hardware.nix
     ./networking.nix
     ./packages.nix
-#    ./services.nix
+    #    ./services.nix
     ./ollama.nix
     inputs.core.nixosModules.common
     inputs.core.nixosModules.sops
     inputs.core.nixosModules.nvidia
+    inputs.core.nixosModules.openssh
 
     outputs.nixosModules.common
 
@@ -32,13 +33,32 @@
     };
   };
 
+  networking = {
+    interfaces.enp8s0.wakeOnLan = {
+      enable = true;
+      policy = [
+        "magic"
+      ];
+    };
+  };
+
+  systemd.services.wakeonlan = {
+    description = "Reenable wake on lan every boot";
+    after = [ "network.target" ];
+    serviceConfig = {
+      Type = "simple";
+      RemainAfterExit = "true";
+      ExecStart = "${pkgs.ethtool}/sbin/ethtool -s enp8s0 wol g";
+    };
+    wantedBy = [ "default.target" ];
+  };
+
   programs.ssh.startAgent = true;
 
   services.openssh = {
     enable = true;
-    ports = [ 3407 ];
+    ports = [ 2299 ];
   };
   system.stateVersion = "24.11";
-
 
 }

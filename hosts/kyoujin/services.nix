@@ -12,7 +12,7 @@
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.nextcloud
     inputs.core.nixosModules.nginx
-#    inputs.core.nixosModules.open-webui
+    #    inputs.core.nixosModules.open-webui
     inputs.core.nixosModules.vaultwarden
     inputs.core.nixosModules.rss-bridge
     inputs.core.nixosModules.tt-rss
@@ -32,12 +32,12 @@
     };
   };
 
- # services.home-assistant-oci = {
- #   enable = false
- #   dataDir = "/data/home-assistant";
- # };
+  # services.home-assistant-oci = {
+  #   enable = false
+  #   dataDir = "/data/home-assistant";
+  # };
 
-   mailserver = {
+  mailserver = {
     enable = false;
     loginAccounts = {
       "susagi@${config.networking.domain}" = {
@@ -68,7 +68,7 @@
     subdomain = "vault";
   };
   services.nginx.enable = false;
- # services.open-webui.enable = true;
+  # services.open-webui.enable = true;
   services.rss-bridge = {
     enable = false;
     dataDir = "/data/rss-bridge";
