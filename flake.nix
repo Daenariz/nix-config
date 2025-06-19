@@ -1,17 +1,13 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    #nixpkgs.url = "github:nixos/nixpkgs/f54c283e96c02cb8ee8710205cd1d1d249ac15d9";
 
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    #    nixpkgs-old-old-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    core.url = "github:sid115/nix-core";
-    #    core.url = "github:sid115/nix-core/5bc751f291c50f1cb953d40670094599dbaf2729";
-    #core.url = "github:Daenariz/nix-core/feature/gaming-search-engines";
+    core.url = "github:sid115/nix-core/develop";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
     core-dev.url = "github:Daenariz/nix-core/feature/plecs";
@@ -29,7 +25,6 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    #stylix.url = "github:danth/stylix/a88c4d264a4379b7fe5a9e75ed51bea96f8dd407";
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
