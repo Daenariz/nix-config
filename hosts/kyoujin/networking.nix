@@ -1,8 +1,9 @@
 {
   networking.hostName = "kyoujin";
-  #  networking.domain = "negitorodon.de";
+  networking.domain = "negitorodon.de";
   networking.firewall.allowedTCPPorts = [
     8123
+    8082
     11434
     10200
     10300
