@@ -5,7 +5,6 @@
 
   normalUsers = {
     susagi = {
-      name = "susagi";
       extraGroups = [ "wheel" ];
       sshKeyFiles = [
         ../../users/susagi/pubkeys/vde_rsa.pub

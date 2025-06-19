@@ -11,7 +11,7 @@
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.nextcloud
     inputs.core.nixosModules.nginx
-    # inputs.core.nixosModules.open-webui
+    inputs.core.nixosModules.open-webui
     inputs.core.nixosModules.vaultwarden
     inputs.core.nixosModules.rss-bridge
     inputs.core.nixosModules.tt-rss
@@ -66,8 +66,43 @@
     enable = true;
     subdomain = "vault";
   };
+
   services.nginx.enable = true;
-  # services.open-webui.enable = true;
+  services.nginx.virtualHosts =
+    let
+      webui = config.services.open-webui;
+    in
+    {
+      "${webui.subdomain}.${config.networking.domain}" = {
+        enableACME = true;
+        forceSSL = true;
+        locations."/ws/socket.io/" = {
+          proxyPass = "http://192.168.178.107:8082";
+          #	  proxyWebsockets = true;
+          extraConfig = ''
+            	  proxy_http_version 1.1;
+                  proxy_set_header Upgrade $http_upgrade;
+                  proxy_set_header Connection "upgrade";
+                  proxy_set_header Host $host;
+                  proxy_set_header X-Real-IP $remote_addr;
+                  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                  proxy_set_header X-Forwarded-Proto $scheme;
+                  proxy_buffering off;
+                  proxy_set_header X-Accel-Buffering no;
+          '';
+        };
+        locations."/" = {
+          proxyPass = "http://192.168.178.107:8082";
+          #proxyWebsockets = true;
+          extraConfig = ''
+            proxy_set_header X-Accel-Buffering no;
+            proxy_buffering off;
+          '';
+        };
+      };
+    };
+  services.open-webui.enable = false;
+
   services.rss-bridge = {
     enable = true;
     dataDir = "/data/rss-bridge";

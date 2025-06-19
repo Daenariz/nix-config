@@ -13,7 +13,8 @@
     core-dev.url = "github:Daenariz/nix-core/feature/plecs";
     ha-test.url = "github:Daenariz/nix-core/feature/home-assistant-oci";
 
-    nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/53007af63fade28853408370c4c600a63dd97f41";
+    nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/";
+   # nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/53007af63fade28853408370c4c600a63dd97f41";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:nix-community/nixvim";
