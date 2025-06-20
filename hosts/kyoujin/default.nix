@@ -4,7 +4,6 @@
   imports = [
     inputs.core.nixosModules.normalUsers
     ./wyoming.nix
-    #  ./homeassistant.nix
     ./boot.nix
     ./hardware.nix
     ./networking.nix
@@ -52,6 +51,20 @@
     };
     wantedBy = [ "default.target" ];
   };
+
+
+systemd.timers.shutdownAtMidnight = {
+  wantedBy = [ "timers.target" ];
+  timerConfig = {
+    OnCalendar = "daily";
+    Persistent = true;
+  };
+};
+
+systemd.services.shutdownAtMidnight = {
+  serviceConfig.Type = "oneshot";
+  script = "/run/current-system/sw/bin/shutdown -h now";
+};
 
   programs.ssh.startAgent = true;
 
