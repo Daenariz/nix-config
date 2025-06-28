@@ -5,7 +5,7 @@
     enable = true;
     matchBlocks = {
       rpi = {
-        host = "n negito";
+        host = "kii kiichigo";
         hostname = "negitorodon.de";
         port = 3407;
         user = "susagi";
@@ -17,7 +17,7 @@
         hostname = "steffen.fail";
         port = 2299;
         user = "susagi";
-        identityFile = "/home/susagi/.ssh/vde_rsa";
+        identityFile = "/home/susagi/.ssh/thinkpad_rsa";
       };
 
       futro = {
@@ -27,7 +27,14 @@
         user = "susagi";
         identityFile = "/home/susagi/.ssh/tp_dev";
       };
-    };
 
+      kyoujin = {
+        host = "kyo kyoujin";
+        hostname = "negitorodon.de";
+        port = 2299;
+        user = "susagi";
+        identityFile = "/home/susagi/.ssh/vde_rsa";
+      };
+    };
   };
 }

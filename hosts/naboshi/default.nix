@@ -13,9 +13,7 @@
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
-
     inputs.core.nixosModules.virtualization
-    #inputs.ha-test.nixosModules.home-assistant-oci
 
     outputs.nixosModules.common
 
@@ -26,12 +24,12 @@
 
   services.xserver.xkb.layout = "de";
 
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
+  #  services.displayManager.sddm = {
+  #  enable = true;
+  #  wayland.enable = true;
     #    settings = {
     #};
-  };
+  #};
 
   networking = {
     hostName = "naboshi";
@@ -52,7 +50,6 @@
 
   normalUsers = {
     susagi = {
-      name = "susagi";
       extraGroups = [
         "input"
         "audio"

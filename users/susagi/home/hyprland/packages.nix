@@ -20,11 +20,7 @@ with pkgs;
 ++
   # testing
   [
-  #  bitwarden-menu
-  #  bitwarden-cli
-  # dmenu
-
-  ##  displaylink # for the proprietary displaylink driver
+    ##  displaylink # for the proprietary displaylink driver
     #    matlab  ## I hate this piece of sh...
     #  bottles  ## for the piece of sh... above, but deprecated
   ]
@@ -45,6 +41,7 @@ with pkgs;
     tidal-hifi
     signal-desktop
     ausweisapp
+    vlc
     #   whatsie
     #stable.whatsapp-for-linux # wasistlos=unstable, stable not working
     #   zoom-us # SSO doesn't seem too work https://github.com/NixOS/nixpkgs/issues/73532 (?)

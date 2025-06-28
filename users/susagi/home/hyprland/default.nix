@@ -1,6 +1,6 @@
 {
-lib,
-     inputs,
+  lib,
+  inputs,
   pkgs,
   ...
 }:
@@ -22,9 +22,6 @@ lib,
     enable = true;
     scheme = "dracula";
   };
-  #  programs.librewolf.searchEngines = [
-  #  howlongtobeat
-  #];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -34,7 +31,7 @@ lib,
 
   home.packages = import ./packages.nix { inherit pkgs inputs; };
   home.sessionVariables = lib.mkAfter {
-    AQ_NO_MODIFIERS = "1";  # for DisplayLink monitors
+    AQ_NO_MODIFIERS = "1"; # for DisplayLink monitors
   };
 
   home.shellAliases = {
