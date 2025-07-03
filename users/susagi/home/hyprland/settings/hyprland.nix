@@ -13,9 +13,11 @@
     let
       flatpak = "${pkgs.flatpak}/bin/flatpak";
       bw-menu = "${pkgs.bitwarden-menu}/bin/bwm";
+      tidal = "${pkgs.tidal-hifi}/bin/tidal-hifi";
     in
     [
       "$mod,       z, exec, ${bw-menu}"
+      "$mod,       t, exec, ${tidal}"
     ];
 
   exec-once = [
