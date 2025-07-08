@@ -15,7 +15,7 @@
     inputs.core.nixosModules.vaultwarden
     inputs.core.nixosModules.rss-bridge
     inputs.core.nixosModules.tt-rss
-    inputs.ha-test.nixosModules.home-assistant-oci
+#    inputs.ha-test.nixosModules.home-assistant-oci
     inputs.core.nixosModules.matrix-synapse
   ];
 
@@ -23,21 +23,21 @@
     enable = true;
     dataDir = "/data/matrix-synapse";
     bridges = {
-      whatsapp = {
-        enable = true;
-        admin = "@susagi:${config.networking.domain}";
-        #      signal.enable = true;
-      };
+      whatsapp.enable = true;
+      whatsapp.admin = "@susagi:${config.networking.domain}";
+#      signal.enable = true;
+#      signal.admin = "@susagi:${config.networking.domain}";
     };
   };
 
-  services.home-assistant-oci = {
-    enable = true;
-    dataDir = "/data/home-assistant";
-  };
+#  services.home-assistant-oci = {
+#    enable = false;
+#    dataDir = "/data/home-assistant";
+#  };
 
   mailserver = {
     enable = true;
+    stateVersion = 3;
     loginAccounts = {
       "susagi@${config.networking.domain}" = {
         hashedPasswordFile = config.sops.secrets."mailserver/accounts/susagi".path;
