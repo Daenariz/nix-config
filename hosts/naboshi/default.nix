@@ -22,6 +22,10 @@
     ./packages.nix
   ];
 
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+      ];
+
   services.xserver.xkb.layout = "de";
 
   #  services.displayManager.sddm = {

@@ -36,7 +36,6 @@
 
   normalUsers = {
     susagi = {
-      name = "susagi";
       extraGroups = [
         "wheel"
       ];

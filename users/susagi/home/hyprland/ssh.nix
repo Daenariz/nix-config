@@ -35,6 +35,13 @@
         user = "susagi";
         identityFile = "/home/susagi/.ssh/vde_rsa";
       };
+      aarch64-vm = {
+        host = "vm arch64-vm";
+        hostname = "localhost";
+        port = 2222;
+        user = "nixos";
+        # identityFile = "/home/susagi/.ssh/vde_rsa";
+      };
     };
   };
 }
