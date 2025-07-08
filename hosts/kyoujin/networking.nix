@@ -3,6 +3,7 @@
   networking.domain = "negitorodon.de";
   networking.firewall.allowedTCPPorts = [
     8123
+    8188
     11434
     10200
     10300
