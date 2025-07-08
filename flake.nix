@@ -5,11 +5,11 @@
     nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
     # broke waybar 
-    #home-manager.url = "github:nix-community/home-manager/863842639722dd12ae9e37ca83bcb61a63b36f6c";
     #    home-manager.url = "github:nix-community/home-manager";
     # home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    #core.url = "github:sid115/nix-core/develop";
-    core.url = "github:sid115/nix-core";
+
+    core.url = "github:sid115/nix-core/develop";
+    #core.url = "github:sid115/nix-core";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
     core-dev.url = "github:Daenariz/nix-core/feature/plecs";

@@ -18,7 +18,7 @@
     ./ssh.nix
   ];
 
-  styling = {
+    styling = {
     enable = true;
     scheme = "dracula";
   };
