@@ -1,6 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, lib,  ... }:
 
 {
+ general = {
+     no_border_on_floating = true; 
+     gaps_in = lib.mkForce 3;
+     gaps_out = lib.mkForce 6;
+   };
+
   animations.enabled = true;
   gestures.workspace_swipe = true;
   # probably changed in 24.11
@@ -18,6 +24,7 @@
     [
       "$mod,       z, exec, ${bw-menu}"
       "$mod,       t, exec, ${tidal}"
+      "$mod SHIFT, m, exec, chromium --app=https://tenhou.net/3/"
     ];
 
   exec-once = [

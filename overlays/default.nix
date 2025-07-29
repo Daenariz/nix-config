@@ -2,7 +2,7 @@
 
 {
   # forked nix-core packages accessible through 'pkgs.core-dev'
-  core-dev-packages = final: prev: { core-dev = inputs.core-dev.packages."${final.system}"; };
+  #  core-dev-packages = final: prev: { core-dev = inputs.core-dev.packages."${final.system}"; };
 
   # nix-core packages accessible through 'pkgs.core'
   core-packages = final: prev: { core = inputs.core.packages."${final.system}"; };

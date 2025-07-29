@@ -19,6 +19,7 @@
 
     ./boot.nix
     ./hardware.nix
+    ./postgres.nix
     ./packages.nix
   ];
 

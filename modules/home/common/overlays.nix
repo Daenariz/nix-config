@@ -2,7 +2,7 @@
 
 {
   nixpkgs.overlays = [
-    outputs.overlays.core-dev-packages
+    #    outputs.overlays.core-dev-packages
     outputs.overlays.core-packages
     outputs.overlays.local-packages
     outputs.overlays.modifications
