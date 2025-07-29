@@ -18,7 +18,7 @@
 
   exec-once = [
     "fcitx5 -d && polychromatic-tray-applet" 
-    "obs --startreplaybuffer --minimize-to-tray" # -r , https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
+    "obs --startreplaybuffer --minimize-to-tray" # -r https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
     "xrandr --output DP-1 --primary"
     "[workspace 3 silent] vesktop"
     "[workspace 4 silent] steam"
@@ -30,7 +30,7 @@
     "$mod,       z, exec, ${pkgs.flatpak}/bin/flatpak run com.usebottles.bottles"
   ];
 
-  windowrule = lib.mkForce [
+  windowrule = lib.mkAfter [
 
     # TODO: if new window created, split horizontally
     #    "monitor   0, class:^librewolf$"
@@ -42,7 +42,7 @@
 
     "workspace 4, class:^([Ss]team)$"
     "float, class:^([Ss]team)$" # , title:negative:^([Ss]team)$"
-    "center, title:^(Special Offers|Sign in to Steam)$"
+    "center (1), title:^(Special Offers|Sign in to Steam)$"
     "size 284 1054, title:^(Friends List)$"
     "move 1636 26, title:^(Friends List)$" # same here
     "size 1636 1054, title:^([Ss]team)$" # resize correctly
@@ -51,20 +51,20 @@
     "workspace 5, class:^(im.riot.Riot)$"
     "workspace 2, class:^(tidal-hifi)$"
 
-    ### smart gaps?
-    "bordersize 0, floating:0, onworkspace:w[tv1]"
-    "rounding 0, floating:0, onworkspace:w[tv1]"
-    "bordersize 0, floating:0, onworkspace:f[1]"
-    "rounding 0, floating:0, onworkspace:f[1]"
+     #### smart gaps?
+     #"bordersize 0, floating:0, onworkspace:w[tv1]"
+     #"rounding 0, floating:0, onworkspace:w[tv1]"
+     #"bordersize 0, floating:0, onworkspace:f[1]"
+     #"rounding 0, floating:0, onworkspace:f[1]"
 
     ##games
     # TODO: GW2 steam_app_1284210 needs a center
     #"float, class:^steam_app_1284210$"
-    "monitor 2, class:^(steam_app_\d+)$"
+    #"monitor 1, class:^(steam_app_\d+)$"
     "workspace 1, class:^(steam_app_\d+)$"
     # "pseudo, class:^(steam_app_\d+)$"
     ##    "allowsinput 1, class:^(steam_app_\d+)$"
-    "center, class:^(steam_app_\d+)$"
+    "center (1), class:^(steam_app_\d+)$"
     # "move center (1), class:^steam_app_1284210$, title:^Guild Wars 2$"
 
   ];
@@ -73,10 +73,10 @@
     "2, monitor:DP-1"
     "3, monitor:DP-1"
     "4, monitor:DP-1"
-    "5, monitor:DP-1"
-    "6, monitor:HDMI-A-1, default:true, layoutopt:orientation:top"
-    ### smart gaps
-    "w[tv1], gapsout:0, gapsin:0"
-    "f[1], gapsout:0, gapsin:0"
+    "5, monitor:HDMI-A-1"
+    "6, monitor:HDMI-A-1" #, default:true, layoutopt:orientation:top"
+     #### smart gaps
+      #"w[tv1], gapsout:0, gapsin:0"
+      #"f[1], gapsout:0, gapsin:0"
   ];
 }
