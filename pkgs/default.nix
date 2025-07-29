@@ -5,4 +5,5 @@
 
 {
   # example = pkgs.callPackage ./example { };
+  plecs = pkgs.callPackage ./plecs { };
 }

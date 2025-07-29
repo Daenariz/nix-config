@@ -9,10 +9,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     core.url = "github:sid115/nix-core/develop";
-    #core.url = "github:sid115/nix-core";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
-    core-dev.url = "github:Daenariz/nix-core/feature/plecs";
+    #    core-dev.url = "github:Daenariz/nix-core/feature/plecs";
     ha-test.url = "github:Daenariz/nix-core/feature/home-assistant-oci";
 
     nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/";
