@@ -26,7 +26,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     autostart = true;
-    settings = import ./settings/hyprland.nix { inherit pkgs; };
+    settings = import ./settings/hyprland.nix { inherit pkgs lib; };
   };
 
   home.packages = import ./packages.nix { inherit pkgs inputs; };

@@ -28,7 +28,7 @@ with pkgs;
   # dev
   [
     rpi-imager
-    core-dev.plecs
+    local.plecs
     platformio
     esptool
     octaveFull
