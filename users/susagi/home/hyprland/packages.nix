@@ -23,6 +23,10 @@ with pkgs;
     ##  displaylink # for the proprietary displaylink driver
     #    matlab  ## I hate this piece of sh...
     #  bottles  ## for the piece of sh... above, but deprecated
+    notion-app-enhanced
+  texliveFull
+  texstudio
+  teams-for-linux
   ]
 ++
   # dev

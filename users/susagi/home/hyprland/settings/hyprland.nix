@@ -24,7 +24,7 @@
     [
       "$mod,       z, exec, ${bw-menu}"
       "$mod,       t, exec, ${tidal}"
-      "$mod SHIFT, m, exec, chromium --app=https://tenhou.net/3/"
+      "$mod CTRL, m, exec, chromium --app=https://tenhou.net/3/"
     ];
 
   exec-once = [
@@ -46,11 +46,11 @@
   ];
   workspace = [
     "1, monitor:eDP-1, default:true"
-    "2, monitor:eDP-1"
+    "2, monitor:DP-6"
     #"2, monitor:HDMI-1-A, default:true, layoutopt:orientation:top"
     "3, monitor:eDP-1"
     "4, monitor:eDP-1"
-    "5, monitor:eDP-1"
+    "5, monitor:DP-3"
     "6, monitor:eDP-1"
     "7, monitor:eDP-1"
   ];
