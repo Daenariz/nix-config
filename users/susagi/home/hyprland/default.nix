@@ -8,7 +8,7 @@
 {
   imports = [
     inputs.core.homeModules.hyprland
-    inputs.core.homeModules.styling
+    inputs.core.homeModules.stylix
     inputs.core.homeModules.virtualization
 
     ./flatpak.nix
@@ -18,7 +18,7 @@
     ./ssh.nix
   ];
 
-    styling = {
+    stylix = {
     enable = true;
     scheme = "dracula";
   };
