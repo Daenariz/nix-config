@@ -4,11 +4,14 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
+        nixpkgs-pr-fix.url = "github:nixos/nixpkgs/pull/444355/head";
+    #    nixpkgs-pr-fix.url = "github:nixos/nixpkgs?ref=pull/444355/head";
+
     # broke waybar 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    core.url = "github:sid115/nix-core/develop";
+    core.url = "github:sid115/nix-core";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
     #    core-dev.url = "github:Daenariz/nix-core/feature/plecs";
@@ -39,6 +42,7 @@
       self,
       nixpkgs,
       home-manager,
+    nixpkgs-pr-fix,
       ...
     }@inputs:
     let
@@ -52,7 +56,11 @@
     {
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
-      overlays = import ./overlays { inherit inputs; };
+      #overlays = import ./overlays { inherit inputs; };
+      overlays = import ./overlays { 
+        inherit inputs; 
+        prFixFlake = nixpkgs-pr-fix;
+      };
 
       nixosModules = import ./modules/nixos;
       homeModules = import ./modules/home;

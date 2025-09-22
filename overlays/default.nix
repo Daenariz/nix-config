@@ -1,6 +1,7 @@
-{ inputs, ... }:
+{ inputs, prFixFlake, ... }:
 
 {
+  pr-fix = prFixFlake.overlays.default;
   # forked nix-core packages accessible through 'pkgs.core-dev'
   #  core-dev-packages = final: prev: { core-dev = inputs.core-dev.packages."${final.system}"; };
 

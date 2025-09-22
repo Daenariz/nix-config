@@ -25,6 +25,7 @@
       "$mod,       z, exec, ${bw-menu}"
       "$mod,       t, exec, ${tidal}"
       "$mod CTRL, m, exec, chromium --app=https://tenhou.net/3/"
+      "$mod CTRL, n, exec, chromium --app=https://notion.so"
     ];
 
   exec-once = [

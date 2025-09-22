@@ -1,6 +1,7 @@
 {
   inputs,
   outputs,
+lib,
   pkgs,
   ...
 }:
@@ -13,7 +14,9 @@
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.virtualization
+        inputs.core.nixosModules.virtualization
+    #inputs.core.nixosModules.virtualisation
+    
 
     outputs.nixosModules.common
 
@@ -22,6 +25,9 @@
     ./postgres.nix
     ./packages.nix
   ];
+
+  nixpkgs.overlays = lib.attrValues outputs.overlays;
+  
 
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
