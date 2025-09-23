@@ -6,6 +6,7 @@
     inputs.core.nixosModules.nginx
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.openssh
+    inputs.core.nixosModules.open-webui
 
     outputs.nixosModules.common
 
@@ -24,6 +25,13 @@
     };
   };
 
+services.open-webui = {
+  enable = true;
+  openFirewall = true;
+  host = "0.0.0.0";
+#    environment.ENABLE_SIGNUP = "True"; # Delete this in step 5
+};
+
   services = {
     #    nginx.enable = true;
     openssh = {
@@ -34,6 +42,8 @@
     };
   };
 
+  programs.ssh.startAgent = true;
+
   normalUsers = {
     susagi = {
       extraGroups = [
@@ -42,6 +52,7 @@
       sshKeyFiles = [ 
         ../../users/susagi/pubkeys/vde_rsa.pub
 	../../users/susagi/pubkeys/futro_rsa.pub
+    ../../users/susagi/pubkeys/kyojin_rsa.pub
       ];
     };
   };
