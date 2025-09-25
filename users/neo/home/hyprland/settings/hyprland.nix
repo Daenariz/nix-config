@@ -18,7 +18,7 @@
 
   exec-once = [
     "fcitx5 -d && polychromatic-tray-applet" 
-    "obs --startreplaybuffer --minimize-to-tray" # -r https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
+    #    "obs --startreplaybuffer --minimize-to-tray" # -r https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
     "xrandr --output DP-1 --primary"
     "[workspace 3 silent] vesktop"
     "[workspace 4 silent] steam"

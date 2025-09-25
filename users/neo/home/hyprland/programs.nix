@@ -7,16 +7,42 @@
 
 let
   inherit (lib) mkForce mkAfter;
+  obs-custom = pkgs.obs-studio.override {
+    cudaSupport = true;
+  };
 in
 {
+  systemd.user.services.obs-replay-buffer = {
+    Unit = {
+      Description = "OBS Studio Replay Buffer";
+      # Stellt sicher, dass der Service erst startet, wenn eine grafische Sitzung da ist
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      # Der Befehl, der ausgeführt werden soll.
+      # Wir verwenden den vollen Pfad aus dem Nix-Store für maximale Zuverlässigkeit.
+      ExecStart = "${obs-custom}/bin/obs --startreplaybuffer --minimize-to-tray";
+      
+      # Startet den Service neu, falls er abstürzt
+      Restart = "on-failure"; 
+    };
+
+    Install = {
+      # Sorgt dafür, dass der Service beim Start der grafischen Sitzung automatisch aktiviert wird
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
+
   programs = {
     obs-studio = {
       enable = true;
-      package = (
-        pkgs.obs-studio.override {
-          cudaSupport = true;
-        }
-      );
+      package = obs-custom; #(
+        #    pkgs.obs-studio.override {
+        # cudaSupport = true;
+        #}
+        #);
       plugins = with pkgs.obs-studio-plugins; [
         advanced-scene-switcher
         wlrobs

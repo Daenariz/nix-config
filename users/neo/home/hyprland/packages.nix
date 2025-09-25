@@ -20,7 +20,7 @@
     polychromatic
 
     # ai
-    jan
+    #    jan
 
     #test
     xorg.xrandr
