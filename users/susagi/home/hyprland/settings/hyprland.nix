@@ -8,7 +8,7 @@
    };
 
   animations.enabled = true;
-  gestures.workspace_swipe = true;
+  #gestures.workspace_swipe = true;  ## also deprecated
   # probably changed in 24.11
   # decoration = {
   #   blur.enabled = true;

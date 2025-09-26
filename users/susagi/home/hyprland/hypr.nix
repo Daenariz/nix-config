@@ -15,26 +15,15 @@
 
     hyprsunset = {
       enable = true;
-      transitions = {
+      settings = {
         sunrise = {
-          calendar = "*-*-* 06:00:00";
-          requests = [
-            [
-              "temperature"
-              "5000"
-            ]
-            [ "gamma 100" ]
-          ];
-        };
+          time = "6:00";
+          temperature = 5000;
+      };
         sunset = {
-          calendar = "*-*-* 19:00:00";
-          requests = [
-            [
-              "temperature"
-              "3500"
-            ]
-          ];
-        };
+          time = "19:00";
+          temperature = 3500;
+      };
       };
     };
   };
