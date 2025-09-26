@@ -13,7 +13,7 @@
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.virtualization
+    #    inputs.core.nixosModules.virtualization
 
     outputs.nixosModules.common
 
