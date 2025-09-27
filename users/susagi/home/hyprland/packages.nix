@@ -28,6 +28,7 @@ with pkgs;
   texliveFull
   texstudio
   teams-for-linux
+  brave
   ]
 ++
   # dev

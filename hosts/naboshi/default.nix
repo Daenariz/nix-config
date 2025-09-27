@@ -65,6 +65,7 @@
         "wheel"
         "dialout"
         "libvirtd"
+        "disk"
       ];
     };
   };

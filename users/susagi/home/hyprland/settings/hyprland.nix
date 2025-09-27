@@ -20,11 +20,12 @@
       flatpak = "${pkgs.flatpak}/bin/flatpak";
       bw-menu = "${pkgs.bitwarden-menu}/bin/bwm";
       tidal = "${pkgs.tidal-hifi}/bin/tidal-hifi";
+      app-browser = "${pkgs.brave}/bin/brave";  ### seems to work for chromium-based browsers like brave, ungoogled-chromium
     in
     [
       "$mod,       z, exec, ${bw-menu}"
       "$mod,       t, exec, ${tidal}"
-      "$mod CTRL, m, exec, chromium --app=https://tenhou.net/3/"
+      "$mod CTRL, m, exec, ${app-browser} --app=https://tenhou.net/3/"
     ];
 
   exec-once = [
