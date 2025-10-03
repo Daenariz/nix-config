@@ -2,6 +2,11 @@
   lib,
   stdenv,
   fetchFromGitHub,
+  pkg-config,
+  glib,
+  json-glib,
+  dpkg,
+  ...
 }:
 
 stdenv.mkDerivation rec {
@@ -14,6 +19,23 @@ stdenv.mkDerivation rec {
     rev = "2432e1f1e5cc1c408524bd195c6b32b4ca904321";
     hash = "sha256-Rn4fKzYWQHSbhVCDFdVOWTj9WyN3ehh5kNQSwtCRLbg=";
   };
+
+  nativeBuildInputs = [
+    pkg-config
+  ];
+
+  buildInputs = [
+    glib
+    json-glib
+    dpkg
+  ];
+
+  installPhase = ''
+    runHook preInstall
+    mkdir -p $out/bin
+    cp scan $out/bin/
+    runHook postInstall
+  '';
 
   meta = {
     description = "Sniffer for Bluetooth LE on Raspberry Pi";
