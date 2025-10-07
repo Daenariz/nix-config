@@ -4,6 +4,15 @@
   programs.ssh = {
     enable = true;
     matchBlocks = {
+
+      pi-sniffer = {
+        host = "sni sniffer";
+        hostname = "192.168.0.103";
+        port = 22;
+        user = "pi";
+        identityFile = "/home/susagi/.ssh/vde_rsa";
+      };
+
       rpi = {
         host = "kii kiichigo";
         hostname = "negitorodon.de";

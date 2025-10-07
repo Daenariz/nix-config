@@ -7,6 +7,15 @@
 }:
 
 {
+  programs.joplin-desktop = {
+    enable = true;
+    # package = pkgs.joplin;   ### for cli use eventually
+    sync = {
+      target = "nextcloud";
+      interval = "30m";
+          };
+  };
+
   programs.vesktop = {
     enable = true;
     settings = {
@@ -47,10 +56,10 @@
 
     librewolf = {
       profiles.default = {
-        settings = lib.mkAfter {
-          "browser.tabs.allow_transparent_browser" = true;
-          "browser.tabs.crashReporting.sendReport" = false;
-        };
+        #        settings = lib.mkAfter {
+        # "browser.tabs.allow_transparent_browser" = true;
+        # "browser.tabs.crashReporting.sendReport" = false;
+        #};
         extensions.packages = lib.mkAfter (
           with inputs.nur.legacyPackages."${pkgs.system}".repos.rycee.firefox-addons;
           [
@@ -58,15 +67,15 @@
             yomitan
           ]
         );
-        userChrome = lib.mkForce (
-          ''
-            :root {
-              --corner-radius: 15px;
-            }
-          ''
-          + (builtins.readFile ./userChrome.css)
-        );
-        userContent = lib.mkForce (builtins.readFile ./userContent.css);
+        # userChrome = lib.mkForce (
+        #  ''
+        #    :root {
+        #      --corner-radius: 15px;
+        #    }
+        #  ''
+        #  + (builtins.readFile ./userChrome.css)
+        #);
+        #userContent = lib.mkForce (builtins.readFile ./userContent.css);
       };
     };
 

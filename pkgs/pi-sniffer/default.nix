@@ -33,7 +33,7 @@ stdenv.mkDerivation rec {
   installPhase = ''
     runHook preInstall
     mkdir -p $out/bin
-    cp scan $out/bin/
+    cp scan $out/bin/pi-sniffer
     runHook postInstall
   '';
 

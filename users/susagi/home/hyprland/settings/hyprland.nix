@@ -23,8 +23,9 @@
       app-browser = "${pkgs.brave}/bin/brave";  ### seems to work for chromium-based browsers like brave, ungoogled-chromium
     in
     [
-      "$mod,       z, exec, ${bw-menu}"
+      "$mod,       z, exec, super-productivity --ozone-platform=x11"
       "$mod,       t, exec, ${tidal}"
+      "$mod CTRL,  j, exec, joplin-desktop"
       "$mod CTRL, m, exec, ${app-browser} --app=https://tenhou.net/3/"
     ];
 

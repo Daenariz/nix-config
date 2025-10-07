@@ -10,5 +10,6 @@
   monitor = desc:Dell Inc. DELL P2312H D7C74274GHWL, 1920x1080@60, 1536x-500, 1, transform, 1
   monitor = desc:Fujitsu Siemens Computers GmbH B24T-7 LED PG YV6K204146, 1920x1080@60, -1080x0, 1, transform, 1
   monitor = desc:Lenovo Group Limited N27p, 2560x1440, -1440x-1000, 1, transform, 3
+  monitor = desc:Dell Inc. DELL S2721HGF 89M8123, 1920x1080@120, auto-up, 1, transform, 0
 ''
 # rotation with ..., transform, number from 1-3 (0 for default)
