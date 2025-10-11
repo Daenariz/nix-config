@@ -34,7 +34,7 @@
         hostname = "negitorodon.de";
         port = 30715;
         user = "susagi";
-        identityFile = "/home/susagi/.ssh/tp_dev";
+        identityFile = "/home/susagi/.ssh/vde_rsa";
       };
 
       kyoujin = {

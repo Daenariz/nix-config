@@ -13,6 +13,7 @@
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
+    inputs.core.nixosModules.windows-oci
     #    inputs.core.nixosModules.virtualization
 
     outputs.nixosModules.common
@@ -22,6 +23,8 @@
     ./postgres.nix
     ./packages.nix
   ];
+
+  services.windows-oci.enable = true;
 
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
