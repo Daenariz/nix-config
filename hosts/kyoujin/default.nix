@@ -3,13 +3,13 @@
 {
   imports = [
     inputs.core.nixosModules.normalUsers
-    ./wyoming.nix
+    #    ./wyoming.nix
     ./boot.nix
     ./hardware.nix
     ./networking.nix
     ./packages.nix
     #    ./services.nix
-    ./ollama.nix
+    #./ollama.nix
     inputs.core.nixosModules.common
     inputs.core.nixosModules.sops
     inputs.core.nixosModules.nvidia
