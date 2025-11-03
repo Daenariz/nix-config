@@ -33,5 +33,8 @@
     enable = true;
     initialEmail = "susagi@negitorodon.de";
     initialPasswordFile = "/home/susagi/pgpass";
+    settings = {
+      "MAX_LOGIN_ATTEMPTS" = 0;
+    };
   };
 }

@@ -7,9 +7,9 @@
 
       pi-sniffer = {
         host = "sni sniffer";
-        hostname = "192.168.0.103";
+        hostname = "192.168.0.100";   ### previously .103
         port = 22;
-        user = "pi";
+        user = "susagi";
         identityFile = "/home/susagi/.ssh/vde_rsa";
       };
 
