@@ -1,4 +1,4 @@
-{ inputs, outputs, ... }:
+{ inputs, outputs, config,... }:
 
 {
   imports = [
@@ -7,6 +7,9 @@
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.open-webui
+    inputs.core.nixosModules.matrix-synapse
+
+    ./secrets
 
     outputs.nixosModules.common
 
@@ -25,6 +28,18 @@
     };
   };
 
+  services.matrix-synapse = {
+    enable = false;
+     dataDir = "/data/matrix-synapse";
+    bridges = {
+      whatsapp.enable = true;
+      whatsapp.admin = "@susagi:${config.networking.domain}";
+#      signal.enable = true;
+#      signal.admin = "@susagi:${config.networking.domain}";
+    };
+  };
+
+  
 services.open-webui = {
   enable = true;
   openFirewall = true;

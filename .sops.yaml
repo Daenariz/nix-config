@@ -9,6 +9,11 @@ creation_rules:
       - *user_susagi
       - *host_kiichigo
 
+  - path_regex: hosts/futro/secrets/secrets.yaml$
+    key_groups:
+    - age:
+      - *user_susagi
+      - *host_kiichigo
   # home manager
   - path_regex: users/susagi/home/secrets/secrets.yaml$
     key_groups:
