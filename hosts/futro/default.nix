@@ -1,4 +1,9 @@
-{ inputs, outputs, config,... }:
+{
+  inputs,
+  outputs,
+  config,
+  ...
+}:
 
 {
   imports = [
@@ -7,7 +12,7 @@
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.open-webui
-    inputs.core.nixosModules.matrix-synapse
+    #    inputs.core.nixosModules.matrix-synapse
 
     ./secrets
 
@@ -28,31 +33,29 @@
     };
   };
 
-  services.matrix-synapse = {
+  #  services.matrix-synapse = {
+  #    enable = true;
+  #     dataDir = "/data/matrix-synapse";
+  #    bridges = {
+  #  whatsapp.enable = true;
+  #  whatsapp.admin = "@susagi:${config.networking.domain}";
+  #      signal.enable = true;
+  #      signal.admin = "@susagi:${config.networking.domain}";
+  # };
+  #};
+
+  services.open-webui = {
     enable = true;
-     dataDir = "/data/matrix-synapse";
-    #    bridges = {
-    #  whatsapp.enable = true;
-    #  whatsapp.admin = "@susagi:${config.networking.domain}";
-#      signal.enable = true;
-#      signal.admin = "@susagi:${config.networking.domain}";
-    # };
+    openFirewall = true;
+    host = "0.0.0.0";
   };
 
-  
-services.open-webui = {
-  enable = true;
-  openFirewall = true;
-  host = "0.0.0.0";
-#    environment.ENABLE_SIGNUP = "True"; # Delete this in step 5
-};
-
   services = {
-        nginx.enable = true;
+    nginx.enable = true;
     openssh = {
       enable = true;
       ports = [
-        30715 
+        30715
       ];
     };
   };
@@ -64,10 +67,10 @@ services.open-webui = {
       extraGroups = [
         "wheel"
       ];
-      sshKeyFiles = [ 
+      sshKeyFiles = [
         ../../users/susagi/pubkeys/vde_rsa.pub
-	../../users/susagi/pubkeys/futro_rsa.pub
-    ../../users/susagi/pubkeys/kyojin_rsa.pub
+        ../../users/susagi/pubkeys/futro_rsa.pub
+        ../../users/susagi/pubkeys/kyojin_rsa.pub
       ];
     };
   };
