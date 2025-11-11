@@ -29,14 +29,14 @@
   };
 
   services.matrix-synapse = {
-    enable = false;
+    enable = true;
      dataDir = "/data/matrix-synapse";
-    bridges = {
-      whatsapp.enable = true;
-      whatsapp.admin = "@susagi:${config.networking.domain}";
+    #    bridges = {
+    #  whatsapp.enable = true;
+    #  whatsapp.admin = "@susagi:${config.networking.domain}";
 #      signal.enable = true;
 #      signal.admin = "@susagi:${config.networking.domain}";
-    };
+    # };
   };
 
   
@@ -48,7 +48,7 @@ services.open-webui = {
 };
 
   services = {
-    #    nginx.enable = true;
+        nginx.enable = true;
     openssh = {
       enable = true;
       ports = [
