@@ -12,6 +12,8 @@
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.open-webui
+    inputs.core.nixosModules.vaultwarden
+    inputs.core.nixosModules.mailserver
     #    inputs.core.nixosModules.matrix-synapse
 
     ./secrets
@@ -43,12 +45,17 @@
   #      signal.admin = "@susagi:${config.networking.domain}";
   # };
   #};
+mailserver.enable = false;
+
+  services.vaultwarden.enable = true;
+  services.vaultwarden.subdomain = "vault";
 
   services.open-webui = {
     enable = true;
     openFirewall = true;
 #    host = "0.0.0.0";
   };
+
 
   services = {
     nginx.enable = true;
