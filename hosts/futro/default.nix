@@ -26,12 +26,24 @@
   ];
 
   networking = {
+    domain = "negitorodon.de";
     hostName = "futro";
     interfaces.enp1s0.wakeOnLan = {
       enable = true;
       policy = [
         "magic"
       ];
+    };
+  };
+
+  mailserver = {
+    enable = true;
+    stateVersion = 3;
+    loginAccounts = {
+      "susagi@${config.networking.domain}" = {
+        hashedPasswordFile = config.sops.secrets."mailserver/accounts/susagi".path;
+        aliases = [ "postmaster@${config.networking.domain}" ];
+      };
     };
   };
 
@@ -45,17 +57,16 @@
   #      signal.admin = "@susagi:${config.networking.domain}";
   # };
   #};
-mailserver.enable = false;
+  #mailserver.enable = false;
 
   services.vaultwarden.enable = true;
   services.vaultwarden.subdomain = "vault";
 
   services.open-webui = {
     enable = true;
-    openFirewall = true;
-#    host = "0.0.0.0";
+    #  openFirewall = true;
+    #    host = "0.0.0.0";
   };
-
 
   services = {
     nginx.enable = true;
