@@ -26,6 +26,8 @@
 
   services.windows-oci.enable = true;
 
+  programs.dconf.enable = true;
+
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
       ];

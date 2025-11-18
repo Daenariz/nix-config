@@ -15,6 +15,18 @@
     inputs.core.nixosModules.nextcloud
   ];
 
+  services.uptime-kuma.enable = true;
+
+  services.nginx.virtualHosts."kuma.negitorodon.de" = {
+    forceSSL = true;
+    enableACME = true;
+    locations."/" = {
+      proxyPass = "http://localhost:3001";
+      proxyWebsockets = true;
+      recommendedProxySettings = true;
+    };
+  };
+
   services.nextcloud = {
     enable = true;
     datadir = "/data/nextcloud";
