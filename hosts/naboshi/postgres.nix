@@ -7,7 +7,7 @@
 {
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "test1" ];
+    #        ensureDatabases = [ "test1" ];
     package = pkgs.postgresql_16;
     #    enableTCPIP = true;
     settings.port = 5432;

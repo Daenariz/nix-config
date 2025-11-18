@@ -13,18 +13,16 @@
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.windows-oci
     #    inputs.core.nixosModules.virtualization
+    # outputs.nixosModules.postgresql
 
     outputs.nixosModules.common
 
     ./boot.nix
     ./hardware.nix
-    ./postgres.nix
+    # ./postgres.nix
     ./packages.nix
   ];
-
-  services.windows-oci.enable = true;
 
   programs.dconf.enable = true;
 
