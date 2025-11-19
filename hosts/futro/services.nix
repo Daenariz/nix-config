@@ -53,15 +53,15 @@
     };
   };
 
-  services.matrix-synapse = {
+     services.matrix-synapse = {
     enable = true;
     dataDir = "/data/matrix-synapse";
-    #    bridges = {
-    #  whatsapp.enable = true;
-    #  whatsapp.admin = "@susagi:${config.networking.domain}";
+          bridges = {
+        whatsapp.enable = true;
+        whatsapp.admin = "@susagi:${config.networking.domain}";
     #      signal.enable = true;
     #      signal.admin = "@susagi:${config.networking.domain}";
-    # };
+     };
   };
 
   services.vaultwarden.enable = true;
