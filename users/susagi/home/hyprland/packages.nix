@@ -5,6 +5,7 @@ with pkgs;
 # ai stuff
 [
   filezilla
+  simplex-chat-desktop
   tor-browser
   #  tts
   #  ollama
