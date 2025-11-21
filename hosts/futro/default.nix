@@ -1,21 +1,27 @@
-{ inputs, outputs, ... }:
+{
+  inputs,
+  outputs,
+  config,
+  ...
+}:
 
 {
   imports = [
     inputs.core.nixosModules.common
-    inputs.core.nixosModules.nginx
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.open-webui
 
+    ./secrets
     outputs.nixosModules.common
 
     ./boot.nix
     ./hardware.nix # will be generated during installation
     ./packages.nix
+    ./services.nix
   ];
 
   networking = {
+    domain = "negitorodon.de";
     hostName = "futro";
     interfaces.enp1s0.wakeOnLan = {
       enable = true;
@@ -25,22 +31,8 @@
     };
   };
 
-services.open-webui = {
-  enable = true;
-  openFirewall = true;
-  host = "0.0.0.0";
-#    environment.ENABLE_SIGNUP = "True"; # Delete this in step 5
-};
-
-  services = {
-    #    nginx.enable = true;
-    openssh = {
-      enable = true;
-      ports = [
-        30715 
-      ];
-    };
-  };
+  services.openssh.enable = true;
+  services.openssh.ports = [ 30715 ];
 
   programs.ssh.startAgent = true;
 
@@ -49,10 +41,10 @@ services.open-webui = {
       extraGroups = [
         "wheel"
       ];
-      sshKeyFiles = [ 
+      sshKeyFiles = [
         ../../users/susagi/pubkeys/vde_rsa.pub
-	../../users/susagi/pubkeys/futro_rsa.pub
-    ../../users/susagi/pubkeys/kyojin_rsa.pub
+        ../../users/susagi/pubkeys/futro_rsa.pub
+        ../../users/susagi/pubkeys/kyojin_rsa.pub
       ];
     };
   };

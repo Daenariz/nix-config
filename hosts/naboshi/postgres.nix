@@ -7,7 +7,7 @@
 {
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "test1" ];
+    #        ensureDatabases = [ "test1" ];
     package = pkgs.postgresql_16;
     #    enableTCPIP = true;
     settings.port = 5432;
@@ -33,5 +33,8 @@
     enable = true;
     initialEmail = "susagi@negitorodon.de";
     initialPasswordFile = "/home/susagi/pgpass";
+    settings = {
+      "MAX_LOGIN_ATTEMPTS" = 0;
+    };
   };
 }
