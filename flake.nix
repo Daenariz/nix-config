@@ -1,6 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/372670127e5f4b777f35e66a38ebdb4051452d73";   ### somewhere between webui_0.6.34 and mautrix-whatsapp 0.2510.0
+    #  nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 

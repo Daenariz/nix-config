@@ -35,7 +35,7 @@
     "[workspace 2 silent] librewolf"
     "[workspace 4 silent] thunderbird"
     "[workspace 5 silent] element-desktop"
-    "[workspace 5 silent] signal-desktop"
+#    "[workspace 5 silent] signal-desktop"
   ];
 
   windowrule = [

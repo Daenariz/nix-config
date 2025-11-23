@@ -2,6 +2,7 @@
   inputs,
   outputs,
   config,
+  lib,
   ...
 }:
 
@@ -13,8 +14,16 @@
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.matrix-synapse
     inputs.core.nixosModules.nextcloud
+    inputs.core.nixosModules.headscale
   ];
 
+  services.headscale = {
+    enable = true;
+    settings.policy.path = lib.mkForce "/home/susagi/backups/acl.hujson";
+    openFirewall = true;
+   # subdomain = "head";
+  };
+  
   services.uptime-kuma.enable = true;
 
   services.nginx.virtualHosts."kuma.negitorodon.de" = {
@@ -56,12 +65,12 @@
   services.matrix-synapse = {
     enable = true;
     dataDir = "/data/matrix-synapse";
-    #    bridges = {
-    #  whatsapp.enable = true;
-    #  whatsapp.admin = "@susagi:${config.networking.domain}";
-    #      signal.enable = true;
-    #      signal.admin = "@susagi:${config.networking.domain}";
-    # };
+    bridges = {
+      whatsapp.enable = true;
+      whatsapp.admin = "@susagi:${config.networking.domain}";
+      signal.enable = true;
+      signal.admin = "@susagi:${config.networking.domain}";
+    };
   };
 
   services.vaultwarden.enable = true;

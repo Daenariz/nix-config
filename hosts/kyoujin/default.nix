@@ -9,7 +9,7 @@
     ./networking.nix
     ./packages.nix
     #    ./services.nix
-    #./ollama.nix
+    ./ollama.nix
     inputs.core.nixosModules.common
     inputs.core.nixosModules.sops
     inputs.core.nixosModules.nvidia
@@ -18,6 +18,8 @@
     outputs.nixosModules.common
 
   ];
+  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
+nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
 
   normalUsers = {
     susagi = {

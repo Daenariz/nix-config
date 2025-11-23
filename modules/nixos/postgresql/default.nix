@@ -30,14 +30,14 @@ in
     };
     enablePGadmin = mkOption {
       type = types.bool;
-      default = false;
+      default = true;
       description = "Whether to enable pgAdmin GUI.";
     };
   };
 
   config = mkIf cfg.enable {
     services.postgresql = {
-      #    enableTCPIP = true;
+      #    enableTCPIP = true;   ### I don't know if this is necessary, but seems like
       authentication = pkgs.lib.mkOverride 10 ''
         #type database DBuser auth-method
         local all      all    trust
@@ -55,23 +55,22 @@ in
     };
     #};
 
-  services.pgadmin = mkIf cfg.enablePGadmin {
-    enable = true;
-    initialEmail = "admin@${config.networkingdomain}";
-    initialPasswordFile = config.sops.secrets."pgadmin".path;
-    # initialPasswordFile = "/home/susagi/pgpass";
-    settings = {
-      "MAX_LOGIN_ATTEMPTS" = mkDefault 5;
+    services.pgadmin = mkIf cfg.enablePGadmin {
+      enable = true;
+      initialEmail = "admin@${config.networkingdomain}";
+      initialPasswordFile = config.sops.secrets."pgadmin".path; # ## maybe overkill, need to find a better way
+      settings = {
+        "MAX_LOGIN_ATTEMPTS" = mkDefault 5; # ## default is 3 usually, if this limit is reached, the pgadmin db needs to be adjusted manually
+      };
     };
-  };
 
-  services.nginx.virtualHosts."${fqdn}" = {
-    enableACME = cfg.forceSSL;
-    forceSSL = cfg.forceSSL;
-    locations."/" = {
-      proxyPass = "http://localhost:5050";
-      proxyWebsockets = true;
+    services.nginx.virtualHosts."${fqdn}" = {
+      enableACME = cfg.forceSSL;
+      forceSSL = cfg.forceSSL;
+      locations."/" = {
+        proxyPass = "http://localhost:5050";
+        proxyWebsockets = true;
+      };
     };
-  };
   };
 }

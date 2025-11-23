@@ -42,7 +42,7 @@
   networking = {
     hostName = "naboshi";
     firewall.allowedUDPPorts = [ 24727 ];
-    #    firewall.allowedTCPPorts = [ 8123 ];
+    firewall.allowedTCPPorts = [ 8123 36497 ];
   };
 
   services = {
