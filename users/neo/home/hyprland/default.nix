@@ -8,7 +8,7 @@
 {
   imports = [
     inputs.core.homeModules.hyprland
-    inputs.core.homeModules.styling
+    inputs.core.homeModules.stylix
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
 
     ./packages.nix
@@ -82,5 +82,5 @@
     ];
   };
 
-  styling.enable = true;
+  stylix.enable = true;
 }
