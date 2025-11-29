@@ -7,4 +7,5 @@
   # example = pkgs.callPackage ./example { };
   plecs = pkgs.callPackage ./plecs { };
   pi-sniffer = pkgs.callPackage ./pi-sniffer { };
+  bitpoll = pkgs.callPackage ./bitpoll { };
 }

@@ -24,6 +24,20 @@
     ./packages.nix
   ];
 
+#   services.ngircd.enable = true;
+#   services.ngircd.config = ''
+#   [Global]
+#   Name = irc.negi.jp
+#   AdminInfo1 = Negi IRC Server
+#   AdminInfo2 = Anywhere On Asu
+#   AdminEMail = admin@irc.negi.jp
+#
+#   [Operator]
+#   Name = TheOper
+#   Password = Hans1234
+#   ''
+# ;
+
   programs.dconf.enable = true;
 
   boot.binfmt.emulatedSystems = [
@@ -42,7 +56,7 @@
   networking = {
     hostName = "naboshi";
     firewall.allowedUDPPorts = [ 24727 ];
-    firewall.allowedTCPPorts = [ 8123 36497 ];
+    firewall.allowedTCPPorts = [ 8123 36497 6667 ];
   };
 
   services = {

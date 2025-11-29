@@ -9,20 +9,21 @@
 {
   imports = [
     inputs.core.nixosModules.nginx
-    inputs.core.nixosModules.open-webui
+    inputs.core.nixosModules.open-webui-oci
     inputs.core.nixosModules.vaultwarden
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.matrix-synapse
     inputs.core.nixosModules.nextcloud
-    inputs.core.nixosModules.headscale
+#    inputs.core.nixosModules.headscale
+
   ];
 
-  services.headscale = {
-    enable = true;
-    settings.policy.path = lib.mkForce "/home/susagi/backups/acl.hujson";
-    openFirewall = true;
+ # services.headscale = {
+ #   enable = true;
+ #   settings.policy.path = lib.mkForce "/home/susagi/backups/acl.hujson";
+ #   openFirewall = true;
    # subdomain = "head";
-  };
+#  };
   
   services.uptime-kuma.enable = true;
 
@@ -76,7 +77,8 @@
   services.vaultwarden.enable = true;
   services.vaultwarden.subdomain = "vault";
 
-  services.open-webui.enable = true;
+  services.open-webui-oci.enable = true;
+  services.open-webui-oci.reverseProxy.enable = true;
 
   services.nginx.enable = true;
 
