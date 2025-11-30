@@ -14,17 +14,17 @@
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.matrix-synapse
     inputs.core.nixosModules.nextcloud
-#    inputs.core.nixosModules.headscale
+    inputs.core.nixosModules.headscale
 
   ];
 
- # services.headscale = {
- #   enable = true;
- #   settings.policy.path = lib.mkForce "/home/susagi/backups/acl.hujson";
- #   openFirewall = true;
-   # subdomain = "head";
-#  };
-  
+  services.headscale = {
+    enable = true;
+    # settings.policy.path = lib.mkForce "/home/susagi/backups/acl.hujson";
+    openFirewall = true;
+    subdomain = "head";
+  };
+
   services.uptime-kuma.enable = true;
 
   services.nginx.virtualHosts."kuma.negitorodon.de" = {

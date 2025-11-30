@@ -2,6 +2,7 @@
   inputs,
   outputs,
   pkgs,
+  config,
   ...
 }:
 
@@ -13,6 +14,8 @@
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
+    inputs.core.nixosModules.tailscale
+    # inputs.core.nixosModules.sops
     #    inputs.core.nixosModules.virtualization
     # outputs.nixosModules.postgresql
 
@@ -22,41 +25,53 @@
     ./hardware.nix
     # ./postgres.nix
     ./packages.nix
+
+    ./secrets
   ];
 
-#   services.ngircd.enable = true;
-#   services.ngircd.config = ''
-#   [Global]
-#   Name = irc.negi.jp
-#   AdminInfo1 = Negi IRC Server
-#   AdminInfo2 = Anywhere On Asu
-#   AdminEMail = admin@irc.negi.jp
-#
-#   [Operator]
-#   Name = TheOper
-#   Password = Hans1234
-#   ''
-# ;
+  #   services.ngircd.enable = true;
+  #   services.ngircd.config = ''
+  #   [Global]
+  #   Name = irc.negi.jp
+  #   AdminInfo1 = Negi IRC Server
+  #   AdminInfo2 = Anywhere On Asu
+  #   AdminEMail = admin@irc.negi.jp
+  #
+  #   [Operator]
+  #   Name = TheOper
+  #   Password = Hans1234
+  #   ''
+  # ;
+  services.tailscale = {
+    enable = true;
+    enableSSH = true;
+    loginServer = "https://head.negitorodon.de";
+    # loginServer = "head.${config.networking.domain}";
+  };
 
   programs.dconf.enable = true;
 
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
-      ];
+  ];
 
   services.xserver.xkb.layout = "de";
 
   #  services.displayManager.sddm = {
   #  enable = true;
   #  wayland.enable = true;
-    #    settings = {
-    #};
+  #    settings = {
+  #};
   #};
 
   networking = {
     hostName = "naboshi";
     firewall.allowedUDPPorts = [ 24727 ];
-    firewall.allowedTCPPorts = [ 8123 36497 6667 ];
+    firewall.allowedTCPPorts = [
+      8123
+      36497
+      6667
+    ];
   };
 
   services = {

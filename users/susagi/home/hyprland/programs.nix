@@ -13,7 +13,7 @@
     sync = {
       target = "nextcloud";
       interval = "30m";
-          };
+    };
   };
 
   programs.vesktop = {

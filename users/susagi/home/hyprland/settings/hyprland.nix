@@ -1,11 +1,11 @@
-{ pkgs, lib,  ... }:
+{ pkgs, lib, ... }:
 
 {
- general = {
-     no_border_on_floating = true; 
-     gaps_in = lib.mkForce 3;
-     gaps_out = lib.mkForce 6;
-   };
+  general = {
+    no_border_on_floating = true;
+    gaps_in = lib.mkForce 3;
+    gaps_out = lib.mkForce 6;
+  };
 
   animations.enabled = true;
   #gestures.workspace_swipe = true;  ## also deprecated
@@ -20,7 +20,7 @@
       flatpak = "${pkgs.flatpak}/bin/flatpak";
       bw-menu = "${pkgs.bitwarden-menu}/bin/bwm";
       tidal = "${pkgs.tidal-hifi}/bin/tidal-hifi";
-      app-browser = "${pkgs.brave}/bin/brave";  ### seems to work for chromium-based browsers like brave, ungoogled-chromium
+      app-browser = "${pkgs.brave}/bin/brave"; # ## seems to work for chromium-based browsers like brave, ungoogled-chromium
     in
     [
       "$mod,       z, exec, super-productivity --ozone-platform=x11"
@@ -35,7 +35,7 @@
     "[workspace 2 silent] librewolf"
     "[workspace 4 silent] thunderbird"
     "[workspace 5 silent] element-desktop"
-#    "[workspace 5 silent] signal-desktop"
+    #    "[workspace 5 silent] signal-desktop"
   ];
 
   windowrule = [

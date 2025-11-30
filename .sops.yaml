@@ -2,6 +2,7 @@ keys:
   - &user_susagi age1g892agvnalhn7f3p5kc3l4hfjusnl947kt9g7l62wyzl2amuxyrqlcxeq7
   - &host_kiichigo age1hdm3rtfde50kzut6jtzmcmqwsjf9dwc5fzpa80c4euu68y8huqqqnxmk5c
   - &host_futro age1s2hvxx5gwn50he0u6kv97ahdvh2vcn0rrfdpgcxremj9cg9dd33q3nhl59
+  - &host_naboshi age1tlvjr8hr9ph5gw4nq76whkg50ug6dt3pm232ntt6h2czknlwmuqqjlnq4g
 creation_rules:
   # nixos
   - path_regex: hosts/kiichigo/secrets.yaml$
@@ -15,6 +16,11 @@ creation_rules:
     - age:
       - *user_susagi
       - *host_futro
+  - path_regex: hosts/naboshi/secrets/secrets.yaml$
+    key_groups:
+    - age:
+      - *user_susagi
+      - *host_naboshi
   # home manager
   - path_regex: users/susagi/home/secrets/secrets.yaml$
     key_groups:

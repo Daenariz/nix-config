@@ -11,7 +11,6 @@
 
   # programs.hexchat.enable = true;
 
-
   services.nextcloud-sync = {
     enable = true;
     remote = "cloud.negitorodon.de";

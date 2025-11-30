@@ -25,13 +25,13 @@ with pkgs;
     ##  displaylink # for the proprietary displaylink driver
     #    matlab  ## I hate this piece of sh...
     #  bottles  ## for the piece of sh... above, but deprecated
-  #  super-productivity
-  #  notion-app-enhanced
-  monero-gui
-  texliveFull
-  texstudio
-  teams-for-linux
-  brave
+    #  super-productivity
+    #  notion-app-enhanced
+    monero-gui
+    texliveFull
+    texstudio
+    teams-for-linux
+    brave
   ]
 ++
   # dev
@@ -48,10 +48,10 @@ with pkgs;
     flatpak # for the binary
     thunderbird
     tidal-hifi
-  #    signal-desktop
+    #    signal-desktop
     ausweisapp
     vlc
-  #  wasistlos
+    #  wasistlos
     #   whatsie
     #stable.whatsapp-for-linux # wasistlos=unstable, stable not working
     #   zoom-us # SSO doesn't seem too work https://github.com/NixOS/nixpkgs/issues/73532 (?)

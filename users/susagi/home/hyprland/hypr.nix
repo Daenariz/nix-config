@@ -19,11 +19,11 @@
         sunrise = {
           time = "6:00";
           temperature = 5000;
-      };
+        };
         sunset = {
           time = "19:00";
           temperature = 3500;
-      };
+        };
       };
     };
   };

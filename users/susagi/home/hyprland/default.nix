@@ -18,7 +18,7 @@
     ./ssh.nix
   ];
 
-    stylix = {
+  stylix = {
     enable = true;
     scheme = "dracula";
   };

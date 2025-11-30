@@ -34,7 +34,7 @@
   };
 
   programs = {
-    nixvim.enable = false;
+    nixvim.enable = true;
     #nixvim.enable = true;
     fastfetch.enable = true;
   };
