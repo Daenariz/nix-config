@@ -5,7 +5,9 @@
   lib,
   ...
 }:
-
+  let
+  domain = config.networking.domain;
+in
 {
   imports = [
     inputs.core.nixosModules.nginx
@@ -20,14 +22,13 @@
 
   services.headscale = {
     enable = true;
-    # settings.policy.path = lib.mkForce "/home/susagi/backups/acl.hujson";
     openFirewall = true;
     subdomain = "head";
   };
 
   services.uptime-kuma.enable = true;
 
-  services.nginx.virtualHosts."kuma.negitorodon.de" = {
+  services.nginx.virtualHosts."kuma.${domain}" = {
     forceSSL = true;
     enableACME = true;
     locations."/" = {
@@ -46,9 +47,40 @@
         bookmarks
         calendar
         contacts
-        mail
+        richdocuments
         tasks
         ;
+    };
+    settings = {
+      richdocuments = {
+        wopi_url = "https://office.${domain}";
+      };
+    };
+  };
+
+  services.collabora-online = {
+    enable = true;
+    port = 9980;
+    settings = {
+      # rely on reverse proxy for SSL
+      ssl = {
+        enable = false;
+        termination = true;
+      };
+      storage.wopi = {
+        "@allow" = true;
+        host = [ "cloud.${domain}" ];
+      };
+      server_name = "office.${domain}";
+    };
+  };
+
+  services.nginx.virtualHosts."office.${domain}" = {
+    forceSSL = true;
+    enableACME = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:${toString config.services.collabora-online.port}";
+      proxyWebsockets = true;
     };
   };
 
@@ -56,9 +88,9 @@
     enable = true;
     stateVersion = 3;
     loginAccounts = {
-      "susagi@${config.networking.domain}" = {
+      "susagi@${domain}" = {
         hashedPasswordFile = config.sops.secrets."mailserver/accounts/susagi".path;
-        aliases = [ "postmaster@${config.networking.domain}" ];
+        aliases = [ "postmaster@${domain}" ];
       };
     };
   };
@@ -68,9 +100,9 @@
     dataDir = "/data/matrix-synapse";
     bridges = {
       whatsapp.enable = true;
-      whatsapp.admin = "@susagi:${config.networking.domain}";
+      whatsapp.admin = "@susagi:${domain}";
       signal.enable = true;
-      signal.admin = "@susagi:${config.networking.domain}";
+      signal.admin = "@susagi:${domain}";
     };
   };
 

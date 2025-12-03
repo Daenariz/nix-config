@@ -21,8 +21,11 @@
 
   programs.git = {
     enable = true;
-    userName = "Daenariz";
-    userEmail = "deniz.onlinegames@gmail.com";
+    settings = {
+
+      user.name = "Daenariz";
+      user.email = "deniz.onlinegames@gmail.com";
+    };
   };
 
   # xdg might not be available, hence `home.file`
