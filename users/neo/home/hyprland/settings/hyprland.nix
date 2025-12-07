@@ -1,28 +1,28 @@
 { lib, pkgs, ... }:
- {
-   general = {
-     no_border_on_floating = true; 
-     gaps_in = lib.mkForce 3;
-     gaps_out = lib.mkForce 6;
-   };
- 
-   animations = {
-     enabled = true;
-   };
- 
-   decoration = {
-     rounding = lib.mkForce 10;
-     blur.enabled = true;
-     shadow.enabled = true;
-   };
+{
+  general = {
+    no_border_on_floating = true;
+    gaps_in = lib.mkForce 3;
+    gaps_out = lib.mkForce 6;
+  };
+
+  animations = {
+    enabled = true;
+  };
+
+  decoration = {
+    rounding = lib.mkForce 10;
+    blur.enabled = true;
+    shadow.enabled = true;
+  };
 
   exec-once = [
-    "fcitx5 -d && polychromatic-tray-applet" 
+    "fcitx5 -d && polychromatic-tray-applet"
     "obs --startreplaybuffer --minimize-to-tray" # -r https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
     "xrandr --output DP-1 --primary"
-    "[workspace 3 silent] vesktop"
-    "[workspace 4 silent] steam"
-    "[workspace 5 silent] element-desktop"
+    # "[workspace 3 silent] vesktop"
+    #    "[workspace 4 silent] steam"
+    # "[workspace 5 silent] element-desktop"
   ];
 
   bind = [
@@ -51,11 +51,11 @@
     "workspace 5, class:^(im.riot.Riot)$"
     "workspace 2, class:^(tidal-hifi)$"
 
-     #### smart gaps?
-     #"bordersize 0, floating:0, onworkspace:w[tv1]"
-     #"rounding 0, floating:0, onworkspace:w[tv1]"
-     #"bordersize 0, floating:0, onworkspace:f[1]"
-     #"rounding 0, floating:0, onworkspace:f[1]"
+    #### smart gaps?
+    #"bordersize 0, floating:0, onworkspace:w[tv1]"
+    #"rounding 0, floating:0, onworkspace:w[tv1]"
+    #"bordersize 0, floating:0, onworkspace:f[1]"
+    #"rounding 0, floating:0, onworkspace:f[1]"
 
     ##games
     # TODO: GW2 steam_app_1284210 needs a center
@@ -74,9 +74,9 @@
     "3, monitor:DP-1"
     "4, monitor:DP-1"
     "5, monitor:HDMI-A-1"
-    "6, monitor:HDMI-A-1" #, default:true, layoutopt:orientation:top"
-     #### smart gaps
-      #"w[tv1], gapsout:0, gapsin:0"
-      #"f[1], gapsout:0, gapsin:0"
+    "6, monitor:HDMI-A-1" # , default:true, layoutopt:orientation:top"
+    #### smart gaps
+    #"w[tv1], gapsout:0, gapsin:0"
+    #"f[1], gapsout:0, gapsin:0"
   ];
 }

@@ -7,6 +7,8 @@
     sidequest
     ungoogled-chromium
 
+    tor-browser
+
     #    mangohud
     protonup-qt
     lutris
