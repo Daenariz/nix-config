@@ -4,7 +4,8 @@ with pkgs;
 
 # ai stuff
 [
-  simplex-chat-desktop
+  vmware-workstation
+  joplin-cli
   tor-browser
   #  tts
   #  ollama

@@ -22,7 +22,6 @@
   programs.git = {
     enable = true;
     settings = {
-
       user.name = "Daenariz";
       user.email = "deniz.onlinegames@gmail.com";
     };
@@ -37,7 +36,14 @@
   };
 
   programs = {
-    nixvim.enable = true;
+    nixvim = {
+      enable = true;
+      plugins.copilot-lua.settings = {
+        filetypes = {
+          markdown = true;
+        };
+      };
+    };
     #nixvim.enable = true;
     fastfetch.enable = true;
   };

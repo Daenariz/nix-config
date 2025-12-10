@@ -8,7 +8,6 @@
 
 {
   imports = [
-
     inputs.core.nixosModules.common
     inputs.core.nixosModules.device.laptop
     inputs.core.nixosModules.normalUsers
@@ -16,18 +15,21 @@
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.tailscale
     # inputs.core.nixosModules.sops
-    #    inputs.core.nixosModules.virtualization
-    # outputs.nixosModules.postgresql
+    # inputs.core.nixosModules.virtualisation
+    #     outputs.nixosModules.postgresql
 
     outputs.nixosModules.common
 
     ./boot.nix
     ./hardware.nix
-    # ./postgres.nix
+    ./postgres.nix
     ./packages.nix
 
     ./secrets
   ];
+
+  virtualisation.vmware.host.enable = true;
+
 
   #   services.ngircd.enable = true;
   #   services.ngircd.config = ''
@@ -49,7 +51,7 @@
     # loginServer = "head.${config.networking.domain}";
   };
 
-  programs.dconf.enable = true;
+  # programs.dconf.enable = true;
 
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
@@ -69,8 +71,8 @@
     firewall.allowedUDPPorts = [ 24727 ];
     firewall.allowedTCPPorts = [
       8123
-      36497
-      6667
+      # 36497
+      # 6667
     ];
   };
 
@@ -97,6 +99,8 @@
         "wheel"
         "dialout"
         "libvirtd"
+        "kvm"
+        "qemu-libvirtd"
         "disk"
       ];
     };

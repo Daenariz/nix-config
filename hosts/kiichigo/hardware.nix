@@ -16,10 +16,10 @@
       fsType = "ext4";
       options = [ "noatime" ];
     };
-    "/data" = {
-      device = "/dev/md0";
-      fsType = "ext4";
-    };
+    # "/data" = {
+    #   device = "/dev/md0";
+    #   fsType = "ext4";
+    # };
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";

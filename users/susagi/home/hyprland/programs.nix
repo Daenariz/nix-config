@@ -65,6 +65,10 @@
           [
             bitwarden
             yomitan
+            tabliss
+            sponsorblock
+            darkreader
+            floccus
           ]
         );
         # userChrome = lib.mkForce (

@@ -17,8 +17,15 @@ in
     inputs.core.nixosModules.matrix-synapse
     inputs.core.nixosModules.nextcloud
     inputs.core.nixosModules.headscale
+    inputs.core.nixosModules.tailscale
 
   ];
+  
+  services.tailscale = {
+    enable = true;
+    enableSSH = true;
+    loginServer = "https://head.negitorodon.de";
+  };
 
   services.headscale = {
     enable = true;

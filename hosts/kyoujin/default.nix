@@ -10,14 +10,23 @@
     ./packages.nix
     #    ./services.nix
     ./ollama.nix
+    ./secrets
     inputs.core.nixosModules.common
-    inputs.core.nixosModules.sops
+    #     inputs.core.nixosModules.sops
     inputs.core.nixosModules.nvidia
     inputs.core.nixosModules.openssh
+    inputs.core.nixosModules.tailscale
 
     outputs.nixosModules.common
 
   ];
+
+  services.tailscale = {
+    enable = true;
+    enableSSH = true;
+    loginServer = "https://head.negitorodon.de";
+  };
+
   nix.settings.trusted-substituters = ["https://ai.cachix.org"];
 nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
 

@@ -3,6 +3,8 @@ keys:
   - &host_kiichigo age1hdm3rtfde50kzut6jtzmcmqwsjf9dwc5fzpa80c4euu68y8huqqqnxmk5c
   - &host_futro age1s2hvxx5gwn50he0u6kv97ahdvh2vcn0rrfdpgcxremj9cg9dd33q3nhl59
   - &host_naboshi age1tlvjr8hr9ph5gw4nq76whkg50ug6dt3pm232ntt6h2czknlwmuqqjlnq4g
+  - &host_kyoujin age1ga4jfq3flr4qdxz93ek00a6lud7322vfgmepzvjp3e843559nu9srfg3jt
+
 creation_rules:
   # nixos
   - path_regex: hosts/kiichigo/secrets.yaml$
@@ -10,12 +12,17 @@ creation_rules:
     - age:
       - *user_susagi
       - *host_kiichigo
-
   - path_regex: hosts/futro/secrets/secrets.yaml$
     key_groups:
     - age:
       - *user_susagi
       - *host_futro
+
+  - path_regex: hosts/kyoujin/secrets/secrets.yaml$
+    key_groups:
+    - age:
+      - *user_susagi
+      - *host_kyoujin
   - path_regex: hosts/naboshi/secrets/secrets.yaml$
     key_groups:
     - age:

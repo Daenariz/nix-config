@@ -23,6 +23,8 @@
       app-browser = "${pkgs.brave}/bin/brave"; # ## seems to work for chromium-based browsers like brave, ungoogled-chromium
     in
     [
+      "$mod SHIFT, minus, movecurrentworkspacetomonitor, u"
+      "$mod, minus, movecurrentworkspacetomonitor, d"
       "$mod,       z, exec, super-productivity --ozone-platform=x11"
       "$mod,       t, exec, ${tidal}"
       "$mod CTRL,  j, exec, joplin-desktop"

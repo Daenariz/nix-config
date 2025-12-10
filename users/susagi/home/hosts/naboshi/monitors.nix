@@ -11,5 +11,6 @@
   monitor = desc:Fujitsu Siemens Computers GmbH B24T-7 LED PG YV6K204146, 1920x1080@60, -1080x0, 1, transform, 1
   monitor = desc:Lenovo Group Limited N27p, 2560x1440, -1440x-1000, 1, transform, 3
   monitor = desc:Dell Inc. DELL S2721HGF 89M8123, 1920x1080@120, auto-up, 1, transform, 0
+  monitor = desc: LG Electronics LG ULTRAWIDE 412NTBK1T781, 3440x1440@49.95, -860x-1440, 1, transform, 0
 ''
 # rotation with ..., transform, number from 1-3 (0 for default)
