@@ -1,13 +1,15 @@
 keys:
   - &user_susagi age1g892agvnalhn7f3p5kc3l4hfjusnl947kt9g7l62wyzl2amuxyrqlcxeq7
-  - &host_kiichigo age1hdm3rtfde50kzut6jtzmcmqwsjf9dwc5fzpa80c4euu68y8huqqqnxmk5c
+  # - &host_kiichigo age1hdm3rtfde50kzut6jtzmcmqwsjf9dwc5fzpa80c4euu68y8huqqqnxmk5c
+  # - &host_kiichigo age1cs7cd6qata2hyyxunle7kt6ktdwkx3agd8fytqqx2wpxhs2uep7qu7w6u3
+  - &host_kiichigo age1k7y8j5vjyq692uvn70ljdztlgnlzszp9xnwdtmvk2apjucl7cdcqfh4hf5
   - &host_futro age1s2hvxx5gwn50he0u6kv97ahdvh2vcn0rrfdpgcxremj9cg9dd33q3nhl59
   - &host_naboshi age1tlvjr8hr9ph5gw4nq76whkg50ug6dt3pm232ntt6h2czknlwmuqqjlnq4g
   - &host_kyoujin age1ga4jfq3flr4qdxz93ek00a6lud7322vfgmepzvjp3e843559nu9srfg3jt
 
 creation_rules:
   # nixos
-  - path_regex: hosts/kiichigo/secrets.yaml$
+  - path_regex: hosts/kiichigo/secrets/secrets.yaml$
     key_groups:
     - age:
       - *user_susagi

@@ -10,13 +10,36 @@
     ./packages.nix
     #./services.nix
     ./users.nix
+    ./secrets
     inputs.core.nixosModules.common
-    inputs.core.nixosModules.sops
     inputs.core.nixosModules.openssh
+    inputs.core.nixosModules.tailscale
+    inputs.core.nixosModules.jellyfin
 
     outputs.nixosModules.common
 
   ];
+
+  services.jellyfin = {
+    enable = true;
+    reverseProxy = {
+    subdomain = "media";
+    forceSSL = false;
+    };
+    libraries = [
+      "books/audiobooks"
+      "movies"
+      "music"
+      "shows"
+    ];
+  };
+
+   services.tailscale = {
+    enable = true;
+    enableSSH = true;
+    loginServer = "https://head.negitorodon.de";
+  };
+
 
   programs.ssh.startAgent = true;
 
