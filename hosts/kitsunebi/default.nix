@@ -12,6 +12,7 @@
     inputs.core.nixosModules.device.laptop
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.openssh
+    # inputs.core.nixosModules.tailscale
 
     outputs.nixosModules.common
 
@@ -19,6 +20,12 @@
     ./hardware.nix
     ./packages.nix
   ];
+
+  # services.tailscale = {
+  #   enable = true;
+  #   enableSSH = true;
+  #   loginServer = "https://head.negitorodon.de";
+  # };
 
   #  nixpkgs.config.cudaSupport = true;
 
@@ -51,6 +58,7 @@
 
   networking = {
     hostName = "kitsunebi";
+    interfaces.eno1.wakeOnLan.enable = true;
   };
 
   services = {
