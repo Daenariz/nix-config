@@ -82,6 +82,12 @@
         "gamemode"
         "adbusers"
       ];
+      sshKeyFiles = [
+        ../../users/susagi/pubkeys/vde_rsa.pub
+        ../../users/susagi/pubkeys/futro_rsa.pub
+        ../../users/susagi/pubkeys/kyojin_rsa.pub
+        ../../users/susagi/pubkeys/handy.pub
+      ];
     };
   };
 
