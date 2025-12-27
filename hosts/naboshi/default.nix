@@ -3,6 +3,7 @@
   outputs,
   pkgs,
   config,
+  lib,
   ...
 }:
 
@@ -13,7 +14,6 @@
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.tailscale
     # inputs.core.nixosModules.sops
     # inputs.core.nixosModules.virtualisation
     #     outputs.nixosModules.postgresql
@@ -24,12 +24,39 @@
     ./hardware.nix
     ./postgres.nix
     ./packages.nix
+    ./networking.nix
 
     ./secrets
   ];
 
-  virtualisation.vmware.host.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = false;
+    localNetworkGameTransfers.openFirewall = true;
+    gamescopeSession.enable = true;
+  };
 
+  # virtualisation.libvirtd.qemu.runAsRoot = true;
+  #   virtualisation.libvirtd.qemu.verbatimConfig = lib.mkForce ''
+  #               clear_emulation_capabilities = 1
+  # '';
+  #   virtualisation.libvirtd.deviceACL = [
+  # "/dev/null" "null"
+  #           "/dev/full" "full"
+  #           "/dev/zero" "zero"
+  #           "/dev/random" "random"
+  #           "/dev/urandom" "urandom"
+  #           "/dev/ptmx" "ptmx"
+  #           "/dev/kvm" "kvm"
+  #           "/dev/rtc" "rtc"
+  #           "/dev/hpet" "hpet"  ];
+  #   # #   # virtualisation.vmware.host.enable = true;
+  #   # #
+  #   users.extraGroups.libvirtd.members = [ "susagi" ];
+  #   users.extraGroups.qemu-libvirtd.members = [ "susagi" ];
+  #   users.extraGroups.kvm.members = [ "susagi" ];
+  #
 
   #   services.ngircd.enable = true;
   #   services.ngircd.config = ''
@@ -44,14 +71,8 @@
   #   Password = Hans1234
   #   ''
   # ;
-  services.tailscale = {
-    enable = true;
-    enableSSH = true;
-    loginServer = "https://head.negitorodon.de";
-    # loginServer = "head.${config.networking.domain}";
-  };
 
-  # programs.dconf.enable = true;
+  programs.dconf.enable = true;
 
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
@@ -65,16 +86,6 @@
   #    settings = {
   #};
   #};
-
-  networking = {
-    hostName = "naboshi";
-    firewall.allowedUDPPorts = [ 24727 ];
-    firewall.allowedTCPPorts = [
-      8123
-      # 36497
-      # 6667
-    ];
-  };
 
   services = {
     udev.packages = with pkgs; [
