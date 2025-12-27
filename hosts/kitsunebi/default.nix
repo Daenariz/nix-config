@@ -12,24 +12,34 @@
     inputs.core.nixosModules.device.laptop
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.openssh
-    # inputs.core.nixosModules.tailscale
+    inputs.core.nixosModules.tailscale
 
     outputs.nixosModules.common
 
     ./boot.nix
     ./hardware.nix
     ./packages.nix
+    ./secrets
   ];
+  services.getty.autologinUser = "neo";
 
-  # services.tailscale = {
-  #   enable = true;
-  #   enableSSH = true;
-  #   loginServer = "https://head.negitorodon.de";
-  # };
+  services.tailscale = {
+    enable = true;
+    enableSSH = true;
+    loginServer = "https://head.negitorodon.de";
+  };
 
   #  nixpkgs.config.cudaSupport = true;
 
   services.flatpak.enable = true;
+
+  programs.zsh = {
+  interactiveShellInit = ''
+    if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+       exec Hyprland
+    fi
+  '';
+};
 
   programs.steam = {
     enable = true;
