@@ -23,7 +23,7 @@
     enable = true;
     settings = {
       user.name = "Daenariz";
-      user.email = "deniz.onlinegames@gmail.com";
+      user.email = "dev@deniz-eckert.de";
     };
   };
 

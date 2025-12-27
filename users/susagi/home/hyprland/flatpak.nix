@@ -13,10 +13,10 @@
       };
     };
     packages = [
-      {
-        appId = "us.zoom.Zoom";
-        origin = "flathub";
-      }
+      # {
+      #   appId = "us.zoom.Zoom";
+      #   origin = "flathub";
+      # }
     ];
   };
 }

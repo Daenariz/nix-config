@@ -5,6 +5,13 @@
     enable = true;
     matchBlocks = {
 
+      kitsunebi = {
+        host = "nebi kitsunebi";
+        hostname = "192.168.178.178"; # ## previously .103
+        port = 2299;
+        user = "neo";
+        identityFile = "/home/susagi/.ssh/vde_rsa";
+      };
       pi-sniffer = {
         host = "sni sniffer";
         hostname = "192.168.0.100"; # ## previously .103
@@ -15,8 +22,8 @@
 
       rpi = {
         host = "kii kiichigo";
-        hostname = "negitorodon.de";
-        port = 3407;
+        hostname = "192.168.178.23";
+        port = 2299;
         user = "susagi";
         identityFile = "/home/susagi/.ssh/vde_rsa";
       };

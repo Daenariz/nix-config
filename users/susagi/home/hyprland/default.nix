@@ -9,7 +9,7 @@
   imports = [
     inputs.core.homeModules.hyprland
     inputs.core.homeModules.stylix
-    # inputs.core.homeModules.virtualization
+    # inputs.core.homeModules.virtualisation
 
     ./flatpak.nix
     ./programs.nix
@@ -35,6 +35,7 @@
   };
 
   home.shellAliases = {
+    vmware-x11 = "GDK_BACKEND=x11 vmware";
     t2c = "sh ~/Desktop/projects/repos/soku_tango/tango2csv.sh ";
     search-store = "find /nix/store -maxdepth 1 -type d | rg -i ";
 
