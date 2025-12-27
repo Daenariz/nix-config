@@ -30,7 +30,10 @@ in
   services.headscale = {
     enable = true;
     openFirewall = true;
-    subdomain = "head";
+    reverseProxy = {
+      enable = true;
+      subdomain = "head";
+    };
   };
 
   services.uptime-kuma.enable = true;
@@ -48,7 +51,10 @@ in
   services.nextcloud = {
     enable = true;
     datadir = "/data/nextcloud";
-    subdomain = "cloud";
+    reverseProxy = {
+      enable = true;
+      subdomain = "cloud";
+    };
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
         bookmarks
@@ -114,11 +120,27 @@ in
   };
 
   services.vaultwarden.enable = true;
-  services.vaultwarden.subdomain = "vault";
+  services.vaultwarden.reverseProxy = {
+    enable = true;
+    subdomain = "vault";
+  };
+
 
   services.open-webui-oci.enable = true;
   services.open-webui-oci.reverseProxy.enable = true;
 
+# services.nginx = {
+#   virtualHosts."ai.${domain}" = {
+#     locations."/" = {
+#       extraConfig = ''
+#         proxy_buffering off;
+#         proxy_cache off;
+#         chunked_transfer_encoding on;
+#         proxy_read_timeout 300s;
+#       '';
+#     };
+#   };
+# };
   services.nginx.enable = true;
 
 }

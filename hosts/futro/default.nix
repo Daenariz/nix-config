@@ -21,6 +21,11 @@
   ];
 
   networking = {
+    firewall = { 
+      enable = true;
+      trustedInterfaces = [ "tailscale0" ];
+      checkReversePath = "loose";
+    };
     domain = "negitorodon.de";
     hostName = "futro";
     interfaces.enp1s0.wakeOnLan = {
