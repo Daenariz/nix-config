@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   imports = [
     inputs.core.nixosModules.tailscale
@@ -10,6 +10,7 @@
   };
 
   networking = {
+    wireless.enable = lib.mkForce true;
     hostName = "naboshi";
     firewall = {
       checkReversePath = "loose";

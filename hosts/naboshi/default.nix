@@ -15,7 +15,7 @@
     inputs.core.nixosModules.hyprland
     inputs.core.nixosModules.openssh
     # inputs.core.nixosModules.sops
-    # inputs.core.nixosModules.virtualisation
+    inputs.core.nixosModules.virtualisation
     #     outputs.nixosModules.postgresql
 
     outputs.nixosModules.common
@@ -29,13 +29,13 @@
     ./secrets
   ];
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = false;
-    localNetworkGameTransfers.openFirewall = true;
-    gamescopeSession.enable = true;
-  };
+#  programs.steam = {
+ #   enable = true;
+  #  remotePlay.openFirewall = true;
+  #  dedicatedServer.openFirewall = false;
+  #  localNetworkGameTransfers.openFirewall = true;
+  #  gamescopeSession.enable = true;
+  #};
 
   # virtualisation.libvirtd.qemu.runAsRoot = true;
   #   virtualisation.libvirtd.qemu.verbatimConfig = lib.mkForce ''
@@ -53,9 +53,9 @@
   #           "/dev/hpet" "hpet"  ];
   #   # #   # virtualisation.vmware.host.enable = true;
   #   # #
-  #   users.extraGroups.libvirtd.members = [ "susagi" ];
-  #   users.extraGroups.qemu-libvirtd.members = [ "susagi" ];
-  #   users.extraGroups.kvm.members = [ "susagi" ];
+    users.extraGroups.libvirtd.members = [ "susagi" ];
+    users.extraGroups.qemu-libvirtd.members = [ "susagi" ];
+    users.extraGroups.kvm.members = [ "susagi" ];
   #
 
   #   services.ngircd.enable = true;
