@@ -20,6 +20,7 @@
     ./hardware.nix
     ./packages.nix
     ./secrets
+    ./ollama.nix
   ];
   services.getty.autologinUser = "neo";
 
