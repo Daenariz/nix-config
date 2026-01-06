@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   outputs,
+  lib,
   ...
 }:
 
@@ -21,6 +22,8 @@
     ./packages.nix
     ./secrets
     ./ollama.nix
+    ./speaches.nix
+    ./server-mode.nix
   ];
   services.getty.autologinUser = "neo";
 
@@ -32,14 +35,18 @@
 
   #  nixpkgs.config.cudaSupport = true;
 
-  services.flatpak.enable = true;
+ # services.flatpak.enable = true;
 
   programs.zsh = {
   interactiveShellInit = ''
-    if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-       exec Hyprland
-    fi
-  '';
+# Nur starten, wenn wir auf TTY 1 sind UND hyprland im System-Pfad existiert
+if [[ -z $DISPLAY && $(tty) == /dev/tty1 ]]; then
+  if command -v Hyprland >/dev/null; then
+    exec Hyprland
+  else
+    echo "Server-Modus aktiv: Hyprland wird nicht gestartet."
+  fi
+fi  '';
 };
 
   programs.steam = {
@@ -68,6 +75,7 @@
   };
 
   networking = {
+    wireless.enable = lib.mkForce true;
     hostName = "kitsunebi";
     interfaces.eno1.wakeOnLan.enable = true;
   };

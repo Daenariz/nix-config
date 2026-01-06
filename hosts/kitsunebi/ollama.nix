@@ -12,6 +12,7 @@
 
   services.ollama = {
     enable = true;
+    package = pkgs.ollama-cuda;
     host = "0.0.0.0";
     openFirewall = true;
     # Optional: preload models, see https://ollama.com/library
@@ -20,7 +21,7 @@
       # "qwen3:30b-a3b" # 3b active parameters
       # "deepseek-r1:1.5b"
     ];
-    acceleration = "cuda";
+#    acceleration = "cuda";
   };
 
   #services.comfyui = {
