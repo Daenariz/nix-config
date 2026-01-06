@@ -23,7 +23,7 @@
     ./secrets
     ./ollama.nix
     ./speaches.nix
-    ./server-mode.nix
+    ./desktop-mode.nix
   ];
   services.getty.autologinUser = "neo";
 
@@ -39,14 +39,10 @@
 
   programs.zsh = {
   interactiveShellInit = ''
-# Nur starten, wenn wir auf TTY 1 sind UND hyprland im System-Pfad existiert
-if [[ -z $DISPLAY && $(tty) == /dev/tty1 ]]; then
-  if command -v Hyprland >/dev/null; then
+  if [ -z "$IS_HEADLESS" ] && [ "$(tty)" = "/dev/tty1" ]; then
     exec Hyprland
-  else
-    echo "Server-Modus aktiv: Hyprland wird nicht gestartet."
-  fi
-fi  '';
+fi
+'';
 };
 
   programs.steam = {
@@ -82,10 +78,10 @@ fi  '';
 
   services = {
     openssh.enable = true;
-    pipewire.enable = true;
+  #  pipewire.enable = true;
   };
 
-  programs.hyprland.enable = true;
+ # programs.hyprland.enable = true;
 
   normalUsers = {
     neo = {
