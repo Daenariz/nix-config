@@ -6,7 +6,6 @@ pkgs.stdenv.mkDerivation rec {
 
   src = pkgs.fetchurl {
     url = "https://d3qgi0t347dz44.cloudfront.net/release/linuxpack/default_prod_Linux_2.2.3.zip";
-#    sha256 = "sha256-iBn1FMszktRg1yaPmbOKcvq6cG1UxdFk3M4qK7NfuLI=";
     sha256 = "sha256-I+q3bsqcD9om8R42Cf9nIjpJwlSNi0vyL0r39QkTbCU=";
   };
 

@@ -5,7 +5,7 @@ with pkgs;
 #　たいせつな日本語の勉強
 [
   tagainijisho # タガイニ辞書
-  anki
+#  anki
   tango
   noto-fonts-cjk-sans # ファイアフォックスでは、日本語のかなを見せるのために
 ]

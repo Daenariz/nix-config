@@ -10,7 +10,7 @@
   };
 
   networking = {
-    wireless.enable = lib.mkForce true;
+#    wireless.enable = lib.mkForce true;
     hostName = "naboshi";
     firewall = {
       checkReversePath = "loose";

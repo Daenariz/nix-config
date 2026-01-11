@@ -7,6 +7,14 @@
 }:
 
 {
+
+  programs.anki = {
+    enable = true;
+    addons = [
+      pkgs.ankiAddons.anki-connect
+    ];
+  };
+
   programs.joplin-desktop = {
     enable = true;
     # package = pkgs.joplin;   ### for cli use eventually
