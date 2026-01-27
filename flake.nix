@@ -1,25 +1,23 @@
 {
   inputs = {
- #   nixpkgs.url = "github:nixos/nixpkgs/372670127e5f4b777f35e66a38ebdb4051452d73";   ### somewhere between webui_0.6.34 and mautrix-whatsapp 0.2510.0
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
     # broke waybar 
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    core.url = "git+https://git.portuus.de/sid/nix-core.git";
+    core.url = "git+https://git.portuus.de/sid/nix-core.git?ref=release-25.11";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
     #    core-dev.url = "github:Daenariz/nix-core/feature/plecs";
     ha-test.url = "github:Daenariz/nix-core/feature/home-assistant-oci";
 
     nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/";
-   # nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/53007af63fade28853408370c4c600a63dd97f41";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim.url = "github:nix-community/nixvim/nixos-25.11";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR";
@@ -28,7 +26,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/release-25.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";

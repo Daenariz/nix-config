@@ -71,7 +71,7 @@ fi
   };
 
   networking = {
-    wireless.enable = lib.mkForce true;
+    # wireless.enable = lib.mkForce true;
     hostName = "kitsunebi";
     interfaces.eno1.wakeOnLan.enable = true;
   };

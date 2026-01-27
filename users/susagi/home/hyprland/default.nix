@@ -18,6 +18,11 @@
     ./ssh.nix
   ];
 
+  services.gnome-keyring = {
+    enable = true;
+    components = [ "secrets" ];
+  };
+
   stylix = {
     enable = true;
     scheme = "dracula";

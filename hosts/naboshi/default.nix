@@ -28,31 +28,8 @@
 
     ./secrets
   ];
+    virtualisation.docker.enable = true;
 
-#  programs.steam = {
- #   enable = true;
-  #  remotePlay.openFirewall = true;
-  #  dedicatedServer.openFirewall = false;
-  #  localNetworkGameTransfers.openFirewall = true;
-  #  gamescopeSession.enable = true;
-  #};
-
-  # virtualisation.libvirtd.qemu.runAsRoot = true;
-  #   virtualisation.libvirtd.qemu.verbatimConfig = lib.mkForce ''
-  #               clear_emulation_capabilities = 1
-  # '';
-  #   virtualisation.libvirtd.deviceACL = [
-  # "/dev/null" "null"
-  #           "/dev/full" "full"
-  #           "/dev/zero" "zero"
-  #           "/dev/random" "random"
-  #           "/dev/urandom" "urandom"
-  #           "/dev/ptmx" "ptmx"
-  #           "/dev/kvm" "kvm"
-  #           "/dev/rtc" "rtc"
-  #           "/dev/hpet" "hpet"  ];
-  #   # #   # virtualisation.vmware.host.enable = true;
-  #   # #
     users.extraGroups.libvirtd.members = [ "susagi" ];
     users.extraGroups.qemu-libvirtd.members = [ "susagi" ];
     users.extraGroups.kvm.members = [ "susagi" ];
@@ -101,6 +78,7 @@
   normalUsers = {
     susagi = {
       extraGroups = [
+        "docker"
         "input"
         "audio"
         "floppy"
