@@ -16,6 +16,7 @@
     inputs.core.nixosModules.openssh
     # inputs.core.nixosModules.sops
     inputs.core.nixosModules.virtualisation
+    inputs.core.nixosModules.print-server
     #     outputs.nixosModules.postgresql
 
     outputs.nixosModules.common
@@ -28,11 +29,24 @@
 
     ./secrets
   ];
-    virtualisation.docker.enable = true;
 
-    users.extraGroups.libvirtd.members = [ "susagi" ];
-    users.extraGroups.qemu-libvirtd.members = [ "susagi" ];
-    users.extraGroups.kvm.members = [ "susagi" ];
+  services.print-server.enable = true;
+  services.print-server.openFirewall = true;
+
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "steam-unwrapped"   # probably for riichi-city
+      "brgenml1lpr"   # for print-server
+      "hplip"   # S.O. 
+      "samsung-unified-linux-driver"   # S.O.
+    ];
+
+  virtualisation.docker.enable = true;
+
+  users.extraGroups.libvirtd.members = [ "susagi" ];
+  users.extraGroups.qemu-libvirtd.members = [ "susagi" ];
+  users.extraGroups.kvm.members = [ "susagi" ];
   #
 
   #   services.ngircd.enable = true;

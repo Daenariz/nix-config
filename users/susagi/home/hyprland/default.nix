@@ -18,6 +18,13 @@
     ./ssh.nix
   ];
 
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "castlabs-electron"
+      "zoom"
+    ];
+
   services.gnome-keyring = {
     enable = true;
     components = [ "secrets" ];

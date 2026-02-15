@@ -12,7 +12,7 @@
     core.inputs.nixpkgs.follows = "nixpkgs";
 
     #    core-dev.url = "github:Daenariz/nix-core/feature/plecs";
-    ha-test.url = "github:Daenariz/nix-core/feature/home-assistant-oci";
+    # ha-test.url = "github:Daenariz/nix-core/feature/home-assistant-oci";
 
     nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +47,17 @@
         "aarch64-linux"
       ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+
+      lib = nixpkgs.lib.extend (final: prev: inputs.core.lib or { });
+
+      mkNixosConfiguration =
+        system: modules:
+        nixpkgs.lib.nixosSystem {
+          inherit system modules;
+          specialArgs = {
+            inherit inputs outputs lib;
+          };
+        };
     in
     {
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
@@ -67,42 +78,44 @@
       );
 
       nixosConfigurations = {
-        kyoujin = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./hosts/kyoujin ];
-        };
-        kitsunebi = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./hosts/kitsunebi ];
-        };
-        akiyama = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./hosts/akiyama ];
-        };
-        kiichigo = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./hosts/kiichigo ];
-        };
-        naboshi = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./hosts/naboshi ];
-        };
-        futro = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./hosts/futro ];
-        };
+        naboshi = mkNixosConfiguration "x86_64-linux" [ ./hosts/naboshi ];
+        # futro = mkNixosConfiguration "x86_64-linux" [ ./hosts/futro ];
+        # kyoujin = nixpkgs.lib.nixosSystem {
+        #   specialArgs = {
+        #     inherit inputs outputs;
+        #   };
+        #   modules = [ ./hosts/kyoujin ];
+        # };
+        # kitsunebi = nixpkgs.lib.nixosSystem {
+        #   specialArgs = {
+        #     inherit inputs outputs;
+        #   };
+        #   modules = [ ./hosts/kitsunebi ];
+        # };
+        # akiyama = nixpkgs.lib.nixosSystem {
+        #   specialArgs = {
+        #     inherit inputs outputs;
+        #   };
+        #   modules = [ ./hosts/akiyama ];
+        # };
+        # kiichigo = nixpkgs.lib.nixosSystem {
+        #   specialArgs = {
+        #     inherit inputs outputs;
+        #   };
+        #   modules = [ ./hosts/kiichigo ];
+        # };
+        # naboshi = nixpkgs.lib.nixosSystem {
+        #   specialArgs = {
+        #     inherit inputs outputs;
+        #   };
+        #   modules = [ ./hosts/naboshi ];
+        # };
+        # futro = nixpkgs.lib.nixosSystem {
+        #   specialArgs = {
+        #     inherit inputs outputs;
+        #   };
+        #   modules = [ ./hosts/futro ];
+        # };
       };
 
       homeConfigurations = {

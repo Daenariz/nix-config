@@ -3,6 +3,7 @@
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks = {
 
       kitsunebi = {
@@ -16,7 +17,7 @@
         host = "sni sniffer";
         hostname = "192.168.0.23"; # ## previously .103 + 100
         port = 22;
-        user = "nixos"; ###"susagi";
+        user = "nixos"; # ##"susagi";
         identityFile = "/home/susagi/.ssh/vde_rsa";
       };
 
