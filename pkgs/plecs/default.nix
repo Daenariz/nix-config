@@ -17,11 +17,11 @@
 
 stdenv.mkDerivation rec {
   pname = "plecs";
-  version = "4.9.4";
+  version = "5.0.2";
 
   src = builtins.fetchTarball {
-    url = "https://www.plexim.com/sites/default/files/packages/plecs-standalone-4-9-4_linux64.tar.gz";
-    sha256 = "0hkkga1zfnghrivkiws3pqld7ihc3bg1gzx2dckzdd5jfbdd9kpm";
+    url = "https://www.plexim.com/sites/default/files/packages/plecs-standalone-5-0-2_linux64.tar.gz";
+    sha256 = "0428g1ji3k74z9w2kfs85ah7xqii7ss70j0kxa3hc2qp88awwb6k";
   };
 
   nativeBuildInputs = [
@@ -30,29 +30,28 @@ stdenv.mkDerivation rec {
     qt6.wrapQtAppsHook
   ];
 
-  buildInputs =
-    [
-      xcb-util-cursor
-      libGL
-      libX11
-      libGLU
-      freetype
-      fontconfig
-      zlib
-      stdenv.cc.cc.lib
-      openssl
-      cacert
-    ]
-    ++ (with qt6; [
-      qtbase
-      qtwebengine
-      qt5compat
-      qtsvg
-      qtwayland
+  buildInputs = [
+    xcb-util-cursor
+    libGL
+    libX11
+    libGLU
+    freetype
+    fontconfig
+    zlib
+    stdenv.cc.cc.lib
+    openssl
+    cacert
+  ]
+  ++ (with qt6; [
+    qtbase
+    qtwebengine
+    qt5compat
+    qtsvg
+    qtwayland
 
-      # qtx11extras # not in nixpkgs
-      # qtpdf # not in nixpkgs
-    ]);
+    # qtx11extras # not in nixpkgs
+    # qtpdf # not in nixpkgs
+  ]);
 
   autoPatchelfFlags = [ "--ignore-missing=libQt6Pdf.so.6" ]; # TODO
 
