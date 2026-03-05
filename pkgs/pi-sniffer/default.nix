@@ -1,39 +1,46 @@
 {
-  lib,
   stdenv,
-  fetchFromGitHub,
+  lib,
   pkg-config,
   glib,
   json-glib,
   dpkg,
+  bluez,
+  bluez-tools,
+  openssl,
+  paho-mqtt-c,
   ...
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "pi-sniffer";
-  version = "unstable-2025-03-03";
+  version = "hilbigit-forked-2025-09-17";
 
-  src = fetchFromGitHub {
-    owner = "IanMercer";
-    repo = "pi-sniffer";
-    rev = "2432e1f1e5cc1c408524bd195c6b32b4ca904321";
-    hash = "sha256-Rn4fKzYWQHSbhVCDFdVOWTj9WyN3ehh5kNQSwtCRLbg=";
+  src = fetchGit {
+    url = "ssh://git@forgejo.tooling.hilbigit.com/vcr-dev-tracker/pi-sniffer.git";
+    rev = "aeb4cbced82fc1f17c310927b7815aee5babd82e";
   };
 
-  nativeBuildInputs = [
-    pkg-config
-  ];
+  nativeBuildInputs = [ pkg-config ];
 
   buildInputs = [
     glib
     json-glib
     dpkg
+    bluez
+    bluez-tools
+    openssl
+    paho-mqtt-c
   ];
+
+  postBuild = ''
+    SRC="src/scan.c src/mqtt_send.c src/model/device.c"  make scanwithmqtt
+  '';
 
   installPhase = ''
     runHook preInstall
     mkdir -p $out/bin
-    cp scan $out/bin/pi-sniffer
+    cp scanwithmqtt $out/bin/pi-sniffer
     runHook postInstall
   '';
 

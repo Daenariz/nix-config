@@ -13,9 +13,9 @@
   programs.git = {
     enable = true;
     settings = {
-    user.name = "Daenariz";
-    user.email = "dev@deniz-eckert.de";
-  };
+      user.name = "Daenariz";
+      user.email = "dev@deniz-eckert.de";
+    };
   };
 
   home.file.nixpkgs_config = {

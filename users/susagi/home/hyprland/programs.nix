@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   lib,
   pkgs,
@@ -7,6 +6,10 @@
 }:
 
 {
+
+  programs.anki.enable = true;
+  programs.anki.addons = [ pkgs.ankiAddons.anki-connect ];
+
   programs.joplin-desktop = {
     enable = true;
     # package = pkgs.joplin;   ### for cli use eventually
@@ -36,17 +39,7 @@
   };
 
   programs.waybar = {
-    #style = lib.mkForce (import ./style.nix { inherit config; });
     settings = import ./settings/waybar.nix;
-  };
-
-  programs.newsboat = {
-    extraConfig = ''
-      urls-source "ttrss"
-      ttrss-url "https://tt-rss.negitorodon.de/"
-      ttrss-login "susagi"
-      ttrss-passwordfile "${config.sops.secrets.tt-rss.path}"
-    '';
   };
 
   programs = {
@@ -56,6 +49,7 @@
 
     librewolf = {
       profiles.default = {
+        # search.default = lib.mkForce "startpage@search.mozilla.orgdefault";
         #        settings = lib.mkAfter {
         # "browser.tabs.allow_transparent_browser" = true;
         # "browser.tabs.crashReporting.sendReport" = false;
@@ -63,9 +57,9 @@
         extensions.packages = lib.mkAfter (
           with inputs.nur.legacyPackages."${pkgs.system}".repos.rycee.firefox-addons;
           [
+            adaptive-tab-bar-colour
             bitwarden
             yomitan
-            tabliss
             sponsorblock
             darkreader
             floccus

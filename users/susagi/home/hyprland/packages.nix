@@ -5,13 +5,18 @@ with pkgs;
 #　たいせつな日本語の勉強
 [
   tagainijisho # タガイニ辞書
-  anki
+  #  anki   # module being tested
   tango
   noto-fonts-cjk-sans # ファイアフォックスでは、日本語のかなを見せるのために
 ]
 ++
   # testing
   [
+    nix-output-monitor
+    nix-inspect
+    nvd
+    xmage
+    sieve-connect
     keepass
     joplin-cli
     tor-browser

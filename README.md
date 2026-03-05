@@ -10,8 +10,11 @@ This repository is a collection of personal NixOS configurations with standalone
 ├── flake.nix             # Nix Flake file for the configuration
 ├── hosts
 │   ├── akiyama           # Gaming Teststation config                 
+│   ├── blackbox          # Experimental Pi 5 config                 
+│   ├── futro             # Homelab config                 
 │   ├── kiichigo          # Raspberry 4 config
 │   ├── kitsunebi         # Gaming config
+│   ├── kyoujin           # AI Testserver config
 │   ├── naboshi           # Workstation config
 │   └── shizen            # Working Teststation config
 ├── modules               

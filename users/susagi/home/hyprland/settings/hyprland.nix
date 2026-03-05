@@ -8,25 +8,19 @@
   };
 
   animations.enabled = true;
-  #gestures.workspace_swipe = true;  ## also deprecated
-  # probably changed in 24.11
-  # decoration = {
-  #   blur.enabled = true;
-  #   shadow.enabled = true;
-  # };
 
   bind =
     let
       flatpak = "${pkgs.flatpak}/bin/flatpak";
-      bw-menu = "${pkgs.bitwarden-menu}/bin/bwm";
       tidal = "${pkgs.tidal-hifi}/bin/tidal-hifi";
       app-browser = "${pkgs.brave}/bin/brave"; # ## seems to work for chromium-based browsers like brave, ungoogled-chromium
+      nix-inspect = "${pkgs.nix-inspect}/bin/nix-inspect";
     in
     [
       "$mod SHIFT, minus, movecurrentworkspacetomonitor, u"
       "$mod, minus, movecurrentworkspacetomonitor, d"
-      "$mod,       z, exec, super-productivity --ozone-platform=x11"
       "$mod,       t, exec, ${tidal}"
+      "$mod,       i, exec, ${nix-inspect}"
       "$mod CTRL,  j, exec, joplin-desktop"
       "$mod CTRL, m, exec, ${app-browser} --app=https://tenhou.net/3/"
     ];
@@ -35,9 +29,8 @@
     "fcitx5 -d -r" # https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
     "fcitx5-remote -r"
     "[workspace 2 silent] librewolf"
-    "[workspace 4 silent] thunderbird"
+    "sleep 5 && hyprctl dispatch exec '[workspace 4 silent] thunderbird'"
     "[workspace 5 silent] element-desktop"
-    #    "[workspace 5 silent] signal-desktop"
   ];
 
   windowrule = [

@@ -35,15 +35,15 @@
 
   #  nixpkgs.config.cudaSupport = true;
 
- # services.flatpak.enable = true;
+  # services.flatpak.enable = true;
 
   programs.zsh = {
-  interactiveShellInit = ''
-  if [ -z "$IS_HEADLESS" ] && [ "$(tty)" = "/dev/tty1" ]; then
-    exec Hyprland
-fi
-'';
-};
+    interactiveShellInit = ''
+        if [ -z "$IS_HEADLESS" ] && [ "$(tty)" = "/dev/tty1" ]; then
+          exec Hyprland
+      fi
+    '';
+  };
 
   programs.steam = {
     enable = true;
@@ -71,17 +71,17 @@ fi
   };
 
   networking = {
-    wireless.enable = lib.mkForce true;
+    # wireless.enable = lib.mkForce true;
     hostName = "kitsunebi";
     interfaces.eno1.wakeOnLan.enable = true;
   };
 
   services = {
     openssh.enable = true;
-  #  pipewire.enable = true;
+    #  pipewire.enable = true;
   };
 
- # programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
 
   normalUsers = {
     neo = {

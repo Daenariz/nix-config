@@ -9,13 +9,14 @@
 
 {
   imports = [
-    inputs.core.nixosModules.common
-    inputs.core.nixosModules.device.laptop
-    inputs.core.nixosModules.normalUsers
-    inputs.core.nixosModules.hyprland
-    inputs.core.nixosModules.openssh
-    # inputs.core.nixosModules.sops
-    inputs.core.nixosModules.virtualisation
+    inputs.synix.nixosModules.common
+    inputs.synix.nixosModules.device.laptop
+    inputs.synix.nixosModules.normalUsers
+    inputs.synix.nixosModules.hyprland
+    inputs.synix.nixosModules.openssh
+    # inputs.synix.nixosModules.sops
+    inputs.synix.nixosModules.virtualisation
+    inputs.synix.nixosModules.print-server
     #     outputs.nixosModules.postgresql
 
     outputs.nixosModules.common
@@ -29,33 +30,23 @@
     ./secrets
   ];
 
-#  programs.steam = {
- #   enable = true;
-  #  remotePlay.openFirewall = true;
-  #  dedicatedServer.openFirewall = false;
-  #  localNetworkGameTransfers.openFirewall = true;
-  #  gamescopeSession.enable = true;
-  #};
+  services.print-server.enable = true;
+  services.print-server.openFirewall = true;
 
-  # virtualisation.libvirtd.qemu.runAsRoot = true;
-  #   virtualisation.libvirtd.qemu.verbatimConfig = lib.mkForce ''
-  #               clear_emulation_capabilities = 1
-  # '';
-  #   virtualisation.libvirtd.deviceACL = [
-  # "/dev/null" "null"
-  #           "/dev/full" "full"
-  #           "/dev/zero" "zero"
-  #           "/dev/random" "random"
-  #           "/dev/urandom" "urandom"
-  #           "/dev/ptmx" "ptmx"
-  #           "/dev/kvm" "kvm"
-  #           "/dev/rtc" "rtc"
-  #           "/dev/hpet" "hpet"  ];
-  #   # #   # virtualisation.vmware.host.enable = true;
-  #   # #
-    users.extraGroups.libvirtd.members = [ "susagi" ];
-    users.extraGroups.qemu-libvirtd.members = [ "susagi" ];
-    users.extraGroups.kvm.members = [ "susagi" ];
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "steam-unwrapped" # probably for riichi-city
+      "brgenml1lpr" # for print-server
+      "hplip" # S.O.
+      "samsung-unified-linux-driver" # S.O.
+    ];
+
+  virtualisation.docker.enable = true;
+
+  users.extraGroups.libvirtd.members = [ "susagi" ];
+  users.extraGroups.qemu-libvirtd.members = [ "susagi" ];
+  users.extraGroups.kvm.members = [ "susagi" ];
   #
 
   #   services.ngircd.enable = true;
@@ -101,6 +92,7 @@
   normalUsers = {
     susagi = {
       extraGroups = [
+        "docker"
         "input"
         "audio"
         "floppy"

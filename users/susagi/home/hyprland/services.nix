@@ -1,12 +1,13 @@
 {
   inputs,
   config,
+  outputs,
   ...
 }:
 
 {
   imports = [
-    inputs.core.homeModules.nextcloud-sync
+    outputs.homeModules.nextcloud-sync
   ];
 
   services.nextcloud-sync = {

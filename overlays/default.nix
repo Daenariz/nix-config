@@ -1,11 +1,11 @@
 { inputs, ... }:
 
 {
-  # forked nix-core packages accessible through 'pkgs.core-dev'
-  #  core-dev-packages = final: prev: { core-dev = inputs.core-dev.packages."${final.system}"; };
+  # forked nix-synix packages accessible through 'pkgs.synix-dev'
+  #  synix-dev-packages = final: prev: { synix-dev = inputs.synix-dev.packages."${final.system}"; };
 
-  # nix-core packages accessible through 'pkgs.core'
-  core-packages = final: prev: { core = inputs.core.packages."${final.system}"; };
+  # nix-synix packages accessible through 'pkgs.synix'
+  synix-packages = final: prev: { synix = inputs.synix.packages."${final.system}"; };
 
   # packages in `pkgs/` accessible through 'pkgs.local'
   local-packages = final: prev: { local = import ../pkgs { pkgs = final; }; };
@@ -15,12 +15,12 @@
     final: prev:
     let
       files = [
-#         ./open-webui.nix 
+        #         ./open-webui.nix
         ./mautrix-whatsapp.nix
       ];
       imports = builtins.map (f: import f final prev) files;
     in
-    builtins.foldl' (a: b: a // b) { } imports // inputs.core.overlays.modifications final prev;
+    builtins.foldl' (a: b: a // b) { } imports // inputs.synix.overlays.modifications final prev;
 
   # stable nixpkgs accessible through 'pkgs.stable'
   stable-packages = final: prev: {
@@ -46,15 +46,15 @@
     };
   };
 
-#  onnx-overlay = final: prev: {
-#      pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [(
-#        python-final: python-prev: {
-#          onnxruntime = python-prev.onnxruntime.overridePythonAttrs (
-#            oldAttrs: {
-#              buildInputs = lib.lists.remove pkgs.onnxruntime oldAttrs.buildInputs;
-#            }
-#          );
-#        }
-#      )];
-#    };
+  #  onnx-overlay = final: prev: {
+  #      pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [(
+  #        python-final: python-prev: {
+  #          onnxruntime = python-prev.onnxruntime.overridePythonAttrs (
+  #            oldAttrs: {
+  #              buildInputs = lib.lists.remove pkgs.onnxruntime oldAttrs.buildInputs;
+  #            }
+  #          );
+  #        }
+  #      )];
+  #    };
 }

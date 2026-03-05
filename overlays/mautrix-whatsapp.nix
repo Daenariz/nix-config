@@ -2,7 +2,7 @@ final: prev:
 
 {
   mautrix-whatsapp = prev.mautrix-whatsapp.overrideAttrs (oldAttrs: {
-    version = "25.11";  # Beispielversion
+    version = "25.11"; # Beispielversion
     src = prev.fetchFromGitHub {
       owner = "mautrix";
       repo = "whatsapp";
