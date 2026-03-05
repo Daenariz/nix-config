@@ -9,14 +9,14 @@
 
 {
   imports = [
-    inputs.core.nixosModules.common
-    inputs.core.nixosModules.device.laptop
-    inputs.core.nixosModules.normalUsers
-    inputs.core.nixosModules.hyprland
-    inputs.core.nixosModules.openssh
-    # inputs.core.nixosModules.sops
-    inputs.core.nixosModules.virtualisation
-    inputs.core.nixosModules.print-server
+    inputs.synix.nixosModules.common
+    inputs.synix.nixosModules.device.laptop
+    inputs.synix.nixosModules.normalUsers
+    inputs.synix.nixosModules.hyprland
+    inputs.synix.nixosModules.openssh
+    # inputs.synix.nixosModules.sops
+    inputs.synix.nixosModules.virtualisation
+    inputs.synix.nixosModules.print-server
     #     outputs.nixosModules.postgresql
 
     outputs.nixosModules.common
@@ -36,10 +36,10 @@
   nixpkgs.config.allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
-      "steam-unwrapped"   # probably for riichi-city
-      "brgenml1lpr"   # for print-server
-      "hplip"   # S.O. 
-      "samsung-unified-linux-driver"   # S.O.
+      "steam-unwrapped" # probably for riichi-city
+      "brgenml1lpr" # for print-server
+      "hplip" # S.O.
+      "samsung-unified-linux-driver" # S.O.
     ];
 
   virtualisation.docker.enable = true;

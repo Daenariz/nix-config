@@ -2,8 +2,8 @@
 
 {
   nixpkgs.overlays = [
-    #    outputs.overlays.core-dev-packages
-    outputs.overlays.core-packages
+    #    outputs.overlays.synix-dev-packages
+    outputs.overlays.synix-packages
     outputs.overlays.local-packages
     outputs.overlays.modifications
     outputs.overlays.old-stable-packages

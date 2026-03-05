@@ -4,12 +4,15 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
-    # broke waybar 
+    # broke waybar
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    core.url = "git+https://git.portuus.de/sid/nix-core.git?ref=release-25.11";
-    core.inputs.nixpkgs.follows = "nixpkgs";
+    # core.url = "git+https://git.portuus.de/sid/nix-core.git?ref=release-25.11";
+    # core.inputs.nixpkgs.follows = "nixpkgs";
+
+    synix.url = "git+https://git.sid.ovh/sid/synix.git?ref=release-25.11";
+    synix.inputs.nixpkgs.follows = "nixpkgs";
 
     #    core-dev.url = "github:Daenariz/nix-core/feature/plecs";
     # ha-test.url = "github:Daenariz/nix-core/feature/home-assistant-oci";
@@ -48,7 +51,7 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      lib = nixpkgs.lib.extend (final: prev: inputs.core.lib or { });
+      lib = nixpkgs.lib.extend (final: prev: inputs.synix.lib or { });
 
       mkNixosConfiguration =
         system: modules:
@@ -79,7 +82,7 @@
 
       nixosConfigurations = {
         naboshi = mkNixosConfiguration "x86_64-linux" [ ./hosts/naboshi ];
-        # futro = mkNixosConfiguration "x86_64-linux" [ ./hosts/futro ];
+        futro = mkNixosConfiguration "x86_64-linux" [ ./hosts/futro ];
         # kyoujin = nixpkgs.lib.nixosSystem {
         #   specialArgs = {
         #     inherit inputs outputs;

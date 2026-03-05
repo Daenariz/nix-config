@@ -3,7 +3,7 @@
 {
   environment = {
     systemPackages = with pkgs; [
-    local.riichi-city
+      local.riichi-city
     ];
   };
 }

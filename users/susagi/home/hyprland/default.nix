@@ -7,9 +7,9 @@
 
 {
   imports = [
-    inputs.core.homeModules.hyprland
-    inputs.core.homeModules.stylix
-    inputs.core.homeModules.virtualisation
+    inputs.synix.homeModules.hyprland
+    inputs.synix.homeModules.stylix
+    inputs.synix.homeModules.virtualisation
 
     ./flatpak.nix
     ./programs.nix

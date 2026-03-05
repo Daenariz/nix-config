@@ -10,11 +10,12 @@
   imports = [
     ./secrets
 
-    inputs.core.homeModules.common
-    inputs.core.homeModules.nixvim
-    inputs.core.homeModules.sops
+    inputs.synix.homeModules.common
+    inputs.synix.homeModules.nixvim
+    inputs.synix.homeModules.sops
 
     outputs.homeModules.common
+    # outputs.homeModules.nextcloud-sync
   ];
 
   home.username = "susagi";
