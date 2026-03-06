@@ -2,12 +2,10 @@
   inputs,
   outputs,
   config,
-  lib,
   ...
 }:
 let
   domain = config.networking.domain;
-  inherit (lib.utils) mkVirtualHost;
 in
 {
   imports = [
@@ -113,7 +111,7 @@ in
         # loginAccounts = {
         #   "susagi@${domain}" = {
         #     hashedPasswordFile = config.sops.secrets."mailserver/accounts/susagi".path;
-        #     aliases = [ "postmaster@${domain}" ];
+            aliases = [ "postmaster@${domain}" ];
       };
     };
   };
@@ -144,7 +142,7 @@ in
 
   services.open-webui-oci.enable = true;
   services.open-webui-oci.port = 8083;
-  services.open-webui-oci.externalUrl = "https://ai.negitorodon.de";
+  services.open-webui-oci.externalUrl = "https://ai.${domain}";
 
   services.nginx.virtualHosts."ai.${domain}" = {
     forceSSL = true;
@@ -154,12 +152,6 @@ in
       proxyWebsockets = true;
     };
   };
-  # services.nginx.virtualHosts."ai.negitorodon.de" = mkVirtualHost {
-  #       forceSSL = true;
-  #       address = "127.0.0.1";
-  #       port = 8083;
-  #     };
-
   # services.nginx = {
   #   virtualHosts."ai.${domain}" = {
   #     locations."/" = {
