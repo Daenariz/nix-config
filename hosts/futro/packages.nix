@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ mdadm wol ];
+  environment.systemPackages = with pkgs; [
+    mdadm
+    wol
+  ];
 }

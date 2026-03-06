@@ -5,22 +5,30 @@
   lib,
   ...
 }:
-  let
+let
   domain = config.networking.domain;
+  inherit (lib.utils) mkVirtualHost;
 in
 {
   imports = [
-    inputs.core.nixosModules.nginx
-    inputs.core.nixosModules.open-webui-oci
-    inputs.core.nixosModules.vaultwarden
-    inputs.core.nixosModules.mailserver
-    inputs.core.nixosModules.matrix-synapse
-    inputs.core.nixosModules.nextcloud
-    inputs.core.nixosModules.headscale
-    inputs.core.nixosModules.tailscale
+    inputs.synix.nixosModules.nginx
+    inputs.synix.nixosModules.open-webui-oci
+    inputs.synix.nixosModules.mailserver
+    inputs.synix.nixosModules.coturn
+    inputs.synix.nixosModules.matrix-synapse
+    inputs.synix.nixosModules.headscale
+    inputs.synix.nixosModules.tailscale
 
+    outputs.nixosModules.vaultwarden
+    outputs.nixosModules.nextcloud
+    # outputs.nixosModules.open-webui-oci
   ];
-  
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "olm-3.2.16"
+    "nextcloud-31.0.7"
+  ];
+
   services.tailscale = {
     enable = true;
     enableSSH = true;
@@ -100,17 +108,26 @@ in
   mailserver = {
     enable = true;
     stateVersion = 3;
-    loginAccounts = {
-      "susagi@${domain}" = {
-        hashedPasswordFile = config.sops.secrets."mailserver/accounts/susagi".path;
-        aliases = [ "postmaster@${domain}" ];
+    accounts = {
+      susagi = {
+        # loginAccounts = {
+        #   "susagi@${domain}" = {
+        #     hashedPasswordFile = config.sops.secrets."mailserver/accounts/susagi".path;
+        #     aliases = [ "postmaster@${domain}" ];
       };
     };
+  };
+  services.coturn = {
+    enable = true;
+    sops = true;
+    openFirewall = true;
   };
 
   services.matrix-synapse = {
     enable = true;
-    dataDir = "/data/matrix-synapse";
+    sops = true;
+    coturn.enable = true;
+    # dataDir = "/data/matrix-synapse";
     bridges = {
       whatsapp.enable = true;
       whatsapp.admin = "@susagi:${domain}";
@@ -125,22 +142,36 @@ in
     subdomain = "vault";
   };
 
-
   services.open-webui-oci.enable = true;
-  services.open-webui-oci.reverseProxy.enable = true;
+  services.open-webui-oci.port = 8083;
+  services.open-webui-oci.externalUrl = "https://ai.negitorodon.de";
 
-# services.nginx = {
-#   virtualHosts."ai.${domain}" = {
-#     locations."/" = {
-#       extraConfig = ''
-#         proxy_buffering off;
-#         proxy_cache off;
-#         chunked_transfer_encoding on;
-#         proxy_read_timeout 300s;
-#       '';
-#     };
-#   };
-# };
+  services.nginx.virtualHosts."ai.${domain}" = {
+    forceSSL = true;
+    enableACME = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:8083";
+      proxyWebsockets = true;
+    };
+  };
+  # services.nginx.virtualHosts."ai.negitorodon.de" = mkVirtualHost {
+  #       forceSSL = true;
+  #       address = "127.0.0.1";
+  #       port = 8083;
+  #     };
+
+  # services.nginx = {
+  #   virtualHosts."ai.${domain}" = {
+  #     locations."/" = {
+  #       extraConfig = ''
+  #         proxy_buffering off;
+  #         proxy_cache off;
+  #         chunked_transfer_encoding on;
+  #         proxy_read_timeout 300s;
+  #       '';
+  #     };
+  #   };
+  # };
   services.nginx.enable = true;
 
 }

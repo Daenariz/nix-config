@@ -23,8 +23,8 @@
   services.jellyfin = {
     enable = true;
     reverseProxy = {
-    subdomain = "media";
-    forceSSL = false;
+      subdomain = "media";
+      forceSSL = false;
     };
     libraries = [
       "books/audiobooks"
@@ -34,12 +34,11 @@
     ];
   };
 
-   services.tailscale = {
+  services.tailscale = {
     enable = true;
     enableSSH = true;
     loginServer = "https://head.negitorodon.de";
   };
-
 
   programs.ssh.startAgent = true;
 

@@ -1,4 +1,9 @@
-{ inputs, outputs, pkgs, ... }:
+{
+  inputs,
+  outputs,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -27,8 +32,10 @@
     loginServer = "https://head.negitorodon.de";
   };
 
-  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
-nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
+  nix.settings.trusted-substituters = [ "https://ai.cachix.org" ];
+  nix.settings.trusted-public-keys = [
+    "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="
+  ];
 
   normalUsers = {
     susagi = {
@@ -63,19 +70,18 @@ nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU
     wantedBy = [ "default.target" ];
   };
 
-
-systemd.timers.shutdownAtMidnight = {
-  wantedBy = [ "timers.target" ];
-  timerConfig = {
-    OnCalendar = "daily";
-    Persistent = true;
+  systemd.timers.shutdownAtMidnight = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "daily";
+      Persistent = true;
+    };
   };
-};
 
-systemd.services.shutdownAtMidnight = {
-  serviceConfig.Type = "oneshot";
-  script = "/run/current-system/sw/bin/shutdown -h now";
-};
+  systemd.services.shutdownAtMidnight = {
+    serviceConfig.Type = "oneshot";
+    script = "/run/current-system/sw/bin/shutdown -h now";
+  };
 
   programs.ssh.startAgent = true;
 
