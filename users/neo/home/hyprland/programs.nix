@@ -12,7 +12,7 @@ in
 {
   imports = [
     ./mangohud.nix
-    ./obs-studio.nix
+    # ./obs-studio.nix
     ./vesktop.nix
   ];
 

@@ -15,6 +15,15 @@
     ./programs.nix
   ];
 
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "castlabs-electron"
+      "zoom"
+      "steam"
+      "steam-unwrapped"
+    ];
+
   programs.waybar.settings = import ./settings/waybar.nix;
 
   wayland.windowManager.hyprland = {
