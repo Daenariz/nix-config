@@ -10,7 +10,8 @@
   imports = [
 
     inputs.core.nixosModules.common
-    inputs.core.nixosModules.device.laptop
+    inputs.core.nixosModules.bluetooth
+    inputs.core.nixosModules.device.desktop
     inputs.core.nixosModules.normalUsers
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.tailscale
@@ -22,10 +23,11 @@
     ./packages.nix
     ./secrets
     ./ollama.nix
-    ./speaches.nix
-    ./desktop-mode.nix
+    # ./speaches.nix
+    # ./gnome.nix
+    # ./desktop-mode.nix
   ];
-  services.getty.autologinUser = "neo";
+  # services.getty.autologinUser = "neo";
 
   services.tailscale = {
     enable = true;
@@ -37,20 +39,22 @@
 
  # services.flatpak.enable = true;
 
-  programs.zsh = {
-  interactiveShellInit = ''
-  if [ -z "$IS_HEADLESS" ] && [ "$(tty)" = "/dev/tty1" ]; then
-    exec Hyprland
-fi
-'';
-};
+ programs.dconf.enable = true;
+
+#   programs.zsh = {
+#   interactiveShellInit = ''
+#   if [ -z "$IS_HEADLESS" ] && [ "$(tty)" = "/dev/tty1" ]; then
+#     exec Hyprland
+# fi
+# '';
+# };
 
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = false;
     localNetworkGameTransfers.openFirewall = true;
-    gamescopeSession.enable = true;
+    # gamescopeSession.enable = true;
   };
 
   #  programs.steam.gamescopeSession.enable = true;
