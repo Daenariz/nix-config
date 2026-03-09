@@ -21,7 +21,7 @@
       # "qwen3:30b-a3b" # 3b active parameters
       # "deepseek-r1:1.5b"
     ];
-#    acceleration = "cuda";
+    #    acceleration = "cuda";
   };
 
   #services.comfyui = {

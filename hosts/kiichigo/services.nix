@@ -15,7 +15,7 @@
     inputs.core.nixosModules.vaultwarden
     inputs.core.nixosModules.rss-bridge
     inputs.core.nixosModules.tt-rss
-#    inputs.ha-test.nixosModules.home-assistant-oci
+    #    inputs.ha-test.nixosModules.home-assistant-oci
     inputs.core.nixosModules.matrix-synapse
   ];
 
@@ -25,15 +25,15 @@
     bridges = {
       whatsapp.enable = true;
       whatsapp.admin = "@susagi:${config.networking.domain}";
-#      signal.enable = true;
-#      signal.admin = "@susagi:${config.networking.domain}";
+      #      signal.enable = true;
+      #      signal.admin = "@susagi:${config.networking.domain}";
     };
   };
 
-#  services.home-assistant-oci = {
-#    enable = false;
-#    dataDir = "/data/home-assistant";
-#  };
+  #  services.home-assistant-oci = {
+  #    enable = false;
+  #    dataDir = "/data/home-assistant";
+  #  };
 
   mailserver = {
     enable = true;

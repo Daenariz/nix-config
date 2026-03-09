@@ -37,7 +37,7 @@
 
   #  nixpkgs.config.cudaSupport = true;
 
- # services.flatpak.enable = true;
+  # services.flatpak.enable = true;
 
  programs.dconf.enable = true;
 
@@ -82,10 +82,10 @@
 
   services = {
     openssh.enable = true;
-  #  pipewire.enable = true;
+    #  pipewire.enable = true;
   };
 
- # programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
 
   normalUsers = {
     neo = {

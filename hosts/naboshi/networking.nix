@@ -1,7 +1,7 @@
 { inputs, lib, ... }:
 {
   imports = [
-    inputs.core.nixosModules.tailscale
+    inputs.synix.nixosModules.tailscale
   ];
   services.tailscale = {
     enable = true;
@@ -10,7 +10,7 @@
   };
 
   networking = {
-#    wireless.enable = lib.mkForce true;
+    #    wireless.enable = lib.mkForce true;
     hostName = "naboshi";
     firewall = {
       checkReversePath = "loose";

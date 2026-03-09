@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> { config.allowUnfree = true; } }:
+{
+  pkgs ? import <nixpkgs> { config.allowUnfree = true; },
+}:
 
 pkgs.stdenv.mkDerivation rec {
   pname = "riichi-city";
@@ -13,7 +15,7 @@ pkgs.stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/opt/riichi-city-source
-    
+
     cp -r ./* $out/opt/riichi-city-source/
     chmod +x $out/opt/riichi-city-source/Mahjong-JP.x86_64
 
@@ -25,7 +27,7 @@ pkgs.stdenv.mkDerivation rec {
 
     echo "Checking Game-Data..."
     mkdir -p "\$GAME_DIR"
-    
+
     cp -ru "\$SOURCE_DIR/"* "\$GAME_DIR/"
     chmod -R +w "\$GAME_DIR"
     chmod +x "\$GAME_DIR/Mahjong-JP.x86_64"
@@ -33,10 +35,10 @@ pkgs.stdenv.mkDerivation rec {
     rm -f "\$GAME_DIR/Mahjong-JP_Data/StreamingAssets/"*.mp4 2>/dev/null || true
 
     echo "Starting Riichi City via steam-run..."
-    
+
     exec ${pkgs.steam-run}/bin/steam-run "\$GAME_DIR/Mahjong-JP.x86_64" "\$@"
     EOF
-    
+
     chmod +x $out/bin/riichi-city
   '';
 

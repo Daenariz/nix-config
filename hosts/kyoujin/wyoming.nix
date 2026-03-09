@@ -6,8 +6,8 @@ in
     faster-whisper.servers = {
       testserver = {
         enable = enableWyoming;
-	model = "small-int8";
-	device = "cuda";
+        model = "small-int8";
+        device = "cuda";
         uri = "tcp://0.0.0.0:10300";
         language = "de";
       };
