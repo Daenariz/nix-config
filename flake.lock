@@ -1204,16 +1204,16 @@
         "stylix": "stylix_2"
       },
       "locked": {
-        "lastModified": 1772378081,
-        "narHash": "sha256-VbrtYK5QnMt6VSPbaEJSK+YXYBzDJyhqd9oL3QXsYvg=",
-        "ref": "release-25.11",
-        "rev": "31f195ff89880846d296495ebf605ef603973943",
+        "lastModified": 1772886043,
+        "narHash": "sha256-SyqJ1QuVwTYxzz9O1yodzhNZswCgjepeom7O/Ts/TGo=",
+        "ref": "develop",
+        "rev": "5d1facefed4d0255ef897fa4d9e656e5a7ce4e35",
         "revCount": 8,
         "type": "git",
         "url": "https://git.sid.ovh/sid/synix.git"
       },
       "original": {
-        "ref": "release-25.11",
+        "ref": "develop",
         "type": "git",
         "url": "https://git.sid.ovh/sid/synix.git"
       }

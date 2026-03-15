@@ -12,6 +12,7 @@ with pkgs;
 ++
   # testing
   [
+    tigervnc
     nix-output-monitor
     nix-inspect
     nvd
