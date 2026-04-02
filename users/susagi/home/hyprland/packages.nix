@@ -2,6 +2,15 @@
 
 with pkgs;
 
+#ESL
+[
+  wl-clip-persist
+  klayout
+  ngspice
+  xschem
+  ltspice
+]
+++
 #　たいせつな日本語の勉強
 [
   tagainijisho # タガイニ辞書

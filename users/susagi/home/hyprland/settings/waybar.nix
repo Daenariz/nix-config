@@ -9,7 +9,7 @@
     ];
     modules-right = [
       "custom/timer"
-      "custom/newsboat"
+      # "custom/newsboat"
       "bluetooth"
       "network"
       "cpu"

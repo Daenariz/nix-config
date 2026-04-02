@@ -23,6 +23,7 @@
     builtins.elem (lib.getName pkg) [
       "castlabs-electron"
       "zoom"
+      "ltspice"
     ];
 
   services.gnome-keyring = {
