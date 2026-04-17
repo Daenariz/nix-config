@@ -30,6 +30,15 @@
     ./secrets
   ];
 
+    programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = false;
+    localNetworkGameTransfers.openFirewall = true;
+    # gamescopeSession.enable = true;
+  };
+
+
   services.print-server.enable = true;
   services.print-server.openFirewall = true;
 
@@ -40,6 +49,7 @@
       "brgenml1lpr" # for print-server
       "hplip" # S.O.
       "samsung-unified-linux-driver" # S.O.
+      "steam"
     ];
 
   virtualisation.docker.enable = true;
