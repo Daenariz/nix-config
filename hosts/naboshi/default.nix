@@ -30,14 +30,13 @@
     ./secrets
   ];
 
-    programs.steam = {
+  programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = false;
     localNetworkGameTransfers.openFirewall = true;
     # gamescopeSession.enable = true;
   };
-
 
   services.print-server.enable = true;
   services.print-server.openFirewall = true;

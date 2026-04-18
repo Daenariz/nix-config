@@ -2,10 +2,10 @@
 
 {
 
-#     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-# "steam"
-# "steam-unwrapped"
-#            ];
+  #     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+  # "steam"
+  # "steam-unwrapped"
+  #            ];
 
   environment = {
     systemPackages = with pkgs; [
