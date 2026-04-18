@@ -15,23 +15,24 @@ in
     inputs.synix.nixosModules.coturn
     inputs.synix.nixosModules.matrix-synapse
     inputs.synix.nixosModules.headscale
-    inputs.synix.nixosModules.tailscale
+    # inputs.synix.nixosModules.tailscale
 
     outputs.nixosModules.vaultwarden
     outputs.nixosModules.nextcloud
+    outputs.nixosModules.forgejo
     # outputs.nixosModules.open-webui-oci
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
     "olm-3.2.16"
-    "nextcloud-31.0.7"
   ];
 
-  services.tailscale = {
-    enable = true;
-    enableSSH = true;
-    loginServer = "https://head.negitorodon.de";
-  };
+  # services.tailscale = {
+  #   enable = true;
+  #   enableSSH = true;
+  #   loginServer = "https://head.negitorodon.de";
+  # };
+  services.forgejo.enable = true;
 
   services.headscale = {
     enable = true;
@@ -39,6 +40,11 @@ in
     reverseProxy = {
       enable = true;
       subdomain = "head";
+    };
+    settings = {
+      dns = {
+        magic_dns = true;
+      };
     };
   };
 
@@ -103,18 +109,14 @@ in
     };
   };
 
-  mailserver = {
-    enable = true;
-    stateVersion = 3;
-    accounts = {
-      susagi = {
-        # loginAccounts = {
-        #   "susagi@${domain}" = {
-        #     hashedPasswordFile = config.sops.secrets."mailserver/accounts/susagi".path;
-            aliases = [ "postmaster@${domain}" ];
-      };
+  mailserver.enable = true;
+  mailserver.stateVersion = 3;
+  mailserver.accounts = {
+    susagi = {
+      aliases = [ "postmaster@${domain}" ];
     };
   };
+
   services.coturn = {
     enable = true;
     sops = true;
@@ -152,18 +154,6 @@ in
       proxyWebsockets = true;
     };
   };
-  # services.nginx = {
-  #   virtualHosts."ai.${domain}" = {
-  #     locations."/" = {
-  #       extraConfig = ''
-  #         proxy_buffering off;
-  #         proxy_cache off;
-  #         chunked_transfer_encoding on;
-  #         proxy_read_timeout 300s;
-  #       '';
-  #     };
-  #   };
-  # };
-  services.nginx.enable = true;
 
+  services.nginx.enable = true;
 }
