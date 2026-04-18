@@ -40,6 +40,15 @@
     ];
   };
 
+  fileSystems."/data" = {
+    device = "/dev/disk/by-label/DATA_POOL";
+    fsType = "btrfs";
+    options = [
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+
   swapDevices = [
     { device = "/dev/disk/by-label/SWAP"; }
   ];

@@ -18,6 +18,7 @@
     ./hardware.nix # will be generated during installation
     ./packages.nix
     ./services.nix
+    ./raid.nix
   ];
 
   networking = {
