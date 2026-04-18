@@ -11,13 +11,13 @@ with pkgs;
   ltspice
 ]
 ++
-#　たいせつな日本語の勉強
-[
-  tagainijisho # タガイニ辞書
-  #  anki   # module being tested
-  tango
-  noto-fonts-cjk-sans # ファイアフォックスでは、日本語のかなを見せるのために
-]
+  #　たいせつな日本語の勉強
+  [
+    tagainijisho # タガイニ辞書
+    #  anki   # module being tested
+    tango
+    noto-fonts-cjk-sans # ファイアフォックスでは、日本語のかなを見せるのために
+  ]
 ++
   # testing
   [

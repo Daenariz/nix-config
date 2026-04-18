@@ -60,14 +60,14 @@ in
       group = cfg.group;
       mode = "0400";
     };
-  
+
     services.nginx.virtualHosts."git.${domain}" = {
-    forceSSL = true;
-    enableACME = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:3456";
-      proxyWebsockets = true;
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:3456";
+        proxyWebsockets = true;
+      };
     };
-  };
   };
 }
