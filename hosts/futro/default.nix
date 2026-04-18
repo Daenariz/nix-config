@@ -7,9 +7,9 @@
 
 {
   imports = [
-    inputs.core.nixosModules.common
-    inputs.core.nixosModules.normalUsers
-    inputs.core.nixosModules.openssh
+    inputs.synix.nixosModules.common
+    inputs.synix.nixosModules.normalUsers
+    inputs.synix.nixosModules.openssh
 
     ./secrets
     outputs.nixosModules.common
@@ -18,10 +18,11 @@
     ./hardware.nix # will be generated during installation
     ./packages.nix
     ./services.nix
+    ./raid.nix
   ];
 
   networking = {
-    firewall = { 
+    firewall = {
       enable = true;
       trustedInterfaces = [ "tailscale0" ];
       checkReversePath = "loose";

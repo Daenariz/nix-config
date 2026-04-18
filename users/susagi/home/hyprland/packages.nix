@@ -2,16 +2,26 @@
 
 with pkgs;
 
-#　たいせつな日本語の勉強
+#ESL
 [
-  tagainijisho # タガイニ辞書
-  #  anki   # module being tested
-  tango
-  noto-fonts-cjk-sans # ファイアフォックスでは、日本語のかなを見せるのために
+  wl-clip-persist
+  klayout
+  ngspice
+  xschem
+  ltspice
 ]
+++
+  #　たいせつな日本語の勉強
+  [
+    tagainijisho # タガイニ辞書
+    #  anki   # module being tested
+    tango
+    noto-fonts-cjk-sans # ファイアフォックスでは、日本語のかなを見せるのために
+  ]
 ++
   # testing
   [
+    tigervnc
     nix-output-monitor
     nix-inspect
     nvd

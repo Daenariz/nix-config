@@ -1,10 +1,17 @@
-{ pkgs, inputs, lib, config, outputs, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  config,
+  outputs,
+  ...
+}:
 
 {
   imports = [
     inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.base
     inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.bluetooth
-        ./boot.nix
+    ./boot.nix
     ./hardware.nix
     #  ./users.nix
     #    ./packages.nix
@@ -12,7 +19,7 @@
   ];
 
   ##programs.ssh.startAgent = true;
-users.users.susagi = {
+  users.users.susagi = {
     initialPassword = "changeme";
     isNormalUser = true;
     extraGroups = [ "wheel" ];
@@ -20,10 +27,13 @@ users.users.susagi = {
 
   services.openssh = {
     enable = true;
-        ports = [ 22 ];
+    ports = [ 22 ];
   };
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     extra-substituters = [
       "https://nixos-raspberrypi.cachix.org"
     ];

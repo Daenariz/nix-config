@@ -11,13 +11,14 @@ let
   subdomain = cfg.reverseProxy.subdomain;
   fqdn = if (cfg.reverseProxy.enable && subdomain != "") then "${subdomain}.${domain}" else domain;
 
-  package = pkgs.nextcloud31.overrideAttrs (old: rec {
-    version = "31.0.7";
-    src = pkgs.fetchurl {
-      url = "https://download.nextcloud.com/server/releases/nextcloud-${version}.tar.bz2";
-      hash = "sha256-ACpdA64Fp/DDBWlH1toLeaRNPXIPVyj+UVWgxaO07Gk=";
-    };
-  });
+  package = pkgs.nextcloud32;
+  # package = pkgs.nextcloud31.overrideAttrs (old: rec {
+  #   version = "31.0.7";
+  #   src = pkgs.fetchurl {
+  #     url = "https://download.nextcloud.com/server/releases/nextcloud-${version}.tar.bz2";
+  #     hash = "sha256-ACpdA64Fp/DDBWlH1toLeaRNPXIPVyj+UVWgxaO07Gk=";
+  #   };
+  # });
 
   inherit (lib)
     mkDefault
