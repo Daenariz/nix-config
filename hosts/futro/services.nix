@@ -98,11 +98,11 @@ in
         host = [ "cloud.${domain}" ];
       };
 
-      net.alias_groups = {
-      group1 = {
-        host = [ "cloud.${domain}" ];
-      };
-    };
+    #   net.alias_groups = {
+    #   group1 = {
+    #     host = [ "cloud.${domain}" ];
+    #   };
+    # };
       server_name = "office.${domain}";
     };
   };
