@@ -33,6 +33,7 @@ in
   #   loginServer = "https://head.negitorodon.de";
   # };
   services.forgejo.enable = true;
+  services.forgejo.stateDir = "/data/forgejo";
 
   services.headscale = {
     enable = true;
@@ -96,6 +97,12 @@ in
         "@allow" = true;
         host = [ "cloud.${domain}" ];
       };
+
+      net.alias_groups = {
+      group1 = {
+        host = [ "cloud.${domain}" ];
+      };
+    };
       server_name = "office.${domain}";
     };
   };
