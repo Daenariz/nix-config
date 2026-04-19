@@ -15,8 +15,6 @@
     final: prev:
     let
       files = [
-        #         ./open-webui.nix
-        ./mautrix-whatsapp.nix
       ];
       imports = builtins.map (f: import f final prev) files;
     in
