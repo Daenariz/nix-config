@@ -24,7 +24,9 @@ in
     };
     settings = {
       richdocuments = {
-        wopi_url = "https://office.${domain}";
+# TODO: needs to be tested, otherwise add manually at admin settings
+        wopi_url = "localhost:9980";
+        public_wopi_url = "https://office.${domain}";
       };
     };
   };

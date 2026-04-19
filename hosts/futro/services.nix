@@ -22,7 +22,7 @@ in
     outputs.nixosModules.forgejo
     # outputs.nixosModules.open-webui-oci
 
-    ./collabora.nix
+    ./nextcloud.nix
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
