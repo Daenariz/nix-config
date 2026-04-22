@@ -21,6 +21,7 @@ with pkgs;
 ++
   # testing
   [
+    planify
     tigervnc
     nix-output-monitor
     nix-inspect
