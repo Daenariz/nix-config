@@ -6,6 +6,10 @@
 }:
 
 {
+  programs.aider-chat.enable = true;
+  programs.aider-chat.settings = {
+    # model = "openrouter/google/gemini-3.1-pro-preview";
+  };
 
   programs.anki.enable = true;
   programs.anki.addons = [ pkgs.ankiAddons.anki-connect ];
