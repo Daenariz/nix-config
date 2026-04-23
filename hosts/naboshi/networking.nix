@@ -1,13 +1,13 @@
 { inputs, lib, ... }:
 {
   imports = [
-    inputs.synix.nixosModules.tailscale
+    # inputs.synix.nixosModules.tailscale
   ];
-  services.tailscale = {
-    enable = true;
-    enableSSH = true;
-    loginServer = "https://head.negitorodon.de";
-  };
+  # services.tailscale = {
+  #   enable = true;
+  #   enableSSH = true;
+  #   loginServer = "https://head.negitorodon.de";
+  # };
 
   networking = {
     #    wireless.enable = lib.mkForce true;
