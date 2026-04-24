@@ -4,7 +4,9 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
+    # addKeysToAgent = "yes";
     matchBlocks = {
+      "*".addKeysToAgent = "yes";
 
       kitsunebi = {
         host = "nebi kitsunebi";

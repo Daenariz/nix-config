@@ -15,7 +15,7 @@ in
     inputs.synix.nixosModules.coturn
     inputs.synix.nixosModules.matrix-synapse
     inputs.synix.nixosModules.headscale
-    # inputs.synix.nixosModules.tailscale
+    inputs.synix.nixosModules.tailscale
 
     outputs.nixosModules.vaultwarden
     outputs.nixosModules.nextcloud
@@ -29,11 +29,12 @@ in
     "olm-3.2.16"
   ];
 
-  # services.tailscale = {
-  #   enable = true;
-  #   enableSSH = true;
-  #   loginServer = "https://head.negitorodon.de";
-  # };
+  services.tailscale = {
+    enable = true;
+    enableSSH = true;
+    loginServer = "https://head.negitorodon.de";
+  };
+
   services.forgejo.enable = true;
   services.forgejo.stateDir = "/data/forgejo";
 
