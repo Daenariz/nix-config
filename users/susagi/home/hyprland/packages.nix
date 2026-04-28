@@ -9,6 +9,7 @@ with pkgs;
   ngspice
   xschem
   ltspice
+  tigervnc
 ]
 ++
   #　たいせつな日本語の勉強
@@ -21,8 +22,9 @@ with pkgs;
 ++
   # testing
   [
+    (logseq.override { electron = electron_39; })
+    #logseq
     planify
-    tigervnc
     nix-output-monitor
     nix-inspect
     nvd
@@ -38,6 +40,7 @@ with pkgs;
     # monero-gui
     texliveFull
     texstudio
+    kicad
   ]
 ++
   # dev
