@@ -34,6 +34,10 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
 
+    riichi-club = {
+      url = "github:Daenariz/riichi-club/develop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -41,6 +45,7 @@
       self,
       nixpkgs,
       home-manager,
+      riichi-club,
       ...
     }@inputs:
     let
