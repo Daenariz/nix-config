@@ -10,7 +10,8 @@
 
       kitsunebi = {
         host = "nebi kitsunebi";
-        hostname = "192.168.178.178"; # ## previously .103
+        # hostname = "192.168.178.178"; # ## previously .103
+        hostname = "100.64.0.3";
         port = 2299;
         user = "neo";
         identityFile = "/home/susagi/.ssh/vde_rsa";

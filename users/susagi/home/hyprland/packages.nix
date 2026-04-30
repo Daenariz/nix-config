@@ -40,7 +40,6 @@ with pkgs;
     # monero-gui
     texliveFull
     texstudio
-    kicad.stable
   ]
 ++
   # dev
