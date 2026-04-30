@@ -5,4 +5,5 @@
 
   sops.secrets."mailserver/accounts/susagi" = { };
   sops.secrets."ntfy_topic" = { };
+  sops.secrets.riichi_club_key = { };
 }

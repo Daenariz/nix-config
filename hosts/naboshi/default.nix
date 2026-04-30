@@ -18,6 +18,7 @@
     inputs.synix.nixosModules.virtualisation
     inputs.synix.nixosModules.print-server
     #     outputs.nixosModules.postgresql
+    # inputs.riichi-club.nixosModules.riichi-club
 
     outputs.nixosModules.common
 
@@ -29,6 +30,11 @@
 
     ./secrets
   ];
+
+  # services.riichi_club = {
+  #   enable = true;
+  #   nginx.subdomain = "riichi";
+  # };
 
   programs.steam = {
     enable = true;

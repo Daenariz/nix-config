@@ -16,6 +16,9 @@ in
     inputs.synix.nixosModules.matrix-synapse
     inputs.synix.nixosModules.headscale
     inputs.synix.nixosModules.tailscale
+    inputs.synix.nixosModules.radicale
+
+    inputs.riichi-club.nixosModules.riichi-club
 
     outputs.nixosModules.vaultwarden
     outputs.nixosModules.nextcloud
@@ -28,6 +31,17 @@ in
   nixpkgs.config.permittedInsecurePackages = [
     "olm-3.2.16"
   ];
+
+  services.radicale.enable = true;
+  services.radicale.users = [ "susagi" ];
+  services.radicale.reverseProxy.enable = true;
+
+  services.riichi_club = {
+    enable = true;
+    nginx.subdomain = "riichi";
+    secretKey = config.sops.secrets.riichi_club_key.path;
+  };
+
 
   services.tailscale = {
     enable = true;
