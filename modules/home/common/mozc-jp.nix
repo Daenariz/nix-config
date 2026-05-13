@@ -48,7 +48,9 @@
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5 = {
-      addons = with pkgs; [ fcitx5-mozc ];
+      # addons = with pkgs; [ fcitx5-mozc ];
+      addons = with pkgs; [ fcitx5-mozc fcitx5-chewing fcitx5-rime rime-data ];
+
       # waylandFrontend = true;   ### waiting for 25.05 to be merged for hm
     };
   };
