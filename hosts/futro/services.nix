@@ -42,11 +42,25 @@ in
     secretKey = config.sops.secrets.riichi_club_key.path;
   };
 
+  # services.tailscale = {
+  #   enable = true;
+  #   tailnets = {
+  #     loginServer = "https://head.negitorodon.de";
+  #     authKeyFile = config.sops.secrets."tailscale/auth-key".path;
+  #     enableSSH = true;
+  #   };
+  # };
+  #
 
-  services.tailscale = {
+   services.tailscale = {
     enable = true;
-    enableSSH = true;
-    loginServer = "https://head.negitorodon.de";
+    tailnets = {
+      personal = {
+        loginServer = "https://head.negitorodon.de";
+        authKeyFile = config.sops.secrets."tailscale/auth-key".path;
+        enableSSH = true;
+        };
+      };
   };
 
   services.forgejo.enable = true;

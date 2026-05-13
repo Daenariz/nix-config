@@ -53,6 +53,7 @@ with pkgs;
 ++
   # essentials
   [
+    ntfs3g
     brave
     teams-for-linux
     flatpak # for the binary

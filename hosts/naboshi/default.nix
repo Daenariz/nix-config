@@ -27,9 +27,13 @@
     ./postgres.nix
     ./packages.nix
     ./networking.nix
+    # ./polkit.nix
 
     ./secrets
   ];
+  programs.adb.enable = true;
+  users.groups.susagi.members = [ "adbusers" ];
+  services.gvfs.enable = true;
 
   # services.riichi_club = {
   #   enable = true;
@@ -44,8 +48,8 @@
     # gamescopeSession.enable = true;
   };
 
-  services.print-server.enable = true;
-  services.print-server.openFirewall = true;
+  # services.print-server.enable = true;
+  # services.print-server.openFirewall = true;
 
   nixpkgs.config.allowUnfreePredicate =
     pkg:
@@ -59,24 +63,10 @@
 
   virtualisation.docker.enable = true;
 
-  users.extraGroups.libvirtd.members = [ "susagi" ];
-  users.extraGroups.qemu-libvirtd.members = [ "susagi" ];
-  users.extraGroups.kvm.members = [ "susagi" ];
+  # users.extraGroups.libvirtd.members = [ "susagi" ];
+  # users.extraGroups.qemu-libvirtd.members = [ "susagi" ];
+  # users.extraGroups.kvm.members = [ "susagi" ];
   #
-
-  #   services.ngircd.enable = true;
-  #   services.ngircd.config = ''
-  #   [Global]
-  #   Name = irc.negi.jp
-  #   AdminInfo1 = Negi IRC Server
-  #   AdminInfo2 = Anywhere On Asu
-  #   AdminEMail = admin@irc.negi.jp
-  #
-  #   [Operator]
-  #   Name = TheOper
-  #   Password = Hans1234
-  #   ''
-  # ;
 
   programs.dconf.enable = true;
 
@@ -120,6 +110,7 @@
         "kvm"
         "qemu-libvirtd"
         "disk"
+        "adbusers"
       ];
     };
   };

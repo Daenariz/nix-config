@@ -1,3 +1,4 @@
+{ pkgs,...}:
 {
   security.polkit.extraConfig = ''
   polkit.addRule(function(action, subject) {
@@ -8,4 +9,6 @@
     }
   });
 '';
+
+  system.fsPackages = [ pkgs.ntfs3g ];
 }

@@ -7,4 +7,6 @@
     configurationLimit = 20;
   };
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.supportedFilesystems = [ "ntfs" ];
 }
