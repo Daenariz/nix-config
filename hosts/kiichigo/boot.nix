@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   boot = {
     loader = {
@@ -6,5 +8,6 @@
     };
 
   };
-  systemd.tpm2.enable = false;
+  systemd.tpm2.enable = lib.mkForce false;
+  security.tpm2.enable = lib.mkForce false;
 }
