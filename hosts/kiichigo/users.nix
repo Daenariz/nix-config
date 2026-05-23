@@ -1,7 +1,7 @@
 { inputs, outputs, ... }:
 
 {
-  imports = [ inputs.core.nixosModules.normalUsers ];
+  imports = [ inputs.synix-stable.nixosModules.normalUsers ];
 
   normalUsers = {
     susagi = {

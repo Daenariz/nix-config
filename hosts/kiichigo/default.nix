@@ -1,4 +1,4 @@
-{ inputs, outputs, ... }:
+{ config, inputs, outputs, ... }:
 
 {
   imports = [
@@ -11,10 +11,10 @@
     #./services.nix
     ./users.nix
     ./secrets
-    inputs.core.nixosModules.common
-    inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.tailscale
-    inputs.core.nixosModules.jellyfin
+    inputs.synix-stable.nixosModules.common
+    inputs.synix-stable.nixosModules.openssh
+    inputs.synix-stable.nixosModules.tailscale
+    inputs.synix-stable.nixosModules.jellyfin
 
     outputs.nixosModules.common
 
@@ -33,12 +33,22 @@
       "shows"
     ];
   };
-
-  services.tailscale = {
+ services.tailscale = {
     enable = true;
-    enableSSH = true;
-    loginServer = "https://head.negitorodon.de";
+    tailnets = {
+      personal = {
+        loginServer = "https://head.negitorodon.de";
+        authKeyFile = config.sops.secrets."tailscale/auth-key".path;
+        enableSSH = true;
+        };
+      };
   };
+  #
+  # services.tailscale = {
+  #   enable = true;
+  #   enableSSH = true;
+  #   loginServer = "https://head.negitorodon.de";
+  # };
 
   programs.ssh.startAgent = true;
 
