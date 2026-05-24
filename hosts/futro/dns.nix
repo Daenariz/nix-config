@@ -1,11 +1,10 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
-  # Sops-Konfiguration für den API-Key
+  imports = [ "${inputs.hetzner_ddns}/release/NixOS/nixos_module.nix" ];
   sops.secrets.hetzner_api_key = {
-    # Optional: Besitzer des Secrets auf den DynamicUser des Services anpassen, 
-    # falls Berechtigungsprobleme auftreten. Meist reicht Standard.
-    owner = "root"; 
+    group = "keys";
+    mode = "0440";
   };
 
   services.hetzner_ddns = {
@@ -14,21 +13,23 @@
     # Verwende api_key_file, um den Pfad aus sops zu übergeben [1]
     api_key_file = config.sops.secrets.hetzner_api_key.path;
 
-    # Minimale Zonen-Konfiguration
+    # minimal zone config
     zones = [
       {
         domain = "kokushi-musou.de";
         records = [
           {
-            name = "@";     # Hauptdomain
-            type = "A";     # Standard ist A, hier explizit zur Klarheit [1]
-          }
-          {
-            name = "www";   # Subdomain
+            name = "@";     # maindomain
             type = "A";
           }
         ];
       }
     ];
   };
+  systemd.services.hetzner_ddns = {
+  serviceConfig = {
+    # Fügt den dynamischen User der Gruppe 'keys' hinzu
+    SupplementaryGroups = [ "keys" ];
+  };
+};
 }

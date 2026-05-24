@@ -19,6 +19,7 @@
     ./packages.nix
     ./services.nix
     ./raid.nix
+    ./dns.nix
   ];
 
   networking = {

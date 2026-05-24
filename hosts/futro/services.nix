@@ -42,16 +42,6 @@ in
     secretKey = config.sops.secrets.riichi_club_key.path;
   };
 
-  # services.tailscale = {
-  #   enable = true;
-  #   tailnets = {
-  #     loginServer = "https://head.negitorodon.de";
-  #     authKeyFile = config.sops.secrets."tailscale/auth-key".path;
-  #     enableSSH = true;
-  #   };
-  # };
-  #
-
    services.tailscale = {
     enable = true;
     tailnets = {
@@ -82,11 +72,11 @@ in
 
   services.uptime-kuma.enable = true;
 
-  services.nginx.virtualHosts."kuma.${domain}" = {
+  services.nginx.virtualHosts."kuma.kokushi-musou.de" = {
     forceSSL = true;
     enableACME = true;
     locations."/" = {
-      proxyPass = "http://localhost:3001";
+      proxyPass = "http://127.0.0.1:3001";
       proxyWebsockets = true;
       recommendedProxySettings = true;
     };
@@ -135,6 +125,15 @@ in
     enableACME = true;
     locations."/" = {
       proxyPass = "http://127.0.0.1:8083";
+      proxyWebsockets = true;
+    };
+  };
+
+  services.nginx.virtualHosts."riichi.kokushi-musou.de" = {
+    forceSSL = true;
+    enableACME = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:5000";
       proxyWebsockets = true;
     };
   };

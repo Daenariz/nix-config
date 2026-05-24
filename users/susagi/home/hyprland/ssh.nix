@@ -50,7 +50,7 @@
 
       kyoujin = {
         host = "kyo kyoujin";
-        hostname = "negitorodon.de";
+        hostname = "192.168.178.107";
         port = 2299;
         user = "susagi";
         identityFile = "/home/susagi/.ssh/vde_rsa";

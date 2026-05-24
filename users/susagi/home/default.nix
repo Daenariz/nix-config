@@ -54,5 +54,11 @@
     !include ${config.sops.templates.access-tokens.path}
   '';
 
+  # If tokens got updated, remove old ones:
+  # sudo rm -f /home/susagi/.config/sops-nix/secrets/rendered/access-tokens
+  sops.templates.access-tokens.content = ''
+    access-tokens = github.com=${config.sops.placeholder.github-token}
+    '';
+
   home.stateVersion = "24.11";
 }

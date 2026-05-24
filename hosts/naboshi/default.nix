@@ -32,7 +32,7 @@
     ./secrets
   ];
   programs.adb.enable = true;
-  users.groups.susagi.members = [ "adbusers" ];
+  users.groups.adbusers.members = [ "susagi" ];
   services.gvfs.enable = true;
 
   # services.riichi_club = {
