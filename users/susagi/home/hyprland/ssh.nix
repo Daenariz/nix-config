@@ -16,13 +16,6 @@
         user = "neo";
         identityFile = "/home/susagi/.ssh/vde_rsa";
       };
-      pi-sniffer = {
-        host = "sni sniffer";
-        hostname = "192.168.0.23"; # ## previously .103 + 100
-        port = 22;
-        user = "nixos"; # ##"susagi";
-        identityFile = "/home/susagi/.ssh/vde_rsa";
-      };
 
       rpi = {
         host = "kii kiichigo";

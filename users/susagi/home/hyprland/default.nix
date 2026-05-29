@@ -24,6 +24,7 @@
       "castlabs-electron"
       "zoom"
       "ltspice"
+      "discord"
     ];
 
   services.gnome-keyring = {

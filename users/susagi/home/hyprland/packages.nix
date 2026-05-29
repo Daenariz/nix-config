@@ -22,6 +22,7 @@ with pkgs;
 ++
   # testing
   [
+    discord
     (logseq.override { electron = electron_39; })
     #logseq
     planify
