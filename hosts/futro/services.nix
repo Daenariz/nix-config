@@ -56,16 +56,9 @@ in {
   services.forgejo.stateDir = "/data/forgejo";
 
   services.forgejo-runner = {
-    instances.default = {
-      enable = true;
-      name = "futro-runner";
-      url = "https://git.negitorodon.de";
-      tokenFile = config.sops.secrets.forgejo_runner_token.path;
-      labels = [
-        "ubuntu-latest:docker://node:18-bullseye"
-        "nixos:docker://nixos/nix"
-      ];
-    };
+    enable = true;
+    url = "https://git.negitorodon.de";
+    tokenFile = config.sops.secrets.forgejo_runner_token.path;
   };
 
   services.headscale = {

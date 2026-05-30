@@ -4,7 +4,7 @@ on:
   push:
 jobs:
   tests:
-    runs-on: nixos
+    runs-on: host
     steps:
       - uses: actions/checkout@v4
       - name: Nix Flake Check
