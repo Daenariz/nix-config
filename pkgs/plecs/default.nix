@@ -14,7 +14,6 @@
   openssl,
   cacert,
 }:
-
 stdenv.mkDerivation rec {
   pname = "plecs";
   version = "5.0.2";
@@ -30,30 +29,31 @@ stdenv.mkDerivation rec {
     qt6.wrapQtAppsHook
   ];
 
-  buildInputs = [
-    xcb-util-cursor
-    libGL
-    libX11
-    libGLU
-    freetype
-    fontconfig
-    zlib
-    stdenv.cc.cc.lib
-    openssl
-    cacert
-  ]
-  ++ (with qt6; [
-    qtbase
-    qtwebengine
-    qt5compat
-    qtsvg
-    qtwayland
+  buildInputs =
+    [
+      xcb-util-cursor
+      libGL
+      libX11
+      libGLU
+      freetype
+      fontconfig
+      zlib
+      stdenv.cc.cc.lib
+      openssl
+      cacert
+    ]
+    ++ (with qt6; [
+      qtbase
+      qtwebengine
+      qt5compat
+      qtsvg
+      qtwayland
 
-    # qtx11extras # not in nixpkgs
-    # qtpdf # not in nixpkgs
-  ]);
+      # qtx11extras # not in nixpkgs
+      # qtpdf # not in nixpkgs
+    ]);
 
-  autoPatchelfFlags = [ "--ignore-missing=libQt6Pdf.so.6" ]; # TODO
+  autoPatchelfFlags = ["--ignore-missing=libQt6Pdf.so.6"]; # TODO
 
   SSL_CERT_FILE = "${cacert}/etc/ssl/certs/ca-bundle.crt";
 
@@ -91,6 +91,6 @@ stdenv.mkDerivation rec {
     description = "PLECS Simulation Platform for Electrical and Multi-Domain Systems";
     homepage = "https://www.plexim.com";
     # license = lib.licenses.TODO;
-    platforms = [ "x86_64-linux" ];
+    platforms = ["x86_64-linux"];
   };
 }

@@ -1,11 +1,6 @@
-{
-  config,
-  ...
-}:
-let
+{config, ...}: let
   domain = config.networking.domain;
-in
-{
+in {
   services.nextcloud = {
     enable = true;
     datadir = "/data/nextcloud";
@@ -14,7 +9,8 @@ in
       subdomain = "cloud";
     };
     extraApps = {
-      inherit (config.services.nextcloud.package.packages.apps)
+      inherit
+        (config.services.nextcloud.package.packages.apps)
         bookmarks
         calendar
         contacts
@@ -24,7 +20,7 @@ in
     };
     settings = {
       richdocuments = {
-# TODO: needs to be tested, otherwise add manually at admin settings
+        # TODO: needs to be tested, otherwise add manually at admin settings
         wopi_url = "localhost:9980";
         public_wopi_url = "https://office.${domain}";
       };
@@ -42,14 +38,14 @@ in
       };
       storage.wopi = {
         "@allow" = true;
-        host = [ "cloud.${domain}" ];
+        host = ["cloud.${domain}"];
       };
 
-    #   net.alias_groups = {
-    #   group1 = {
-    #     host = [ "cloud.${domain}" ];
-    #   };
-    # };
+      #   net.alias_groups = {
+      #   group1 = {
+      #     host = [ "cloud.${domain}" ];
+      #   };
+      # };
       server_name = "office.${domain}";
     };
   };

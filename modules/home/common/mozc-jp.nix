@@ -3,8 +3,7 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   # Enable fonts to use on your system.  You should make sure to add at least
   # one English font (like dejavu_fonts), as well as Japanese fonts like
   # "ipafont" and "kochi-substitute".
@@ -49,7 +48,7 @@
     enabled = "fcitx5";
     fcitx5 = {
       # addons = with pkgs; [ fcitx5-mozc ];
-      addons = with pkgs; [ fcitx5-mozc fcitx5-chewing fcitx5-rime rime-data ];
+      addons = with pkgs; [fcitx5-mozc fcitx5-chewing fcitx5-rime rime-data];
 
       # waylandFrontend = true;   ### waiting for 25.05 to be merged for hm
     };

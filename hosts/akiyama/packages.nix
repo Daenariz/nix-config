@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   environment = {
     systemPackages = with pkgs; [
     ];
@@ -24,5 +26,5 @@
 
   hardware.graphics.enable = true;
 
-  services.xserver.videoDrivers = [ "nvidia" ]; # only works with hardware.nvidia.open
+  services.xserver.videoDrivers = ["nvidia"]; # only works with hardware.nvidia.open
 }

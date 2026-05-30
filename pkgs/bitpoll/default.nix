@@ -4,7 +4,6 @@
   fetchFromGitHub,
   makeWrapper,
 }:
-
 python3Packages.buildPythonApplication rec {
   pname = "bitpoll";
   version = "0.9.2";
@@ -17,7 +16,7 @@ python3Packages.buildPythonApplication rec {
     hash = "sha256-5tFCMAxr739oDdEpT9FYJjI1EvXLfKvRZu8vq+0YQkE=";
     fetchSubmodules = true;
   };
-  nativeBuildInputs = [ makeWrapper ];
+  nativeBuildInputs = [makeWrapper];
 
   propagatedBuildInputs = with python3Packages; [
     #    django_5
@@ -52,7 +51,7 @@ python3Packages.buildPythonApplication rec {
   ];
 
   installPhase = ''
-          # Copy source code 
+          # Copy source code
           mkdir -p $out/share/bitpoll
           cp -r . $out/share/bitpoll
 
@@ -65,7 +64,7 @@ python3Packages.buildPythonApplication rec {
         echo "BASE_URL = 'http://localhost:8000'" >> $localConf
         echo "INSTALLED_APPS_LOCAL = []" >> $localConf
         echo "MIDDLEWARE_LOCAL = []" >> $localConf
-        echo "PIPELINE_LOCAL = {}" >> $localConf 
+        echo "PIPELINE_LOCAL = {}" >> $localConf
     echo "LOGGING_LOCAL = {}" >> $localConf
         echo "TEMPLATES_LOCAL = []" >> $localConf
 
@@ -84,7 +83,7 @@ python3Packages.buildPythonApplication rec {
     description = "A web application for scheduling meetings and general polling";
     homepage = "https://github.com/fsinfuhh/Bitpoll";
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [ ];
+    maintainers = with lib.maintainers; [];
     mainProgram = "bitpoll";
     platforms = lib.platforms.all;
   };

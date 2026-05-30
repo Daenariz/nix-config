@@ -1,7 +1,4 @@
-{
-  pkgs ? import <nixpkgs> { config.allowUnfree = true; },
-}:
-
+{pkgs ? import <nixpkgs> {config.allowUnfree = true;}}:
 pkgs.stdenv.mkDerivation rec {
   pname = "riichi-city";
   version = "2.2.3";
@@ -11,7 +8,7 @@ pkgs.stdenv.mkDerivation rec {
     sha256 = "sha256-I+q3bsqcD9om8R42Cf9nIjpJwlSNi0vyL0r39QkTbCU=";
   };
 
-  nativeBuildInputs = [ pkgs.unzip ];
+  nativeBuildInputs = [pkgs.unzip];
 
   installPhase = ''
     mkdir -p $out/opt/riichi-city-source

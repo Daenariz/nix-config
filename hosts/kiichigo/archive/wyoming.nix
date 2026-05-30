@@ -1,7 +1,6 @@
 let
   enableWyoming = false;
-in
-{
+in {
   services.wyoming = {
     faster-whisper.servers = {
       testserver = {

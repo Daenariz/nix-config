@@ -4,8 +4,7 @@
   inputs,
   lib,
   ...
-}:
-{
+}: {
   imports = [
     #    inputs.nixified-ai.nixosModules.comfyui
   ];
@@ -67,5 +66,4 @@
   #    "USER_PERMISSIONS_WORKSPACE_TOOLS_ACCESS" = "False";
   #  };
   #};
-
 }

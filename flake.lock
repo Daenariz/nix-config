@@ -553,11 +553,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776796298,
-        "narHash": "sha256-PcRvlWayisPSjd0UcRQbhG8Oqw78AcPE6x872cPRHN8=",
+        "lastModified": 1778507602,
+        "narHash": "sha256-kTwur1wV+01SdqskVMSo6JMEpg71ps3HpbFY2GsflKs=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "3cfd774b0a530725a077e17354fbdb87ea1c4aad",
+        "rev": "61ab0e80d9c7ab14c256b5b453d8b3fb0189ba0a",
         "type": "github"
       },
       "original": {
@@ -699,11 +699,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777851538,
-        "narHash": "sha256-Gp8qwTEYNoy2yvmErVGlvLOQvrtEECCAKbonW7VJef8=",
+        "lastModified": 1779506708,
+        "narHash": "sha256-QOD/CNm196nCJRheux/URi4/HE66fthdOMqCJoPP1Y0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "cc09c0f9b7eaa95c2d9827338a5eb03d32505ca5",
+        "rev": "3ee51fbdac8c8bdfe1e7e1fcaba6520a563f394f",
         "type": "github"
       },
       "original": {
@@ -1035,11 +1035,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777906128,
-        "narHash": "sha256-ei9g+4pCXhacUwnYuljs9v75hwfTqnfU+J6s6s8hfvc=",
+        "lastModified": 1779900588,
+        "narHash": "sha256-b/yda4uMmjpw4uhXI4d0JNv09WtGoXis2JjD5l1Qbts=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "c278c296b010e2a32838c8d4539a2d72c1686d4d",
+        "rev": "dd8bdde89853bfb3eae0eb28e3d3a9320b3b8a3c",
         "type": "github"
       },
       "original": {
@@ -1260,11 +1260,11 @@
         "tinted-zed": "tinted-zed_2"
       },
       "locked": {
-        "lastModified": 1777581180,
-        "narHash": "sha256-JcDBTZkkz68WlZKYDoD+MZG8b3dnIJXqMvyuVx3Wkdg=",
+        "lastModified": 1778680496,
+        "narHash": "sha256-tUq1WASV0dHLv3j18log8V6Esq0NYkXuzNH2EHsstcg=",
         "owner": "nix-community",
         "repo": "stylix",
-        "rev": "a2538cd28ae2140ffce9cee9108b8d569a9c4fed",
+        "rev": "fc5bec2e44678eeaa221d566d447a0257a884737",
         "type": "github"
       },
       "original": {
@@ -1288,11 +1288,11 @@
         "stylix": "stylix_2"
       },
       "locked": {
-        "lastModified": 1778449064,
-        "narHash": "sha256-CFmp5RjuwC6OjoSFNE9Fu4kJ526W6Y6G+SEXqRndP/I=",
+        "lastModified": 1779904053,
+        "narHash": "sha256-cvuCoqo2Wh3I/bjxrYL7CqN2lQ0I32YN77tPNnm1zDc=",
         "ref": "develop",
-        "rev": "f3c63493abf4158f6a56919aeedc4c701d9603cb",
-        "revCount": 47,
+        "rev": "4b0a90e00d970e28d01e7159df81b61f44e22345",
+        "revCount": 64,
         "type": "git",
         "url": "https://git.sid.ovh/sid/synix.git"
       },

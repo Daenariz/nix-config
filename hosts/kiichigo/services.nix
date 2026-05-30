@@ -4,9 +4,7 @@
   outputs,
   lib,
   ...
-}:
-
-{
+}: {
   imports = [
     inputs.synix.nixosModules.mailserver
     inputs.synix.nixosModules.nextcloud
@@ -41,19 +39,20 @@
     loginAccounts = {
       "susagi@${config.networking.domain}" = {
         hashedPasswordFile = config.sops.secrets."mailserver/accounts/susagi".path;
-        aliases = [ "postmaster@${config.networking.domain}" ];
+        aliases = ["postmaster@${config.networking.domain}"];
       };
     };
   };
 
-  sops.secrets."mailserver/accounts/susagi" = { };
+  sops.secrets."mailserver/accounts/susagi" = {};
 
   services.nextcloud = {
     enable = true;
     datadir = "/data/nextcloud";
     subdomain = "cloud";
     extraApps = {
-      inherit (config.services.nextcloud.package.packages.apps)
+      inherit
+        (config.services.nextcloud.package.packages.apps)
         bookmarks
         calendar
         contacts
@@ -69,24 +68,22 @@
 
   services.nginx = {
     enable = true;
-    virtualHosts =
-      let
-        webui = config.services.open-webui;
-      in
-      {
-        "${webui.subdomain}.${config.networking.domain}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/" = {
-            proxyPass = "http://192.168.178.107:8082";
-            proxyWebsockets = true;
-            extraConfig = ''
-              proxy_set_header X-Accel-Buffering no;
-              proxy_buffering off;
-            '';
-          };
+    virtualHosts = let
+      webui = config.services.open-webui;
+    in {
+      "${webui.subdomain}.${config.networking.domain}" = {
+        enableACME = true;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://192.168.178.107:8082";
+          proxyWebsockets = true;
+          extraConfig = ''
+            proxy_set_header X-Accel-Buffering no;
+            proxy_buffering off;
+          '';
         };
       };
+    };
   };
 
   services.rss-bridge = {

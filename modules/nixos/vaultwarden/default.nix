@@ -1,25 +1,31 @@
-{ config, lib, ... }:
-
-let
+{
+  config,
+  lib,
+  ...
+}: let
   cfg = config.services.vaultwarden;
   domain = config.networking.domain;
   subdomain = cfg.reverseProxy.subdomain;
-  fqdn = if (cfg.reverseProxy.enable && subdomain != "") then "${subdomain}.${domain}" else domain;
+  fqdn =
+    if (cfg.reverseProxy.enable && subdomain != "")
+    then "${subdomain}.${domain}"
+    else domain;
 
-  inherit (lib)
+  inherit
+    (lib)
     mkDefault
     mkIf
     optionalAttrs
     ;
 
-  inherit (lib.utils)
+  inherit
+    (lib.utils)
     mkMailIntegrationOption
     mkReverseProxyOption
     mkVirtualHost
     mkUrl
     ;
-in
-{
+in {
   options.services.vaultwarden = {
     mailIntegration = mkMailIntegrationOption "Vaultwarden";
     reverseProxy = mkReverseProxyOption "Vaultwarden" "pass";
@@ -27,28 +33,33 @@ in
 
   config = mkIf cfg.enable {
     services.vaultwarden = {
-      config = {
-        ADMIN_TOKEN_FILE = mkDefault config.sops.secrets."vaultwarden/admin-token".path;
-        DOMAIN = mkDefault (mkUrl {
-          inherit fqdn;
-          ssl = with cfg.reverseProxy; enable && forceSSL;
-        });
-        ROCKET_ADDRESS = mkDefault (if cfg.reverseProxy.enable then "127.0.0.1" else "0.0.0.0");
-        ROCKET_PORT = mkDefault 8222;
-        ####################################################
-        # SIGNUPS_VERIFY = false;
-        SIGNUPS_ALLOWED = mkDefault false;
-        # REQUIRE_DEVICE_EMAIL = false;
-      }
-      // optionalAttrs cfg.mailIntegration.enable {
-        SMTP_FROM = mkDefault "vaultwarden@${domain}";
-        SMTP_FROM_NAME = mkDefault "${domain} Vaultwarden server";
-        SMTP_HOST = cfg.mailIntegration.smtpHost;
-        SMTP_PORT = mkDefault 587;
-        SMTP_SECURITY = mkDefault "starttls";
-        SMTP_USERNAME = mkDefault "vaultwarden@${domain}";
-        SMTP_PASSWORD_FILE = mkDefault config.sops.secrets."vaultwarden/smtp-password".path;
-      };
+      config =
+        {
+          ADMIN_TOKEN_FILE = mkDefault config.sops.secrets."vaultwarden/admin-token".path;
+          DOMAIN = mkDefault (mkUrl {
+            inherit fqdn;
+            ssl = with cfg.reverseProxy; enable && forceSSL;
+          });
+          ROCKET_ADDRESS = mkDefault (
+            if cfg.reverseProxy.enable
+            then "127.0.0.1"
+            else "0.0.0.0"
+          );
+          ROCKET_PORT = mkDefault 8222;
+          ####################################################
+          # SIGNUPS_VERIFY = false;
+          SIGNUPS_ALLOWED = mkDefault false;
+          # REQUIRE_DEVICE_EMAIL = false;
+        }
+        // optionalAttrs cfg.mailIntegration.enable {
+          SMTP_FROM = mkDefault "vaultwarden@${domain}";
+          SMTP_FROM_NAME = mkDefault "${domain} Vaultwarden server";
+          SMTP_HOST = cfg.mailIntegration.smtpHost;
+          SMTP_PORT = mkDefault 587;
+          SMTP_SECURITY = mkDefault "starttls";
+          SMTP_USERNAME = mkDefault "vaultwarden@${domain}";
+          SMTP_PASSWORD_FILE = mkDefault config.sops.secrets."vaultwarden/smtp-password".path;
+        };
     };
 
     services.nginx.virtualHosts = mkIf cfg.reverseProxy.enable {
@@ -59,19 +70,17 @@ in
       };
     };
 
-    sops =
-      let
-        owner = "vaultwarden";
-        group = "vaultwarden";
-        mode = "0440";
-      in
-      {
-        secrets."vaultwarden/admin-token" = {
-          inherit owner group mode;
-        };
-        secrets."vaultwarden/smtp-password" = mkIf cfg.mailIntegration.enable {
-          inherit owner group mode;
-        };
+    sops = let
+      owner = "vaultwarden";
+      group = "vaultwarden";
+      mode = "0440";
+    in {
+      secrets."vaultwarden/admin-token" = {
+        inherit owner group mode;
       };
+      secrets."vaultwarden/smtp-password" = mkIf cfg.mailIntegration.enable {
+        inherit owner group mode;
+      };
+    };
   };
 }

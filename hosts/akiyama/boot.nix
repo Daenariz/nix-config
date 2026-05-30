@@ -1,7 +1,7 @@
 {
   boot.loader.grub = {
     enable = true;
-    devices = [ "nodev" ];
+    devices = ["nodev"];
     efiSupport = true;
     useOSProber = true;
     configurationLimit = 20;

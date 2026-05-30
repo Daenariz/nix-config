@@ -16,5 +16,5 @@
   monitor = desc:Dell Inc. DELL P2725D GCGTQC4, preferred , 2580x-2000, 1, transform, 1
 ''
 # rotation with ..., transform, number from 1-3 (0 for default)
-
 # MT-Labor
+

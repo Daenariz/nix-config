@@ -1,9 +1,7 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   services.displayManager.gdm.enable = true;
   services.displayManager.defaultSession = "gnome";
-  services.displayManager.sessionPackages = [ pkgs.gnome-session.sessions ];
+  services.displayManager.sessionPackages = [pkgs.gnome-session.sessions];
 
   services.desktopManager.gnome.enable = true;
 
@@ -22,10 +20,10 @@
   ];
 
   # https://github.com/NixOS/nixpkgs/issues/266774#issuecomment-2525412206
-  systemd.services.gnome-remote-desktop.wantedBy = [ "graphical.target" ];
+  systemd.services.gnome-remote-desktop.wantedBy = ["graphical.target"];
   networking.firewall = {
-    allowedTCPPorts = [ 3389 ];
-    allowedUDPPorts = [ 3389 ];
+    allowedTCPPorts = [3389];
+    allowedUDPPorts = [3389];
   };
 
   programs.firefox.enable = true;

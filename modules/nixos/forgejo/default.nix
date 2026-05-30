@@ -2,21 +2,19 @@
   config,
   lib,
   ...
-}:
-
-let
+}: let
   cfg = config.services.forgejo;
   domain = config.networking.domain;
 
   inherit (cfg) settings;
-  inherit (lib)
+  inherit
+    (lib)
     getExe
     head
     mkDefault
     mkIf
     ;
-in
-{
+in {
   config = mkIf cfg.enable {
     services.forgejo = {
       database.type = "postgres";

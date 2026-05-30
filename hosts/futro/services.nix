@@ -3,11 +3,9 @@
   outputs,
   config,
   ...
-}:
-let
+}: let
   domain = config.networking.domain;
-in
-{
+in {
   imports = [
     inputs.synix.nixosModules.nginx
     inputs.synix.nixosModules.open-webui-oci
@@ -15,7 +13,11 @@ in
     inputs.synix.nixosModules.coturn
     inputs.synix.nixosModules.matrix-synapse
     inputs.synix.nixosModules.headscale
-    inputs.synix.nixosModules.tailscale\n    inputs.synix.nixosModules.radicale\n    inputs.synix.nixosModules.forgejo-runner\n\n    inputs.riichi-club.nixosModules.riichi-club
+    inputs.synix.nixosModules.tailscale
+    inputs.synix.nixosModules.radicale
+    inputs.synix.nixosModules.forgejo-runner
+
+    inputs.riichi-club.nixosModules.riichi-club
 
     outputs.nixosModules.vaultwarden
     outputs.nixosModules.nextcloud
@@ -30,7 +32,7 @@ in
   ];
 
   services.radicale.enable = true;
-  services.radicale.users = [ "susagi" ];
+  services.radicale.users = ["susagi"];
   services.radicale.reverseProxy.enable = true;
 
   services.riichi_club = {
@@ -39,15 +41,15 @@ in
     secretKey = config.sops.secrets.riichi_club_key.path;
   };
 
-   services.tailscale = {
+  services.tailscale = {
     enable = true;
     tailnets = {
       personal = {
         loginServer = "https://head.negitorodon.de";
         authKeyFile = config.sops.secrets."tailscale/auth-key".path;
         enableSSH = true;
-        };
       };
+    };
   };
 
   services.forgejo.enable = true;
@@ -60,8 +62,8 @@ in
       url = "https://git.negitorodon.de";
       tokenFile = config.sops.secrets.forgejo_runner_token.path;
       labels = [
-        "ubuntu-latest:docker://node:18-bullseye",
-        "nixos:docker://nixos/nix",
+        "ubuntu-latest:docker://node:18-bullseye"
+        "nixos:docker://nixos/nix"
       ];
     };
   };
@@ -92,12 +94,11 @@ in
     };
   };
 
-
   mailserver.enable = true;
   mailserver.stateVersion = 3;
   mailserver.accounts = {
     susagi = {
-      aliases = [ "postmaster@${domain}" ];
+      aliases = ["postmaster@${domain}"];
     };
   };
 

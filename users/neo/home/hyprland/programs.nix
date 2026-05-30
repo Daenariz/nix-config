@@ -4,12 +4,9 @@
   inputs,
   outputs,
   ...
-}:
-
-let
+}: let
   inherit (lib) mkForce mkAfter;
-in
-{
+in {
   imports = [
     ./mangohud.nix
     # ./obs-studio.nix
@@ -28,8 +25,7 @@ in
       ];
       profiles.default = {
         extensions.packages = mkAfter (
-          with inputs.nur.legacyPackages."${pkgs.system}".repos.rycee.firefox-addons;
-          [
+          with inputs.nur.legacyPackages."${pkgs.system}".repos.rycee.firefox-addons; [
             bitwarden
             yomitan
           ]

@@ -1,8 +1,9 @@
-{ inputs, outputs, ... }:
-
 {
+  inputs,
+  outputs,
+  ...
+}: {
   imports = [
-
     inputs.core.nixosModules.common
     inputs.core.nixosModules.device.laptop
     inputs.core.nixosModules.normalUsers

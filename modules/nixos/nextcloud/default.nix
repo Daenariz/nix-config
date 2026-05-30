@@ -3,13 +3,14 @@
   lib,
   pkgs,
   ...
-}:
-
-let
+}: let
   cfg = config.services.nextcloud;
   domain = config.networking.domain;
   subdomain = cfg.reverseProxy.subdomain;
-  fqdn = if (cfg.reverseProxy.enable && subdomain != "") then "${subdomain}.${domain}" else domain;
+  fqdn =
+    if (cfg.reverseProxy.enable && subdomain != "")
+    then "${subdomain}.${domain}"
+    else domain;
 
   package = pkgs.nextcloud32;
   # package = pkgs.nextcloud31.overrideAttrs (old: rec {
@@ -20,19 +21,20 @@ let
   #   };
   # });
 
-  inherit (lib)
+  inherit
+    (lib)
     mkDefault
     mkIf
     optionalAttrs
     ;
 
-  inherit (lib.utils)
+  inherit
+    (lib.utils)
     mkMailIntegrationOption
     mkReverseProxyOption
     mkVirtualHost
     ;
-in
-{
+in {
   options.services.nextcloud = {
     mailIntegration = mkMailIntegrationOption "Nextcloud";
     reverseProxy = mkReverseProxyOption "Nextcloud" "nc";
@@ -41,13 +43,16 @@ in
   config = mkIf cfg.enable {
     environment = {
       etc."secrets/nextcloud-initial-admin-pass".text = "nextcloud";
-      systemPackages = [ pkgs.sqlite ]; # TODO: switch to postgresql
+      systemPackages = [pkgs.sqlite]; # TODO: switch to postgresql
     };
 
     services.nextcloud = {
       inherit package;
       hostName = fqdn;
-      https = if cfg.reverseProxy.enable then cfg.reverseProxy.forceSSL else mkDefault false;
+      https =
+        if cfg.reverseProxy.enable
+        then cfg.reverseProxy.forceSSL
+        else mkDefault false;
       config = {
         adminuser = mkDefault "nextcloud";
         adminpassFile = mkDefault "/etc/secrets/nextcloud-initial-admin-pass";
@@ -57,27 +62,28 @@ in
       extraAppsEnable = mkDefault true;
       appstoreEnable = mkDefault false;
       webfinger = mkDefault true;
-      settings = {
-        # Logging
-        log_type = mkDefault "systemd";
-        loglevel = mkDefault 2;
-        syslog_tag = mkDefault "Nextcloud";
+      settings =
+        {
+          # Logging
+          log_type = mkDefault "systemd";
+          loglevel = mkDefault 2;
+          syslog_tag = mkDefault "Nextcloud";
 
-        maintenance_window_start = 2; # 2am UTC
-        default_phone_region = mkDefault "DE";
-      }
-      // optionalAttrs cfg.mailIntegration.enable {
-        # SMTP with SSL/TLS
-        mail_domain = mkDefault domain;
-        mail_from_address = mkDefault "nextcloud"; # @domain.tld gets added automatically
-        mail_smtpauth = mkDefault true;
-        mail_smtphost = mkDefault cfg.mailIntegration.smtpHost;
-        mail_smtpmode = mkDefault "smtp";
-        mail_smtpname = mkDefault "nextcloud@${domain}";
-        mail_smtpport = mkDefault 465;
-        mail_smtpsecure = mkDefault "ssl";
-        mail_smtptimeout = mkDefault 30;
-      };
+          maintenance_window_start = 2; # 2am UTC
+          default_phone_region = mkDefault "DE";
+        }
+        // optionalAttrs cfg.mailIntegration.enable {
+          # SMTP with SSL/TLS
+          mail_domain = mkDefault domain;
+          mail_from_address = mkDefault "nextcloud"; # @domain.tld gets added automatically
+          mail_smtpauth = mkDefault true;
+          mail_smtphost = mkDefault cfg.mailIntegration.smtpHost;
+          mail_smtpmode = mkDefault "smtp";
+          mail_smtpname = mkDefault "nextcloud@${domain}";
+          mail_smtpport = mkDefault 465;
+          mail_smtpsecure = mkDefault "ssl";
+          mail_smtptimeout = mkDefault 30;
+        };
       phpOptions = {
         catch_workers_output = "yes";
         display_errors = "stderr";
@@ -110,8 +116,7 @@ in
         owner = "nextcloud";
         group = "nextcloud";
         mode = "0440";
-      in
-      {
+      in {
         secrets."nextcloud/smtp-password" = {
           inherit owner group mode;
         };

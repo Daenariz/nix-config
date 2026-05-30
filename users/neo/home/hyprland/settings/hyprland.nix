@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   general = {
     no_border_on_floating = true;
     gaps_in = lib.mkForce 3;
@@ -34,7 +37,6 @@
   ];
 
   windowrule = lib.mkAfter [
-
     # TODO: if new window created, split horizontally
     #    "monitor   0, class:^librewolf$"
     "workspace 6, class:^([Ll]ibrewolf)$"
@@ -69,7 +71,6 @@
     ##    "allowsinput 1, class:^(steam_app_\d+)$"
     "center (1), class:^(steam_app_\d+)$"
     # "move center (1), class:^steam_app_1284210$, title:^Guild Wars 2$"
-
   ];
   workspace = [
     "1, monitor:DP-1, default:true" # , gapsout:10, gapsin:5"

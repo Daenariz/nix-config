@@ -5,9 +5,7 @@
   config,
   lib,
   ...
-}:
-
-{
+}: {
   imports = [
     inputs.synix.nixosModules.common
     inputs.synix.nixosModules.device.laptop
@@ -32,7 +30,7 @@
     ./secrets
   ];
   programs.adb.enable = true;
-  users.groups.adbusers.members = [ "susagi" ];
+  users.groups.adbusers.members = ["susagi"];
   services.gvfs.enable = true;
 
   # services.riichi_club = {
@@ -51,8 +49,7 @@
   # services.print-server.enable = true;
   # services.print-server.openFirewall = true;
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
+  nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "steam-unwrapped" # probably for riichi-city
       "brgenml1lpr" # for print-server

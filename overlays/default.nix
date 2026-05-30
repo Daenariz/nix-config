@@ -1,24 +1,20 @@
-{ inputs, ... }:
-
-{
+{inputs, ...}: {
   # forked nix-synix packages accessible through 'pkgs.synix-dev'
   #  synix-dev-packages = final: prev: { synix-dev = inputs.synix-dev.packages."${final.system}"; };
 
   # nix-synix packages accessible through 'pkgs.synix'
-  synix-packages = final: prev: { synix = inputs.synix.packages."${final.system}"; };
+  synix-packages = final: prev: {synix = inputs.synix.packages."${final.system}";};
 
   # packages in `pkgs/` accessible through 'pkgs.local'
-  local-packages = final: prev: { local = import ../pkgs { pkgs = final; }; };
+  local-packages = final: prev: {local = import ../pkgs {pkgs = final;};};
 
   # https://nixos.wiki/wiki/Overlays
-  modifications =
-    final: prev:
-    let
-      files = [
-      ];
-      imports = builtins.map (f: import f final prev) files;
-    in
-    builtins.foldl' (a: b: a // b) { } imports // inputs.synix.overlays.modifications final prev;
+  modifications = final: prev: let
+    files = [
+    ];
+    imports = builtins.map (f: import f final prev) files;
+  in
+    builtins.foldl' (a: b: a // b) {} imports // inputs.synix.overlays.modifications final prev;
 
   # stable nixpkgs accessible through 'pkgs.stable'
   stable-packages = final: prev: {

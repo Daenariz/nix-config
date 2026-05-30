@@ -3,9 +3,7 @@
   outputs,
   config,
   ...
-}:
-
-{
+}: {
   imports = [
     inputs.synix.nixosModules.common
     inputs.synix.nixosModules.normalUsers
@@ -25,7 +23,7 @@
   networking = {
     firewall = {
       enable = true;
-      trustedInterfaces = [ "tailscale0" ];
+      trustedInterfaces = ["tailscale0"];
       checkReversePath = "loose";
     };
     domain = "negitorodon.de";
@@ -39,7 +37,7 @@
   };
 
   services.openssh.enable = true;
-  services.openssh.ports = [ 30715 ];
+  services.openssh.ports = [30715];
 
   programs.ssh.startAgent = true;
 
