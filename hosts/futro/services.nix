@@ -151,15 +151,21 @@ in {
 
   services.nginx.enable = true;
 
-  virtualisation.docker = {
+  virtualisation.podman = {
     enable = true;
-    daemon.settings = {
-      data-root = "/data/docker";
-    };
+    dockerCompat = true;
     autoPrune = {
       enable = true;
       dates = "weekly";
       flags = ["--all"];
+    };
+  };
+
+  virtualisation.containers.storage.settings = {
+    storage = {
+      driver = "overlay";
+      runroot = "/run/containers/storage";
+      graphroot = "/data/podman";
     };
   };
 }
