@@ -15,10 +15,7 @@ in
     inputs.synix.nixosModules.coturn
     inputs.synix.nixosModules.matrix-synapse
     inputs.synix.nixosModules.headscale
-    inputs.synix.nixosModules.tailscale
-    inputs.synix.nixosModules.radicale
-
-    inputs.riichi-club.nixosModules.riichi-club
+    inputs.synix.nixosModules.tailscale\n    inputs.synix.nixosModules.radicale\n    inputs.synix.nixosModules.forgejo-runner\n\n    inputs.riichi-club.nixosModules.riichi-club
 
     outputs.nixosModules.vaultwarden
     outputs.nixosModules.nextcloud
@@ -55,6 +52,19 @@ in
 
   services.forgejo.enable = true;
   services.forgejo.stateDir = "/data/forgejo";
+
+  services.forgejo-runner = {
+    instances.default = {
+      enable = true;
+      name = "futro-runner";
+      url = "https://git.negitorodon.de";
+      tokenFile = config.sops.secrets.forgejo_runner_token.path;
+      labels = [
+        "ubuntu-latest:docker://node:18-bullseye",
+        "nixos:docker://nixos/nix",
+      ];
+    };
+  };
 
   services.headscale = {
     enable = true;
