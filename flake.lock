@@ -670,6 +670,22 @@
         "type": "gitlab"
       }
     },
+    "hetzner_ddns": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775500056,
+        "narHash": "sha256-CSLxbWtAV28+molE4i2hcd1o29Qt+PvKEAPl2YW0m0E=",
+        "owner": "filiparag",
+        "repo": "hetzner_ddns",
+        "rev": "39d3b03dd74bbdf980b1597dc03ff8ff3c5e7f38",
+        "type": "github"
+      },
+      "original": {
+        "owner": "filiparag",
+        "repo": "hetzner_ddns",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -1169,6 +1185,7 @@
     },
     "root": {
       "inputs": {
+        "hetzner_ddns": "hetzner_ddns",
         "home-manager": "home-manager",
         "nix-flatpak": "nix-flatpak",
         "nixos-mailserver": "nixos-mailserver",
