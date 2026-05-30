@@ -1,6 +1,9 @@
-{ config, inputs, outputs, ... }:
-
 {
+  config,
+  inputs,
+  outputs,
+  ...
+}: {
   imports = [
     #./wyoming.nix
     #  ./homeassistant.nix
@@ -17,7 +20,6 @@
     inputs.synix-stable.nixosModules.jellyfin
 
     outputs.nixosModules.common
-
   ];
 
   services.jellyfin = {
@@ -33,15 +35,15 @@
       "shows"
     ];
   };
- services.tailscale = {
+  services.tailscale = {
     enable = true;
     tailnets = {
       personal = {
         loginServer = "https://head.negitorodon.de";
         authKeyFile = config.sops.secrets."tailscale/auth-key".path;
         enableSSH = true;
-        };
       };
+    };
   };
   #
   # services.tailscale = {

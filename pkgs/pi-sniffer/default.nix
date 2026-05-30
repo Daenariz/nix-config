@@ -11,7 +11,6 @@
   paho-mqtt-c,
   ...
 }:
-
 stdenv.mkDerivation {
   pname = "pi-sniffer";
   version = "hilbigit-forked-2025-09-17";
@@ -21,7 +20,7 @@ stdenv.mkDerivation {
     rev = "aeb4cbced82fc1f17c310927b7815aee5babd82e";
   };
 
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [pkg-config];
 
   buildInputs = [
     glib
@@ -48,7 +47,7 @@ stdenv.mkDerivation {
     description = "Sniffer for Bluetooth LE on Raspberry Pi";
     homepage = "https://github.com/IanMercer/pi-sniffer";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ ];
+    maintainers = with lib.maintainers; [];
     mainProgram = "pi-sniffer";
     platforms = lib.platforms.all;
   };

@@ -1,6 +1,4 @@
-{ outputs, ... }:
-
-{
+{outputs, ...}: {
   imports = [
     ./boot.nix
     ./hardware.nix

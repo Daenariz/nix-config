@@ -2,9 +2,7 @@
   pkgs,
   lib,
   ...
-}:
-
-{
+}: {
   services.postgresql = {
     enable = true;
     #        ensureDatabases = [ "test1" ];

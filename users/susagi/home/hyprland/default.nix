@@ -3,9 +3,7 @@
   inputs,
   pkgs,
   ...
-}:
-
-{
+}: {
   imports = [
     inputs.synix.homeModules.hyprland
     inputs.synix.homeModules.stylix
@@ -18,8 +16,7 @@
     ./ssh.nix
   ];
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
+  nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "castlabs-electron"
       "zoom"
@@ -29,7 +26,7 @@
 
   services.gnome-keyring = {
     enable = true;
-    components = [ "secrets" ];
+    components = ["secrets"];
   };
 
   stylix = {
@@ -40,10 +37,10 @@
   wayland.windowManager.hyprland = {
     enable = true;
     autostart = true;
-    settings = import ./settings/hyprland.nix { inherit pkgs lib; };
+    settings = import ./settings/hyprland.nix {inherit pkgs lib;};
   };
 
-  home.packages = import ./packages.nix { inherit pkgs inputs; };
+  home.packages = import ./packages.nix {inherit pkgs inputs;};
   home.sessionVariables = lib.mkAfter {
     AQ_NO_MODIFIERS = "1"; # for DisplayLink monitors
   };
@@ -57,5 +54,4 @@
     go2hyprland = "cd ~/.config/nixos/users/susagi/home/hyprland/";
     go2core = "cd ~/Desktop/repos/nix-core/";
   };
-
 }

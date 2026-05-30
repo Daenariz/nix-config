@@ -1,13 +1,12 @@
 {
+  pkgs,
   inputs,
   outputs,
   config,
   ...
-}:
-let
+}: let
   domain = config.networking.domain;
-in
-{
+in {
   imports = [
     inputs.synix.nixosModules.nginx
     inputs.synix.nixosModules.open-webui-oci
@@ -23,6 +22,7 @@ in
     outputs.nixosModules.vaultwarden
     outputs.nixosModules.nextcloud
     outputs.nixosModules.forgejo
+    outputs.nixosModules.forgejo-runner
     # outputs.nixosModules.open-webui-oci
 
     ./nextcloud.nix
@@ -33,7 +33,7 @@ in
   ];
 
   services.radicale.enable = true;
-  services.radicale.users = [ "susagi" ];
+  services.radicale.users = ["susagi"];
   services.radicale.reverseProxy.enable = true;
 
   services.riichi_club = {
@@ -42,19 +42,25 @@ in
     secretKey = config.sops.secrets.riichi_club_key.path;
   };
 
-   services.tailscale = {
+  services.tailscale = {
     enable = true;
     tailnets = {
       personal = {
         loginServer = "https://head.negitorodon.de";
         authKeyFile = config.sops.secrets."tailscale/auth-key".path;
         enableSSH = true;
-        };
       };
+    };
   };
 
   services.forgejo.enable = true;
   services.forgejo.stateDir = "/data/forgejo";
+
+  services.forgejo-runner = {
+    enable = true;
+      url = config.services.forgejo.settings.server.ROOT_URL;
+      tokenFile = config.sops.templates."forgejo_runner_token".path;
+    };
 
   services.headscale = {
     enable = true;
@@ -82,12 +88,11 @@ in
     };
   };
 
-
   mailserver.enable = true;
   mailserver.stateVersion = 3;
   mailserver.accounts = {
     susagi = {
-      aliases = [ "postmaster@${domain}" ];
+      aliases = ["postmaster@${domain}"];
     };
   };
 
@@ -139,4 +144,22 @@ in
   };
 
   services.nginx.enable = true;
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    autoPrune = {
+      enable = true;
+      dates = "weekly";
+      flags = ["--all"];
+    };
+  };
+
+  virtualisation.containers.storage.settings = {
+    storage = {
+      driver = "overlay";
+      runroot = "/run/containers/storage";
+      graphroot = "/data/podman";
+    };
+  };
 }

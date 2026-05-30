@@ -1,6 +1,8 @@
-{ inputs, outputs, ... }:
-
 {
+  inputs,
+  outputs,
+  ...
+}: {
   imports = [
     inputs.core.homeModules.common
     inputs.core.homeModules.nixvim

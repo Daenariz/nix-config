@@ -3,9 +3,7 @@
   lib,
   inputs,
   ...
-}:
-
-{
+}: {
   imports = [
     inputs.core.homeModules.hyprland
     inputs.core.homeModules.stylix
@@ -15,8 +13,7 @@
     ./programs.nix
   ];
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
+  nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "castlabs-electron"
       "zoom"
@@ -29,7 +26,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     autostart = true;
-    settings = import ./settings/hyprland.nix { inherit pkgs lib; };
+    settings = import ./settings/hyprland.nix {inherit pkgs lib;};
   };
 
   services.ssh-agent.enable = true;
@@ -58,7 +55,7 @@
           "~/Pictures/night.jpg"
           "~/Pictures/legends.JPG"
         ];
-        wallpaper = [ ",~/Pictures/arknos.JPG" ];
+        wallpaper = [",~/Pictures/arknos.JPG"];
       };
     };
 
@@ -86,7 +83,6 @@
         appId = "com.usebottles.bottles";
         origin = "flathub";
       }
-
     ];
   };
 

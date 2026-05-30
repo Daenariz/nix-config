@@ -1,7 +1,5 @@
-{ inputs, ... }:
+{inputs, ...}: {
+  imports = [inputs.synix-stable.nixosModules.sops];
 
-{
-  imports = [ inputs.synix-stable.nixosModules.sops ];
-
-    sops.secrets."tailscale/auth-key" = {};
+  sops.secrets."tailscale/auth-key" = {};
 }

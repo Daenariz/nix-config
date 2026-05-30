@@ -3,10 +3,8 @@
   lib,
   modulesPath,
   ...
-}:
-
-{
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+}: {
+  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
   boot.initrd.availableKernelModules = [
     "nvme"
@@ -14,9 +12,9 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-amd"];
+  boot.extraModulePackages = [];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/5b006ec0-4995-4a81-a801-0a3805757da3";
@@ -32,7 +30,7 @@
     ];
   };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/163e55f8-4ea5-459a-8da1-2a2bc161c77b"; } ];
+  swapDevices = [{device = "/dev/disk/by-uuid/163e55f8-4ea5-459a-8da1-2a2bc161c77b";}];
 
   networking.useDHCP = lib.mkDefault true;
 

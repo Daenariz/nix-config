@@ -4,11 +4,8 @@
   outputs,
   lib,
   ...
-}:
-
-{
+}: {
   imports = [
-
     inputs.core.nixosModules.common
     inputs.core.nixosModules.bluetooth
     inputs.core.nixosModules.device.desktop
@@ -39,15 +36,15 @@
 
   # services.flatpak.enable = true;
 
- programs.dconf.enable = true;
+  programs.dconf.enable = true;
 
-#   programs.zsh = {
-#   interactiveShellInit = ''
-#   if [ -z "$IS_HEADLESS" ] && [ "$(tty)" = "/dev/tty1" ]; then
-#     exec Hyprland
-# fi
-# '';
-# };
+  #   programs.zsh = {
+  #   interactiveShellInit = ''
+  #   if [ -z "$IS_HEADLESS" ] && [ "$(tty)" = "/dev/tty1" ]; then
+  #     exec Hyprland
+  # fi
+  # '';
+  # };
 
   programs.steam = {
     enable = true;

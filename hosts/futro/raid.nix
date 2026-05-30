@@ -1,5 +1,8 @@
-{ pkgs, config, ... }:
 {
+  pkgs,
+  config,
+  ...
+}: {
   services.smartd = {
     enable = true;
 
@@ -13,7 +16,7 @@
           -H "Priority: high" \
           -d "SMARTD meldet ein Problem: $SMARTD_MESSAGE" \
           "https://ntfy.sh/$TOPIC"
-      ''} 
+      ''}
     '';
   };
 }

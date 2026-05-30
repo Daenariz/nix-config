@@ -5,9 +5,7 @@
   config,
   outputs,
   ...
-}:
-
-{
+}: {
   imports = [
     inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.base
     inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.bluetooth
@@ -22,12 +20,12 @@
   users.users.susagi = {
     initialPassword = "changeme";
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
   };
 
   services.openssh = {
     enable = true;
-    ports = [ 22 ];
+    ports = [22];
   };
   nix.settings = {
     experimental-features = [

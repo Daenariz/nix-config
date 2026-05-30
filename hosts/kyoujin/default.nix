@@ -5,9 +5,7 @@
   outputs,
   pkgs,
   ...
-}:
-
-{
+}: {
   imports = [
     inputs.synix.nixosModules.normalUsers
     #    ./wyoming.nix
@@ -25,55 +23,55 @@
     inputs.synix.nixosModules.tailscale
 
     outputs.nixosModules.common
-
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-             "nvidia-x11"
-    "cuda_cudart"
-    "cuda_nvcc"
-    "cuda_cccl"
-    "libcublas"
-    "cuda-merged"
-    "cuda_cuobjdump"
-    "cuda_gdb"
-    "cuda_nvdisasm"
-    "cuda_nvprune"
-    "cuda_cupti"
-    "cuda_cuxxfilt"
-    "cuda_nvml_dev"
-    "cuda_nvrtc"
-    "cuda_nvtx"
-    "cuda_profiler_api"
-    "cuda_sanitizer_api"
-    "libcufft"
-    "libcurand"
-    "libcusolver"
-    "libnvjitlink"
-    "libcusparse"
-    "libnpp"
-    "nvidia-settings"
-           ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "nvidia-x11"
+      "cuda_cudart"
+      "cuda_nvcc"
+      "cuda_cccl"
+      "libcublas"
+      "cuda-merged"
+      "cuda_cuobjdump"
+      "cuda_gdb"
+      "cuda_nvdisasm"
+      "cuda_nvprune"
+      "cuda_cupti"
+      "cuda_cuxxfilt"
+      "cuda_nvml_dev"
+      "cuda_nvrtc"
+      "cuda_nvtx"
+      "cuda_profiler_api"
+      "cuda_sanitizer_api"
+      "libcufft"
+      "libcurand"
+      "libcusolver"
+      "libnvjitlink"
+      "libcusparse"
+      "libnpp"
+      "nvidia-settings"
+    ];
 
- services.tailscale = {
+  services.tailscale = {
     enable = true;
     tailnets = {
       personal = {
         loginServer = "https://head.negitorodon.de";
         authKeyFile = config.sops.secrets."tailscale/auth-key".path;
         enableSSH = true;
-        };
       };
+    };
   };
 
-  nix.settings.trusted-substituters = [ "https://ai.cachix.org" ];
+  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
   nix.settings.trusted-public-keys = [
     "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="
   ];
 
   normalUsers = {
     susagi = {
-      extraGroups = [ "wheel" ];
+      extraGroups = ["wheel"];
       sshKeyFiles = [
         ../../users/susagi/pubkeys/vde_rsa.pub
         ../../users/susagi/pubkeys/id_rsa.pub
@@ -95,17 +93,17 @@
 
   systemd.services.wakeonlan = {
     description = "Reenable wake on lan every boot";
-    after = [ "network.target" ];
+    after = ["network.target"];
     serviceConfig = {
       Type = "simple";
       RemainAfterExit = "true";
       ExecStart = "${pkgs.ethtool}/sbin/ethtool -s enp8s0 wol g";
     };
-    wantedBy = [ "default.target" ];
+    wantedBy = ["default.target"];
   };
 
   systemd.timers.shutdownAtMidnight = {
-    wantedBy = [ "timers.target" ];
+    wantedBy = ["timers.target"];
     timerConfig = {
       OnCalendar = "daily";
       Persistent = true;
@@ -121,8 +119,7 @@
 
   services.openssh = {
     enable = true;
-    ports = [ 2299 ];
+    ports = [2299];
   };
   system.stateVersion = "24.11";
-
 }

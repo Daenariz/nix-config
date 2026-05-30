@@ -4,9 +4,7 @@
   config,
   pkgs,
   ...
-}:
-
-{
+}: {
   imports = [
     ./secrets
 
@@ -58,7 +56,7 @@
   # sudo rm -f /home/susagi/.config/sops-nix/secrets/rendered/access-tokens
   sops.templates.access-tokens.content = ''
     access-tokens = github.com=${config.sops.placeholder.github-token}
-    '';
+  '';
 
   home.stateVersion = "24.11";
 }

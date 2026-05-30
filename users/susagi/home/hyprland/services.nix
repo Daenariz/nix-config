@@ -3,9 +3,7 @@
   config,
   outputs,
   ...
-}:
-
-{
+}: {
   imports = [
     outputs.homeModules.nextcloud-sync
   ];
@@ -37,5 +35,4 @@
       }
     ];
   };
-
 }

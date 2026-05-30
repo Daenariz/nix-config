@@ -3,20 +3,21 @@
   lib,
   config,
   ...
-}:
-
-let
+}: let
   cfg = config.services.postgresql;
   domain = config.networking.domain;
-  fqdn = if (cfg.subdomain != "") then "${cfg.subdomain}.${domain}" else domain;
-  inherit (lib)
+  fqdn =
+    if (cfg.subdomain != "")
+    then "${cfg.subdomain}.${domain}"
+    else domain;
+  inherit
+    (lib)
     mkDefault
     mkIf
     mkOption
     types
     ;
-in
-{
+in {
   options.services.postgresql = {
     subdomain = mkOption {
       type = types.str;

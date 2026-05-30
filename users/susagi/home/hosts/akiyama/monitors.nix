@@ -5,3 +5,4 @@
 # hyprctl reload for forcing config reload
 ""
 # rotation with ..., transform, number from 1-3 (0 for default)
+

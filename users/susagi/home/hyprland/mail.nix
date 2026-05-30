@@ -1,8 +1,10 @@
-{ pkgs, config, ... }:
-
 {
-  sops.secrets."email_username" = { };
-  sops.secrets."email_password" = { };
+  pkgs,
+  config,
+  ...
+}: {
+  sops.secrets."email_username" = {};
+  sops.secrets."email_password" = {};
 
   home.packages = with pkgs; [
     sieve-connect
