@@ -7,15 +7,10 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # core.url = "git+https://git.portuus.de/sid/nix-core.git?ref=release-25.11";
-    # core.inputs.nixpkgs.follows = "nixpkgs";
 
     # synix.url = "git+https://git.sid.ovh/sid/synix.git?ref=release-25.11";
     synix.url = "git+https://git.sid.ovh/sid/synix.git?ref=develop";
     synix.inputs.nixpkgs.follows = "nixpkgs";
-
-    #    core-dev.url = "github:Daenariz/nix-core/feature/plecs";
-    # ha-test.url = "github:Daenariz/nix-core/feature/home-assistant-oci";
 
     nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.11";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +33,11 @@
       url = "github:Daenariz/riichi-club/develop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hetzner_ddns = {
+  url = "github:filiparag/hetzner_ddns";
+  flake = false;
+};
   };
 
   outputs = {

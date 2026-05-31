@@ -11,6 +11,9 @@
   environment = {
     systemPackages = with pkgs; [
       # local.riichi-city
+      ntfs3g
+      libmtp
+      android-tools
     ];
   };
 }

@@ -1,4 +1,5 @@
 {
+  pkgs,
   inputs,
   outputs,
   config,
@@ -15,13 +16,13 @@ in {
     inputs.synix.nixosModules.headscale
     inputs.synix.nixosModules.tailscale
     inputs.synix.nixosModules.radicale
-    inputs.synix.nixosModules.forgejo-runner
 
     inputs.riichi-club.nixosModules.riichi-club
 
     outputs.nixosModules.vaultwarden
     outputs.nixosModules.nextcloud
     outputs.nixosModules.forgejo
+    outputs.nixosModules.forgejo-runner
     # outputs.nixosModules.open-webui-oci
 
     ./nextcloud.nix
@@ -57,9 +58,9 @@ in {
 
   services.forgejo-runner = {
     enable = true;
-    url = "https://git.negitorodon.de";
-    tokenFile = config.sops.secrets.forgejo_runner_token.path;
-  };
+      url = config.services.forgejo.settings.server.ROOT_URL;
+      tokenFile = config.sops.templates."forgejo_runner_token".path;
+    };
 
   services.headscale = {
     enable = true;
