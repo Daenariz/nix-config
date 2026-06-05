@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  outputs,
   ...
 }: {
   imports = [
@@ -19,7 +18,7 @@
     inputs.synix-stable.nixosModules.tailscale
     inputs.synix-stable.nixosModules.jellyfin
 
-    outputs.nixosModules.common
+    # NOTE: outputs.nixosModules.common is not available here - host not in flake
   ];
 
   services.jellyfin = {
@@ -35,9 +34,7 @@
       "shows"
     ];
   };
-  services.tailscale.enable = true;
-  };
-  #
+
   services.tailscale.enable = true;
 
   programs.ssh.startAgent = true;

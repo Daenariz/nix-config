@@ -15,7 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     riichi-club = {
       url = "github:Daenariz/riichi-club";
       inputs.nixpkgs.follows = "nixpkgs";

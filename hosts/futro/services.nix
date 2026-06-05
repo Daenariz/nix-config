@@ -42,7 +42,6 @@ in {
   };
 
   services.tailscale.enable = true;
-  };
 
   services.forgejo.enable = true;
   services.forgejo.stateDir = "/data/forgejo";
