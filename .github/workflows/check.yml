@@ -13,7 +13,7 @@ jobs:
         with:
           nix_path: nixpkgs=channel:nixos-25.11
       - name: Check nixfmt
-        run: nixfmt --check $(find . -name '*.nix' | grep -v '.git' | sort | tr '\n' ' ')
+        run: nix run nixpkgs#nixfmt -- --check $(find . -name '*.nix' | grep -v '.git' | sort | tr '\n' ' ')
 
   build-hosts:
     runs-on: ubuntu-latest
