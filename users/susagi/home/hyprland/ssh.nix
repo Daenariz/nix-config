@@ -14,7 +14,7 @@
         hostname = "100.64.0.3";
         port = 2299;
         user = "neo";
-        identityFile = "/home/susagi/.ssh/vde_rsa";
+        identityFile = "${config.home.homeDirectory}/.ssh/vde_rsa";
       };
 
       rpi = {
@@ -22,7 +22,7 @@
         hostname = "192.168.178.23";
         port = 2299;
         user = "susagi";
-        identityFile = "/home/susagi/.ssh/vde_rsa";
+        identityFile = "${config.home.homeDirectory}/.ssh/vde_rsa";
       };
 
       x99 = {
@@ -30,7 +30,7 @@
         hostname = "steffen.fail";
         port = 2299;
         user = "susagi";
-        identityFile = "/home/susagi/.ssh/thinkpad_rsa";
+        identityFile = "${config.home.homeDirectory}/.ssh/thinkpad_rsa";
       };
 
       futro = {
@@ -38,7 +38,7 @@
         hostname = "negitorodon.de";
         port = 30715;
         user = "susagi";
-        identityFile = "/home/susagi/.ssh/vde_rsa";
+        identityFile = "${config.home.homeDirectory}/.ssh/vde_rsa";
       };
 
       kyoujin = {
@@ -46,7 +46,7 @@
         hostname = "192.168.178.107";
         port = 2299;
         user = "susagi";
-        identityFile = "/home/susagi/.ssh/vde_rsa";
+        identityFile = "${config.home.homeDirectory}/.ssh/vde_rsa";
       };
       aarch64-vm = {
         host = "vm arch64-vm";

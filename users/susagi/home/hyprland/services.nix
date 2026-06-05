@@ -14,23 +14,23 @@
     passwordFile = config.sops.secrets.nextcloud.path;
     connections = [
       {
-        local = "/home/susagi/Music";
+        local = "${config.home.homeDirectory}/Music";
         remote = "/auds";
       }
       {
-        local = "/home/susagi/Documents";
+        local = "${config.home.homeDirectory}/Documents";
         remote = "/docs";
       }
       {
-        local = "/home/susagi/Pictures";
+        local = "${config.home.homeDirectory}/Pictures";
         remote = "/pics";
       }
       {
-        local = "/home/susagi/Videos";
+        local = "${config.home.homeDirectory}/Videos";
         remote = "/vids";
       }
       {
-        local = "/home/susagi/Desktop/stud";
+        local = "${config.home.homeDirectory}/Desktop/stud";
         remote = "/stud";
       }
     ];
