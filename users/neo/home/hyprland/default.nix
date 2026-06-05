@@ -4,7 +4,7 @@
   inputs,
   ...
 }: {
-  imports = [
+    ../../../../modules/home/hyprland-base.nix
     inputs.core.homeModules.hyprland
     inputs.core.homeModules.stylix
     inputs.nix-flatpak.homeManagerModules.nix-flatpak

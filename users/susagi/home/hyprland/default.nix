@@ -9,6 +9,8 @@
     inputs.synix.homeModules.stylix
     inputs.synix.homeModules.virtualisation
 
+    ../../../../modules/home/hyprland-base.nix
+
     ./flatpak.nix
     ./programs.nix
     ./services.nix

@@ -3,22 +3,7 @@
   pkgs,
   ...
 }: {
-  general = {
-    no_border_on_floating = true;
-    gaps_in = lib.mkForce 3;
-    gaps_out = lib.mkForce 6;
-  };
-
-  animations = {
-    enabled = true;
-  };
-
-  decoration = {
-    rounding = lib.mkForce 10;
-    blur.enabled = true;
-    shadow.enabled = true;
-  };
-
+  general = {\n  };\n\n  animations = {\n  };\n\n  decoration = {\n  };\n
   exec-once = [
     "fcitx5 -d && polychromatic-tray-applet"
     # "obs --startreplaybuffer --minimize-to-tray" # -r https://nixos.wiki/wiki/Fcitx5 for Hyprland usage

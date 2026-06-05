@@ -3,14 +3,7 @@
   lib,
   ...
 }: {
-  general = {
-    no_border_on_floating = true;
-    gaps_in = lib.mkForce 3;
-    gaps_out = lib.mkForce 6;
-  };
-
-  animations.enabled = true;
-
+  general = {\n  };\n\n  animations.enabled = lib.mkForce true;\n
   bind = let
     flatpak = "${pkgs.flatpak}/bin/flatpak";
     tidal = "${pkgs.tidal-hifi}/bin/tidal-hifi";
