@@ -4,11 +4,13 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.virtualisation.oci-containers.containers.open-webui;
   fqdn = "ai.${config.networking.domain}";
   ssl = config.services.nginx.ssl;
-in {
+in
+{
   virtualisation = {
     docker = {
       # ## or maybe podman?
@@ -33,8 +35,8 @@ in {
       containers = {
         open-webui = {
           image = "ghcr.io/open-webui/open-webui:main";
-          ports = ["3000:8080"]; # #
-          volumes = ["open-webui:/app/backend/data"];
+          ports = [ "3000:8080" ]; # #
+          volumes = [ "open-webui:/app/backend/data" ];
           autoStart = true;
           ##extraOptions = ["--network=host"];
         };

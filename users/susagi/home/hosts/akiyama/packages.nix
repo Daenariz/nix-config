@@ -1,8 +1,8 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 with pkgs;
-  [
-  ]
-  ++
+[
+]
+++
   # ai stuff
   [
     #  tts
@@ -10,7 +10,7 @@ with pkgs;
     #  aichat
     #    jan
   ]
-  ++
+++
   #　たいせつな日本語の勉強
   [
     tagainijisho # タガイニ辞書
@@ -18,7 +18,7 @@ with pkgs;
     tango
     noto-fonts-cjk-sans # ファイアフォックスでは、日本語のかなを見せるのために
   ]
-  ++
+++
   # testing
   [
     tidal-hifi # TODO: need to check autostart, crashing
@@ -28,7 +28,7 @@ with pkgs;
     bitwarden-menu
     # github stuff
   ]
-  ++
+++
   # essentials
   [
     steam

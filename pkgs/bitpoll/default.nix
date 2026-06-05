@@ -16,7 +16,7 @@ python3Packages.buildPythonApplication rec {
     hash = "sha256-5tFCMAxr739oDdEpT9FYJjI1EvXLfKvRZu8vq+0YQkE=";
     fetchSubmodules = true;
   };
-  nativeBuildInputs = [makeWrapper];
+  nativeBuildInputs = [ makeWrapper ];
 
   propagatedBuildInputs = with python3Packages; [
     #    django_5
@@ -83,7 +83,7 @@ python3Packages.buildPythonApplication rec {
     description = "A web application for scheduling meetings and general polling";
     homepage = "https://github.com/fsinfuhh/Bitpoll";
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [];
+    maintainers = with lib.maintainers; [ ];
     mainProgram = "bitpoll";
     platforms = lib.platforms.all;
   };

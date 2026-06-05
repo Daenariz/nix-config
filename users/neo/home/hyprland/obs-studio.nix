@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   programs.obs-studio = {
     enable = true;
     package = (
@@ -16,12 +17,12 @@
     ];
   };
 
-  home.packages = [pkgs.obs-cmd];
+  home.packages = [ pkgs.obs-cmd ];
 
   systemd.user.services.obs = {
     Unit = {
       Description = "OBS Studio Replay Buffer";
-      PartOf = ["graphical-session.target"];
+      PartOf = [ "graphical-session.target" ];
     };
     Service = {
       ExecStart = "${config.programs.obs-studio.finalPackage}/bin/obs --startreplaybuffer --minimize-to-tray";
@@ -35,7 +36,7 @@
       Restart = "on-failure";
     };
     Install = {
-      WantedBy = ["graphical-session.target"];
+      WantedBy = [ "graphical-session.target" ];
     };
   };
 }

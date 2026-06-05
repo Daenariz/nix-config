@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, ... }:
+let
   domain = config.networking.domain;
-in {
+in
+{
   services.nextcloud = {
     enable = true;
     datadir = "/data/nextcloud";
@@ -9,8 +11,7 @@ in {
       subdomain = "cloud";
     };
     extraApps = {
-      inherit
-        (config.services.nextcloud.package.packages.apps)
+      inherit (config.services.nextcloud.package.packages.apps)
         bookmarks
         calendar
         contacts
@@ -38,7 +39,7 @@ in {
       };
       storage.wopi = {
         "@allow" = true;
-        host = ["cloud.${domain}"];
+        host = [ "cloud.${domain}" ];
       };
 
       #   net.alias_groups = {

@@ -3,17 +3,18 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.services.forgejo-runner;
 
-  inherit
-    (lib)
+  inherit (lib)
     mkEnableOption
     mkIf
     mkOption
     types
     ;
-in {
+in
+{
   options.services.forgejo-runner = {
     enable = mkEnableOption "Nix-based Forgejo Runner service";
     url = mkOption {
@@ -27,7 +28,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    nix.settings.trusted-users = ["gitea-runner"];
+    nix.settings.trusted-users = [ "gitea-runner" ];
 
     services.gitea-actions-runner = {
       package = pkgs.forgejo-runner;
@@ -36,7 +37,7 @@ in {
         name = "${config.networking.hostName}-nix";
         inherit (cfg) url tokenFile;
 
-        labels = ["host:host"];
+        labels = [ "host:host" ];
 
         hostPackages = with pkgs; [
           bash

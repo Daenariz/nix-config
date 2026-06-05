@@ -2,12 +2,13 @@
   lib,
   pkgs,
   ...
-}: {
-  general = {};
+}:
+{
+  general = { };
 
-  animations = {};
+  animations = { };
 
-  decoration = {};
+  decoration = { };
 
   exec-once = [
     "fcitx5 -d && polychromatic-tray-applet"

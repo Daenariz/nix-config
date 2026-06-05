@@ -2,7 +2,8 @@
   config,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     #./wyoming.nix
     #  ./homeassistant.nix

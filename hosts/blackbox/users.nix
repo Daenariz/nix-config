@@ -2,12 +2,13 @@
   inputs,
   outputs,
   ...
-}: {
-  imports = [inputs.synix.nixosModules.normalUsers];
+}:
+{
+  imports = [ inputs.synix.nixosModules.normalUsers ];
 
   normalUsers = {
     susagi = {
-      extraGroups = ["wheel"];
+      extraGroups = [ "wheel" ];
       sshKeyFiles = [
         ../../users/susagi/pubkeys/vde_rsa.pub
         ../../users/susagi/pubkeys/id_rsa.pub

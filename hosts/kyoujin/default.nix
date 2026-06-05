@@ -5,7 +5,8 @@
   outputs,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.synix.nixosModules.normalUsers
     #    ./wyoming.nix
@@ -24,7 +25,8 @@
     outputs.nixosModules.common
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       "nvidia-x11"
       "cuda_cudart"
@@ -55,14 +57,14 @@
   services.tailscale.enable = true;
 
   #
-  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
+  nix.settings.trusted-substituters = [ "https://ai.cachix.org" ];
   nix.settings.trusted-public-keys = [
     "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="
   ];
 
   normalUsers = {
     susagi = {
-      extraGroups = ["wheel"];
+      extraGroups = [ "wheel" ];
       sshKeyFiles = [
         ../../users/susagi/pubkeys/vde_rsa.pub
         ../../users/susagi/pubkeys/id_rsa.pub
@@ -84,17 +86,17 @@
 
   systemd.services.wakeonlan = {
     description = "Reenable wake on lan every boot";
-    after = ["network.target"];
+    after = [ "network.target" ];
     serviceConfig = {
       Type = "simple";
       RemainAfterExit = "true";
       ExecStart = "${pkgs.ethtool}/sbin/ethtool -s enp8s0 wol g";
     };
-    wantedBy = ["default.target"];
+    wantedBy = [ "default.target" ];
   };
 
   systemd.timers.shutdownAtMidnight = {
-    wantedBy = ["timers.target"];
+    wantedBy = [ "timers.target" ];
     timerConfig = {
       OnCalendar = "daily";
       Persistent = true;
@@ -110,7 +112,7 @@
 
   services.openssh = {
     enable = true;
-    ports = [2299];
+    ports = [ 2299 ];
   };
   system.stateVersion = "24.11";
 }

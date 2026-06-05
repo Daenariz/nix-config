@@ -1,3 +1,4 @@
-{inputs, ...}: {
-  imports = [inputs.synix.nixosModules.sops];
+{ inputs, ... }:
+{
+  imports = [ inputs.synix.nixosModules.sops ];
 }

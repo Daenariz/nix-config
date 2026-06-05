@@ -4,7 +4,8 @@
   outputs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     inputs.synix.nixosModules.openssh
     inputs.synix.nixosModules.mailserver
@@ -40,20 +41,19 @@
     loginAccounts = {
       "susagi@${config.networking.domain}" = {
         hashedPasswordFile = config.sops.secrets."mailserver/accounts/susagi".path;
-        aliases = ["postmaster@${config.networking.domain}"];
+        aliases = [ "postmaster@${config.networking.domain}" ];
       };
     };
   };
 
-  sops.secrets."mailserver/accounts/susagi" = {};
+  sops.secrets."mailserver/accounts/susagi" = { };
 
   services.nextcloud = {
     enable = false;
     datadir = "/data/nextcloud";
     subdomain = "cloud";
     extraApps = {
-      inherit
-        (config.services.nextcloud.package.packages.apps)
+      inherit (config.services.nextcloud.package.packages.apps)
         bookmarks
         calendar
         contacts

@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   programs.aider-chat.enable = true;
   programs.aider-chat.settings = {
     model = "openrouter/google/gemini-2.5-pro";
@@ -11,7 +12,7 @@
   };
 
   programs.anki.enable = true;
-  programs.anki.addons = [pkgs.ankiAddons.anki-connect];
+  programs.anki.addons = [ pkgs.ankiAddons.anki-connect ];
 
   programs.joplin-desktop = {
     enable = true;
@@ -58,7 +59,8 @@
         # "browser.tabs.crashReporting.sendReport" = false;
         #};
         extensions.packages = lib.mkAfter (
-          with inputs.nur.legacyPackages."${pkgs.system}".repos.rycee.firefox-addons; [
+          with inputs.nur.legacyPackages."${pkgs.system}".repos.rycee.firefox-addons;
+          [
             adaptive-tab-bar-colour
             bitwarden
             yomitan

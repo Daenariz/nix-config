@@ -4,9 +4,11 @@
   outputs,
   config,
   ...
-}: let
+}:
+let
   domain = config.networking.domain;
-in {
+in
+{
   imports = [
     inputs.synix.nixosModules.nginx
     inputs.synix.nixosModules.open-webui-oci
@@ -32,7 +34,7 @@ in {
   ];
 
   services.radicale.enable = true;
-  services.radicale.users = ["susagi"];
+  services.radicale.users = [ "susagi" ];
   services.radicale.reverseProxy.enable = true;
 
   services.riichi_club = {
@@ -82,7 +84,7 @@ in {
   mailserver.stateVersion = 3;
   mailserver.accounts = {
     susagi = {
-      aliases = ["postmaster@${domain}"];
+      aliases = [ "postmaster@${domain}" ];
     };
   };
 
@@ -141,7 +143,7 @@ in {
     autoPrune = {
       enable = true;
       dates = "weekly";
-      flags = ["--all"];
+      flags = [ "--all" ];
     };
   };
 

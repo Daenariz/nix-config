@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   imports = [
   ];
 
@@ -14,8 +15,8 @@
     hostName = "naboshi";
     firewall = {
       checkReversePath = "loose";
-      trustedInterfaces = ["tailscale0"];
-      allowedUDPPorts = [24727];
+      trustedInterfaces = [ "tailscale0" ];
+      allowedUDPPorts = [ 24727 ];
       allowedTCPPorts = [
         8123
         # 36497

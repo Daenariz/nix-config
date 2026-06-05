@@ -2,7 +2,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     inputs.synix.nixosModules.common
     inputs.synix.nixosModules.device.laptop

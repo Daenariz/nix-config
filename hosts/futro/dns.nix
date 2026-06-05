@@ -3,8 +3,9 @@
   config,
   pkgs,
   ...
-}: {
-  imports = ["${inputs.hetzner_ddns}/release/NixOS/nixos_module.nix"];
+}:
+{
+  imports = [ "${inputs.hetzner_ddns}/release/NixOS/nixos_module.nix" ];
   sops.secrets.hetzner_api_key = {
     group = "keys";
     mode = "0440";
@@ -32,7 +33,7 @@
   systemd.services.hetzner_ddns = {
     serviceConfig = {
       # Fügt den dynamischen User der Gruppe 'keys' hinzu
-      SupplementaryGroups = ["keys"];
+      SupplementaryGroups = [ "keys" ];
     };
   };
 }

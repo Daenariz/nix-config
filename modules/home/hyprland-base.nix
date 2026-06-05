@@ -2,7 +2,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   wayland.windowManager.hyprland.settings = {
     general = {
       no_border_on_floating = lib.mkDefault true;

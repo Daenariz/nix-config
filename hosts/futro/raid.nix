@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   services.smartd = {
     enable = true;
 

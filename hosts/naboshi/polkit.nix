@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       if ((action.id == "org.freedesktop.udisks2.filesystem-mount" ||
@@ -9,5 +10,5 @@
     });
   '';
 
-  system.fsPackages = [pkgs.ntfs3g];
+  system.fsPackages = [ pkgs.ntfs3g ];
 }
