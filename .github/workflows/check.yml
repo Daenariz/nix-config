@@ -13,7 +13,10 @@ jobs:
         with:
           nix_path: nixpkgs=channel:nixos-25.11
       - name: Check nixfmt
-        run: nix run nixpkgs#nixfmt -- --check $(find . -name '*.nix' | grep -v '.git' | sort | tr '\n' ' ')
+        run: |
+          echo "Checking $(find . -name '*.nix' | grep -v '.git' | wc -l) nix files with nixfmt..."
+          nix run nixpkgs#nixfmt -- --check $(find . -name '*.nix' | grep -v '.git' | sort | tr '\n' ' ')
+          echo "✓ All nix files are correctly formatted"
 
   build-hosts:
     runs-on: ubuntu-latest
