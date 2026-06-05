@@ -22,8 +22,8 @@ jobs:
       - name: Check flake metadata
         run: nix flake metadata
         
-      - name: Format check (Alejandra)
-        run: nix run nixpkgs#alejandra -- --check .
+      - name: Format check (nixfmt)
+        run: nix run nixpkgs#nixfmt -- --check .
         
       - name: Flake check
         run: nix flake check --impure
