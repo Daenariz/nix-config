@@ -3,7 +3,10 @@
   lib,
   ...
 }: {
-  general = {\n  };\n\n  animations.enabled = lib.mkForce true;\n
+  general = {};
+
+  animations.enabled = lib.mkForce true;
+
   bind = let
     flatpak = "${pkgs.flatpak}/bin/flatpak";
     tidal = "${pkgs.tidal-hifi}/bin/tidal-hifi";

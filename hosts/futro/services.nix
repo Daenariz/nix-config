@@ -58,9 +58,9 @@ in {
 
   services.forgejo-runner = {
     enable = true;
-      url = config.services.forgejo.settings.server.ROOT_URL;
-      tokenFile = config.sops.templates."forgejo_runner_token".path;
-    };
+    url = config.services.forgejo.settings.server.ROOT_URL;
+    tokenFile = config.sops.templates."forgejo_runner_token".path;
+  };
 
   services.headscale = {
     enable = true;

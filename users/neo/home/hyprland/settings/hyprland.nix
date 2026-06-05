@@ -3,7 +3,12 @@
   pkgs,
   ...
 }: {
-  general = {\n  };\n\n  animations = {\n  };\n\n  decoration = {\n  };\n
+  general = {};
+
+  animations = {};
+
+  decoration = {};
+
   exec-once = [
     "fcitx5 -d && polychromatic-tray-applet"
     # "obs --startreplaybuffer --minimize-to-tray" # -r https://nixos.wiki/wiki/Fcitx5 for Hyprland usage
@@ -14,7 +19,7 @@
   ];
 
   bind = [
-    # "$mod, r, pass, class:^(com\.obsproject\.Studio)$"
+    # "$mod, r, pass, class:^(com\\.obsproject\\.Studio)$"
     "$mod,       z, exec, ${pkgs.flatpak}/bin/flatpak run com.usebottles.bottles"
     "$mod,       s, exec, ${pkgs.steam}/bin/steam"
 
