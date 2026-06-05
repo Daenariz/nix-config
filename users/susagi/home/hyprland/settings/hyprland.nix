@@ -4,8 +4,6 @@
   ...
 }:
 {
-  general = { };
-
   animations.enabled = lib.mkForce true;
 
   bind =

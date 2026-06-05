@@ -6,9 +6,9 @@
 {
   wayland.windowManager.hyprland.settings = {
     general = {
-      no_border_on_floating = lib.mkDefault true;
-      gaps_in = lib.mkDefault 3;
-      gaps_out = lib.mkDefault 6;
+      no_border_on_floating = lib.mkForce true;
+      gaps_in = lib.mkForce 3;
+      gaps_out = lib.mkForce 6;
     };
 
     animations = {
