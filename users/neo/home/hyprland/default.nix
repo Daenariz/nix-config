@@ -6,9 +6,9 @@
 }: {
   imports = [
     ../../../../modules/home/hyprland-base.nix
-    inputs.core.homeModules.hyprland
-    inputs.core.homeModules.stylix
-    inputs.nix-flatpak.homeManagerModules.nix-flatpak
+    inputs.synix.homeModules.hyprland
+    inputs.synix.homeModules.stylix
+    # inputs.nix-flatpak.homeManagerModules.nix-flatpak
 
     ./packages.nix
     ./programs.nix

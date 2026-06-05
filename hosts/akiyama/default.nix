@@ -1,16 +1,14 @@
 {
   inputs,
-  outputs,
+  lib,
   ...
 }: {
   imports = [
-    inputs.core.nixosModules.common
-    inputs.core.nixosModules.device.laptop
-    inputs.core.nixosModules.normalUsers
-    inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.pipewire
-
-    outputs.nixosModules.common
+    inputs.synix.nixosModules.common
+    inputs.synix.nixosModules.device.laptop
+    inputs.synix.nixosModules.normalUsers
+    inputs.synix.nixosModules.openssh
+    inputs.synix.nixosModules.pipewire
 
     ./boot.nix
     ./hardware.nix

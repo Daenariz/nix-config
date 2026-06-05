@@ -14,7 +14,6 @@ in {
     inputs.synix.nixosModules.coturn
     inputs.synix.nixosModules.matrix-synapse
     inputs.synix.nixosModules.headscale
-    inputs.synix.nixosModules.tailscale
     inputs.synix.nixosModules.radicale
 
     inputs.riichi-club.nixosModules.riichi-club
@@ -42,15 +41,7 @@ in {
     secretKey = config.sops.secrets.riichi_club_key.path;
   };
 
-  services.tailscale = {
-    enable = true;
-    tailnets = {
-      personal = {
-        loginServer = "https://head.negitorodon.de";
-        authKeyFile = config.sops.secrets."tailscale/auth-key".path;
-        enableSSH = true;
-      };
-    };
+  services.tailscale.enable = true;
   };
 
   services.forgejo.enable = true;

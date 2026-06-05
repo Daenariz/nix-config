@@ -6,12 +6,12 @@
   ...
 }: {
   imports = [
-    inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.nginx
-    # inputs.core.nixosModules.open-webui
+    inputs.synix.nixosModules.openssh
+    inputs.synix.nixosModules.nginx
+    # inputs.synix.nixosModules.open-webui
     # outputs.nixosModules.vaultwarden
-    inputs.core.nixosModules.rss-bridge
-    inputs.core.nixosModules.tt-rss
+    inputs.synix.nixosModules.rss-bridge
+    inputs.synix.nixosModules.tt-rss
   ];
 
   # services.vaultwarden = {

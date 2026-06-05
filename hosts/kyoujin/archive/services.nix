@@ -6,16 +6,16 @@
   ...
 }: {
   imports = [
-    inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.mailserver
-    inputs.core.nixosModules.nextcloud
-    inputs.core.nixosModules.nginx
-    #    inputs.core.nixosModules.open-webui
-    inputs.core.nixosModules.vaultwarden
-    inputs.core.nixosModules.rss-bridge
-    inputs.core.nixosModules.tt-rss
+    inputs.synix.nixosModules.openssh
+    inputs.synix.nixosModules.mailserver
+    inputs.synix.nixosModules.nextcloud
+    inputs.synix.nixosModules.nginx
+    #    inputs.synix.nixosModules.open-webui
+    inputs.synix.nixosModules.vaultwarden
+    inputs.synix.nixosModules.rss-bridge
+    inputs.synix.nixosModules.tt-rss
     inputs.ha-test.nixosModules.home-assistant-oci
-    inputs.core.nixosModules.matrix-synapse
+    inputs.synix.nixosModules.matrix-synapse
   ];
 
   services.matrix-synapse = {

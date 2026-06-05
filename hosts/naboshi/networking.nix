@@ -5,19 +5,9 @@
   ...
 }: {
   imports = [
-    inputs.synix.nixosModules.tailscale
   ];
 
-  services.tailscale = {
-    enable = true;
-    tailnets = {
-      personal = {
-        loginServer = "https://head.negitorodon.de";
-        authKeyFile = config.sops.secrets."tailscale/auth-key".path;
-        enableSSH = true;
-      };
-    };
-  };
+  services.tailscale.enable = true;
 
   networking = {
     #    wireless.enable = lib.mkForce true;

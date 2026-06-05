@@ -35,22 +35,10 @@
       "shows"
     ];
   };
-  services.tailscale = {
-    enable = true;
-    tailnets = {
-      personal = {
-        loginServer = "https://head.negitorodon.de";
-        authKeyFile = config.sops.secrets."tailscale/auth-key".path;
-        enableSSH = true;
-      };
-    };
+  services.tailscale.enable = true;
   };
   #
-  # services.tailscale = {
-  #   enable = true;
-  #   enableSSH = true;
-  #   loginServer = "https://head.negitorodon.de";
-  # };
+  services.tailscale.enable = true;
 
   programs.ssh.startAgent = true;
 

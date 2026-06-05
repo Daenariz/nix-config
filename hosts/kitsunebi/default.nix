@@ -1,66 +1,33 @@
 {
   pkgs,
   inputs,
-  outputs,
   lib,
   ...
 }: {
   imports = [
-    inputs.core.nixosModules.common
-    inputs.core.nixosModules.bluetooth
-    inputs.core.nixosModules.device.desktop
-    inputs.core.nixosModules.normalUsers
-    inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.tailscale
-
-    outputs.nixosModules.common
+    inputs.synix.nixosModules.common
+    inputs.synix.nixosModules.bluetooth
+    inputs.synix.nixosModules.device.desktop
+    inputs.synix.nixosModules.normalUsers
+    inputs.synix.nixosModules.openssh
 
     ./boot.nix
     ./hardware.nix
     ./packages.nix
     ./secrets
     ./ollama.nix
-    # ./speaches.nix
-    # ./gnome.nix
-    # ./desktop-mode.nix
   ];
-  # services.getty.autologinUser = "neo";
 
-  services.tailscale = {
-    enable = true;
-    enableSSH = true;
-    loginServer = "https://head.negitorodon.de";
-  };
-
-  #  nixpkgs.config.cudaSupport = true;
-
-  # services.flatpak.enable = true;
+  services.tailscale.enable = true;
 
   programs.dconf.enable = true;
-
-  #   programs.zsh = {
-  #   interactiveShellInit = ''
-  #   if [ -z "$IS_HEADLESS" ] && [ "$(tty)" = "/dev/tty1" ]; then
-  #     exec Hyprland
-  # fi
-  # '';
-  # };
 
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = false;
     localNetworkGameTransfers.openFirewall = true;
-    # gamescopeSession.enable = true;
   };
-
-  #  programs.steam.gamescopeSession.enable = true;
-  # programs.gpu-screen-recorder = {
-  #  enable = true;
-  ##  package = (pkgs.gpu-screen-recorder.override {
-  ##    cudaSupport = true;
-  ##  });
-  #};
 
   hardware.openrazer.enable = true;
 
@@ -68,21 +35,16 @@
 
   programs.gamemode = {
     enable = true;
-    #  settings =
   };
 
   networking = {
-    # wireless.enable = lib.mkForce true;
     hostName = "kitsunebi";
     interfaces.eno1.wakeOnLan.enable = true;
   };
 
   services = {
     openssh.enable = true;
-    #  pipewire.enable = true;
   };
-
-  # programs.hyprland.enable = true;
 
   normalUsers = {
     neo = {
