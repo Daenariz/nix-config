@@ -41,6 +41,6 @@ pkgs.stdenv.mkDerivation rec {
 
   meta = with pkgs.lib; {
     description = "Riichi City (Writable Copy via steam-run)";
-    platforms = platforms.linux;
+    platforms = [ platforms.x86_64 ];
   };
 }
