@@ -15,6 +15,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     riichi-club = {
       url = "github:Daenariz/riichi-club";
       inputs.nixpkgs.follows = "nixpkgs";
