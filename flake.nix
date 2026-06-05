@@ -85,42 +85,6 @@
       naboshi = mkNixosConfiguration "x86_64-linux" [./hosts/naboshi];
       futro = mkNixosConfiguration "x86_64-linux" [./hosts/futro];
       kitsunebi = mkNixosConfiguration "x86_64-linux" [./hosts/kitsunebi];
-      # kyoujin = nixpkgs.lib.nixosSystem {
-      #   specialArgs = {
-      #     inherit inputs outputs;
-      #   };
-      #   modules = [ ./hosts/kyoujin ];
-      # };
-      # kitsunebi = nixpkgs.lib.nixosSystem {
-      #   specialArgs = {
-      #     inherit inputs outputs;
-      #   };
-      #   modules = [ ./hosts/kitsunebi ];
-      # };
-      # akiyama = nixpkgs.lib.nixosSystem {
-      #   specialArgs = {
-      #     inherit inputs outputs;
-      #   };
-      #   modules = [ ./hosts/akiyama ];
-      # };
-      # kiichigo = nixpkgs.lib.nixosSystem {
-      #   specialArgs = {
-      #     inherit inputs outputs;
-      #   };
-      #   modules = [ ./hosts/kiichigo ];
-      # };
-      # naboshi = nixpkgs.lib.nixosSystem {
-      #   specialArgs = {
-      #     inherit inputs outputs;
-      #   };
-      #   modules = [ ./hosts/naboshi ];
-      # };
-      # futro = nixpkgs.lib.nixosSystem {
-      #   specialArgs = {
-      #     inherit inputs outputs;
-      #   };
-      #   modules = [ ./hosts/futro ];
-      # };
     };
 
     homeConfigurations = {
