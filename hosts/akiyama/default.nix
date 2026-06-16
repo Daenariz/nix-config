@@ -2,7 +2,8 @@
   inputs,
   outputs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.core.nixosModules.common
     inputs.core.nixosModules.device.laptop

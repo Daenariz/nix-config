@@ -7,7 +7,8 @@
   pkgs,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -17,11 +18,11 @@
     "nvme"
     "rtsx_pci_sdmmc"
   ];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
   #### added for intel iris xe graphics ####
-  boot.kernelParams = ["i915.force_probe=46a6"];
+  boot.kernelParams = [ "i915.force_probe=46a6" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
@@ -38,12 +39,12 @@
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-label/swap";}
+    { device = "/dev/disk/by-label/swap"; }
   ];
   #### also iris xe ####
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [vpl-gpu-rt];
+    extraPackages = with pkgs; [ vpl-gpu-rt ];
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

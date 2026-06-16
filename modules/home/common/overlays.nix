@@ -1,4 +1,5 @@
-{outputs, ...}: {
+{ outputs, ... }:
+{
   nixpkgs.overlays = [
     #    outputs.overlays.synix-dev-packages
     outputs.overlays.synix-packages

@@ -3,8 +3,9 @@
   lib,
   modulesPath,
   ...
-}: {
-  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
+}:
+{
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.initrd.availableKernelModules = [
     "ehci_pci"
@@ -13,9 +14,9 @@
     "sd_mod"
     "sr_mod"
   ];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/ROOT";
@@ -31,7 +32,7 @@
     ];
   };
 
-  swapDevices = [{device = "/dev/disk/by-label/SWAP";}];
+  swapDevices = [ { device = "/dev/disk/by-label/SWAP"; } ];
 
   networking.useDHCP = lib.mkDefault true;
 

@@ -8,4 +8,3 @@
   monitor = desc:Dell Inc. DELL P2412H TTMDG1932DKU, preferred, auto-left, 1, transform, 1
 ''
 # rotation with ..., transform, number from 1-3 (0 for default)
-

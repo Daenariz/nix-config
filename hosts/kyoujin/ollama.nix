@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     #    inputs.nixified-ai.nixosModules.comfyui
   ];

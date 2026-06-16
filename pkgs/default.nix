@@ -1,7 +1,11 @@
-{pkgs ? import <nixpkgs>, ...}: {
+{
+  pkgs ? import <nixpkgs>,
+  ...
+}:
+{
   # example = pkgs.callPackage ./example { };
-  plecs = pkgs.callPackage ./plecs {};
-  pi-sniffer = pkgs.callPackage ./pi-sniffer {};
-  bitpoll = pkgs.callPackage ./bitpoll {};
-  riichi-city = pkgs.callPackage ./riichi-city {};
+  plecs = pkgs.callPackage ./plecs { };
+  pi-sniffer = pkgs.callPackage ./pi-sniffer { };
+  bitpoll = pkgs.callPackage ./bitpoll { };
+  riichi-city = pkgs.callPackage ./riichi-city { };
 }

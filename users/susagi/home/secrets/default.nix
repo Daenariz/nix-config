@@ -1,11 +1,12 @@
-{config, ...}: {
-  sops.secrets.nextcloud = {};
-  sops.secrets.tt-rss = {};
+{ config, ... }:
+{
+  sops.secrets.nextcloud = { };
+  sops.secrets.tt-rss = { };
 
-  sops.secrets.email_username = {};
-  sops.secrets.email_password = {};
+  sops.secrets.email_username = { };
+  sops.secrets.email_password = { };
 
-  sops.secrets.github-token = {};
+  sops.secrets.github-token = { };
   sops.templates.access-tokens.content = ''
     access-tokens = github.com=${config.sops.placeholder.github-token}
   '';

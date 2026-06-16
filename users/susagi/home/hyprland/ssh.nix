@@ -8,10 +8,17 @@
     matchBlocks = {
       "*".addKeysToAgent = "yes";
 
+      hetzner-edge = {
+        host = "hetzner edge";
+        hostname = "65.109.131.81";
+        port = 2299;
+        user = "susagi";
+        identityFile = "/home/susagi/.ssh/vde_rsa";
+      };
       kitsunebi = {
         host = "nebi kitsunebi";
         # hostname = "192.168.178.178"; # ## previously .103
-        hostname = "100.64.0.3";
+        hostname = "100.64.0.3"; # deprec.
         port = 2299;
         user = "neo";
         identityFile = "/home/susagi/.ssh/vde_rsa";
@@ -33,9 +40,16 @@
         identityFile = "/home/susagi/.ssh/thinkpad_rsa";
       };
 
-      futro = {
+      futro-local = {
         host = "f futro";
-        hostname = "negitorodon.de";
+        hostname = "192.168.178.99";
+        port = 30715;
+        user = "susagi";
+        identityFile = "/home/susagi/.ssh/vde_rsa";
+      };
+      futro-tail = {
+        host = "f-tail futro-tail";
+        hostname = "100.64.0.3";
         port = 30715;
         user = "susagi";
         identityFile = "/home/susagi/.ssh/vde_rsa";

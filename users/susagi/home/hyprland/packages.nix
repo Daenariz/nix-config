@@ -1,15 +1,15 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 with pkgs;
 #ESL
-  [
-    wl-clip-persist
-    klayout
-    ngspice
-    xschem
-    ltspice
-    tigervnc
-  ]
-  ++
+[
+  wl-clip-persist
+  klayout
+  ngspice
+  xschem
+  ltspice
+  tigervnc
+]
+++
   #　たいせつな日本語の勉強
   [
     tagainijisho # タガイニ辞書
@@ -17,11 +17,11 @@ with pkgs;
     tango
     noto-fonts-cjk-sans # ファイアフォックスでは、日本語のかなを見せるのために
   ]
-  ++
+++
   # testing
   [
     discord
-    (logseq.override {electron = electron_39;})
+    (logseq.override { electron = electron_39; })
     #logseq
     planify
     nix-output-monitor
@@ -40,7 +40,7 @@ with pkgs;
     texliveFull
     texstudio
   ]
-  ++
+++
   # dev
   [
     rpi-imager
@@ -49,7 +49,7 @@ with pkgs;
     esptool
     octaveFull
   ]
-  ++
+++
   # essentials
   [
     ntfs3g
@@ -62,7 +62,7 @@ with pkgs;
     vlc
     zoom-us
   ]
-  ++
+++
   # fun
   [
     nmap
