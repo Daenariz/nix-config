@@ -4,7 +4,8 @@
   outputs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.nginx
@@ -21,7 +22,7 @@
   services.nginx.enable = true;
   services.openssh = {
     enable = true;
-    ports = [3407];
+    ports = [ 3407 ];
   };
   # services.open-webui.enable = true;
   services.rss-bridge = {
@@ -43,7 +44,7 @@
       "shopping_list"
     ];
     config = {
-      default_config = {};
+      default_config = { };
     };
   };
 }
