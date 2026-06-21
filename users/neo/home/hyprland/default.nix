@@ -5,8 +5,8 @@
   ...
 }: {
   imports = [
-    inputs.core.homeModules.hyprland
-    inputs.core.homeModules.stylix
+    inputs.synix.homeModules.hyprland
+    inputs.synix.homeModules.stylix
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
 
     ./packages.nix
@@ -19,6 +19,7 @@
       "zoom"
       "steam"
       "steam-unwrapped"
+      "discord"
     ];
 
   programs.waybar.settings = import ./settings/waybar.nix;
@@ -36,7 +37,7 @@
 
     go2config = "cd ~/.config/nixos/";
     go2hyprland = "cd ~/.config/nixos/users/neo/home/hyprland/";
-    # go2core = "cd ~/Desktop/repos/nix-core/";
+    # go2synix = "cd ~/Desktop/repos/nix-synix/";
   };
 
   home.sessionVariables = lib.mkAfter {
@@ -44,6 +45,7 @@
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     NVD_BACKEND = "direct";
+    # LD_PRELOAD = "/run/current-system/sw/lib/libgamemodeauto.so.0";
   };
 
   services = {
