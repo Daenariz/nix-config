@@ -22,9 +22,9 @@
     ./hardware.nix
     ./packages.nix
     ./secrets
-    ./ollama.nix
+    #./ollama.nix
     # ./speaches.nix
-    # ./gnome.nix
+    ./gnome-config.nix
     # ./desktop-mode.nix
   ];
   # services.getty.autologinUser = "neo";
