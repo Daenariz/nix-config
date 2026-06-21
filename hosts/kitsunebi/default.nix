@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   inputs,
   outputs,
@@ -6,12 +7,13 @@
   ...
 }: {
   imports = [
-    inputs.core.nixosModules.common
-    inputs.core.nixosModules.bluetooth
-    inputs.core.nixosModules.device.desktop
-    inputs.core.nixosModules.normalUsers
-    inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.tailscale
+
+    inputs.synix.nixosModules.common
+    inputs.synix.nixosModules.bluetooth
+    inputs.synix.nixosModules.device.desktop
+    inputs.synix.nixosModules.normalUsers
+    inputs.synix.nixosModules.openssh
+    inputs.synix.nixosModules.tailscale
 
     outputs.nixosModules.common
 
@@ -26,11 +28,22 @@
   ];
   # services.getty.autologinUser = "neo";
 
-  services.tailscale = {
+ services.tailscale = {
     enable = true;
-    enableSSH = true;
-    loginServer = "https://head.negitorodon.de";
+    tailnets = {
+      personal = {
+        loginServer = "https://head.negitorodon.de";
+        authKeyFile = config.sops.secrets."tailscale/auth-key".path;
+        enableSSH = true;
+        };
+      };
   };
+
+  # services.tailscale = {
+  #   enable = true;
+  #   enableSSH = true;
+  #   loginServer = "https://head.negitorodon.de";
+  # };
 
   #  nixpkgs.config.cudaSupport = true;
 
@@ -51,10 +64,10 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = false;
     localNetworkGameTransfers.openFirewall = true;
-    # gamescopeSession.enable = true;
+    gamescopeSession.enable = true;
   };
 
-  #  programs.steam.gamescopeSession.enable = true;
+   # programs.steam.gamescopeSession.enable = true;
   # programs.gpu-screen-recorder = {
   #  enable = true;
   ##  package = (pkgs.gpu-screen-recorder.override {

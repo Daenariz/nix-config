@@ -4,8 +4,8 @@
   ...
 }: {
   imports = [
-    inputs.core.homeModules.common
-    inputs.core.homeModules.nixvim
+    inputs.synix.homeModules.common
+    inputs.synix.homeModules.nixvim
 
     outputs.homeModules.common
   ];
