@@ -3,5 +3,5 @@
 {
   imports = [ inputs.synix.nixosModules.sops ];
 
-    sops.secrets."tailscale/auth-key" = {};
+  sops.secrets."tailscale/auth-key" = { };
 }

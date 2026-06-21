@@ -8,6 +8,13 @@
     matchBlocks = {
       "*".addKeysToAgent = "yes";
 
+      age-tutor = {
+        host = "age age-tutor";
+        hostname = "46.62.203.20";
+        port = 42067;
+        user = "admin";
+        identityFile = "/home/susagi/.ssh/vde_rsa";
+      };
       hetzner-edge = {
         host = "hetzner edge";
         hostname = "65.109.131.81";

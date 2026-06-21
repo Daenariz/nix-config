@@ -30,7 +30,8 @@
 
     ./secrets
   ];
-  programs.adb.enable = true;
+  # Deprecated with 26.05
+  # programs.adb.enable = true;
   users.groups.adbusers.members = [ "susagi" ];
   services.gvfs.enable = true;
 
@@ -60,7 +61,7 @@
       "steam"
     ];
 
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
 
   # users.extraGroups.libvirtd.members = [ "susagi" ];
   # users.extraGroups.qemu-libvirtd.members = [ "susagi" ];

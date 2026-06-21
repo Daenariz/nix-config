@@ -3,15 +3,18 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   nvidia-pkg = config.hardware.nvidia.package;
-in {
+in
+{
   environment = {
     systemPackages = with pkgs; [
     ];
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       "nvidia-x11"
       "cuda_cudart"
@@ -38,5 +41,5 @@ in {
     ];
   };
 
-  services.xserver.videoDrivers = ["nvidia"]; # only works with hardware.nvidia.open
+  services.xserver.videoDrivers = [ "nvidia" ]; # only works with hardware.nvidia.open
 }

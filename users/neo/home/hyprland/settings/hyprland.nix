@@ -2,7 +2,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   general = {
     no_border_on_floating = true;
     gaps_in = lib.mkForce 3;
@@ -63,7 +64,7 @@
     "workspace 1, class:^(steam_app_\d+)$"
     # "pseudo, class:^(steam_app_\d+)$"
     ##    "allowsinput 1, class:^(steam_app_\d+)$"
-    "center (1), class:^(steam_app_\d+)$"   
+    "center (1), class:^(steam_app_\d+)$"
     # "move center (1), class:^steam_app_1284210$, title:^Guild Wars 2$"
   ];
   workspace = [

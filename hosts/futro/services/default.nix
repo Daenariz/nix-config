@@ -10,6 +10,7 @@
     ./vaultwarden.nix
     ./open-webui-oci.nix
     ./virtualisation.nix
-    # ./kokushi-musou.nix
+    # ./mailserver.nix
+    ./kokushi-musou.nix
   ];
 }

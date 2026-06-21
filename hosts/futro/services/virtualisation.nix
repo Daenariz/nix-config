@@ -1,5 +1,11 @@
+{ config, ... }:
 {
-   virtualisation.podman = {
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "docker-28.5.2"
+  ];
+
+  virtualisation.podman = {
     enable = true;
     dockerCompat = true;
     autoPrune = {

@@ -5,7 +5,8 @@
   outputs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
 
     inputs.synix.nixosModules.common
@@ -28,15 +29,15 @@
   ];
   # services.getty.autologinUser = "neo";
 
- services.tailscale = {
+  services.tailscale = {
     enable = true;
     tailnets = {
       personal = {
         loginServer = "https://head.negitorodon.de";
         authKeyFile = config.sops.secrets."tailscale/auth-key".path;
         enableSSH = true;
-        };
       };
+    };
   };
 
   # services.tailscale = {
@@ -67,7 +68,7 @@
     gamescopeSession.enable = true;
   };
 
-   # programs.steam.gamescopeSession.enable = true;
+  # programs.steam.gamescopeSession.enable = true;
   # programs.gpu-screen-recorder = {
   #  enable = true;
   ##  package = (pkgs.gpu-screen-recorder.override {

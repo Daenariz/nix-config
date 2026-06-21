@@ -21,7 +21,6 @@ in
 
   ];
 
- 
   # services.riichi_club = {
   #   enable = true;
   #   nginx.subdomain = "riichi";
@@ -37,7 +36,7 @@ in
     tokenFile = config.sops.templates."forgejo_runner_token".path;
   };
 
-    # services.uptime-kuma.enable = true;
+  # services.uptime-kuma.enable = true;
   #
   # services.nginx.virtualHosts."kuma.kokushi-musou.de" = {
   #   forceSSL = true;
@@ -56,7 +55,7 @@ in
       aliases = [ "postmaster@${domain}" ];
     };
   };
- 
+
   # services.nginx.virtualHosts."riichi.negitorodon.de" = {
   #   forceSSL = false;
   #   enableACME = true;
@@ -65,4 +64,4 @@ in
   #     proxyWebsockets = true;
   #   };
   # };
- }
+}

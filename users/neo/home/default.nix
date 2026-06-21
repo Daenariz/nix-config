@@ -2,7 +2,8 @@
   inputs,
   outputs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.synix.homeModules.common
     inputs.synix.homeModules.nixvim

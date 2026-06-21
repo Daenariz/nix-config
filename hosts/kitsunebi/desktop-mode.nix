@@ -3,9 +3,10 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   specialisation."gamemode".configuration = {
-    system.nixos.tags = ["gamemode"];
+    system.nixos.tags = [ "gamemode" ];
 
     environment.variables.IS_HEADLESS = lib.mkForce "";
 

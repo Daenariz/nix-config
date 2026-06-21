@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 with pkgs;
 #ESL
 [
@@ -21,8 +24,8 @@ with pkgs;
   # testing
   [
     discord
-    (logseq.override { electron = electron_39; })
-    #logseq
+    # (logseq.override { electron = electron_39; })
+    logseq
     planify
     nix-output-monitor
     nix-inspect

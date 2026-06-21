@@ -1,4 +1,4 @@
-{ outputs, config,... }:
+{ outputs, config, ... }:
 {
   imports = [
     outputs.nixosModules.vaultwarden

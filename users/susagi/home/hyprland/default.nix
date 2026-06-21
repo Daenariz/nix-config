@@ -15,6 +15,14 @@
     ./services.nix
     ./hypr.nix
     ./ssh.nix
+    ./opencode.nix
+  ];
+
+  # for bypassing the error message
+  programs.rbw.settings.email = "test@example.com";
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
   ];
 
   nixpkgs.config.allowUnfreePredicate =
