@@ -14,6 +14,8 @@
     ./programs.nix
   ];
 
+  programs.rbw.settings.email = "x@y.com";
+
   nixpkgs.config.allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
@@ -22,6 +24,7 @@
       "steam"
       "steam-unwrapped"
       "discord"
+      "transparent.nvim"
     ];
 
   programs.waybar.settings = import ./settings/waybar.nix;

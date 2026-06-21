@@ -78,8 +78,6 @@
 
   hardware.openrazer.enable = true;
 
-  programs.adb.enable = true;
-
   programs.gamemode = {
     enable = true;
     #  settings =
