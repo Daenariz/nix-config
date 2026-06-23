@@ -6,7 +6,6 @@
   lib,
   ...
 }:
-
 {
   imports = [
     inputs.synix.nixosModules.common
@@ -18,6 +17,7 @@
     inputs.synix.nixosModules.virtualisation
     inputs.synix.nixosModules.print-server
     #     outputs.nixosModules.postgresql
+    # inputs.riichi-club.nixosModules.riichi-club
 
     outputs.nixosModules.common
 
@@ -26,9 +26,19 @@
     ./postgres.nix
     ./packages.nix
     ./networking.nix
+    # ./polkit.nix
 
     ./secrets
   ];
+  # Deprecated with 26.05
+  # programs.adb.enable = true;
+  users.groups.adbusers.members = [ "susagi" ];
+  services.gvfs.enable = true;
+
+  # services.riichi_club = {
+  #   enable = true;
+  #   nginx.subdomain = "riichi";
+  # };
 
   programs.steam = {
     enable = true;
@@ -38,8 +48,8 @@
     # gamescopeSession.enable = true;
   };
 
-  services.print-server.enable = true;
-  services.print-server.openFirewall = true;
+  # services.print-server.enable = true;
+  # services.print-server.openFirewall = true;
 
   nixpkgs.config.allowUnfreePredicate =
     pkg:
@@ -51,26 +61,12 @@
       "steam"
     ];
 
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
 
-  users.extraGroups.libvirtd.members = [ "susagi" ];
-  users.extraGroups.qemu-libvirtd.members = [ "susagi" ];
-  users.extraGroups.kvm.members = [ "susagi" ];
+  # users.extraGroups.libvirtd.members = [ "susagi" ];
+  # users.extraGroups.qemu-libvirtd.members = [ "susagi" ];
+  # users.extraGroups.kvm.members = [ "susagi" ];
   #
-
-  #   services.ngircd.enable = true;
-  #   services.ngircd.config = ''
-  #   [Global]
-  #   Name = irc.negi.jp
-  #   AdminInfo1 = Negi IRC Server
-  #   AdminInfo2 = Anywhere On Asu
-  #   AdminEMail = admin@irc.negi.jp
-  #
-  #   [Operator]
-  #   Name = TheOper
-  #   Password = Hans1234
-  #   ''
-  # ;
 
   programs.dconf.enable = true;
 
@@ -114,6 +110,7 @@
         "kvm"
         "qemu-libvirtd"
         "disk"
+        "adbusers"
       ];
     };
   };

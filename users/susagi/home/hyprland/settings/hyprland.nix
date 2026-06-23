@@ -1,8 +1,11 @@
-{ pkgs, lib, ... }:
-
+{
+  pkgs,
+  lib,
+  ...
+}:
 {
   general = {
-    no_border_on_floating = true;
+    # no_border_on_floating = true;
     gaps_in = lib.mkForce 3;
     gaps_out = lib.mkForce 6;
   };
@@ -34,12 +37,13 @@
   ];
 
   windowrule = [
-    "center (1), class:^(dmenu)$"
-    "workspace 2, class:^([Ll]ibrewolf)$"
-    "workspace 4, class:^thunderbird$, title:Thunderbird$"
-    "workspace 5, class:^Element$, title:^Element"
-    "workspace 5, title:^Signal"
-    "workspace 6, initialClass:^tidal-hifi$, initialTitle:^tidal-hifi"
+    "center (1), match:class ^(dmenu)$"
+    "workspace 2, match:class ^([Ll]ibrewolf)$"
+    "workspace 4, match:class ^thunderbird$, match:title Thunderbird$"
+    "workspace 5, match:class ^Element$, match:title ^Element"
+    "workspace 5, match:title ^Signal"
+    # "workspace 6, match:class:^tidal-hifi$, initialTitle:^tidal-hifi"
+    "workspace 6, match:class ^tidal-hifi$, match:title ^tidal-hifi"
   ];
   workspace = [
     "1, monitor:eDP-1, default:true"

@@ -11,7 +11,6 @@
   paho-mqtt-c,
   ...
 }:
-
 stdenv.mkDerivation {
   pname = "pi-sniffer";
   version = "hilbigit-forked-2025-09-17";

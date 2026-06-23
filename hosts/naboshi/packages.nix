@@ -1,7 +1,9 @@
-{ pkgs, lib, ... }:
-
 {
-
+  pkgs,
+  lib,
+  ...
+}:
+{
   #     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
   # "steam"
   # "steam-unwrapped"
@@ -9,7 +11,10 @@
 
   environment = {
     systemPackages = with pkgs; [
-      local.riichi-city
+      # local.riichi-city
+      ntfs3g
+      libmtp
+      android-tools
     ];
   };
 }

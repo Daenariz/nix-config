@@ -4,8 +4,12 @@
   pkgs,
   ...
 }:
-
 {
+  programs.aider-chat.enable = true;
+  programs.aider-chat.settings = {
+    model = "openrouter/google/gemini-2.5-pro";
+    weak-model = "openrouter/google/gemini-3-flash-preview";
+  };
 
   programs.anki.enable = true;
   programs.anki.addons = [ pkgs.ankiAddons.anki-connect ];
@@ -76,6 +80,5 @@
         #userContent = lib.mkForce (builtins.readFile ./userContent.css);
       };
     };
-
   };
 }

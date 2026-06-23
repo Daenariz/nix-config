@@ -1,0 +1,11 @@
+name: "Test"
+on:
+  pull_request:
+  push:
+jobs:
+  tests:
+    runs-on: host
+    steps:
+      - uses: actions/checkout@v4
+      - name: Nix Flake Check
+        run: nix flake check

@@ -1,4 +1,5 @@
 {
+  pkgs,
   inputs,
   outputs,
   config,
@@ -8,106 +9,44 @@ let
   domain = config.networking.domain;
 in
 {
+  ### coturn + headscale /atm. without settings.dns.magic_dns) running now on edge server
   imports = [
-    inputs.synix.nixosModules.nginx
-    inputs.synix.nixosModules.open-webui-oci
     inputs.synix.nixosModules.mailserver
-    inputs.synix.nixosModules.coturn
-    inputs.synix.nixosModules.matrix-synapse
-    inputs.synix.nixosModules.headscale
-    # inputs.synix.nixosModules.tailscale
+    # inputs.synix.nixosModules.headscale
 
-    outputs.nixosModules.vaultwarden
-    outputs.nixosModules.nextcloud
+    # inputs.riichi-club.nixosModules.riichi-club
+
     outputs.nixosModules.forgejo
-    # outputs.nixosModules.open-webui-oci
+    # outputs.nixosModules.forgejo-runner
+
   ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "olm-3.2.16"
-  ];
-
-  # services.tailscale = {
+  # services.riichi_club = {
   #   enable = true;
-  #   enableSSH = true;
-  #   loginServer = "https://head.negitorodon.de";
+  #   nginx.subdomain = "riichi";
+  #   secretKey = config.sops.secrets.riichi_club_key.path;
   # };
+
   services.forgejo.enable = true;
+  services.forgejo.stateDir = "/data/forgejo";
 
-  services.headscale = {
+  services.forgejo-runner = {
     enable = true;
-    openFirewall = true;
-    reverseProxy = {
-      enable = true;
-      subdomain = "head";
-    };
-    settings = {
-      dns = {
-        magic_dns = true;
-      };
-    };
+    url = config.services.forgejo.settings.server.ROOT_URL;
+    tokenFile = config.sops.templates."forgejo_runner_token".path;
   };
 
-  services.uptime-kuma.enable = true;
-
-  services.nginx.virtualHosts."kuma.${domain}" = {
-    forceSSL = true;
-    enableACME = true;
-    locations."/" = {
-      proxyPass = "http://localhost:3001";
-      proxyWebsockets = true;
-      recommendedProxySettings = true;
-    };
-  };
-
-  services.nextcloud = {
-    enable = true;
-    datadir = "/data/nextcloud";
-    reverseProxy = {
-      enable = true;
-      subdomain = "cloud";
-    };
-    extraApps = {
-      inherit (config.services.nextcloud.package.packages.apps)
-        bookmarks
-        calendar
-        contacts
-        richdocuments
-        tasks
-        ;
-    };
-    settings = {
-      richdocuments = {
-        wopi_url = "https://office.${domain}";
-      };
-    };
-  };
-
-  services.collabora-online = {
-    enable = true;
-    port = 9980;
-    settings = {
-      # rely on reverse proxy for SSL
-      ssl = {
-        enable = false;
-        termination = true;
-      };
-      storage.wopi = {
-        "@allow" = true;
-        host = [ "cloud.${domain}" ];
-      };
-      server_name = "office.${domain}";
-    };
-  };
-
-  services.nginx.virtualHosts."office.${domain}" = {
-    forceSSL = true;
-    enableACME = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString config.services.collabora-online.port}";
-      proxyWebsockets = true;
-    };
-  };
+  # services.uptime-kuma.enable = true;
+  #
+  # services.nginx.virtualHosts."kuma.kokushi-musou.de" = {
+  #   forceSSL = true;
+  #   enableACME = true;
+  #   locations."/" = {
+  #     proxyPass = "http://127.0.0.1:3001";
+  #     proxyWebsockets = true;
+  #     recommendedProxySettings = true;
+  #   };
+  # };
 
   mailserver.enable = true;
   mailserver.stateVersion = 3;
@@ -117,43 +56,12 @@ in
     };
   };
 
-  services.coturn = {
-    enable = true;
-    sops = true;
-    openFirewall = true;
-  };
-
-  services.matrix-synapse = {
-    enable = true;
-    sops = true;
-    coturn.enable = true;
-    # dataDir = "/data/matrix-synapse";
-    bridges = {
-      whatsapp.enable = true;
-      whatsapp.admin = "@susagi:${domain}";
-      signal.enable = true;
-      signal.admin = "@susagi:${domain}";
-    };
-  };
-
-  services.vaultwarden.enable = true;
-  services.vaultwarden.reverseProxy = {
-    enable = true;
-    subdomain = "vault";
-  };
-
-  services.open-webui-oci.enable = true;
-  services.open-webui-oci.port = 8083;
-  services.open-webui-oci.externalUrl = "https://ai.${domain}";
-
-  services.nginx.virtualHosts."ai.${domain}" = {
-    forceSSL = true;
-    enableACME = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:8083";
-      proxyWebsockets = true;
-    };
-  };
-
-  services.nginx.enable = true;
+  # services.nginx.virtualHosts."riichi.negitorodon.de" = {
+  #   forceSSL = false;
+  #   enableACME = true;
+  #   locations."/" = {
+  #     proxyPass = "http://127.0.0.1:5000";
+  #     proxyWebsockets = true;
+  #   };
+  # };
 }

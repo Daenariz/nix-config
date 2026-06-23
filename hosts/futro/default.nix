@@ -4,7 +4,6 @@
   config,
   ...
 }:
-
 {
   imports = [
     inputs.synix.nixosModules.common
@@ -17,8 +16,18 @@
     ./boot.nix
     ./hardware.nix # will be generated during installation
     ./packages.nix
-    ./services.nix
-    ./raid.nix
+    # ./services.nix
+    # ./raid.nix
+    # ./dns.nix
+    # ./nginx.nix
+    # ./tailscale.nix
+    # ./matrix-synapse.nix
+    # ./nextcloud.nix
+    # ./radicale.nix
+    # ./vaultwarden.nix
+    # ./open-webui-oci.nix
+    # ./virtualisation.nix
+    ./services
   ];
 
   networking = {

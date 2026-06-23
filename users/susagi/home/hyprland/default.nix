@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 {
   imports = [
     inputs.synix.homeModules.hyprland
@@ -16,6 +15,14 @@
     ./services.nix
     ./hypr.nix
     ./ssh.nix
+    ./opencode.nix
+  ];
+
+  # for bypassing the error message
+  programs.rbw.settings.email = "test@example.com";
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
   ];
 
   nixpkgs.config.allowUnfreePredicate =
@@ -24,6 +31,7 @@
       "castlabs-electron"
       "zoom"
       "ltspice"
+      "discord"
     ];
 
   services.gnome-keyring = {
@@ -48,6 +56,7 @@
   };
 
   home.shellAliases = {
+    edgerrb = "nixos-rebuild switch --sudo --ask-sudo-password --target-host edge --flake .#edge";
     vmware-x11 = "GDK_BACKEND=x11 vmware";
     t2c = "sh ~/Desktop/projects/repos/soku_tango/tango2csv.sh ";
     search-store = "find /nix/store -maxdepth 1 -type d | rg -i ";
@@ -56,5 +65,4 @@
     go2hyprland = "cd ~/.config/nixos/users/susagi/home/hyprland/";
     go2core = "cd ~/Desktop/repos/nix-core/";
   };
-
 }

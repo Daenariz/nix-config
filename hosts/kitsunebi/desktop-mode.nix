@@ -4,7 +4,6 @@
   lib,
   ...
 }:
-
 {
   specialisation."gamemode".configuration = {
     system.nixos.tags = [ "gamemode" ];

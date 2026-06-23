@@ -4,7 +4,6 @@
   config,
   ...
 }:
-
 let
   cfg = config.services.postgresql;
   domain = config.networking.domain;

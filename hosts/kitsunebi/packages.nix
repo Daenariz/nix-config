@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 let
   nvidia-pkg = config.hardware.nvidia.package;
 in
@@ -14,16 +13,18 @@ in
     ];
   };
 
-
-
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-             "nvidia-x11"
-    "cuda_cudart"
- "cuda_cccl"   "cuda_nvcc" "libcublas"
-"steam"
-"steam-unwrapped"
-    "nvidia-settings"
-           ];
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "nvidia-x11"
+      "cuda_cudart"
+      "cuda_cccl"
+      "cuda_nvcc"
+      "libcublas"
+      "steam"
+      "steam-unwrapped"
+      "nvidia-settings"
+    ];
 
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable; # Same as production

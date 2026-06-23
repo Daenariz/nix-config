@@ -1,7 +1,12 @@
 { pkgs, ... }:
-
 {
   home.packages = with pkgs; [
+    android-tools
+    discord
+    # sonic-pi
+    prismlauncher
+    jdk25
+    noto-fonts-cjk-sans # ファイアフォックスでは、日本語のかなを見せるのために
     tidal-hifi
     libva-utils
     sidequest

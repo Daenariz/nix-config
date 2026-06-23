@@ -14,7 +14,6 @@
   openssl,
   cacert,
 }:
-
 stdenv.mkDerivation rec {
   pname = "plecs";
   version = "5.0.2";

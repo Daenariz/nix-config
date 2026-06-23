@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 let
   cfg = config.services.nextcloud-sync;
   syncScript = pkgs.writeShellScript "_nextcloud-sync" ''
@@ -14,7 +13,7 @@ let
     if [ -z $PASSWORD ]; then
       ${pkgs.libnotify}/bin/notify-send "Nextcloud Sync Error" "No password found in ${cfg.passwordFile}"
       exit 1
-    fi          
+    fi
     ${pkgs.nextcloud-client}/bin/nextcloudcmd -h -n --path $REMOTE $LOCAL https://${cfg.username}:$PASSWORD@${cfg.remote}
     ${pkgs.libnotify}/bin/notify-send "Nextcloud Sync" "Synced $LOCAL with $REMOTE"
   '';

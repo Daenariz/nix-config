@@ -67,5 +67,4 @@
   #    "USER_PERMISSIONS_WORKSPACE_TOOLS_ACCESS" = "False";
   #  };
   #};
-
 }

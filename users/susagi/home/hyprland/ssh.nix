@@ -4,20 +4,30 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
+    # addKeysToAgent = "yes";
     matchBlocks = {
+      "*".addKeysToAgent = "yes";
 
-      kitsunebi = {
-        host = "nebi kitsunebi";
-        hostname = "192.168.178.178"; # ## previously .103
-        port = 2299;
-        user = "neo";
+      age-tutor = {
+        host = "age age-tutor";
+        hostname = "46.62.203.20";
+        port = 42067;
+        user = "admin";
         identityFile = "/home/susagi/.ssh/vde_rsa";
       };
-      pi-sniffer = {
-        host = "sni sniffer";
-        hostname = "192.168.0.23"; # ## previously .103 + 100
-        port = 22;
-        user = "nixos"; # ##"susagi";
+      hetzner-edge = {
+        host = "hetzner edge";
+        hostname = "65.109.131.81";
+        port = 2299;
+        user = "susagi";
+        identityFile = "/home/susagi/.ssh/vde_rsa";
+      };
+      kitsunebi = {
+        host = "nebi kitsunebi";
+        # hostname = "192.168.178.178"; # ## previously .103
+        hostname = "100.64.0.3"; # deprec.
+        port = 2299;
+        user = "neo";
         identityFile = "/home/susagi/.ssh/vde_rsa";
       };
 
@@ -37,9 +47,16 @@
         identityFile = "/home/susagi/.ssh/thinkpad_rsa";
       };
 
-      futro = {
+      futro-local = {
         host = "f futro";
-        hostname = "negitorodon.de";
+        hostname = "192.168.178.99";
+        port = 30715;
+        user = "susagi";
+        identityFile = "/home/susagi/.ssh/vde_rsa";
+      };
+      futro-tail = {
+        host = "f-tail futro-tail";
+        hostname = "100.64.0.3";
         port = 30715;
         user = "susagi";
         identityFile = "/home/susagi/.ssh/vde_rsa";
@@ -47,7 +64,7 @@
 
       kyoujin = {
         host = "kyo kyoujin";
-        hostname = "negitorodon.de";
+        hostname = "192.168.178.107";
         port = 2299;
         user = "susagi";
         identityFile = "/home/susagi/.ssh/vde_rsa";

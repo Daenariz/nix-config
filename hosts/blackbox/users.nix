@@ -1,5 +1,8 @@
-{ inputs, outputs, ... }:
-
+{
+  inputs,
+  outputs,
+  ...
+}:
 {
   imports = [ inputs.core.nixosModules.normalUsers ];
 

@@ -8,6 +8,5 @@
   monitor=desc:LG Electronics W2443 0x00036522, 1920x1080@60, 1920x-200, 1, transform, 1
 ''
 # rotation with ..., transform, number from 1-3 (0 for default)
-
 #monitor = desc: Samsung Electric Company SAMSUNG 0x01000E00, 1920x1080@60, auto-left, 1.00
 #monitor = desc:LG Electronics W2443 0x00036522, disable

@@ -1,5 +1,8 @@
-{ config, lib, ... }:
-
+{
+  config,
+  lib,
+  ...
+}:
 let
   cfg = config.services.vaultwarden;
   domain = config.networking.domain;
@@ -36,9 +39,9 @@ in
         ROCKET_ADDRESS = mkDefault (if cfg.reverseProxy.enable then "127.0.0.1" else "0.0.0.0");
         ROCKET_PORT = mkDefault 8222;
         ####################################################
-        SIGNUPS_VERIFY = false;
-        SIGNUPS_ALLOWED = mkDefault true;
-        REQUIRE_DEVICE_EMAIL = false;
+        # SIGNUPS_VERIFY = false;
+        SIGNUPS_ALLOWED = mkDefault false;
+        # REQUIRE_DEVICE_EMAIL = false;
       }
       // optionalAttrs cfg.mailIntegration.enable {
         SMTP_FROM = mkDefault "vaultwarden@${domain}";

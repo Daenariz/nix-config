@@ -4,7 +4,6 @@
   fetchFromGitHub,
   makeWrapper,
 }:
-
 python3Packages.buildPythonApplication rec {
   pname = "bitpoll";
   version = "0.9.2";
@@ -52,7 +51,7 @@ python3Packages.buildPythonApplication rec {
   ];
 
   installPhase = ''
-          # Copy source code 
+          # Copy source code
           mkdir -p $out/share/bitpoll
           cp -r . $out/share/bitpoll
 
@@ -65,7 +64,7 @@ python3Packages.buildPythonApplication rec {
         echo "BASE_URL = 'http://localhost:8000'" >> $localConf
         echo "INSTALLED_APPS_LOCAL = []" >> $localConf
         echo "MIDDLEWARE_LOCAL = []" >> $localConf
-        echo "PIPELINE_LOCAL = {}" >> $localConf 
+        echo "PIPELINE_LOCAL = {}" >> $localConf
     echo "LOGGING_LOCAL = {}" >> $localConf
         echo "TEMPLATES_LOCAL = []" >> $localConf
 

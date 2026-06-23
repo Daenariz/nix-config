@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 let
   cfg = config.services.open-webui-oci;
   domain = config.networking.domain;
@@ -123,6 +122,7 @@ in
             "http://localhost:${toString cfg.port}"
             "http://127.0.0.1:${toString cfg.port}"
             "http://0.0.0.0:${toString cfg.port}"
+            "http://100.64.0.3:${toString cfg.port}"
           ];
         };
       environmentFiles = optional (cfg.environmentFile != null) cfg.environmentFile;

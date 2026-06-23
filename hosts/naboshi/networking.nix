@@ -1,12 +1,23 @@
-{ inputs, lib, ... }:
+{
+  inputs,
+  lib,
+  config,
+  ...
+}:
 {
   imports = [
     inputs.synix.nixosModules.tailscale
   ];
+
   services.tailscale = {
     enable = true;
-    enableSSH = true;
-    loginServer = "https://head.negitorodon.de";
+    tailnets = {
+      personal = {
+        loginServer = "https://head.negitorodon.de";
+        authKeyFile = config.sops.secrets."tailscale/auth-key".path;
+        enableSSH = true;
+      };
+    };
   };
 
   networking = {

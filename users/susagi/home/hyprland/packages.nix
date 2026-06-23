@@ -1,7 +1,8 @@
-{ pkgs, ... }:
-
+{
+  pkgs,
+  ...
+}:
 with pkgs;
-
 #ESL
 [
   wl-clip-persist
@@ -9,6 +10,7 @@ with pkgs;
   ngspice
   xschem
   ltspice
+  tigervnc
 ]
 ++
   #　たいせつな日本語の勉強
@@ -21,7 +23,10 @@ with pkgs;
 ++
   # testing
   [
-    tigervnc
+    discord
+    # (logseq.override { electron = electron_39; })
+    logseq
+    planify
     nix-output-monitor
     nix-inspect
     nvd
@@ -50,6 +55,7 @@ with pkgs;
 ++
   # essentials
   [
+    ntfs3g
     brave
     teams-for-linux
     flatpak # for the binary

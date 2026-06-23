@@ -1,5 +1,4 @@
 { inputs, ... }:
-
 {
   # forked nix-synix packages accessible through 'pkgs.synix-dev'
   #  synix-dev-packages = final: prev: { synix-dev = inputs.synix-dev.packages."${final.system}"; };
@@ -15,8 +14,6 @@
     final: prev:
     let
       files = [
-        #         ./open-webui.nix
-        ./mautrix-whatsapp.nix
       ];
       imports = builtins.map (f: import f final prev) files;
     in

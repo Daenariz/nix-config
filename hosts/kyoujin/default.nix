@@ -1,13 +1,14 @@
 {
+  lib,
+  config,
   inputs,
   outputs,
   pkgs,
   ...
 }:
-
 {
   imports = [
-    inputs.core.nixosModules.normalUsers
+    inputs.synix.nixosModules.normalUsers
     #    ./wyoming.nix
     ./boot.nix
     ./hardware.nix
@@ -16,20 +17,53 @@
     #    ./services.nix
     ./ollama.nix
     ./secrets
-    inputs.core.nixosModules.common
-    #     inputs.core.nixosModules.sops
-    inputs.core.nixosModules.nvidia
-    inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.tailscale
+    inputs.synix.nixosModules.common
+    #     inputs.synix.nixosModules.sops
+    inputs.synix.nixosModules.nvidia
+    inputs.synix.nixosModules.openssh
+    inputs.synix.nixosModules.tailscale
 
     outputs.nixosModules.common
-
   ];
+
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "nvidia-x11"
+      "cuda_cudart"
+      "cuda_nvcc"
+      "cuda_cccl"
+      "libcublas"
+      "cuda-merged"
+      "cuda_cuobjdump"
+      "cuda_gdb"
+      "cuda_nvdisasm"
+      "cuda_nvprune"
+      "cuda_cupti"
+      "cuda_cuxxfilt"
+      "cuda_nvml_dev"
+      "cuda_nvrtc"
+      "cuda_nvtx"
+      "cuda_profiler_api"
+      "cuda_sanitizer_api"
+      "libcufft"
+      "libcurand"
+      "libcusolver"
+      "libnvjitlink"
+      "libcusparse"
+      "libnpp"
+      "nvidia-settings"
+    ];
 
   services.tailscale = {
     enable = true;
-    enableSSH = true;
-    loginServer = "https://head.negitorodon.de";
+    tailnets = {
+      personal = {
+        loginServer = "https://head.negitorodon.de";
+        authKeyFile = config.sops.secrets."tailscale/auth-key".path;
+        enableSSH = true;
+      };
+    };
   };
 
   nix.settings.trusted-substituters = [ "https://ai.cachix.org" ];
@@ -90,5 +124,4 @@
     ports = [ 2299 ];
   };
   system.stateVersion = "24.11";
-
 }

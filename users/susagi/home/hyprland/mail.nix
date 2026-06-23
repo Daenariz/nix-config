@@ -1,5 +1,8 @@
-{ pkgs, config, ... }:
-
+{
+  pkgs,
+  config,
+  ...
+}:
 {
   sops.secrets."email_username" = { };
   sops.secrets."email_password" = { };

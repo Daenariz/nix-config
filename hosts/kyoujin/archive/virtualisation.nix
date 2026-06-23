@@ -4,9 +4,7 @@
   pkgs,
   ...
 }:
-
 with lib;
-
 let
   cfg = config.virtualisation.oci-containers.containers.open-webui;
   fqdn = "ai.${config.networking.domain}";
@@ -58,5 +56,4 @@ in
     forceSSL = true;
     locations."/".proxyPass = "http://localhost:3000";
   };
-
 }

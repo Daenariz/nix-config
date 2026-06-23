@@ -6,7 +6,6 @@
   outputs,
   ...
 }:
-
 {
   imports = [
     inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.base

@@ -5,7 +5,6 @@
   lib,
   ...
 }:
-
 {
   imports = [
     inputs.core.nixosModules.openssh

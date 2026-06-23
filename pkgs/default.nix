@@ -2,7 +2,6 @@
   pkgs ? import <nixpkgs>,
   ...
 }:
-
 {
   # example = pkgs.callPackage ./example { };
   plecs = pkgs.callPackage ./plecs { };

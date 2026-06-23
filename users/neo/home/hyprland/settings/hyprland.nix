@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 {
   general = {
     no_border_on_floating = true;
@@ -34,7 +38,6 @@
   ];
 
   windowrule = lib.mkAfter [
-
     # TODO: if new window created, split horizontally
     #    "monitor   0, class:^librewolf$"
     "workspace 6, class:^([Ll]ibrewolf)$"
@@ -54,12 +57,6 @@
     "workspace 5, class:^(im.riot.Riot)$"
     "workspace 2, class:^(tidal-hifi)$"
 
-    #### smart gaps?
-    #"bordersize 0, floating:0, onworkspace:w[tv1]"
-    #"rounding 0, floating:0, onworkspace:w[tv1]"
-    #"bordersize 0, floating:0, onworkspace:f[1]"
-    #"rounding 0, floating:0, onworkspace:f[1]"
-
     ##games
     # TODO: GW2 steam_app_1284210 needs a center
     #"float, class:^steam_app_1284210$"
@@ -69,7 +66,6 @@
     ##    "allowsinput 1, class:^(steam_app_\d+)$"
     "center (1), class:^(steam_app_\d+)$"
     # "move center (1), class:^steam_app_1284210$, title:^Guild Wars 2$"
-
   ];
   workspace = [
     "1, monitor:DP-1, default:true" # , gapsout:10, gapsin:5"
@@ -78,8 +74,5 @@
     "4, monitor:DP-1"
     "5, monitor:HDMI-A-1"
     "6, monitor:HDMI-A-1" # , default:true, layoutopt:orientation:top"
-    #### smart gaps
-    #"w[tv1], gapsout:0, gapsin:0"
-    #"f[1], gapsout:0, gapsin:0"
   ];
 }

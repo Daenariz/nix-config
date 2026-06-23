@@ -5,7 +5,6 @@
   config,
   ...
 }:
-
 {
   # Runtime
   virtualisation.podman = {

@@ -1,20 +1,20 @@
 {
+  config,
   pkgs,
   inputs,
   outputs,
   lib,
   ...
 }:
-
 {
   imports = [
 
-    inputs.core.nixosModules.common
-    inputs.core.nixosModules.bluetooth
-    inputs.core.nixosModules.device.desktop
-    inputs.core.nixosModules.normalUsers
-    inputs.core.nixosModules.openssh
-    inputs.core.nixosModules.tailscale
+    inputs.synix.nixosModules.common
+    inputs.synix.nixosModules.bluetooth
+    inputs.synix.nixosModules.device.desktop
+    inputs.synix.nixosModules.normalUsers
+    inputs.synix.nixosModules.openssh
+    inputs.synix.nixosModules.tailscale
 
     outputs.nixosModules.common
 
@@ -31,33 +31,44 @@
 
   services.tailscale = {
     enable = true;
-    enableSSH = true;
-    loginServer = "https://head.negitorodon.de";
+    tailnets = {
+      personal = {
+        loginServer = "https://head.negitorodon.de";
+        authKeyFile = config.sops.secrets."tailscale/auth-key".path;
+        enableSSH = true;
+      };
+    };
   };
+
+  # services.tailscale = {
+  #   enable = true;
+  #   enableSSH = true;
+  #   loginServer = "https://head.negitorodon.de";
+  # };
 
   #  nixpkgs.config.cudaSupport = true;
 
   # services.flatpak.enable = true;
 
- programs.dconf.enable = true;
+  programs.dconf.enable = true;
 
-#   programs.zsh = {
-#   interactiveShellInit = ''
-#   if [ -z "$IS_HEADLESS" ] && [ "$(tty)" = "/dev/tty1" ]; then
-#     exec Hyprland
-# fi
-# '';
-# };
+  #   programs.zsh = {
+  #   interactiveShellInit = ''
+  #   if [ -z "$IS_HEADLESS" ] && [ "$(tty)" = "/dev/tty1" ]; then
+  #     exec Hyprland
+  # fi
+  # '';
+  # };
 
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = false;
     localNetworkGameTransfers.openFirewall = true;
-    # gamescopeSession.enable = true;
+    gamescopeSession.enable = true;
   };
 
-  #  programs.steam.gamescopeSession.enable = true;
+  # programs.steam.gamescopeSession.enable = true;
   # programs.gpu-screen-recorder = {
   #  enable = true;
   ##  package = (pkgs.gpu-screen-recorder.override {
@@ -66,8 +77,6 @@
   #};
 
   hardware.openrazer.enable = true;
-
-  programs.adb.enable = true;
 
   programs.gamemode = {
     enable = true;

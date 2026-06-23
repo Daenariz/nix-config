@@ -3,7 +3,6 @@
   lib,
   ...
 }:
-
 let
   cfg = config.services.forgejo;
   domain = config.networking.domain;

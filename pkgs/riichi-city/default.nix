@@ -1,7 +1,6 @@
 {
   pkgs ? import <nixpkgs> { config.allowUnfree = true; },
 }:
-
 pkgs.stdenv.mkDerivation rec {
   pname = "riichi-city";
   version = "2.2.3";
