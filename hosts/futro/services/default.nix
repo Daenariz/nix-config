@@ -1,7 +1,7 @@
 {
   imports = [
     ./raid.nix
-    ./dns.nix
+    # ./dns.nix
     ./nginx.nix
     ./tailscale.nix
     ./matrix-synapse.nix
@@ -10,7 +10,8 @@
     ./vaultwarden.nix
     ./open-webui-oci.nix
     ./virtualisation.nix
-    # ./mailserver.nix
+    ./mailserver.nix
     ./kokushi-musou.nix
+    ./forgejo.nix
   ];
 }

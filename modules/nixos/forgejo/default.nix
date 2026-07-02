@@ -61,8 +61,10 @@ in
     };
 
     services.nginx.virtualHosts."git.${domain}" = {
-      forceSSL = true;
-      enableACME = true;
+      forceSSL = false;
+      enableACME = false;
+      # forceSSL = true;
+      # enableACME = true;
       locations."/" = {
         proxyPass = "http://127.0.0.1:3456";
         proxyWebsockets = true;

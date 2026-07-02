@@ -23,8 +23,17 @@
     forceSSL = false;
     enableACME = false;
     locations."/" = {
-      # proxyPass = "http://127.0.0.1:5000";
-      proxyPass = "http://100.64.0.3:5000";
+      proxyPass = "http://127.0.0.1:5000";
+      proxyWebsockets = true;
+    };
+  };
+
+  services.nginx.virtualHosts."riichi.kokushi-musou.de" = {
+    # forceSSL = lib.mkForce false;
+    forceSSL = false;
+    enableACME = false;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:5000";
       proxyWebsockets = true;
     };
   };

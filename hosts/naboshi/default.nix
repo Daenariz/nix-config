@@ -26,6 +26,7 @@
     ./postgres.nix
     ./packages.nix
     ./networking.nix
+    ./kbdrate.nix
     # ./polkit.nix
 
     ./secrets
