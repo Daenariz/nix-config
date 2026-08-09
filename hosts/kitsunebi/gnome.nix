@@ -12,7 +12,7 @@
   services.gnome.gnome-remote-desktop.enable = true;
 
   services.xserver.layout = "de";
-  i18n.defaultLocale = "de_DE.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "de";
 
   environment.gnome.excludePackages = with pkgs; [

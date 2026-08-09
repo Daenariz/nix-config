@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    inputs.synix.homeModules.hyprland
+    # inputs.synix.homeModules.hyprland
     inputs.synix.homeModules.stylix
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
 
@@ -27,13 +27,13 @@
       "transparent.nvim"
     ];
 
-  programs.waybar.settings = import ./settings/waybar.nix;
+  # programs.waybar.settings = import ./settings/waybar.nix;
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    autostart = true;
-    settings = import ./settings/hyprland.nix { inherit pkgs lib; };
-  };
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   # autostart = true;
+  #   settings = import ./settings/hyprland.nix { inherit pkgs lib; };
+  # };
 
   services.ssh-agent.enable = true;
 
@@ -45,32 +45,32 @@
     # go2synix = "cd ~/Desktop/repos/nix-synix/";
   };
 
-  home.sessionVariables = lib.mkAfter {
-    ELECTRON_OZONE_PLATFORM_HINT = "wayland"; # to fix flickering
-    LIBVA_DRIVER_NAME = "nvidia";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    NVD_BACKEND = "direct";
-    # LD_PRELOAD = "/run/current-system/sw/lib/libgamemodeauto.so.0";
-  };
+  # home.sessionVariables = lib.mkAfter {
+  #   ELECTRON_OZONE_PLATFORM_HINT = "wayland"; # to fix flickering
+  #   LIBVA_DRIVER_NAME = "nvidia";
+  #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  #   NVD_BACKEND = "direct";
+  #   # LD_PRELOAD = "/run/current-system/sw/lib/libgamemodeauto.so.0";
+  # };
 
-  services = {
-    hyprpaper = {
-      enable = true;
-      settings = {
-        preload = [
-          "~/Pictures/arknos.JPG"
-          "~/Pictures/night.jpg"
-          "~/Pictures/legends.JPG"
-        ];
-        wallpaper = [ ",~/Pictures/arknos.JPG" ];
-      };
-    };
-
-    hypridle = {
-      enable = true;
-      settings = import ./settings/hypridle.nix;
-    };
-  };
+  # services = {
+  #   hyprpaper = {
+  #     enable = true;
+  #     settings = {
+  #       preload = [
+  #         "~/Pictures/arknos.JPG"
+  #         "~/Pictures/night.jpg"
+  #         "~/Pictures/legends.JPG"
+  #       ];
+  #       wallpaper = [ ",~/Pictures/arknos.JPG" ];
+  #     };
+  #   };
+  #
+  #   hypridle = {
+  #     enable = true;
+  #     settings = import ./settings/hypridle.nix;
+  #   };
+  # };
 
   services.flatpak = {
     enable = true;

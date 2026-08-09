@@ -1,6 +1,7 @@
 {
   inputs,
   outputs,
+lib,
   ...
 }:
 {
@@ -9,7 +10,25 @@
     inputs.synix.homeModules.nixvim
 
     outputs.homeModules.common
+
+    ./programs.nix
+    ./packages.nix
+    ./obs-studio.nix
+    ./mangohud.nix
+
+
   ];
+
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "castlabs-electron"
+      "zoom"
+      "steam"
+      "steam-unwrapped"
+      "discord"
+      "transparent.nvim"
+    ];
 
   home.username = "neo";
 

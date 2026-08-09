@@ -24,6 +24,7 @@
     ./secrets
     #./ollama.nix
     # ./speaches.nix
+    ./gnome.nix
     ./gnome-config.nix
     # ./desktop-mode.nix
   ];
