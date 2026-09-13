@@ -27,8 +27,6 @@
     allowedUDPPorts = [ 3389 ];
   };
 
-  programs.firefox.enable = true;
-
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
   ];

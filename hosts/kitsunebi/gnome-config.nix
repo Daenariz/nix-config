@@ -5,24 +5,21 @@
 { config, pkgs, ... }:
 
 {
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
-  # # Configure keymap in X11
-  # services.xserver.xkb = {
-  #   layout = "de";
-  #   variant = "";
-  # };
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "de";
+    variant = "";
+  };
 
-
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # Configure console keymap
+  console.keyMap = "de";
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -40,8 +37,8 @@
     #media-session.enable = true;
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -53,4 +50,10 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
+
 }

@@ -28,7 +28,17 @@
     ./gnome-config.nix
     # ./desktop-mode.nix
   ];
+
+  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+
   # services.getty.autologinUser = "neo";
+  users.users.susagi.extraGroups = ["kvm"];
+  users.users.susagi.isNormalUser = true;
+
+  virtualisation.waydroid.enable = true;
+  # Newer kernel versions may need
+  virtualisation.waydroid.package = pkgs.waydroid-nftables;
 
   services.tailscale = {
     enable = true;
@@ -40,12 +50,6 @@
       };
     };
   };
-
-  # services.tailscale = {
-  #   enable = true;
-  #   enableSSH = true;
-  #   loginServer = "https://head.negitorodon.de";
-  # };
 
   #  nixpkgs.config.cudaSupport = true;
 

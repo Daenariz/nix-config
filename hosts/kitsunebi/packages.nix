@@ -10,8 +10,13 @@ in
 {
   environment = {
     systemPackages = with pkgs; [
+      gnomeExtensions.pop-shell
+      gnome-tweaks
+      nautilus
+      element-desktop
     ];
   };
+  # nixpkgs.config.android_sdk.accept_license = true;
 
   nixpkgs.config.allowUnfreePredicate =
     pkg:
@@ -32,6 +37,8 @@ in
     # enable the open source drivers if the package supports it
     open = lib.mkOverride 990 (nvidia-pkg ? open && nvidia-pkg ? firmware);
     modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = false;
   };
 
   hardware.graphics = {
