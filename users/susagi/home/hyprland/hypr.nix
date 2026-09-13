@@ -3,8 +3,11 @@
     hyprpaper = {
       enable = true;
       settings = {
-        preload = [ "~/Pictures/wallpaper.jpg" ];
-        wallpaper = [ ",~/Pictures/wallpaper.jpg" ];
+        # preload = [ "~/Pictures/wallpaper.jpg" ];
+        wallpaper = {
+          monitor = "";
+          path = "~/Pictures/wallpaper.jpg";
+        };
       };
     };
 

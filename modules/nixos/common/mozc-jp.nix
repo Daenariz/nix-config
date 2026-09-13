@@ -50,10 +50,9 @@
     type = "fcitx5";
     fcitx5 = {
       addons = with pkgs; [
-        fcitx5-mozc
-        fcitx5-chewing
-        fcitx5-rime
-        rime-data
+        fcitx5-mozc # jp
+        fcitx5-rime # cn
+        rime-data # cn
       ];
       waylandFrontend = true;
     };

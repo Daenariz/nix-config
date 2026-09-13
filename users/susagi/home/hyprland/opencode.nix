@@ -63,27 +63,27 @@ in
     };
 
     mcp = {
-      enable = false;
+      enable = true;
       servers = {
-        embedded-debugger = {
-          command = getExe pkgs.synix.embedded-debugger-mcp;
-          env = {
-            RUST_LOG = "info";
-          };
-        };
-        forgejo = {
-          command = getExe pkgs.forgejo-mcp;
-          args = [
-            "--transport"
-            "stdio"
-            "--url"
-            "https://git.sid.ovh"
-          ];
-          env = {
-            FORGEJO_USER_AGENT = "forgejo-mcp/1.0.0";
-          };
-          envFile = config.sops.templates.forgejo-mcp-env-file.path;
-        };
+        # embedded-debugger = {
+        #   command = getExe pkgs.synix.embedded-debugger-mcp;
+        #   env = {
+        #     RUST_LOG = "info";
+        #   };
+        # };
+        # forgejo = {
+        #   command = getExe pkgs.forgejo-mcp;
+        #   args = [
+        #     "--transport"
+        #     "stdio"
+        #     "--url"
+        #     "https://git.sid.ovh"
+        #   ];
+        #   env = {
+        #     FORGEJO_USER_AGENT = "forgejo-mcp/1.0.0";
+        #   };
+        #   envFile = config.sops.templates.forgejo-mcp-env-file.path;
+        # };
         nixos = {
           command = getExe pkgs.mcp-nixos;
         };

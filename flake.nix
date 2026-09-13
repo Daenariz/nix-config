@@ -13,7 +13,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # synix.url = "git+https://git.sid.ovh/sid/synix.git?ref=release-25.11";
-    synix.url = "git+https://git.sid.ovh/sid/synix.git?ref=release-26.05";
+    synix.url = "git+https://git.sid.ovh/sid/synix.git?ref=develop";
     synix.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-26.05";
