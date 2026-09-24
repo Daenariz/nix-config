@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  # Adjusts repeat rate of keyboard in tty 
+  # Adjusts repeat rate of keyboard in tty
   systemd.services.tty-kbdrate = {
     description = "setting TTY keyboard delay and rate";
     wantedBy = [ "multi-user.target" ];

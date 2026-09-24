@@ -23,6 +23,8 @@ with pkgs;
 ++
   # testing
   [
+    libreoffice-fresh
+    texmaths
     discord
     # (logseq.override { electron = electron_39; })
     logseq
