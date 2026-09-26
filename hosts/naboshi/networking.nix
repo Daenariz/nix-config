@@ -14,8 +14,15 @@
     tailnets = {
       personal = {
         loginServer = "https://head.negitorodon.de";
-        authKeyFile = config.sops.secrets."tailscale/auth-key".path;
+        authKeyFile = config.sops.secrets."tailscale/personal-auth-key".path;
         enableSSH = true;
+        acceptDNS = true;
+      };
+      work = {
+        loginServer = "https://controlplane.tailscale.com";
+        authKeyFile = config.sops.secrets."tailscale/work-auth-key".path;
+        enableSSH = false;
+        acceptDNS = true;
       };
     };
   };
