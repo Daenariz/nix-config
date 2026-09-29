@@ -35,5 +35,17 @@
         remote = "/stud";
       }
     ];
+
+    instances.sciebo = {
+      username = "deckert@th-koeln.de";
+      remote = "th-koeln.sciebo.de";
+      passwordFile = config.sops.secrets.sciebo.path;
+      connections = [
+        {
+          local = "/home/susagi/Documents/kokushi";
+          remote = "/Kokushi_Orga";
+        }
+      ];
+    };
   };
 }

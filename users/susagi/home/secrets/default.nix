@@ -1,6 +1,7 @@
 { config, ... }:
 {
   sops.secrets.nextcloud = { };
+  sops.secrets.sciebo = { };
   sops.secrets.tt-rss = { };
 
   sops.secrets.email_username = { };
