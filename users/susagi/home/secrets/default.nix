@@ -11,4 +11,7 @@
   sops.templates.access-tokens.content = ''
     access-tokens = github.com=${config.sops.placeholder.github-token}
   '';
+
+  sops.secrets."anki-username" = { };
+  sops.secrets."anki-key" = { };
 }

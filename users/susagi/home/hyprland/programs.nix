@@ -2,6 +2,7 @@
   inputs,
   lib,
   pkgs,
+  config,
   ...
 }:
 {
@@ -11,8 +12,17 @@
     weak-model = "openrouter/google/gemini-3-flash-preview";
   };
 
-  programs.anki.enable = true;
-  programs.anki.addons = [ pkgs.ankiAddons.anki-connect ];
+  programs.anki = {
+    enable = true;
+    addons = [ pkgs.ankiAddons.anki-connect ];
+    profiles."susagi" = {
+      default = true;
+      sync = {
+        usernameFile = config.sops.secrets."anki-username".path;
+        keyFile = config.sops.secrets."anki-key".path;
+      };
+    };
+  };
 
   programs.joplin-desktop = {
     enable = true;
