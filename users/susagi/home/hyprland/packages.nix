@@ -23,8 +23,9 @@ with pkgs;
 ++
   # testing
   [
-    libreoffice-fresh
-    texmaths
+  ### for latex rendering in libreoffice, wasn't working
+    # libreoffice-fresh
+    # texmaths
     discord
     # (logseq.override { electron = electron_39; })
     logseq
